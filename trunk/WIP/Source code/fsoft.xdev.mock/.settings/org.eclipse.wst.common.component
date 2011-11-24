@@ -3,6 +3,7 @@
     <wb-module deploy-name="fsoft.xdev.mock">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
         <property name="context-root" value="fsoft.xdev.mock"/>
         <property name="java-output-path" value="/fsoft.xdev.mock/build/classes"/>
     </wb-module>
