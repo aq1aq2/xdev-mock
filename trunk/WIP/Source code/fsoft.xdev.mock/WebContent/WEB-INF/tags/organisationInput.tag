@@ -23,6 +23,15 @@
 	<div class="xdev-window-body">
 		<div class="xdev-window-body-sub">
 			<s:form>
+				<s:checkbox></s:checkbox>
+				<s:select list=""></s:select>
+				<s:submit></s:submit>
+			</s:form>
+			<s:checkbox></s:checkbox>
+		</div>
+		<div class="xdev-window-body-sub">
+			<s:form>
+				
 			</s:form>
 			<s:checkbox></s:checkbox>
 		</div>

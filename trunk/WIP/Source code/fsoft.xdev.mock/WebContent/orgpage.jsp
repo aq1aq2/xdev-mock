@@ -19,6 +19,7 @@
 		
 		<div class="xdev-content">
 			<xdev:orglist></xdev:orglist>
+			<xdev:orgadd></xdev:orgadd>
 		</div>
 		
 		<div class="xdev-footer">
