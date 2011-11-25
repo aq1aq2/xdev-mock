@@ -21,17 +21,20 @@
 	</div>
 	
 	<div class="xdev-window-body">
-		<s:url id="getcustomer" action="getcustomer.action"></s:url>
+		<s:url id="getOrganisation" action="getOrganisation.action"></s:url>
 		<sjg:grid
 	        id="gridtable"
 	        dataType="json"
-	        href="%{getcustomer}"
-	        gridModel="listCustomer"
+	        href="%{getOrganisation}"
+	        gridModel="listOrganisation"
 	        autowidth="true"
 	        pager="true"
 	    >
 	        <sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
-	        <sjg:gridColumn name="email" index="email" title="Email" sortable="false"/>
+	        <sjg:gridColumn name="headOfficeAddLine1" index="headOfficeAddLine1" title="HeadOfficeAddLine1" sortable="true"/>
+	        <sjg:gridColumn name="postCode" index="postCode" title="PostCode" sortable="true"/>
+	        <sjg:gridColumn name="contact" index="contact" title="Contact" sortable="true"/>
+	        <sjg:gridColumn name="isActive" index="isActive" title="IsActive" sortable="false"/>
 	    </sjg:grid>
 	</div>
 	
