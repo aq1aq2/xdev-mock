@@ -6,9 +6,21 @@
 <struts>
 
     <package name="default" namespace="/" extends="json-default">
+    	<!-- Sample action declaration -->
     	<action name="getcustomer" class="fsoft.xdev.mock.actions.TestAction">
     		<result name="success" type="json"></result>
     	</action>
-    </package>
-
+    	   	<!-- Configuration Information Created by NhanLD  -->
+   	</package>
+   	
+   	<include file = "nhanld-config.xml"/>
+   	<!-- Configuration Information Created by DungNM2  -->
+   	<include file = "dungnm2-config.xml"/>
+   	<!-- Configuration Information Created by HaTN21  -->
+   	<include file = "hatn21-config.xml"/>
+   	<!-- Configuration Information Created by HungNM  -->
+   	<include file = "hungnm-config.xml"/>
+   	<!-- Configuration Information Created by PhongTV  -->
+   	<include file = "phongtv-config.xml"/>
+   	
 </struts>
