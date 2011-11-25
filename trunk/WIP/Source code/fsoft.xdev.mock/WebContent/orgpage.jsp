@@ -18,8 +18,8 @@
 		</div>
 		
 		<div class="xdev-content">
-			<xdev:orglist></xdev:orglist>
-			<xdev:orgadd></xdev:orgadd>
+			<xdev:organisationList></xdev:organisationList>
+			<xdev:organisationInput></xdev:organisationInput>
 		</div>
 		
 		<div class="xdev-footer">
