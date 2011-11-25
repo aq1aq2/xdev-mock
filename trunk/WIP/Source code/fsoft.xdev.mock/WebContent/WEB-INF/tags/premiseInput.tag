@@ -31,12 +31,29 @@
 				<td><s:checkbox name="locationmanaged" label="Location Managed"></s:checkbox> </td>
 			</tr>
 			<tr>
-				<td><s:textfield name="locationOrganisation" label="Location Organisation"></s:textfield> </td>
+				<td><s:textfield name="locationOrganisation" label="Location Organisation" readonly="true"></s:textfield> </td>
 				<td> <s:label name="lookup" onclick="Lookup" value="Lookup"></s:label></td>
 				<td><s:checkbox name="stNetworkConnect" label="ST Network Connectivity"></s:checkbox> </td>
 			</tr>
+			<tr>
+				<td> <s:select list="{'PendingActive','Active','Pending Closure','Closed'}"></s:select></td>
+			</tr>
+			<tr>
+				<td> <s:textfield name="locationStatusDate" label="Location Status Date"></s:textfield> </td>
+				
+				
+			</tr>
+			<tr>
+				<td> <s:textfield name="locationStatusDate" label="Location Status Date"></s:textfield> </td>
+				<!-- --- 
+				<td><s:checkboxlist list="{'<s:checkbox lable = "Enterprise"'}></s:checkboxlist> </td>
+				-->
+			</tr>
+			
+			
 			
 		</table>
+		
 		</div>
 		<div class="xdev-window-body-sub">
 			<s:form>
