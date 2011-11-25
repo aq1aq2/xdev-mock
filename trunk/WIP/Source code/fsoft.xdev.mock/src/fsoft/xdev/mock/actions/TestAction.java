@@ -6,6 +6,8 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.models.TestCustomer;
+import fsoft.xdev.mock.models.TestOrganisation;
+import fsoft.xdev.mock.models.TestSupportingMaterial;
 
 public class TestAction extends ActionSupport {
 	private List<TestCustomer> listCustomer;
@@ -25,4 +27,5 @@ public class TestAction extends ActionSupport {
 	public void setListCustomer(List<TestCustomer> listCustomer) {
 		this.listCustomer = listCustomer;
 	}
+	
 }
