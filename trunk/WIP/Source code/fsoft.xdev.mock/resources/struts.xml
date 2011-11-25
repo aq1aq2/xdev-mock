@@ -10,9 +10,8 @@
     	<action name="getcustomer" class="fsoft.xdev.mock.actions.TestAction">
     		<result name="success" type="json"></result>
     	</action>
-    	   	<!-- Configuration Information Created by NhanLD  -->
    	</package>
-   	
+   	<!-- Configuration Information Created by NhanLD  -->
    	<include file = "nhanld-config.xml"/>
    	<!-- Configuration Information Created by DungNM2  -->
    	<include file = "dungnm2-config.xml"/>
