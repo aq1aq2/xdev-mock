@@ -6,12 +6,12 @@
 <uri>xdev-tags.tld</uri>
 
  <tag-file>
- 	<name>orglist</name>
+ 	<name>organisationInput</name>
  	<path>/WEB-INF/tags/organisationInput.tag</path>
  </tag-file>
  
   <tag-file>
- 	<name>orgadd</name>
+ 	<name>organisationList</name>
  	<path>/WEB-INF/tags/organisationList.tag</path>
  </tag-file>
   
