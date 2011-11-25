@@ -1,5 +1,6 @@
 <%@ tag language="java" pageEncoding="ISO-8859-1"%>
 
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
@@ -16,14 +17,7 @@
 		  	Create
 		</sj:a>
 		
-		<sj:checkboxlist
-   			id="inactiveChkbx"
-	        tooltip="Choose your Friends"
-	        label="Friends"
-	        list="{'Include In-active'}"
-	        name="echo"
-	        buttonset="false"
-	        />
+		<s:checkbox name="includeChkBx" label="Include In-active" />
 	</div>
 	
 	<div class="xdev-window-body">

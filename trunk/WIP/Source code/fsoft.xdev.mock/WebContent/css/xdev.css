@@ -1,5 +1,11 @@
 @CHARSET "ISO-8859-1";
 
+.xdev-wrapper {
+	margin: 0 auto;
+	width: 965px;
+	position: relative;
+}
+
 .xdev-window {width: 100%;}
 .xdev-window-title h1 {color: green;}
 .xdev-window-header {width: 100%;}
