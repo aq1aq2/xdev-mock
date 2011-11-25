@@ -29,8 +29,10 @@
 	        autowidth="true"
 	        pager="true"
 	    >
-	        <sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
-	        <sjg:gridColumn name="email" index="email" title="Email" sortable="false"/>
+	        <sjg:gridColumn name="locationName" index="locationName" title="Location Name" sortable="true"/>
+	        <sjg:gridColumn name="addressLine1" index="addressLine1" title="Address Line1" sortable="false"/>
+	        <sjg:gridColumn name="postCode" index="postCode" title="Post Code" sortable="false"/>
+	        <sjg:gridColumn name="isActive" index="isActive" title="Is Active" sortable="false"/>
 	    </sjg:grid>
 	</div>
 	
