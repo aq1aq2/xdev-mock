@@ -30,6 +30,11 @@
 				<td> <s:textfield name="knownAs" label="Known As"></s:textfield> </td>
 				<td><s:checkbox name="locationmanaged" label="Location Managed"></s:checkbox> </td>
 			</tr>
+			<tr>
+				<td><s:textfield name="locationOrganisation" label="Location Organisation"></s:textfield> </td>
+				<td> <s:label name="lookup" onclick="Lookup" value="Lookup"></s:label></td>
+				<td><s:checkbox name="stNetworkConnect" label="ST Network Connectivity"></s:checkbox> </td>
+			</tr>
 			
 		</table>
 		</div>

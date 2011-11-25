@@ -14,17 +14,19 @@ private List<TestPremise> listPremise;
 	public String execute() {
 		System.out.println("execute");
 		listPremise = new ArrayList<TestPremise>();
-		listPremise.add(new TestPremise("LocationName1", "cau giay","LD 1234" ,));
-		listPremise.add(new TestOrganisation("cmc", "pham hung", "092", "MR. Duc", true));
+		listPremise.add(new TestPremise("LocationName1", "cau giay","LD 1234" ,false));
+		listPremise.add(new TestPremise("LocationName2", "pham hung", "092", true));
 		return SUCCESS;
 	}
-	
-	public List<TestOrganisation> getListOrganisation() {
-		return listOrganisation;
+
+	public List<TestPremise> getListPremise() {
+		return listPremise;
 	}
 
-	public void setListOrganisation(List<TestOrganisation> listOrganisation) {
-		this.listOrganisation = listOrganisation;
+	public void setListPremise(List<TestPremise> listPremise) {
+		this.listPremise = listPremise;
 	}
+	
+	
 
 }
