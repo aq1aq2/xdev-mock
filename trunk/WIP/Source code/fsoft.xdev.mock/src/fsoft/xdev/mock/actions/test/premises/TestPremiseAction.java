@@ -15,7 +15,7 @@ private List<TestPremise> listPremise;
 		System.out.println("execute");
 		listPremise = new ArrayList<TestPremise>();
 		listPremise.add(new TestPremise("LocationName1", "cau giay","LD 1234" ,));
-		listOrganisation.add(new TestOrganisation("cmc", "pham hung", "092", "MR. Duc", true));
+		listPremise.add(new TestOrganisation("cmc", "pham hung", "092", "MR. Duc", true));
 		return SUCCESS;
 	}
 	
