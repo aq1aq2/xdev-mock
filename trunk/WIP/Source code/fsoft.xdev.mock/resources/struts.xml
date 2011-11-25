@@ -5,8 +5,10 @@
 
 <struts>
 
-    <package name="default" namespace="/" extends="struts-default">
-
+    <package name="default" namespace="/" extends="json-default">
+    	<action name="getcustomer" class="fsoft.xdev.mock.actions.TestAction">
+    		<result name="success" type="json"></result>
+    	</action>
     </package>
 
 </struts>
