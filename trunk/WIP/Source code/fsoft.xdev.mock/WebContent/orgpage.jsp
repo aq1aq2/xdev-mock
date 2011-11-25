@@ -12,6 +12,18 @@
 	<link rel="stylesheet" href="css/xdev.css" type="text/css" media="all" />
 </head>
 <body>
-	<xdev:orglist></xdev:orglist>
+	<div class="xdev-wrapper">
+		<div class="xdev-banner">
+			<h1>Banner</h1>
+		</div>
+		
+		<div class="xdev-content">
+			<xdev:orglist></xdev:orglist>
+		</div>
+		
+		<div class="xdev-footer">
+			<h1>Banner</h1>
+		</div>
+	</div>
 </body>
 </html>
