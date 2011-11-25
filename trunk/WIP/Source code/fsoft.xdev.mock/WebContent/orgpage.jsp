@@ -7,9 +7,11 @@
 
 <html>
 <head>
-	<sj:head jqueryui="true" jquerytheme="trontastic"/>
+	<title>Organisation</title>
+	<sj:head jqueryui="true" jquerytheme="smoothness"/>
+	<link rel="stylesheet" href="css/xdev.css" type="text/css" media="all" />
 </head>
 <body>
-<xdev:firstcomp username="asdsa"></xdev:firstcomp>
+	<xdev:orglist></xdev:orglist>
 </body>
 </html>
