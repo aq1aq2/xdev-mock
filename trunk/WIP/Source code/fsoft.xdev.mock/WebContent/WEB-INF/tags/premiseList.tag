@@ -20,12 +20,12 @@
 	</div>
 	
 	<div class="xdev-window-body">
-		<s:url id="getcustomer" action="getcustomer.action"></s:url>
+		<s:url id="getPremise" action="getPremiseList"></s:url>
 		<sjg:grid
 	        id="gridtable"
 	        dataType="json"
-	        href="%{getcustomer}"
-	        gridModel="listCustomer"
+	        href="%{getPremise}"
+	        gridModel="listPremise"
 	        autowidth="true"
 	        pager="true"
 	    >
