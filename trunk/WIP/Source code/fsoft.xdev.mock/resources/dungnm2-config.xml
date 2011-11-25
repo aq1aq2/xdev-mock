@@ -4,8 +4,8 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
     <!-- Configuration Information Created by DungNM2 -->
-    <package name="dungnm2">
-		<action name="getcustomer" class="fsoft.xdev.mock.actions.TestAction">
+    <package name="dungnm2" extends="json-default">
+		<action name="getOrganisation" class="fsoft.xdev.mock.actions.test.organisations.TestOrganisationAction">
     		<result name="success" type="json"></result>
     	</action>
 	</package>
