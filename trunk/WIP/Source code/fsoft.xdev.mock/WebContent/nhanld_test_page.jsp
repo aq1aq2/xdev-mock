@@ -4,7 +4,7 @@
 
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
-adasds
+
 <html>
 <head>
 	<title>Organisation</title>
