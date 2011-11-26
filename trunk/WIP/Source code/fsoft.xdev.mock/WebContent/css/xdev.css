@@ -1,5 +1,9 @@
 @CHARSET "ISO-8859-1";
 
+body {
+	font: 62.5% "Trebuchet MS", sans-serif;
+}
+
 .xdev-wrapper {
 	margin: 0 auto;
 	width: 965px;
@@ -8,6 +12,19 @@
 
 .xdev-window {width: 100%;}
 .xdev-window-title h1 {color: green;}
-.xdev-window-header {width: 100%;}
-.xdev-window-body {width: 100%;}
-.xdev-window-footer {width: 100%;}
+
+.xdev-window-header {
+	width: 100%;
+	margin: 5px 5px 5px 5px;
+}
+
+.xdev-window-body {
+	width: 100%;
+	margin: 5px 5px 5px 5px;
+	}
+.xdev-window-footer {
+	width: 100%;
+	margin: 5px 5px 5px 5px;
+}
+
+.xdev-sub {margin: 5px 5px 5px 5px;}
