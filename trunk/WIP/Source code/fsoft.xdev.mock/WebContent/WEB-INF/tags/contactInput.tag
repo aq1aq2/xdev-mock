@@ -40,8 +40,8 @@
 		
 		<div id="details2" class="xdev-window-body-sub">
 			<s:form>
-				<s:textfield label="Know As" ></s:textfield>
-				<s:textfield label="Office Phone" ></s:textfield>
+				<s:textfield label="Know As" id="knNhanld" name="asd"></s:textfield>
+				<s:textfield label="Office Phone" id="knNhanld2" name="qwe"></s:textfield>
 				<s:textfield label="Mobile Phone" ></s:textfield>
 				<s:textfield label="ST Home Phone" ></s:textfield>
 				<s:textfield label="Email Address" ></s:textfield>

@@ -5,6 +5,8 @@
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 
+<%@ attribute name="id" required="true" %>
+
 <div class="xdev-window" >
 	<div class="xdev-window-title">
 		<h1>Contact List</h1>
@@ -12,8 +14,8 @@
 	
 	<div class="xdev-window-header">
 		<div class="xdev-sub">
-			<s:textfield label="First Name"></s:textfield>
-			<s:textfield label="Surname"></s:textfield>
+			<s:textfield label="First Name" id="%{id}"></s:textfield>
+			<s:textfield label="Surname" id="%{#attr['id']}_surname"></s:textfield>
 		</div>
 		
 		<div class="xdev-sub">
