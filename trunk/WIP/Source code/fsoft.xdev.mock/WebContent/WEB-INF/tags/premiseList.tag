@@ -20,15 +20,19 @@
 	</div>
 	
 	<div class="xdev-window-body">
+		<s:url id="premiseList" action="getPremiseList"></s:url>
+
 		<s:url id="getPremise" action="getPremiseList"></s:url>
+
 		<sjg:grid
 	        id="gridtable"
 	        dataType="json"
-	        href="%{getPremise}"
+	        href="%{premiseList}"
 	        gridModel="listPremise"
 	        autowidth="true"
 	        pager="true"
-	    >
+	        >
+
 	        <sjg:gridColumn name="locationName" index="locationName" title="Location Name" sortable="true"/>
 	        <sjg:gridColumn name="addressLine1" index="addressLine1" title="Address Line1" sortable="false"/>
 	        <sjg:gridColumn name="postCode" index="postCode" title="Post Code" sortable="false"/>

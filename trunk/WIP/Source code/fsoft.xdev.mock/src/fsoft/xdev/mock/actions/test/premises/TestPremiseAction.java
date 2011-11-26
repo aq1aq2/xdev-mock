@@ -14,8 +14,8 @@ private List<TestPremise> listPremise;
 	public String execute() {
 		System.out.println("execute");
 		listPremise = new ArrayList<TestPremise>();
-		listPremise.add(new TestPremise("LocationName1", "cau giay","LD 1234" ,false));
-		listPremise.add(new TestPremise("LocationName2", "pham hung", "092", true));
+		listPremise.add(new TestPremise("LocationName1", "cau giay","LD 1234" ,true));
+		listPremise.add(new TestPremise("LocationName2", "kim ma", "092",false));
 		return SUCCESS;
 	}
 
