@@ -21,42 +21,62 @@
 	
 	<div class="xdev-window-body">
 		<div id="Detail1" class="xdev-window-body-sub">
-		<table>
-			<tr>
-				<td> <s:textfield name="locationName" label="Location Name" required="true"></s:textfield> </td>
-				<td> <s:checkbox name="primaryLocation" label="Primary Location"></s:checkbox></td>
-			</tr>
-				<!-- - 
-			<tr>
-				<td> <s:textfield name="knownAs" label="Known As"></s:textfield> </td>
-				<td><s:checkbox name="locationmanaged" label="Location Managed"></s:checkbox> </td>
-			</tr>
 		
-			<tr>
-				<td><s:textfield name="locationOrganisation" label="Location Organisation" readonly="true"></s:textfield> </td>
-				<td> <s:label name="lookup" onclick="Lookup" value="Lookup"></s:label></td>
-				<td><s:checkbox name="stNetworkConnect" label="ST Network Connectivity"></s:checkbox> </td>
-			</tr>
+			<s:form>
+				<s:textfield name="locationName" label="Location Name" required="true"></s:textfield>
+				<s:checkbox name="primaryLocation" label="Primary Location"></s:checkbox>
+		
+				<s:textfield name="knownAs" label="Known As"></s:textfield>
+				<s:checkbox name="locationmanaged" label="Location Managed"></s:checkbox>
 			
+		
+				<s:textfield name="locationOrganisation" label="Location Organisation" readonly="true"></s:textfield>
+				<s:label name="lookup" onclick="Lookup" value="Lookup"></s:label>
+				<s:checkbox name="stNetworkConnect" label="ST Network Connectivity"></s:checkbox>
+				<s:select list="{'PendingActive','Active','Pending Closure','Closed'}" label="Location Status" required="true"></s:select>
+			    <sj:datepicker name="locationStatusDate" displayFormat="dd/mm/yy" label="Location Status Date"></sj:datepicker>
+			 	<s:checkboxlist name="locationType" list="{'Enterprise','Support Center', 'Project','Venue', 'Hotel','JCP Offices'}" required="true" label="Location Type" ></s:checkboxlist>
+				<s:textfield name="addrLine1" label="Address Line 1" ></s:textfield>
+				<s:textfield name="addrLine2" label="Address Line 2"></s:textfield>	
+				<s:textfield name="locationdescr" label="Location Description"></s:textfield>
 			
-			<tr>
-				<td> <s:select list="{'PendingActive','Active','Pending Closure','Closed'}"></s:select></td>
-			</tr>
-			<tr>
-				<td> <s:textfield name="locationStatusDate" label="Location Status Date"></s:textfield> </td>
-				
-				
-			</tr>
-			<tr>
-				<td> <s:textfield name="locationStatusDate" label="Location Status Date"></s:textfield> </td>
+				<s:textfield name="postCode" label="Post Code"></s:textfield>
+				<s:label name="lookup" onclick="Lookup" value="Lookup"></s:label>
 			
-				<td><s:checkboxlist list="{'<s:checkbox lable = "Enterprise"'}></s:checkboxlist> </td>
-				
-			</tr>
-				-->
-		</table>
+				<s:textfield name="phoneNumber" label="Phone Number" required="true"></s:textfield>
+				<s:textfield name="generalFaxNum" label="General Fax Number"></s:textfield>
+			
+				<s:select list="{'Viet Nam', 'USA'}" label="Nation/Country"></s:select>
+			
+				<s:textfield name="cityTown" label="City Town"></s:textfield>
+			
+				<s:textfield name="county" label="County"></s:textfield>
+				<s:checkbox name="isNewshop" label="Is New Shop?"></s:checkbox>
+				<sj:datepicker name="shopFlagDate" displayFormat="dd/mm/yy" label="Shop Flag Date"></sj:datepicker>
+				<s:checkbox name="specialistShop" label="Specialist Shop"></s:checkbox>
+				<s:label name="locationOpeningTime" onclick="loationOpeningTime" value="Location Opening Time"></s:label>
+		</s:form>
 		
 		</div>
+		<div id="Detail2" class="xdev-window-body-sub">
+			<s:form>
+				DETAIL TAB 2
+				<s:checkboxlist name="accreditations" list="{'Two Ticks','Investors In People', 'ISO 9001','ISO 14001', 'ISO 27001'}" label="Accriditations" ></s:checkboxlist>
+				<s:checkboxlist name="jcpOffices" list="{'',''}" label="JCP Offices" ></s:checkboxlist>
+				<s:checkbox name="mediaContact" label="Media Contact"></s:checkbox>
+				<s:checkbox name="cateringFacilities" label="Catering Facilities"></s:checkbox>
+				<s:textfield name="mediaContactName" label="Media Contact Name" readonly="true"></s:textfield>
+				<s:label name="lookupMedia" onclick="Lookup" value="Lookups"></s:label>
+				<s:textfield name="cateringContact" label="Catering Contact" readonly="true"></s:textfield>
+				<s:label name="lookupCatering" onclick="Lookup" value="Lookups"></s:label>
+				<s:checkboxlist name="localDemographicIssue" list="{'High Un-employment','Rural'}" label="Local Demographic Issue" ></s:checkboxlist>
+				<s:select name="cateringType" list="{'',''}" label="Catering Type"></s:select>
+				<s:select name="IS/Network" list="{'Open','Wip','Closed'}" label="IS/Network"></s:select>
+				<s:checkbox name="cateringFacilities" label="Catering Facilities"></s:checkbox>
+	
+			</s:form>
+		</div>
+		
 		<div class="xdev-window-body-sub">
 			<s:form>
 				
