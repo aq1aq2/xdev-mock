@@ -19,7 +19,9 @@
 		
 		<div class="xdev-content">
 			<xdev:premiseList></xdev:premiseList>
+			<!-- 
 			<xdev:premiseInput></xdev:premiseInput>
+			 -->
 		</div>
 		
 		<div class="xdev-footer">
