@@ -5,8 +5,21 @@
 <struts>
     <!-- Configuration Information Created by DungNM2 -->
     <package name="dungnm2" extends="json-default">
-		<action name="getOrganisation" class="fsoft.xdev.mock.actions.test.organisations.TestOrganisationAction">
-    		<result name="success" type="json"></result>
+		<action name="*Organisation" method="{1}" class="fsoft.xdev.mock.actions.test.organisations.TestOrganisationAction">
+    		<result name="list" type="json"></result>
+    		<result name="add" type="json"></result>
+    	</action>
+    	<action name="*Directorate" method="{1}" class="fsoft.xdev.mock.actions.test.organisations.TestDirectorateAction">
+    		<result name="list" type="json"></result>
+    		<result name="add" type="json"></result>
+    	</action>
+    	<action name="*SupportingMaterial" method="{1}" class="fsoft.xdev.mock.actions.test.organisations.TestSupportingMaterialAction">
+    		<result name="list" type="json"></result>
+    		<result name="add" type="json"></result>
+    	</action>
+    	<action name="*Department" method="{1}" class="fsoft.xdev.mock.actions.test.organisations.TestDepartmentAction">
+    		<result name="list" type="json"></result>
+    		<result name="add" type="json"></result>
     	</action>
 	</package>
 </struts>
