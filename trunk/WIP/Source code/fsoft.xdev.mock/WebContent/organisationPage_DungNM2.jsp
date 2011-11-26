@@ -19,9 +19,7 @@
 		
 		<div class="xdev-content">
 			<xdev:organisationList></xdev:organisationList>
-			<xdev:directorateList></xdev:directorateList>
-			<xdev:departmentList></xdev:departmentList>
-			<xdev:supportingMaterialList></xdev:supportingMaterialList>
+			<xdev:organisationInput></xdev:organisationInput>
 		</div>
 		
 		<div class="xdev-footer">
