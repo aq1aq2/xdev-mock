@@ -20,7 +20,7 @@
 	</div>
 	
 	<div class="xdev-window-body">
-		<div id="Detail1" class="xdev-window-body-sub">
+		<div id="Volunteering" class="xdev-window-body-sub">
 		<table>
 			<s:form>
 				<s:textfield name="volunteeringContact" label="Volunteering Contact" required="true" readonly="true"></s:textfield>
@@ -30,8 +30,6 @@
 				<sj:datepicker name="startDate" displayFormat="dd/mm/yy" label="Start Date"></sj:datepicker>
 				<sj:datepicker name="endDate" displayFormat="dd/mm/yy" label="End Date"></sj:datepicker>
 				<s:textfield name="volunteerNos" label="Volunteer Nos"></s:textfield>
-				
-		
 			</s:form>
 		
 		</table>
