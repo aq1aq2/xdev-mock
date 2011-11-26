@@ -33,7 +33,7 @@
 
 	        <sjg:gridColumn name="contact" index="contact" title="Contact" sortable="true"/>
 	        <sjg:gridColumn name="purpose" index="purpose" title="Purpose" sortable="false"/>
-	        <sjg:gridColumn name="number" index="Number" title="Number" sortable="false"/>
+	        <sjg:gridColumn name="number" index="number" title="Number" sortable="false"/>
 	        <sjg:gridColumn name="startDate" index="startDate" title="Start Date" sortable="false"/>
 	        <sjg:gridColumn name="endDate" index="endDate" title="End Date" sortable="false"/>
 	        <sjg:gridColumn name="isActive" index="isActive" title="Is Active" sortable="false"/>

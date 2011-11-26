@@ -14,5 +14,9 @@
     		<result name="success" type="json"></result>
     	</action>
     	
+    	<action name="getVolunteeringList" class="fsoft.xdev.mock.actions.test.premises.TestVolunteeringAction">
+    		<result name="success" type="json"></result>
+    	</action>
+    	
 	</package>
 </struts>
