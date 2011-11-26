@@ -7,13 +7,12 @@
 
 <div class="xdev-window" >
 	<div class="xdev-window-title">
-		<h1>Trust Region List</h1>
+		<h1>Trust District List</h1>
 	</div>
 	
 	<div class="xdev-window-header">
-		<sj:a id="createBtn" 
-			button="true" 
-		>
+		<sj:a id="btnCreateDistrict" 
+			button="true">
 		  	Create
 		</sj:a>
 		
@@ -21,18 +20,22 @@
 	</div>
 	
 	<div class="xdev-window-body">
-		<s:url id="getcustomer" action="getcustomer.action"></s:url>
+		<s:form>
+		<s:url id="listTrustDistrict" action="listTrustDistrict.action"></s:url>
 		<sjg:grid
-	        id="gridtable"
+	        id="gridtable2"
 	        dataType="json"
-	        href="%{getcustomer}"
-	        gridModel="listCustomer"
+	        href="%{listTrustDistrict}"
+	        gridModel="listTrustDistrict"
 	        autowidth="true"
 	        pager="true"
 	    >
-	        <sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
-	        <sjg:gridColumn name="email" index="email" title="Email" sortable="false"/>
+	        <sjg:gridColumn name="trustDistrictName" index="trustDistrictName" title="Distric Name" sortable="true"/>
+	        <sjg:gridColumn name="description" index="description" title="Description" sortable="false"/>
+	        <sjg:gridColumn name="region" index="region" title="Region" sortable="false"/>
+	        <sjg:gridColumn name="isAcitived" index="isAcitived" title="IsActived" sortable="false"/>
 	    </sjg:grid>
+	    </s:form>
 	</div>
 	
 	<div class="xdev-window-footer">
