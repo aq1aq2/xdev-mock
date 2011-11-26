@@ -5,6 +5,9 @@
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 
+<%@ attribute name="id" required="true" %>
+<s:set name="plus" value="#attr['id']"></s:set>
+
 <div class="xdev-window" >
 	<div class="xdev-window-title">
 		<h1>Organisation Detail</h1>
@@ -14,10 +17,9 @@
 	</div>
 	
 	<div class="xdev-window-body">
-		<sj:tabbedpanel id="localtabs">
-			<sj:tab id="tab1" target="details1" label="Local Tab One"/>
-			<sj:tab id="tab2" target="details2" label="Local Tab Two"/>
-			
+		<sj:tabbedpanel id="%{#plus}_tabs">
+			<sj:tab id="%{#plus}_tab1" target="details1" label="Local Tab One"/>
+			<sj:tab id="%{#plus}_tab2" target="details2" label="Local Tab Two"/>
 			
 		<div id="details1" class="xdev-window-body-sub">
 			<s:form>
@@ -53,6 +55,7 @@
 				<s:select label="Best Contact Method" list="{}" ></s:select>
 			</s:form>
 		</div>
+		
     	</sj:tabbedpanel>
 	</div>
 	

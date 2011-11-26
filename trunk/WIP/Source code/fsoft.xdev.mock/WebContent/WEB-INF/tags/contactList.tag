@@ -6,6 +6,7 @@
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 
 <%@ attribute name="id" required="true" %>
+<s:set name="plus" value="#attr['id']"></s:set>
 
 <div class="xdev-window" >
 	<div class="xdev-window-title">
@@ -14,35 +15,35 @@
 	
 	<div class="xdev-window-header">
 		<div class="xdev-sub">
-			<s:textfield label="First Name" id="%{id}"></s:textfield>
-			<s:textfield label="Surname" id="%{#attr['id']}_surname"></s:textfield>
+			<s:textfield label="First Name" id="%{#plus}_firstName}"></s:textfield>
+			<s:textfield label="Surname" id="%{#plus}_surname"></s:textfield>
 		</div>
 		
 		<div class="xdev-sub">
-			<sj:a id="searchBtn" 
+			<sj:a id="%{#plus}_searchBtn" 
 				button="true" 
 			>Search Contact</sj:a>
 			
-			<sj:a id="noneBtn" 
+			<sj:a id="%{#plus}_noneBtn" 
 				button="true" 
 			>None</sj:a>
 			
-			<sj:a id="clearBtn" 
+			<sj:a id="%{#plus}_clearBtn" 
 				button="true" 
 			>Clear</sj:a>
 			
-			<sj:a id="createBtn" 
+			<sj:a id="%{#plus}_createBtn" 
 				button="true" 
 			>Create</sj:a>
 			
-			<s:checkbox name="includeChkBx" label="Include In-active" />
+			<s:checkbox name="%{#plus}_includeChkBx" label="Include In-active" />
 		</div>
 		
 	</div>
 	
 	<div class="xdev-window-body">
 		<sjg:grid
-	        id="gridtable"
+	        id="%{#plus}_gridtable"
 	        gridModel=""
 	        autowidth="true"
 	        pager="true"
@@ -56,15 +57,15 @@
 	</div>
 	
 	<div class="xdev-window-footer">
-		<sj:a id="selectBtn" 
+		<sj:a id="%{#plus}_selectBtn" 
 			button="true" 
 		>Select</sj:a>
 		
-		<sj:a id="editBtn" 
+		<sj:a id="%{#plus}_editBtn" 
 			button="true" 
 		>Edit</sj:a>
 		
-		<sj:a id="closeBtn" 
+		<sj:a id="%{#plus}_closeBtn" 
 			button="true" 
 		>Close</sj:a>
 	</div>
