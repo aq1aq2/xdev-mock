@@ -18,5 +18,9 @@
     		<result name="success" type="json"></result>
     	</action>
     	
+    	<action name="getMinorWorksList" class="fsoft.xdev.mock.actions.test.premises.TestMinorWorksAction">
+    		<result name="success" type="json"></result>
+    	</action>
+    	
 	</package>
 </struts>
