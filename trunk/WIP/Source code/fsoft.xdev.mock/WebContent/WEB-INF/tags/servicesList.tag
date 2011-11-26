@@ -26,7 +26,7 @@
 	        id="gridtable"
 	        dataType="json"
 	        href="%{getServices}"
-	        gridModel="listServices"
+	        gridModel="listService"
 	        autowidth="true"
 	        pager="true"
 	    >

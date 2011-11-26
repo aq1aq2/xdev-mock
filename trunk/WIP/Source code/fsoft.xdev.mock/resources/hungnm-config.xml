@@ -4,5 +4,9 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
     <!-- Configuration Information Created by HungNM -->
-    <package name="hungnm"></package>
+    <package name="hungnm" extends="json-default">
+		<action name="getServices" class="fsoft.xdev.mock.actions.test.service.ServiceTestAction">
+    		<result name="success" type="json"></result>
+    	</action>
+    </package>
 </struts>
