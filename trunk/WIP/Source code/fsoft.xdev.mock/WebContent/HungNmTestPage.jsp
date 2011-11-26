@@ -18,6 +18,7 @@
 		
 		<div class="xdev-content">
 			<xdev:servicesList></xdev:servicesList>
+			<xdev:servicesInput></xdev:servicesInput>
 		</div>
 		
 		<div class="xdev-footer">
