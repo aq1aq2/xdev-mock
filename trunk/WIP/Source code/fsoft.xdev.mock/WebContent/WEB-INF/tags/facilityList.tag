@@ -6,27 +6,24 @@
 
 <div class="xdev-window" >
 	<div class="xdev-window-title">
-		<h1>Facilities List</h1>
+		<h1>Facility List</h1>
 	</div>
 	
 	<div class="xdev-window-header">
-	<sj:a id="inActiveBtn" 
+	<sj:a id="createBtn" 
 			button="true" 
-		>in-active</sj:a>
-	<sj:a id="saveBtn" 
-			button="true" 
-		>Save</sj:a>
+		>
+		  	Create
+		</sj:a>
 		
-		<sj:a id="backBtn" 
-			button="true" 
-		>Back</sj:a>
+		<s:checkbox name="includeChkBx" label="Include In-active" />
 	</div>
 	
 	<div class="xdev-window-body">
 		<s:url id="facilitiesList" action="getFacilitiesList"></s:url>
 
 		<sjg:grid
-	        id="gridtableFacilities"
+	        id="gridtable_Facilities"
 	        dataType="json"
 	        href="%{facilitiesList}"
 	        gridModel="listFacilities"

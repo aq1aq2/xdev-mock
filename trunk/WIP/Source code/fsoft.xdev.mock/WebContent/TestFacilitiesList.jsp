@@ -19,6 +19,7 @@
 		
 		<div class="xdev-content">
 			<xdev:facilityList></xdev:facilityList>
+			<xdev:facilityInput></xdev:facilityInput>
 		</div>
 		
 		<div class="xdev-footer">

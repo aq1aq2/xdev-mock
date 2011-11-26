@@ -6,9 +6,13 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.models.TestFacilities;
-import fsoft.xdev.mock.models.TestPremise;
+//import fsoft.xdev.mock.models.TestPremise;
 
 public class TestFacilitiesAction extends ActionSupport {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<TestFacilities> listFacilities;
 	public String execute() {
 		System.out.println("execute");
