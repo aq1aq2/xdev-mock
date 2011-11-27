@@ -7,7 +7,7 @@
 
 <div class="xdev-window" >
 	<div class="xdev-window-title">
-		<h1>Service List</h1>
+		<h1>Team List</h1>
 	</div>
 	
 	<div class="xdev-window-header">
@@ -18,7 +18,16 @@
 		</sj:a>
 		
 		<s:checkbox name="includeChkBx" label="Include In-active" />
+		<sj:a id="saveBtn" button="true">
+			Save
+		</sj:a>
+		
+		<sj:a id="backBtn" button="true">
+			Back
+		</sj:a>
 	</div>
+	
+
 	
 	<div class="xdev-window-body">
 		<s:url id="getTeam" action="getTeam.action"></s:url>
