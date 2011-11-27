@@ -8,5 +8,9 @@
 		<action name="getServices" class="fsoft.xdev.mock.actions.test.service.ServiceTestAction">
     		<result name="success" type="json"></result>
     	</action>
+    	
+		<action name="getTeam" class="fsoft.xdev.mock.actions.test.team.TeamAction">
+    		<result name="success" type="json"></result>
+    	</action>    	
     </package>
 </struts>
