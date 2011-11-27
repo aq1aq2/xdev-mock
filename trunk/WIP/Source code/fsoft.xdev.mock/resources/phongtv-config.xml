@@ -22,5 +22,9 @@
     		<result name="success" type="json"></result>
     	</action>
     	
+    	<action name="getServicePremise" class="fsoft.xdev.mock.actions.test.premises.TestPremiseServiceAction">
+    		<result name="success" type="json"></result>
+    	</action>
+    	
 	</package>
 </struts>
