@@ -4,5 +4,14 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
     <!-- Configuration Information Created by NhanLD -->
-    <package name="nhanld"></package>
+    <package name="nhanld" namespace="/" extends="struts-default">
+    	<!-- Sample action declaration -->
+    	<action name="openOrganisationList" class="fsoft.xdev.mock.actions.PrototypeAction">
+    		<result name="success">/prototype_organisationList.jsp</result>
+    	</action>
+    	
+    	<action name="openOrganisationInput" class="fsoft.xdev.mock.actions.PrototypeAction">
+    		<result name="success">/prototype_organisationInput.jsp</result>
+    	</action>
+   	</package>
 </struts>
