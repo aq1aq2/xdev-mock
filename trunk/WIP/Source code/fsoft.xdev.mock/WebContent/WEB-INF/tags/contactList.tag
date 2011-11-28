@@ -5,8 +5,7 @@
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 
-<%@ attribute name="id" required="true" %>
-<s:set name="plus" value="#attr['id']"></s:set>
+<%@ attribute name="id" required="true" rtexprvalue="true" %>
 
 <div class="xdev-window" >
 	<div class="xdev-window-title">
@@ -15,35 +14,35 @@
 	
 	<div class="xdev-window-header">
 		<div class="xdev-sub">
-			<s:textfield label="First Name" id="%{#plus}_firstName}"></s:textfield>
-			<s:textfield label="Surname" id="%{#plus}_surname"></s:textfield>
+			<s:textfield label="First Name" id="%{#attr['id']}_firstName}"></s:textfield>
+			<s:textfield label="Surname" id="%{#attr['id']}_surname"></s:textfield>
 		</div>
 		
 		<div class="xdev-sub">
-			<sj:a id="%{#plus}_searchBtn" 
+			<sj:a id="%{#attr['id']}_searchBtn" 
 				button="true" 
 			>Search Contact</sj:a>
 			
-			<sj:a id="%{#plus}_noneBtn" 
+			<sj:a id="%{#attr['id']}_noneBtn" 
 				button="true" 
 			>None</sj:a>
 			
-			<sj:a id="%{#plus}_clearBtn" 
+			<sj:a id="%{#attr['id']}_clearBtn" 
 				button="true" 
 			>Clear</sj:a>
 			
-			<sj:a id="%{#plus}_createBtn" 
+			<sj:a id="%{#attr['id']}_createBtn" 
 				button="true" 
 			>Create</sj:a>
 			
-			<s:checkbox name="%{#plus}_includeChkBx" label="Include In-active" />
+			<s:checkbox name="%{#attr['id']}_includeChkBx" label="Include In-active" />
 		</div>
 		
 	</div>
 	
 	<div class="xdev-window-body">
 		<sjg:grid
-	        id="%{#plus}_gridtable"
+	        id="%{#attr['id']}_gridtable"
 	        gridModel=""
 	        autowidth="true"
 	        pager="true"
@@ -57,15 +56,15 @@
 	</div>
 	
 	<div class="xdev-window-footer">
-		<sj:a id="%{#plus}_selectBtn" 
-			button="true" 
+		<sj:a id="%{#attr['id']}_selectBtn" 
+			button="true"
 		>Select</sj:a>
 		
-		<sj:a id="%{#plus}_editBtn" 
-			button="true" 
+		<sj:a id="%{#attr['id']}_editBtn" 
+			button="true"
 		>Edit</sj:a>
 		
-		<sj:a id="%{#plus}_closeBtn" 
+		<sj:a id="%{#attr['id']}_closeBtn" 
 			button="true" 
 		>Close</sj:a>
 	</div>

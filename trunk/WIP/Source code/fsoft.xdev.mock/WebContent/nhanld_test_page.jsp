@@ -19,7 +19,6 @@
 		
 		<div class="xdev-content">
 			<xdev:contactList id="ldn"></xdev:contactList>
-			<xdev:contactInput id="abc"></xdev:contactInput>
 		</div>
 		
 		<div class="xdev-footer">
