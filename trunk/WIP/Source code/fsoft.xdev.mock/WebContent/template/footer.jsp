@@ -1,1 +1,1 @@
-<div class="xdev-sign xdev-wrapper">&copy; XDEV TEAM</div>
+<div class="xdev-sign xdev-wrapper ui-widget-content ui-corner-all">&copy; XDEV TEAM 2011</div>
