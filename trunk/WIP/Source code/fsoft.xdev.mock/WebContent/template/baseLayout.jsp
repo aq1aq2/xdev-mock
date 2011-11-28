@@ -8,7 +8,7 @@
         <title><tiles:insertAttribute name="title" ignore="false" /></title>
         <link rel="stylesheet" href="../css/xdev.css" type="text/css" media="all" />
     </head>
-    <body>
+    <body style="margin-top: 0; margin-bottom: 0; padding: 0">
     	<tiles:insertAttribute name="mainMenu" />
 		<tiles:insertAttribute name="body" />
 		<tiles:insertAttribute name="footer" />

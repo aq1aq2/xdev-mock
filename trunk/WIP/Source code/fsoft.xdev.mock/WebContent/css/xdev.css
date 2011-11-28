@@ -6,21 +6,23 @@ body {
 
 body {
 	font: 10px normal Verdana, Arial, Helvetica, sans-serif;
-	margin: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 	padding: 0;
 }
 
 /* For menu template */
- .container {width: 965px; margin: 0 auto; } 
+.container {width: 965px; margin: 0 auto;}
 
 ul#topnav {
+	display:block;
 	margin: 0; padding: 0;
 	float: left;
-	width: 970px;
+	width: 965px;
 	list-style: none;
 	position: relative;
 	font-size: 1.2em;
-	background: url(../images/xmock_stretch.gif) repeat-x;
+	background: url(../images/xmock_stretch_green.gif) repeat-x;
 }
 ul#topnav li {
 	float: left;
@@ -33,14 +35,15 @@ ul#topnav li a {
 	color: #f0f0f0;
 	text-decoration: none;
 }
-ul#topnav li:hover { background: #1376c9 url(../images/xmock_active.gif) repeat-x; }
+ul#topnav li:hover { background: #1376c9 url(../images/xmock_active_green.gif) repeat-x; }
 ul#topnav li span {
 	float: left;
 	padding: 15px 0;
 	position: absolute;
 	left: 0; top:35px;
-	width: 970px;
-	background: #1376c9;
+	display: none;
+	width: 965px;
+	background: green;
 	color: #fff;
 	-moz-border-radius-bottomright: 5px;
 	-khtml-border-radius-bottomright: 5px;
@@ -49,25 +52,35 @@ ul#topnav li span {
 	-khtml-border-radius-bottomleft: 5px;
 	-webkit-border-bottom-left-radius: 5px;
 }
+ul#topnav li:hover span { display: block; }
 ul#topnav li span a { display: inline; }
 ul#topnav li span a:hover {text-decoration: underline;}
 
-/* .show { */
-/* 	display:inline; */
-/* } */
-/* .hide { */
-/* 	display:none; */
-/* } */
+#space {
+	height: 35px;
+	float: left;
+	margin-bottom: 5px;
+	position: relative;
+	border: 1px;
+}
+
+.show {
+	display: block;
+}
+.hide {
+	display:none;
+}
 
 /*********/
 
 
 .required {color: red;}
-.clear {clear: both;}
+.clear {clear: left;}
 
 .xdev-wrapper {
 	margin: 0 auto;
 	width: 965px;
+/*  Remove conflict with above CSS */
 /* 	position: relative; */
 }
 
