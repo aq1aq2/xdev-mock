@@ -1,15 +1,3 @@
-<style type="text/css">
-/*
-body {
-	font: 10px normal Verdana, Arial, Helvetica, sans-serif;
-	margin: 0;
-	padding: 0;
-}
-*/
-
-</style>
-
-<script type="text/javascript" src="../js/lib/jquery-1.7.1.js"></script>
 <script type="text/javascript">
 function display (category) {
 	var whichcategory = document.getElementById(category);
