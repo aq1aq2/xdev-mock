@@ -1,14 +1,14 @@
 @CHARSET "ISO-8859-1";
 
 body {
-	font: 62.5% "Trebuchet MS", sans-serif;
-}
-
-body {
 	font: 10px normal Verdana, Arial, Helvetica, sans-serif;
 	margin-top: 0;
 	margin-bottom: 0;
 	padding: 0;
+}
+
+div.xdev-sign {
+	color: green;
 }
 
 /* For menu template */
