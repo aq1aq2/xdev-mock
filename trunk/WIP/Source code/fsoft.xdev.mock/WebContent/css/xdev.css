@@ -9,6 +9,9 @@ body {
 
 div.xdev-sign {
 	color: green;
+	margin: 5px auto 5px;
+	padding: 5px;
+	text-align: center;
 }
 
 /* For menu template */
