@@ -96,6 +96,12 @@
 				
 			</s:form>
 		</div>
+		<sj:dialog id="changeRoleOfOrganisation" title="Change Roles of Organisation">
+			<s:checkbox id="funder" name="checkBoxFunder" label="Funder"></s:checkbox>
+			<s:checkbox id="lead" name="checkBoxLead" label="Lead"></s:checkbox>
+			<s:checkbox id="delivery" name="checkBoxDelivery" label="Delivery"></s:checkbox>
+			<s:checkbox id="Auditor" name="checkBoxAuditor" label="Auditor"></s:checkbox>
+		</sj:dialog>
 	</div>
 	
 	<div class="xdev-window-footer">
