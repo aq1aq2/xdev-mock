@@ -5,9 +5,10 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 
-
-<sj:head jqueryui="true" jquerytheme="smoothness"/>
+<sj:head jqueryui="true" jquerytheme="smoothness"/> 
+<!--  
 <link rel="stylesheet" href="../css/xdev.css" type="text/css" media="all" />
+-->
 <div class="xdev-wrapper">
 	<div class="xdev-banner">
 		<h1>Banner</h1>

@@ -5,25 +5,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title><tiles:insertAttribute name="title" ignore="false" /></title>
+        <title><tiles:insertAttribute name="title" ignore="false" /></title>
+        <link rel="stylesheet" href="../css/xdev.css" type="text/css" media="all" />
     </head>
     <body>
-    	<table width="100%" height="100%" border="0">
-	    	<tr height="30">
-	    		<td>
-		    	<tiles:insertAttribute name="mainMenu" />
-		    	</td>
-		    </tr>
-			<tr height="450">
-				<td>
-		   		<tiles:insertAttribute name="body" />
-		    	</td>
-		    </tr>
-			<tr height="30">
-		    	<td>
-		    	<tiles:insertAttribute name="footer" />
-		    	</td>
-		    </tr>
- 		</table>
+    	<tiles:insertAttribute name="mainMenu" />
+		<tiles:insertAttribute name="body" />
+		<tiles:insertAttribute name="footer" />
     </body>
 </html>
