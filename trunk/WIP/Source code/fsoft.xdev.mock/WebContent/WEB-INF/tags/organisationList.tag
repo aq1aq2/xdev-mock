@@ -12,11 +12,9 @@
 	
 	<div class="xdev-window-header">
 		<sj:a id="createBtn" 
-			button="true" 
-		>
+			button="true">
 		  	Create
 		</sj:a>
-		
 		<s:checkbox name="includeChkBx" label="Include In-active" />
 	</div>
 	

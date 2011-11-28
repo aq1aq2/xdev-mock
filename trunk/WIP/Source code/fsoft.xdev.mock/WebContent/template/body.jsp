@@ -1,1 +1,1 @@
-<p>The content page</p>
+<div>The content page</div>
