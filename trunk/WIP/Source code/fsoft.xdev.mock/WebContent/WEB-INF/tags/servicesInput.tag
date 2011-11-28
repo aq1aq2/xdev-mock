@@ -23,6 +23,7 @@
 	<div class="xdev-window-body">
 
 		<div id="detail1" class="xdev-window-body-sub">
+
 		<s:form>
 		<%--Detail1 --%>
 			<s:textfield label="Service Name " required="true" name="servicename"></s:textfield>
@@ -67,9 +68,32 @@
 			<s:form>
 			</s:form>
 		</div>
-		
+		<%--Punding --%>
 		<div id="punding" class="xdev-window-body-sub">
+		
 			<s:form>
+			
+<%-- 				<s:textfield id="fundingSource" name="fundingSource" ></s:textfield> --%>
+				<s:select id="fundingSource" name="fundingSource" label="Funding Source" list="{'kk','ll'}"></s:select>
+				<s:textfield id="fundingContactDetails" name="fundingContactDetails" label="Funding Contact Details" required="true" readonly="true"></s:textfield>
+				<s:label id="lookUp3" name="lookUp3" value="Lookup" onclick="true"></s:label>
+				<s:textfield id="fundingAmount" name="fundingAmount" label="Funding Amount" required="true"></s:textfield>
+				<sj:datepicker id="fungdingStart" name="fundingStart" label="Funding Start" required="true" displayFormat="dd/mm/yyyy"></sj:datepicker>
+				<sj:datepicker id="fundingEnd"  name="fundingEnd" label="Funding End" readonly="true" displayFormat="dd/mm/yy"></sj:datepicker>
+				<%--Funding For Service Project --%>
+				<s:textfield id="fundingForText" name="fundingForText" label="Funding For Text"></s:textfield>
+				<s:textarea id="fundraisingWhy" name="fundraisingWhy" label="Fundraising Why"></s:textarea>
+				<%--Fundraising Donor --%>
+				<s:submit id="fundraisingDonorAnonymous" name="fundraisingDonorAnonymous" label="Fundraising Donor Anonymous" value="" ></s:submit>
+				<s:textfield id="fundraisingDonorAmount" name="fundraisingDonorAmount" label="Fundraising Donor Amount"></s:textfield>
+				<s:textfield id="fundingNeeds" name="fundingNeeds" label="Funding Needs"></s:textfield>
+				<sj:submit id="fundingContinuation" name="fundingContinuationNeeded" label="Funding Continuation Needed" button="true" value=""></sj:submit>
+				<s:textfield id="fundingContinuationAmount" name="fundingContinuationAmount" label="Funding Continuation Amount" readonly="true"></s:textfield>
+				<s:textfield readonly="true" id="fundingContinuationDetails" name="fundingContinuationDetails" label="Funding Continuation Details"></s:textfield>
+				<s:textfield id="fundraisingNeeds" name="fundraisingNeeds" label="Fundraising Needs"></s:textfield>
+				<sj:datepicker id="fundraisingRequiredBy" name="fundraisingRequiredBy" label="Fundraising Required By" displayFormat="dd/mm/yy"></sj:datepicker>
+				
+				
 			</s:form>
 		</div>
 	</div>
