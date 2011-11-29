@@ -5,6 +5,12 @@
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 
+<script>
+	function openOrganisationInput() {
+		window.location.href = "pages/openOrganisationInput.action";
+	}
+</script>
+
 <div class="xdev-window" >
 	<div class="xdev-window-title">
 		<h1>Organisation List</h1>
@@ -12,7 +18,9 @@
 	
 	<div class="xdev-window-header">
 		<sj:a id="createBtn" 
-			button="true">
+			button="true"
+			onclick="openOrganisationInput()"
+		>
 		  	Create
 		</sj:a>
 		<s:checkbox name="includeChkBx" label="Include In-active" />

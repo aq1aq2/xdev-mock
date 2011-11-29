@@ -5,11 +5,11 @@ body {
 	margin-top: 0;
 	margin-bottom: 0;
 	padding: 0;
-	background-color: black;
-	/* 
-	 * Follow the background, font color should be white	
-	 */
-	color: white;
+/* 	background-color: black; */
+/* 	/*  */
+/* 	 * Follow the background, font color should be white	 */
+/* 	 */ */
+/* 	color: white; */
 }
 
 div.xdev-sign {
@@ -93,25 +93,26 @@ ul#topnav li span a:hover {text-decoration: underline;}
 
 .xdev-window {width: 100%;}
 .xdev-window-title h1 {
-	/*
-	 * Gradient background
-	 * View details here: http://gradients.glrzad.com/
-	 */
-	background-image: linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%);
-	background-image: -o-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%);
-	background-image: -moz-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%);
-	background-image: -webkit-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%);
-	background-image: -ms-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%);
+	color: green;
+/* 	/* */
+/* 	 * Gradient background */
+/* 	 * View details here: http://gradients.glrzad.com/ */
+/* 	 */ */
+/* 	background-image: linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
+/* 	background-image: -o-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
+/* 	background-image: -moz-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
+/* 	background-image: -webkit-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
+/* 	background-image: -ms-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
 	
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.28, rgb(65,71,65)),
-		color-stop(0.64, rgb(3,3,3)),
-		color-stop(0.82, rgb(62,66,62))
-	);
-	color: lime;
+/* 	background-image: -webkit-gradient( */
+/* 		linear, */
+/* 		left bottom, */
+/* 		left top, */
+/* 		color-stop(0.28, rgb(65,71,65)), */
+/* 		color-stop(0.64, rgb(3,3,3)), */
+/* 		color-stop(0.82, rgb(62,66,62)) */
+/* 	); */
+/* 	color: lime; */
 }
 
 .xdev-window-header {

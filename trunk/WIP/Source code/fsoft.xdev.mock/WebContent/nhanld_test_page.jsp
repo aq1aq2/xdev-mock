@@ -18,7 +18,7 @@
 		</div>
 		
 		<div class="xdev-content">
-			<xdev:contactInput id="asd"></xdev:contactInput>
+			<xdev:organisationList></xdev:organisationList>
 		</div>
 		
 		<div class="xdev-footer">

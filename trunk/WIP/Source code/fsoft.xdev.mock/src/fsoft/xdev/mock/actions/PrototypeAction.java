@@ -7,6 +7,7 @@ public class PrototypeAction extends ActionSupport {
 		return SUCCESS;
 	}
 	public String openOrganisationInput() {
+		System.out.println("openOrganisationInput");
 		return SUCCESS;
 	}
 }
