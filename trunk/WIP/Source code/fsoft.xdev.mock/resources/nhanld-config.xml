@@ -4,7 +4,7 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
     <!-- Configuration Information Created by NhanLD -->
-    <package name="nhanld" namespace="/" extends="struts-default">
+    <package name="nhanld" namespace="/pages" extends="struts-default">
     	<!-- Sample action declaration -->
     	<action name="openOrganisationList" class="fsoft.xdev.mock.actions.PrototypeAction">
     		<result name="success">/prototype_organisationList.jsp</result>

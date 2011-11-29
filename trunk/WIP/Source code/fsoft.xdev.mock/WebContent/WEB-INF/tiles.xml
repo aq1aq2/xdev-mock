@@ -23,6 +23,11 @@
       <put-attribute name="body" value="/pages/organisation.jsp"/>      
   </definition>
   
+  <definition name="organisationInput" extends="baseLayout">
+      <put-attribute name="title"  value="Organisation Input Page"/>
+      <put-attribute name="body" value="/pages/organisationInput.jsp"/>      
+  </definition>
+  
   <definition name="serviceMaintenance" extends="baseLayout">
       <put-attribute name="title"  value="Service Page"/>
       <put-attribute name="body" value="/pages/none.jsp"/>      
