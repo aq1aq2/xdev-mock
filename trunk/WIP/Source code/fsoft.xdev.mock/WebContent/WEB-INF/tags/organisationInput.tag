@@ -89,6 +89,8 @@
 			<div class="xdev-field">	
 				<s:textfield name="phoneNumber" label="Phone Number" required="true"></s:textfield>
 			</div>
+			
+			<div class="clear"></div>
 		</div>
 		<div class="xdev-window-body-sub" id="details2">
 			<div class="xdev-field">	
@@ -119,6 +121,8 @@
 				<s:textarea name="accrediation" label="Accrediation">
 				</s:textarea>
 			</div>
+			
+			<div class="clear"></div>
 		</div>
 		
 		<div class="xdev-window-body-sub" id="details3">
@@ -130,15 +134,20 @@
 				<s:textarea name="eoiServices" label="EOI Services">
 				</s:textarea>
 			</div>
+			
+			<div class="clear"></div>
 		</div>
 		
 		<div class="xdev-window-body-sub" id="details4">
+			<div class="clear"></div>
 		</div>
 		
 		<div class="xdev-window-body-sub" id="details5">
+			<div class="clear"></div>
 		</div>
 		
 		<div class="xdev-window-body-sub" id="bu">
+			<div class="clear"></div>
 		</div>
 		
 		</sj:tabbedpanel>

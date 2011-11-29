@@ -11,6 +11,7 @@
 		<action name="*Template" method="{1}" class="fsoft.xdev.mock.actions.template.TemplateAction">
 			<result name="home" type="tiles">home</result>
 			<result name="organisation" type="tiles">organisation</result>
+			<result name="organisationInput" type="tiles">organisationInput</result>
 			<result name="serviceMaintenance" type="tiles">serviceMaintenance</result>
 			<result name="programmeMaintenance" type="tiles">programmeMaintenance</result>
 			<result name="trustRegionMaintenance" type="tiles">trustRegionMaintenance</result>

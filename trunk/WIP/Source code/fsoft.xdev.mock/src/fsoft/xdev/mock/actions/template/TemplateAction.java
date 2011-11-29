@@ -14,29 +14,34 @@ public class TemplateAction {
 		XDebugger.show("Calling organisation() method in TemplateAction");
 		return XConstants.ORGANISATION_PAGE_TOKEN;
 	}
+
+	public String organisationInput() {
+		XDebugger.show("Calling organisation() method in TemplateAction");
+		return XConstants.ORGANISATION_PAGE_INPUT_TOKEN;
+	}
 	
 	public String serviceMaintenance() {
 		XDebugger.show("Calling serviceMaintenance() method in TemplateAction");
-		return XConstants.ORGANISATION_PAGE_TOKEN;
+		return XConstants.SERVICE_PAGE_TOKEN;
 	}
 	
 	public String programmeMaintenance() {
 		XDebugger.show("Calling programmeMaintenance() method in TemplateAction");
-		return XConstants.ORGANISATION_PAGE_TOKEN;
+		return XConstants.PROGRAMME_PAGE_TOKEN;
 	}
 	
 	public String trustRegionMaintenance() {
 		XDebugger.show("Calling trustRegionMaintenance() method in TemplateAction");
-		return XConstants.ORGANISATION_PAGE_TOKEN;
+		return XConstants.TRUST_REGION_PAGE_TOKEN;
 	}
 	
 	public String governmentOfficeRegion() {
 		XDebugger.show("Calling governmentOfficeRegion() method in TemplateAction");
-		return XConstants.ORGANISATION_PAGE_TOKEN;
+		return XConstants.GOVERNMENT_PAGE_TOKEN;
 	}
 	
 	public String premises() {
 		XDebugger.show("Calling premises() method in TemplateAction");
-		return XConstants.ORGANISATION_PAGE_TOKEN;
+		return XConstants.PREMISES_PAGE_TOKEN;
 	}
 }
