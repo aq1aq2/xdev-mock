@@ -39,7 +39,12 @@
 			    <sj:datepicker name="locationStatusDate" displayFormat="dd/mm/yy" label="Location Status Date"></sj:datepicker>
 			    <tr>
 			    <td rowspan="1">
-			 	<s:checkboxlist name="locationType" list="{'Enterprise','Support Center', 'Project','Venue', 'Hotel','JCP Offices'}" required="true" label="Location Type"></s:checkboxlist>
+			    <s:textarea name="test"  label="Location Type" required="true">
+			    </s:textarea>
+			   
+			 	<s:checkboxlist  name="locationType" list="{'Enterprise','Support Center', 'Project','Venue', 'Hotel','JCP Offices'}" cssStyle="verticals" />
+			 	
+			 	
 			 	</td>
 			 	</tr>
 				<s:textfield name="addrLine1" label="Address Line 1" ></s:textfield>
