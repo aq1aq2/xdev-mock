@@ -30,6 +30,8 @@
 				<sj:datepicker name="startDate" displayFormat="dd/mm/yy" label="Start Date"></sj:datepicker>
 				<sj:datepicker name="endDate" displayFormat="dd/mm/yy" label="End Date"></sj:datepicker>
 				<s:textfield name="volunteerNos" label="Volunteer Nos"></s:textfield>
+				
+				
 			</s:form>
 		
 		</table>
