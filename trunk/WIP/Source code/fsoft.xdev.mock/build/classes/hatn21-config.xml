@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <!-- Configuration Information Created by HaTN21 -->
+    <package name="hatn21" extends="json-default">     	
+    	<action name="*TrustRegion" method ="{1}" class="fsoft.xdev.mock.actions.test.geography.TestTrustRegionAction">
+    		<result name="list" type="json"></result> 
+    		<result name="add" type="json"></result>      		
+    	</action> 
+    	
+    	<action name="*TrustDistrict" method ="{1}" class="fsoft.xdev.mock.actions.test.geography.TestTrustDistrictAction">
+    		<result name="list" type="json"></result> 
+    		<result name="add" type="json"></result>      		
+    	</action>
+    	
+    	<action name="*GovermentOfficeRegion" method ="{1}" class="fsoft.xdev.mock.actions.test.geography.TestGovermentOfficeRegionAction">
+    		<result name="list" type="json"></result> 
+    		<result name="add" type="json"></result>      		
+    	</action> 
+    	<action name="*BusinessType" method ="{1}" class="fsoft.xdev.mock.actions.test.businesslookup.TestBusinessTypeAction">
+    		<result name="list" type="json"></result>     				
+    	</action>      	
+    </package>
+</struts>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+<tlib-version>1.0</tlib-version>
+<short-name>xdev</short-name>
+<uri>xdev-tags.tld</uri>
+
+ <tag-file>
+ 	<name>addressLookup</name>
+ 	<path>/WEB-INF/tags/addressLookup.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>businessLookup</name>
+ 	<path>/WEB-INF/tags/businessLookup.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>contactInput</name>
+ 	<path>/WEB-INF/tags/contactInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>contactList</name>
+ 	<path>/WEB-INF/tags/contactList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>departmentInput</name>
+ 	<path>/WEB-INF/tags/departmentInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>departmentList</name>
+ 	<path>/WEB-INF/tags/departmentList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>directorateInput</name>
+ 	<path>/WEB-INF/tags/directorateInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>directorateList</name>
+ 	<path>/WEB-INF/tags/directorateList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>facilityInput</name>
+ 	<path>/WEB-INF/tags/facilityInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>facilityList</name>
+ 	<path>/WEB-INF/tags/facilityList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>govermentOfficeRegionInput</name>
+ 	<path>/WEB-INF/tags/govermentOfficeRegionInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>govermentOfficeRegionList</name>
+ 	<path>/WEB-INF/tags/govermentOfficeRegionList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>login</name>
+ 	<path>/WEB-INF/tags/login.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>minorworkInput</name>
+ 	<path>/WEB-INF/tags/minorworkInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>minorworkList</name>
+ 	<path>/WEB-INF/tags/minorworkList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>organisationInput</name>
+ 	<path>/WEB-INF/tags/organisationInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>organisationList</name>
+ 	<path>/WEB-INF/tags/organisationList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>premiseInput</name>
+ 	<path>/WEB-INF/tags/premiseInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>premiseList</name>
+ 	<path>/WEB-INF/tags/premiseList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>premiseService</name>
+ 	<path>/WEB-INF/tags/premiseService.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>programmeInput</name>
+ 	<path>/WEB-INF/tags/programmeInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>programmeList</name>
+ 	<path>/WEB-INF/tags/programmeList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>servicesInput</name>
+ 	<path>/WEB-INF/tags/servicesInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>servicesList</name>
+ 	<path>/WEB-INF/tags/servicesList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>supportingMaterialInput</name>
+ 	<path>/WEB-INF/tags/supportingMaterialInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>supportingMaterialList</name>
+ 	<path>/WEB-INF/tags/supportingMaterialList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>teamMaintenanceInput</name>
+ 	<path>/WEB-INF/tags/teamMaintenanceInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>teamMaintenanceList</name>
+ 	<path>/WEB-INF/tags/teamMaintenanceList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>trustDistrictInput</name>
+ 	<path>/WEB-INF/tags/trustDistrictInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>trustDistrictList</name>
+ 	<path>/WEB-INF/tags/trustDistrictList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>trustRegionInput</name>
+ 	<path>/WEB-INF/tags/trustRegionInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>trustRegionList</name>
+ 	<path>/WEB-INF/tags/trustRegionList.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>volunteeringInput</name>
+ 	<path>/WEB-INF/tags/volunteeringInput.tag</path>
+ </tag-file>
+ 
+ <tag-file>
+ 	<name>volunteeringList</name>
+ 	<path>/WEB-INF/tags/volunteeringList.tag</path>
+ </tag-file>
+ 
+</taglib>
