@@ -23,7 +23,7 @@
 		<div id="MinorWorks" class="xdev-window-body-sub">
 		<table>
 			<s:form>
-				<s:textfield name="p/mwDescription" label="P/MW Description" required="true"></s:textfield>
+				<s:textfield name="pmwDescription" label="P/MW Description" required="true"></s:textfield>
 				
 				<s:textfield name="contact" label="contact" readonly="true"></s:textfield>
 				<s:label name="lookupMinorContact" value="Lookups"></s:label>
@@ -42,7 +42,7 @@
 				<s:textfield name="actualCost" label="Actual Cost"></s:textfield>
 				<s:select name="directorate" list="{'',''}" label="Directorate" ></s:select>
 				
-				<sj:datepicker name="p/mwEnqReceivedDate" displayFormat="dd/mm/yy" label="P/MW Enquiry Received Date" required="true"></sj:datepicker>
+				<sj:datepicker name="pmwEnqReceivedDate" displayFormat="dd/mm/yy" label="P/MW Enquiry Received Date" required="true"></sj:datepicker>
 				<sj:datepicker name="authorisedDate" displayFormat="dd/mm/yy" label="Authorised Date"></sj:datepicker>
 				<sj:datepicker name="actualStartDate" displayFormat="dd/mm/yy" label="Actual Start Date"></sj:datepicker>
 				<sj:datepicker name="anticipatedCompletion" displayFormat="dd/mm/yy" label="Anticipated Completion"></sj:datepicker>

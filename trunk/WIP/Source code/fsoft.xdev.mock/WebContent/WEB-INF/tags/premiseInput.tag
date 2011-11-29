@@ -75,7 +75,7 @@
 				DETAIL TAB 2
 				<s:checkboxlist name="accreditations" list="{'Two Ticks','Investors In People', 'ISO 9001','ISO 14001', 'ISO 27001'}" label="Accriditations" ></s:checkboxlist>
 				
-				<s:checkboxlist name="jcpOffices" list="{'',''}" label="JCP Offices" ></s:checkboxlist>
+				<s:checkboxlist name="jcpOffices" list="{' ',' '}" label="JCP Offices" ></s:checkboxlist>
 				
 				<s:checkbox name="mediaContact" label="Media Contact"></s:checkbox>
 				
@@ -91,9 +91,9 @@
 				
 				<s:checkboxlist name="localDemographicIssue" list="{'High Un-employment','Rural'}" label="Local Demographic Issue" ></s:checkboxlist>
 				
-				<s:select name="cateringType" list="{'',''}" label="Catering Type"></s:select>
+				<s:select name="cateringType" list="{' ',' '}" label="Catering Type"></s:select>
 				
-				<s:select name="IS/Network" list="{'Open','Wip','Closed'}" label="IS/Network"></s:select>
+				<s:select name="ISNetwork" list="{'Open','Wip','Closed'}" label="IS/Network"></s:select>
 				
 				<s:checkbox name="clientITFacilities" label="Client IT Facilities"></s:checkbox>
 				<s:textarea name="clientITFacilitiesDetail" label="Client IT Facilities Detail" cols="5" rows="4"></s:textarea>
@@ -107,8 +107,8 @@
 		<div id="Detail3" class="xdev-window-body-sub">
 		Detail Tab 3
 			<s:form>
-				<s:checkboxlist name="outreachLocation" list="{'',''}" label="Outreach Location" ></s:checkboxlist>
-				<s:checkboxlist name="localHotel" list="{'',''}" label="Local Hotel" ></s:checkboxlist>
+				<s:checkboxlist name="outreachLocation" list="{' ',' '}" label="Outreach Location" ></s:checkboxlist>
+				<s:checkboxlist name="localHotel" list="{' ',' '}" label="Local Hotel" ></s:checkboxlist>
 				<s:textfield name="travelDetail" label="Travel Detail"></s:textfield>
 				<s:textfield name="travelNearestBus" label="Travel Nearest Bus"></s:textfield>
 				<s:textfield name="travelNearestRail" label="Travel Nearest Rail"></s:textfield>
