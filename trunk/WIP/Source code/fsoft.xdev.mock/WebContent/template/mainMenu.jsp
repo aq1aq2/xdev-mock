@@ -10,23 +10,23 @@ function display (category) {
 </script>
 <div class="container">	
     <ul id="topnav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Organisation</a></li>
+        <li><a href="homeTemplate.action">Home</a></li>
+        <li><a href="organisationTemplate.action">Organisation</a></li>
         <li onmouseover="display('space')" onmouseout="display('space')">
-            <a href="#" >Services</a>
+            <a href="serviceMaintenanceTemplate.action" >Services</a>
             <span>
-                <a href="#">Programme Maintenances</a> |
-                <a href="#">Service Maintenances</a>
+                <a href="programmeMaintenanceTemplate.action">Programme Maintenances</a> |
+                <a href="serviceMaintenanceTemplate.action">Service Maintenances</a>
             </span>
         </li>
         <li onmouseover="display('space')" onmouseout="display('space')">
-            <a href="#">Geography</a>
+            <a href="trustRegionMaintenanceTemplate.action">Geography</a>
             <span>
-                <a href="#">Trust Region/Trust District Maintenances</a> |
-                <a href="#">Development</a>
+                <a href="trustRegionMaintenanceTemplate.action">Trust Region/Trust District Maintenances</a> |
+                <a href="trustRegionMaintenanceTemplate.action">Development</a>
             </span>
         </li>
-        <li><a href="#">Premises</a></li>
+        <li><a href="premisesTemplate.action">Premises</a></li>
     </ul>
     <div id="space" class="hide">&nbsp;</div>
     <div class="clear"></div>

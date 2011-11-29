@@ -7,7 +7,7 @@
 
 <script>
 	function openOrganisationInput() {
-		window.location.href = "pages/openOrganisationInput.action";
+		window.location.href = "organisationInputTemplate.action";
 	}
 </script>
 
