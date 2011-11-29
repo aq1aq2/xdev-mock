@@ -1,3 +1,7 @@
 Share software folder:
 nhanld
 \\10.16.103.32
+
+Eclipse - SVN
+Install subclipse - SVN Eclipse plugin
+
