@@ -18,5 +18,10 @@
 	</div>
 	
 	<div class="xdev-footer">
+		<!-- Test for theme here -->
+<!-- 		<div class="xdev-field"> -->
+<!-- 			<label for="test">dsadas</label> -->
+<!-- 			<input type="text" name="test"></input>  -->
+<!-- 		</div> -->
 	</div>
 </div>

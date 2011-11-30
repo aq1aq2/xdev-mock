@@ -65,10 +65,10 @@
 				<s:textfield name="County" label="County"></s:textfield>
 			</div>
 			<div class="xdev-field">	
-				<s:select name="NationCountry" list="{'Vietnam', 'United State', 'Japan', 'United Kingdom'}"></s:select>
+				<s:select name="NationCountry" list="{'Vietnam', 'United State', 'Japan', 'United Kingdom'}" label="Nation/Country"></s:select>
 			</div>
 				
-			<div class="xdev-field">	
+			<div class="xdev-field">
 				<s:checkbox name="preferredOrganisation" label="Preferred Organisation"></s:checkbox>
 			</div>
 			<div class="xdev-field">	
@@ -127,24 +127,17 @@
 		</div>
 		
 		<div class="xdev-window-body-sub" id="details3">
-			<s:form>
-				<table>
-				<tr>
-					<td>
-						<div class="xdev-field">
-							<s:textarea name="eoiProgrammes" label="EOI Programmes">
-							</s:textarea>
-						</div>
-					</td>
-				</tr><tr>
-					<td>
-						<div class="xdev-field">
-							<s:textarea name="eoiServices" label="EOI Services">
-							</s:textarea>
-						</div>
-					</td>
-				</tr>
-				</table>
+			<s:form id="details">
+					<div class="xdev-field">
+						<s:textarea name="eoiProgrammes" label="EOI Programmes">
+						</s:textarea>
+					</div>
+					<div class="clear"></div>
+					<div class="xdev-field">
+						<s:textarea name="eoiServices" label="EOI Services">
+						</s:textarea>
+					</div>
+
 			</s:form>
 			<div class="clear"></div>
 		</div>

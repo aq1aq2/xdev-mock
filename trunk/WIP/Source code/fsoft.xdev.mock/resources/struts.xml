@@ -7,8 +7,12 @@
 	<!-- Enable development mode -->	
 	<constant name="struts.devMode" value="true" />
 	
-	<!-- Use css_xhtml theme for instead xhtml -->
-	<constant name="struts.ui.theme" value="css_xhtml" /> 
+	<!-- Use css_xhtml theme for instead xhtml. NO USE THIS DIRECTIVE -->
+	<!-- <constant name="struts.ui.theme" value="simple" /> -->
+	
+	<!-- Use modified theme -->
+	<constant name="struts.ui.theme" value="xTheme" />
+	<constant name="struts.ui.templateDir" value="template" /> 
 	
     <package name="default" namespace="/" extends="json-default">
     	<!-- Sample action declaration -->
