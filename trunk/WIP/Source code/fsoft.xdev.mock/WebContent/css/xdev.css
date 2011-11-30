@@ -136,6 +136,6 @@ ul#topnav li span a:hover {text-decoration: underline;}
 	width: 50%; float: left;
 }
 .xdev-field > * {margin-right: 5px;}
-.xdev-field > label {width: 30%; display: inline-block;}
-.xdev-field > input,select {width: 40%;}
+.xdev-field > label {width: 30%; display: inline-block; vertical-align: top;}
+.xdev-field > input,select,textarea {width: 40%;}
 .xdev-field > a {width: 25%;}
