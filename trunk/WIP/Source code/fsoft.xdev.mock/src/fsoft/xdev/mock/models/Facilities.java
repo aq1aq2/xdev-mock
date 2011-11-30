@@ -1,5 +1,5 @@
 package fsoft.xdev.mock.models;
-// Generated Nov 29, 2011 3:23:26 PM by Hibernate Tools 3.2.1.GA
+// Generated Nov 30, 2011 9:23:56 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.io.Serializable;
@@ -13,7 +13,7 @@ public class Facilities  implements java.io.Serializable {
      private int facilityId;
      private Contacts contacts;
      private int facilityType;
-     private Serializable facilityDescription;
+     private String facilityDescription;
      private Integer roomCapacity;
      private Integer roomSize;
      private Boolean roomConnectivity;
@@ -21,25 +21,22 @@ public class Facilities  implements java.io.Serializable {
      private String roomEquipmentNotes;
      private Integer connectivityType;
      private String wirelessAccessInfomation;
-     private String roomHost;
      private boolean isActive;
      private int premiseId;
      private String facilityTypeName;
-     private String leedContact;
-     private String contactName;
 
     public Facilities() {
     }
 
 	
-    public Facilities(int facilityId, int facilityType, Serializable facilityDescription, boolean isActive, int premiseId) {
+    public Facilities(int facilityId, int facilityType, String facilityDescription, boolean isActive, int premiseId) {
         this.facilityId = facilityId;
         this.facilityType = facilityType;
         this.facilityDescription = facilityDescription;
         this.isActive = isActive;
         this.premiseId = premiseId;
     }
-    public Facilities(int facilityId, Contacts contacts, int facilityType, Serializable facilityDescription, Integer roomCapacity, Integer roomSize, Boolean roomConnectivity, Boolean equipmentAvailable, String roomEquipmentNotes, Integer connectivityType, String wirelessAccessInfomation, String roomHost, boolean isActive, int premiseId, String facilityTypeName, String leedContact, String contactName) {
+    public Facilities(int facilityId, Contacts contacts, int facilityType, String facilityDescription, Integer roomCapacity, Integer roomSize, Boolean roomConnectivity, Boolean equipmentAvailable, String roomEquipmentNotes, Integer connectivityType, String wirelessAccessInfomation, boolean isActive, int premiseId, String facilityTypeName) {
        this.facilityId = facilityId;
        this.contacts = contacts;
        this.facilityType = facilityType;
@@ -51,12 +48,9 @@ public class Facilities  implements java.io.Serializable {
        this.roomEquipmentNotes = roomEquipmentNotes;
        this.connectivityType = connectivityType;
        this.wirelessAccessInfomation = wirelessAccessInfomation;
-       this.roomHost = roomHost;
        this.isActive = isActive;
        this.premiseId = premiseId;
        this.facilityTypeName = facilityTypeName;
-       this.leedContact = leedContact;
-       this.contactName = contactName;
     }
    
     public int getFacilityId() {
@@ -80,11 +74,11 @@ public class Facilities  implements java.io.Serializable {
     public void setFacilityType(int facilityType) {
         this.facilityType = facilityType;
     }
-    public Serializable getFacilityDescription() {
+    public String getFacilityDescription() {
         return this.facilityDescription;
     }
     
-    public void setFacilityDescription(Serializable facilityDescription) {
+    public void setFacilityDescription(String facilityDescription) {
         this.facilityDescription = facilityDescription;
     }
     public Integer getRoomCapacity() {
@@ -136,13 +130,6 @@ public class Facilities  implements java.io.Serializable {
     public void setWirelessAccessInfomation(String wirelessAccessInfomation) {
         this.wirelessAccessInfomation = wirelessAccessInfomation;
     }
-    public String getRoomHost() {
-        return this.roomHost;
-    }
-    
-    public void setRoomHost(String roomHost) {
-        this.roomHost = roomHost;
-    }
     public boolean isIsActive() {
         return this.isActive;
     }
@@ -163,20 +150,6 @@ public class Facilities  implements java.io.Serializable {
     
     public void setFacilityTypeName(String facilityTypeName) {
         this.facilityTypeName = facilityTypeName;
-    }
-    public String getLeedContact() {
-        return this.leedContact;
-    }
-    
-    public void setLeedContact(String leedContact) {
-        this.leedContact = leedContact;
-    }
-    public String getContactName() {
-        return this.contactName;
-    }
-    
-    public void setContactName(String contactName) {
-        this.contactName = contactName;
     }
 
 
