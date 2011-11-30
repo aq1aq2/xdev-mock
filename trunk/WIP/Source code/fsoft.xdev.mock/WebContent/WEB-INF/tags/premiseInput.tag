@@ -20,6 +20,12 @@
 	</div>
 	
 	<div class="xdev-window-body">
+		<sj:tabbedpanel id="tabs">
+			<sj:tab id="tab1" target="Detail1" label="Details 1"/>
+			<sj:tab id="tab2" target="Detail2" label="Details 2"/>
+			<sj:tab id="tab3" target="Detail3" label="Details 3"/>
+			<sj:tab id="tab4" target="Detail4" label="Details 4"/>
+	
 		<div id="Detail1" class="xdev-window-body-sub">
 		<table>
 			<s:form>
@@ -141,6 +147,7 @@
 				<sj:datepicker name="reNegotiateOn" displayFormat="dd/mm/yy" label="Re-negotiate On"></sj:datepicker>
 			</s:form>
 		</div>
+		</sj:tabbedpanel>
 	</div>
 	
 	<div class="xdev-window-footer">
