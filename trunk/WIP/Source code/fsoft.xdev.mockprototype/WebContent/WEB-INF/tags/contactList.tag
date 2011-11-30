@@ -53,21 +53,18 @@
 	        <sjg:gridColumn name="type" index="type" title="Contact Type" sortable="true"/>
 	        <sjg:gridColumn name="isActive" index="isActive" title="Is Active?" sortable="true"/>
 	    </sjg:grid>
+	    
+	    <xdev:contactInput id="${id}_contactInput2"></xdev:contactInput>
 	</div>
 	
-	<div id="dialog-form" title="Create new user">
-		<p class="validateTips">All form fields are required.</p>
-		<form>
-		<fieldset>
-			<label for="name">Name</label>
-			<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
-			<label for="email">Email</label>
-			<input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all" />
-			<label for="password">Password</label>
-			<input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" />
-		</fieldset>
-		</form>
-	</div>
+	<sj:dialog 
+    	id="%{#attr['id']}_dialog_contactInput" 
+    	autoOpen="false" 
+    	modal="true" 
+    	title="Contact Input"
+    >
+    	<xdev:contactInput id="${id}_contactInput"></xdev:contactInput>
+    </sj:dialog>
 	
 	<div class="xdev-window-footer">
 		<sj:a id="%{#attr['id']}_selectBtn" 
@@ -76,7 +73,7 @@
 		
 		<sj:a id="%{#attr['id']}_editBtn" 
 			button="true"
-			openDialog="myclickdialog"
+			openDialog="%{#attr['id']}_dialog_contactInput"
 		>Edit</sj:a>
 		
 		<sj:a id="%{#attr['id']}_closeBtn" 

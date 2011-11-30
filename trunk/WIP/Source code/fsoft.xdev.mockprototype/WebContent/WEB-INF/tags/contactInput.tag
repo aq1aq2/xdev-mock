@@ -9,7 +9,7 @@
 
 <div class="xdev-window" id="${id }">
 	<div class="xdev-window-title">
-		<h1>Organisation Detail</h1>
+		<h1>Contact Detail</h1>
 	</div>
 	
 	<div class="xdev-window-header">
@@ -17,9 +17,10 @@
 	
 	<div class="xdev-window-body">
 		<sj:tabbedpanel id="%{#attr['id']}_tabs">
-			<sj:tab id="%{#attr['id']}_tab1" target="details1" label="Details 1"/>
+			<sj:tab id="%{#attr['id']}_tab1" target="%{#attr['id']}_details1" label="Details 1"/>
+			<sj:tab id="%{#attr['id']}_tab2" target="%{#attr['id']}_details2" label="Details 2"/>
 			
-		<div id="details1" class="xdev-window-body-sub2">
+		<div id="${id }_details1" class="xdev-window-body-sub2">
 			<div class="xdev-field">
 				<s:textfield id="%{#attr['id']}_firstName" label="Frist Name" required="true"></s:textfield>
 			</div>
@@ -51,6 +52,22 @@
 			</div>
 			<div class="xdev-field">
 				<s:select id="%{#attr['id']}_bestContactMethod" label="Best Contact Method" list="{}" ></s:select>
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+		<div id="${id }_details2" class="xdev-window-body-sub2">
+			<div class="xdev-field">
+				<s:textfield id="%{#attr['id']}_firstName2" label="Frist Name" required="true"></s:textfield>
+			</div>
+			<div class="xdev-field">
+				<s:textfield id="%{#attr['id']}_surname2" label="Surname" required="true"></s:textfield>
+			</div>
+			<div class="xdev-field">
+				<s:textfield id="%{#attr['id']}_knowAs2" label="Know As" ></s:textfield>
+			</div>
+			<div class="xdev-field">
+				<s:textfield id="%{#attr['id']}_officePhone2" label="Office Phone" ></s:textfield>
 			</div>
 			<div class="clear"></div>
 		</div>
