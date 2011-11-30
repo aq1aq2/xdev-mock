@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 29, 2011 3:23:28 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Nov 30, 2011 9:23:58 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="fsoft.xdev.mock.models.Premises" table="Premises" schema="dbo" catalog="DataMock">
         <id name="premiseId" type="int">
@@ -47,9 +47,6 @@
         <property name="addressLine2" type="string">
             <column name="AddressLine2" length="200" />
         </property>
-        <property name="addressLine3" type="string">
-            <column name="AddressLine3" length="200" />
-        </property>
         <property name="phoneNumber" type="string">
             <column name="PhoneNumber" length="30" not-null="true" />
         </property>
@@ -61,9 +58,6 @@
         </property>
         <property name="cityTown" type="string">
             <column name="CityTown" length="100" />
-        </property>
-        <property name="minicommNumber" type="string">
-            <column name="MinicommNumber" length="30" />
         </property>
         <property name="county" type="string">
             <column name="County" length="100" />
@@ -86,18 +80,6 @@
         <property name="jcpoffices" type="string">
             <column name="JCPOffices" length="200" />
         </property>
-        <property name="mediaContact" type="boolean">
-            <column name="MediaContact" not-null="true" />
-        </property>
-        <property name="mediaContactId" type="java.lang.Integer">
-            <column name="MediaContactID" />
-        </property>
-        <property name="cateringFacilities" type="boolean">
-            <column name="CateringFacilities" not-null="true" />
-        </property>
-        <property name="cateringContactId" type="java.lang.Integer">
-            <column name="CateringContactID" />
-        </property>
         <property name="cateringType" type="java.lang.Integer">
             <column name="CateringType" />
         </property>
@@ -106,15 +88,6 @@
         </property>
         <property name="isnetwork" type="java.lang.Integer">
             <column name="ISNetwork" />
-        </property>
-        <property name="clientItfacilities" type="boolean">
-            <column name="ClientITFacilities" not-null="true" />
-        </property>
-        <property name="clientItfacilityDetails" type="string">
-            <column name="ClientITFacilityDetails" />
-        </property>
-        <property name="localDemographicNotes" type="string">
-            <column name="LocalDemographicNotes" length="200" />
         </property>
         <property name="roomAvailability" type="boolean">
             <column name="RoomAvailability" not-null="true" />
@@ -137,18 +110,6 @@
         <property name="travelNearestBus" type="string">
             <column name="TravelNearestBus" length="250" />
         </property>
-        <property name="visitorParkingSpaces" type="java.lang.Integer">
-            <column name="VisitorParkingSpaces" />
-        </property>
-        <property name="travelNearestRail" type="string">
-            <column name="TravelNearestRail" length="250" />
-        </property>
-        <property name="travelNearestAirport" type="string">
-            <column name="TravelNearestAirport" length="250" />
-        </property>
-        <property name="visitorParkingAlternative" type="string">
-            <column name="VisitorParkingAlternative" />
-        </property>
         <property name="hostVisits" type="java.lang.Boolean">
             <column name="HostVisits" />
         </property>
@@ -167,27 +128,6 @@
         <property name="bbnegotiatedRate" type="java.lang.Double">
             <column name="BBNegotiatedRate" precision="53" scale="0" />
         </property>
-        <property name="dbbrate" type="java.lang.Double">
-            <column name="DBBRate" precision="53" scale="0" />
-        </property>
-        <property name="dbbnegotiatedRate" type="java.lang.Double">
-            <column name="DBBNegotiatedRate" precision="53" scale="0" />
-        </property>
-        <property name="ddrate" type="java.lang.Double">
-            <column name="DDRate" precision="53" scale="0" />
-        </property>
-        <property name="ddnegotiatedRate" type="java.lang.Double">
-            <column name="DDNegotiatedRate" precision="53" scale="0" />
-        </property>
-        <property name="rateDay" type="java.lang.Double">
-            <column name="RateDay" precision="53" scale="0" />
-        </property>
-        <property name="negotiatedRateDay" type="java.lang.Double">
-            <column name="NegotiatedRateDay" precision="53" scale="0" />
-        </property>
-        <property name="teaAndCoffee" type="string">
-            <column name="TeaAndCoffee" length="200" />
-        </property>
         <property name="lunch" type="java.lang.Boolean">
             <column name="Lunch" />
         </property>
@@ -200,29 +140,11 @@
         <property name="noOfMeetingRoom" type="java.lang.Integer">
             <column name="NoOfMeetingRoom" />
         </property>
-        <property name="preferedStatus" type="string">
-            <column name="PreferedStatus" length="200" />
-        </property>
         <property name="meetingRoomRatePerDay" type="java.lang.Double">
             <column name="MeetingRoomRatePerDay" precision="53" scale="0" />
-        </property>
-        <property name="codings" type="string">
-            <column name="Codings" length="200" />
-        </property>
-        <property name="comments" type="string">
-            <column name="Comments" />
-        </property>
-        <property name="openTime" type="string">
-            <column name="OpenTime" />
         </property>
         <property name="isActive" type="boolean">
             <column name="IsActive" not-null="true" />
         </property>
-        <set name="servicePremises" inverse="true">
-            <key>
-                <column name="PremiseID" />
-            </key>
-            <one-to-many class="fsoft.xdev.mock.models.ServicePremise" />
-        </set>
     </class>
 </hibernate-mapping>

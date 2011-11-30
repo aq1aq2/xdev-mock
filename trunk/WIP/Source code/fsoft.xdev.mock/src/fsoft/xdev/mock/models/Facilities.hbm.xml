@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 29, 2011 3:23:28 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Nov 30, 2011 9:23:58 AM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="fsoft.xdev.mock.models.Facilities" table="Facilities" schema="dbo" catalog="DataMock">
         <id name="facilityId" type="int">
@@ -14,7 +14,7 @@
         <property name="facilityType" type="int">
             <column name="FacilityType" not-null="true" />
         </property>
-        <property name="facilityDescription" type="serializable">
+        <property name="facilityDescription" type="string">
             <column name="FacilityDescription" not-null="true" />
         </property>
         <property name="roomCapacity" type="java.lang.Integer">
@@ -38,9 +38,6 @@
         <property name="wirelessAccessInfomation" type="string">
             <column name="WirelessAccessInfomation" length="200" />
         </property>
-        <property name="roomHost" type="string">
-            <column name="RoomHost" length="200" />
-        </property>
         <property name="isActive" type="boolean">
             <column name="IsActive" not-null="true" />
         </property>
@@ -49,12 +46,6 @@
         </property>
         <property name="facilityTypeName" type="string">
             <column name="FacilityTypeName" length="200" />
-        </property>
-        <property name="leedContact" type="string">
-            <column name="LeedContact" length="200" />
-        </property>
-        <property name="contactName" type="string">
-            <column name="ContactName" length="200" />
         </property>
     </class>
 </hibernate-mapping>

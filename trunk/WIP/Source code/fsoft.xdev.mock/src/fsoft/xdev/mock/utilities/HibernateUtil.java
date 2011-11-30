@@ -1,4 +1,4 @@
-package fsoft.xdev.mock.dao.imp;
+package fsoft.xdev.mock.utilities;
 
 /*
  * To change this template, choose Tools | Templates
