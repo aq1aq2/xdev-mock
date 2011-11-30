@@ -14,6 +14,7 @@
 	
 	<div class="xdev-content">
 		<xdev:organisationList></xdev:organisationList>
+		<xdev:organisationInput></xdev:organisationInput>
 	</div>
 	
 	<div class="xdev-footer">

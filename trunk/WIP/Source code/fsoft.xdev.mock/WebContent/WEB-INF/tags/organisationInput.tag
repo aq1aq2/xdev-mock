@@ -92,6 +92,7 @@
 			
 			<div class="clear"></div>
 		</div>
+		
 		<div class="xdev-window-body-sub" id="details2">
 			<div class="xdev-field">	
 				<s:textarea name="organisationSpecialism" label="Organisation Specialism">
@@ -126,15 +127,25 @@
 		</div>
 		
 		<div class="xdev-window-body-sub" id="details3">
-			<div class="xdev-field">
-				<s:textarea name="eoiProgrammes" label="EOI Programmes">
-				</s:textarea>
-			</div>
-			<div class="xdev-field">
-				<s:textarea name="eoiServices" label="EOI Services">
-				</s:textarea>
-			</div>
-			
+			<s:form>
+				<table>
+				<tr>
+					<td>
+						<div class="xdev-field">
+							<s:textarea name="eoiProgrammes" label="EOI Programmes">
+							</s:textarea>
+						</div>
+					</td>
+				</tr><tr>
+					<td>
+						<div class="xdev-field">
+							<s:textarea name="eoiServices" label="EOI Services">
+							</s:textarea>
+						</div>
+					</td>
+				</tr>
+				</table>
+			</s:form>
 			<div class="clear"></div>
 		</div>
 		
