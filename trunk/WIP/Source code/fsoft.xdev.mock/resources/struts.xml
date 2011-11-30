@@ -7,6 +7,9 @@
 	<!-- Enable development mode -->	
 	<constant name="struts.devMode" value="true" />
 	
+	<!-- Use css_xhtml theme for instead xhtml -->
+	<constant name="struts.ui.theme" value="css_xhtml" /> 
+	
     <package name="default" namespace="/" extends="json-default">
     	<!-- Sample action declaration -->
     	<action name="getcustomer" class="fsoft.xdev.mock.actions.TestAction">
