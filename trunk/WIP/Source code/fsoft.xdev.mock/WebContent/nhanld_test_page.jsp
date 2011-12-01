@@ -10,7 +10,9 @@
 	<title>Organisation</title>
 	<sj:head jqueryui="true" jquerytheme="smoothness"/>
 	<link rel="stylesheet" href="css/xdev.css" type="text/css" media="all" />
+	
 </head>
+
 <body>
 	<div class="xdev-wrapper">
 		<div class="xdev-banner">
@@ -18,7 +20,7 @@
 		</div>
 		
 		<div class="xdev-content">
-			<xdev:organisationList></xdev:organisationList>
+			<xdev:contactList id="mylist"></xdev:contactList>
 		</div>
 		
 		<div class="xdev-footer">
