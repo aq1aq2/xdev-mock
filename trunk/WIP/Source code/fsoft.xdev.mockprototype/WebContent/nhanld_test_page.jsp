@@ -19,7 +19,7 @@
 		</div>
 		
 		<div class="xdev-content">
-			<xdev:organisationInput></xdev:organisationInput>
+			<xdev:contactList id="mylist"></xdev:contactList>
 		</div>
 		
 		<div class="xdev-footer" style="float: left; width: 100%">
