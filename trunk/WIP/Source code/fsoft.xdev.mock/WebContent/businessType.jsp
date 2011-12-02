@@ -18,7 +18,6 @@
 		 <div class="xdev-content">
 			<xdev:businessLookup></xdev:businessLookup>
 		</div>
-		
 			
 		<div class="xdev-footer">
 			<h1>Banner</h1>

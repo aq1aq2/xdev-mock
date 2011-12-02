@@ -20,7 +20,7 @@
 		</div>
 		
 		<div class="xdev-content">
-			<xdev:contactList id="mylist"></xdev:contactList>
+			<xdev:comp1>Noi dung comp1</xdev:comp1>
 		</div>
 		
 		<div class="xdev-footer">
