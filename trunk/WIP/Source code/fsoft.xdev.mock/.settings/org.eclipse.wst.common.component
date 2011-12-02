@@ -5,6 +5,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/srctest"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_taglib"/>
         <property name="context-root" value="fsoft.xdev.mock"/>
         <property name="java-output-path" value="/fsoft.xdev.mock/build/classes"/>
     </wb-module>
