@@ -32,6 +32,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 public class XDevModels {
 	protected OrganisationListModel organisationList;
 	protected OrganisationInputModel organisationInput;
+	protected TextLookupModel textLookup;
 
 	private ValueStack           stack;
 	private HttpServletRequest   req;
@@ -56,5 +57,12 @@ public class XDevModels {
 		}
 		return organisationInput;
 	}
+
+	public TextLookupModel getTextLookup() {
+		if (textLookup==null) {
+			textLookup = new TextLookupModel(stack, req, res);
+		}
+		return textLookup;
+	}	
 }
 

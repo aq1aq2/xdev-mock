@@ -22,5 +22,6 @@
 -->
 
 <#-- Only remove tr, td tag -->
+<div class="xdev-field">
 <#include "/${parameters.templateDir}/xTheme/controlheader-core.ftl" />
 
