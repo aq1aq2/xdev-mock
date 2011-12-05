@@ -12,7 +12,7 @@
 	<div class="xdev-window-header">
 		<@sj.a id="${id!}_createBtn" 
 			button="true"
-			onclick="openOrganisationInput()"
+			openDialog="${id!}_dialog_contactInput"
 		>Create</@sj.a>
 		<@s.checkbox name="${id!}_includeChkBx" label="Include In-active" />
 	</div>
@@ -38,4 +38,54 @@
 	<div class="xdev-window-footer">
 		<@xdev.organisationInput id="nestedInput" />
 	</div>
+	
+	<#-- ------- -->
+	<#-- Dialogs -->
+	<#-- ------- -->
+	
+	<@sj.dialog 
+    	id="${id!}_dialog_contactInput" 
+    	autoOpen="false" 
+    	modal="true" 
+    	title="Contact Input"
+    	width="965"
+    	draggable="false"
+    	resizable="false"
+    >
+    	<@xdev.organisationInput id="nestedInputDialog" />
+    </@sj.dialog>
+    
+    <div id="dialog-form" class="ui-dialog-content ui-widget-content">
+		<@xdev.organisationInput id="nestedInputDialog2" />
+	</div>
+	
+	<script>
+	$(function() {
+		$( "#dialog:ui-dialog" ).dialog( "destroy" );
+		
+		$( "#dialog-form" ).dialog({
+			autoOpen: false,
+			height: 300,
+			width: 350,
+			modal: true,
+			buttons: {
+				"Create an account": function() {
+				},
+				Cancel: function() {
+					$( this ).dialog( "close" );
+				}
+			},
+			close: function() {
+				allFields.val( "" ).removeClass( "ui-state-error" );
+			}
+		});
+
+		$( "#create-user" )
+			.button()
+			.click(function() {
+				$( "#dialog-form" ).dialog( "open" );
+			});
+	});
+	</script>
+	<button id="create-user" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">Create new user</span></button>
 </div>
