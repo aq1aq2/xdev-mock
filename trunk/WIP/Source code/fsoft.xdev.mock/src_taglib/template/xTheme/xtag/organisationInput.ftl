@@ -26,17 +26,12 @@
 			
 			<#-- Details 1 -->
 			<div class="xdev-window-body-sub" id="details1">
-				<div class="xdev-field">
 					<@s.textfield name="organisationName" label="Organisation Name" required="true"/>
-				</div>
-				<div class="xdev-field">
 					<@s.textarea name="organisationDesc" label="Organisation Short Description" cols="12" rows="3" required="true"/>
-				</div>
-				<div class="xdev-field">
 					<@s.textfield name="leadContact" label="Lead Contact" readonly="true"/>
 					<@sj.a id="managerLookup" 
 					>lookup</@sj.a>
-				</div>
+					<@xdev.textLookup label="abc"/>
 				<div class="clear"></div>
 			</div>
 			

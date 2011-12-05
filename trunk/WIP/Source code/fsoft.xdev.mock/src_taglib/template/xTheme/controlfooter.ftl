@@ -22,4 +22,5 @@
 -->
 <#-- Only remove tr, td tag -->
 ${parameters.after?if_exists}<#t/>
+</div>
 
