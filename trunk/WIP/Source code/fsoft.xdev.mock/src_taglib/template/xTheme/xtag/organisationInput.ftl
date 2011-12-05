@@ -21,8 +21,8 @@
 	
 	<div class="xdev-window-body">
 		<@sj.tabbedpanel id="${id!}_tabs">
-			<@sj.tab id="tab1" target="details1" label="Details 1"/>
-			<@sj.tab id="tab2" target="details2" label="Details 2"/>
+			<@sj.tab id="${id!}_tab1" target="details1" label="Details 1"/>
+			<@sj.tab id="${id!}_tab2" target="details2" label="Details 2"/>
 			
 			<#-- Details 1 -->
 			<div class="xdev-window-body-sub" id="details1">
