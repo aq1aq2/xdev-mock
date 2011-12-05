@@ -8,19 +8,19 @@ import org.apache.struts2.views.freemarker.tags.TagModel;
 
 import com.opensymphony.xwork2.util.ValueStack;
 
-import fsoft.xdev.mock.taglib.components.Comp1;
+import fsoft.xdev.mock.taglib.components.OrganisationList;
 
 
-public class Comp1Model extends TagModel {
+public class OrganisationListModel extends TagModel {
 
-  public Comp1Model(ValueStack stack, HttpServletRequest req, HttpServletResponse res) {
+  public OrganisationListModel(ValueStack stack, HttpServletRequest req, HttpServletResponse res) {
     super(stack, req, res);
   }
 
   @Override
   protected Component getBean()
   {
-    return new Comp1(stack, req, res);
+    return new OrganisationList(stack, req, res);
   }
 
 }

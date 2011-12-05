@@ -30,7 +30,8 @@ import com.opensymphony.xwork2.util.ValueStack;
  * 
  */
 public class XDevModels {
-	protected Comp1Model comp1;
+	protected OrganisationListModel organisationList;
+	protected OrganisationInputModel organisationInput;
 
 	private ValueStack           stack;
 	private HttpServletRequest   req;
@@ -42,12 +43,18 @@ public class XDevModels {
 		this.res = res;
 	}
 
-	public Comp1Model getComp1() {
-		if (comp1==null) {
-			comp1 = new Comp1Model(stack, req, res);
+	public OrganisationListModel getOrganisationList() {
+		if (organisationList==null) {
+			organisationList = new OrganisationListModel(stack, req, res);
 		}
-		return comp1;
+		return organisationList;
 	}
 
+	public OrganisationInputModel getOrganisationInput() {
+		if (organisationInput==null) {
+			organisationInput = new OrganisationInputModel(stack, req, res);
+		}
+		return organisationInput;
+	}
 }
 
