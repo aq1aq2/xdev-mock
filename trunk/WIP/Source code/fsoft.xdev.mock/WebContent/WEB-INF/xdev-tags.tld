@@ -6,10 +6,10 @@
 <uri>xdev-tags.tld</uri>
 
 <tag>
-	<description><![CDATA[Render MyStrutsTag.]]></description>
-	<name>comp1</name>
-	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.Comp1Tag</tag-class>
-	<body-content>JSP</body-content>
+	<description><![CDATA[Render OrganisationListTag.]]></description>
+	<name>organisationList</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.OrganisationListTag</tag-class>
+	<body-content>empty</body-content>
 	
 	<attribute>
       <description><![CDATA[HTML id attribute]]></description>
@@ -17,6 +17,19 @@
       <required>false</required>
       <rtexprvalue>false</rtexprvalue>
     </attribute>
- </tag>
- 
+</tag>
+
+<tag>
+	<description><![CDATA[Render OrganisationInputTag.]]></description>
+	<name>organisationInput</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.OrganisationInputTag</tag-class>
+	<body-content>empty</body-content>
+	
+	<attribute>
+      <description><![CDATA[HTML id attribute]]></description>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+</tag> 
 </taglib>
