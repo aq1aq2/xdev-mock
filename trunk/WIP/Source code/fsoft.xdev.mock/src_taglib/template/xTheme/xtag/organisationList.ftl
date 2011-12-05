@@ -12,7 +12,7 @@
 	<div class="xdev-window-header">
 		<@sj.a id="${id!}_createBtn" 
 			button="true"
-			openDialog="${id!}_dialog_contactInput"
+			onclick="${id!}.style.display='none'"
 		>Create</@sj.a>
 		<@s.checkbox name="${id!}_includeChkBx" label="Include In-active" />
 	</div>
