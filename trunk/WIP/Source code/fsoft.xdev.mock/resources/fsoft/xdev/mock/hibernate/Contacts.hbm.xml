@@ -50,31 +50,31 @@
         <property name="isActive" type="java.lang.Boolean">
             <column name="IsActive" />
         </property>
-        <set name="programmeses" inverse="true">
+        <set name="programmeses" inverse="true" lazy="false">
             <key>
                 <column name="ContactID" />
             </key>
             <one-to-many class="fsoft.xdev.mock.models.Programmes" />
         </set>
-        <set name="directorateses" inverse="true">
+        <set name="directorateses" inverse="true" lazy="false">
             <key>
                 <column name="ContactID" />
             </key>
             <one-to-many class="fsoft.xdev.mock.models.Directorates" />
         </set>
-        <set name="facilitieses" inverse="true">
+        <set name="facilitieses" inverse="true" lazy="false">
             <key>
                 <column name="ContactID" not-null="true" />
             </key>
             <one-to-many class="fsoft.xdev.mock.models.Facilities" />
         </set>
-        <set name="teamses" inverse="true">
+        <set name="teamses" inverse="true" lazy="false">
             <key>
                 <column name="ContactID" />
             </key>
             <one-to-many class="fsoft.xdev.mock.models.Teams" />
         </set>
-        <set name="volunteerses" inverse="true">
+        <set name="volunteerses" inverse="true" lazy="false">
             <key>
                 <column name="ContactID" />
             </key>

@@ -17,7 +17,7 @@
             </key>
             <one-to-many class="fsoft.xdev.mock.models.Counties" />
         </set>
-        <set name="trustRegionses" inverse="true">
+        <set name="trustRegionses" inverse="true" lazy="false">
             <key>
                 <column name="CountryID" />
             </key>
