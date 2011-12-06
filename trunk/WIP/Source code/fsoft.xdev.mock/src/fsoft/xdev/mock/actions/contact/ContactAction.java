@@ -1,7 +1,9 @@
 package fsoft.xdev.mock.actions.contact;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -25,9 +27,9 @@ public class ContactAction extends ActionSupport {
 	 */
 	public String list() {
 		System.out.println("Action: List contact");
-//		contactsDao = new ContactsDao();
-		System.out.println(contactsDao);
-		listModel = contactsDao.findAll();
+		listModel.add(new Contacts(3));
+		listModel.add(new Contacts(4));
+		//listModel = contactsDao.findAll();
 		return SUCCESS;
 	}
 	
