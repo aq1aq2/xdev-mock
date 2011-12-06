@@ -9,17 +9,17 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * <!-- START SNIPPET: javadoc -->
- * Creates an Contact List module;
+ * Creates an Contact Input module;
  * <!-- END SNIPPET: javadoc -->
  *
  */
 
-public class ContactList extends UIBean {
+public class ContactInput extends UIBean {
 
-    public static final String TEMPLATE = "xtag/contactList";
-    public static final String COMPONENT_NAME = ContactList.class.getName();
+    public static final String TEMPLATE = "xtag/contactInput";
+    public static final String COMPONENT_NAME = ContactInput.class.getName();
     
-    public ContactList(ValueStack stack, HttpServletRequest request, HttpServletResponse response) {
+    public ContactInput(ValueStack stack, HttpServletRequest request, HttpServletResponse response) {
         super(stack, request, response);
     }
 

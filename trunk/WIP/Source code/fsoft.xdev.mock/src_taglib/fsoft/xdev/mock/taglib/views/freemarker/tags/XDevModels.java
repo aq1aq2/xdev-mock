@@ -34,6 +34,7 @@ public class XDevModels {
 	protected OrganisationInputModel organisationInput;
 	protected TextLookupModel textLookup;
 	protected ContactListModel contactList;
+	protected ContactInputModel contactInput;
 
 	private ValueStack           stack;
 	private HttpServletRequest   req;
@@ -71,6 +72,13 @@ public class XDevModels {
 			contactList = new ContactListModel(stack, req, res);
 		}
 		return contactList;
-	}	
+	}
+
+	public ContactInputModel getContactInput() {
+		if (contactInput==null) {
+			contactInput = new ContactInputModel(stack, req, res);
+		}
+		return contactInput;
+	}
 }
 
