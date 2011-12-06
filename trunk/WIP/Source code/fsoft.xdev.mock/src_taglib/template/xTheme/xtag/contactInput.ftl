@@ -31,6 +31,7 @@
 		<@sj.a id="${id!}_saveBtn"
 			dataType="json"
 			button="true"
+			onClickTopics="refreshContactList" 
 		>
 		Save</@sj.a>
 		
