@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 6, 2011 8:45:40 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="fsoft.xdev.mock.models.Volunteers" table="Volunteers" schema="dbo" catalog="DataMock">
+        <id name="volunteerId" type="int">
+            <column name="VolunteerID" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select">
+            <column name="ContactID" />
+        </many-to-one>
+        <property name="volunteerPurpose" type="string">
+            <column name="VolunteerPurpose" />
+        </property>
+        <property name="details" type="string">
+            <column name="Details" />
+        </property>
+        <property name="startDate" type="timestamp">
+            <column name="StartDate" length="23" />
+        </property>
+        <property name="endDate" type="timestamp">
+            <column name="EndDate" length="23" />
+        </property>
+        <property name="premiseId" type="java.lang.Integer">
+            <column name="PremiseID" />
+        </property>
+        <property name="volunteerNo" type="java.lang.Integer">
+            <column name="VolunteerNo" />
+        </property>
+        <property name="isActive" type="java.lang.Boolean">
+            <column name="IsActive" />
+        </property>
+    </class>
+</hibernate-mapping>

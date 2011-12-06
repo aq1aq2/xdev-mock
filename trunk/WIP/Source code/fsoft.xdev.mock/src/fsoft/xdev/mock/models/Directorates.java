@@ -1,5 +1,5 @@
 package fsoft.xdev.mock.models;
-// Generated Nov 29, 2011 3:23:26 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 6, 2011 8:45:37 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public class Directorates  implements java.io.Serializable {
 
-
+	private static final long serialVersionUID = 1L;
      private int directorateId;
      private Contacts contacts;
      private String name;
@@ -23,7 +23,7 @@ public class Directorates  implements java.io.Serializable {
      private String town;
      private String countyId;
      private String countryId;
-     private int typeOfBusinessId;
+     private Integer typeOfBusinessId;
      private String fullDesc;
      private String phoneNumber;
      private String fax;
@@ -31,24 +31,18 @@ public class Directorates  implements java.io.Serializable {
      private String webAddr;
      private String charityNumber;
      private String companyNumber;
-     private int organisationId;
+     private Integer organisationId;
      private Boolean isActive;
-     private Set departmentses = new HashSet(0);
+     private Set<Departments> departmentses = new HashSet<Departments>(0);
 
     public Directorates() {
     }
 
 	
-    public Directorates(int directorateId, Contacts contacts, String name, String addr1, String postCode, int typeOfBusinessId, int organisationId) {
+    public Directorates(int directorateId) {
         this.directorateId = directorateId;
-        this.contacts = contacts;
-        this.name = name;
-        this.addr1 = addr1;
-        this.postCode = postCode;
-        this.typeOfBusinessId = typeOfBusinessId;
-        this.organisationId = organisationId;
     }
-    public Directorates(int directorateId, Contacts contacts, String name, String shortDesc, Boolean copyAddrOrg, String addr1, String addr2, String addr3, String postCode, String town, String countyId, String countryId, int typeOfBusinessId, String fullDesc, String phoneNumber, String fax, String email, String webAddr, String charityNumber, String companyNumber, int organisationId, Boolean isActive, Set departmentses) {
+    public Directorates(int directorateId, Contacts contacts, String name, String shortDesc, Boolean copyAddrOrg, String addr1, String addr2, String addr3, String postCode, String town, String countyId, String countryId, Integer typeOfBusinessId, String fullDesc, String phoneNumber, String fax, String email, String webAddr, String charityNumber, String companyNumber, Integer organisationId, Boolean isActive, Set<Departments> departmentses) {
        this.directorateId = directorateId;
        this.contacts = contacts;
        this.name = name;
@@ -158,11 +152,11 @@ public class Directorates  implements java.io.Serializable {
     public void setCountryId(String countryId) {
         this.countryId = countryId;
     }
-    public int getTypeOfBusinessId() {
+    public Integer getTypeOfBusinessId() {
         return this.typeOfBusinessId;
     }
     
-    public void setTypeOfBusinessId(int typeOfBusinessId) {
+    public void setTypeOfBusinessId(Integer typeOfBusinessId) {
         this.typeOfBusinessId = typeOfBusinessId;
     }
     public String getFullDesc() {
@@ -214,11 +208,11 @@ public class Directorates  implements java.io.Serializable {
     public void setCompanyNumber(String companyNumber) {
         this.companyNumber = companyNumber;
     }
-    public int getOrganisationId() {
+    public Integer getOrganisationId() {
         return this.organisationId;
     }
     
-    public void setOrganisationId(int organisationId) {
+    public void setOrganisationId(Integer organisationId) {
         this.organisationId = organisationId;
     }
     public Boolean getIsActive() {
@@ -228,11 +222,11 @@ public class Directorates  implements java.io.Serializable {
     public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
     }
-    public Set getDepartmentses() {
+    public Set<Departments> getDepartmentses() {
         return this.departmentses;
     }
     
-    public void setDepartmentses(Set departmentses) {
+    public void setDepartmentses(Set<Departments> departmentses) {
         this.departmentses = departmentses;
     }
 
