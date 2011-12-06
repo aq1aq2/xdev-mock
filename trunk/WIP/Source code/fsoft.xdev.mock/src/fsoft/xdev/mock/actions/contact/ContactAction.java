@@ -27,9 +27,7 @@ public class ContactAction extends ActionSupport {
 	 */
 	public String list() {
 		System.out.println("Action: List contact");
-		listModel.add(new Contacts(3));
-		listModel.add(new Contacts(4));
-		//listModel = contactsDao.findAll();
+		listModel = contactsDao.findAll();
 		return SUCCESS;
 	}
 	
