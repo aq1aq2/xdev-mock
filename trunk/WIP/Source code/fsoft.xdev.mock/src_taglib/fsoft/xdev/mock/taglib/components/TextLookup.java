@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * <!-- START SNIPPET: javadoc -->
- * Creates an Organisation List module;
+ * Creates an Text with lookup component;
  * <!-- END SNIPPET: javadoc -->
  *
  */
