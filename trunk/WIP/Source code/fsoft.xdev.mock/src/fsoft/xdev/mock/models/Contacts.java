@@ -1,5 +1,5 @@
 package fsoft.xdev.mock.models;
-// Generated Nov 29, 2011 3:23:26 PM by Hibernate Tools 3.2.1.GA
+// Generated Dec 6, 2011 8:45:37 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -30,24 +30,20 @@ public class Contacts  implements java.io.Serializable {
      private String workBase;
      private String jobTitle;
      private Boolean isActive;
-     private Set programmeses = new HashSet(0);
-     private Set directorateses = new HashSet(0);
-     private Set facilitieses = new HashSet(0);
-     private Set teamses = new HashSet(0);
-     private Set volunteerses = new HashSet(0);
+     private Set<Programmes> programmeses = new HashSet<Programmes>(0);
+     private Set<Directorates> directorateses = new HashSet<Directorates>(0);
+     private Set<Facilities> facilitieses = new HashSet<Facilities>(0);
+     private Set<Teams> teamses = new HashSet<Teams>(0);
+     private Set<Volunteers> volunteerses = new HashSet<Volunteers>(0);
 
     public Contacts() {
     }
 
 	
-    public Contacts(int contactId, String firstName, String surName, String contactType, String bestContactMethod) {
+    public Contacts(int contactId) {
         this.contactId = contactId;
-        this.firstName = firstName;
-        this.surName = surName;
-        this.contactType = contactType;
-        this.bestContactMethod = bestContactMethod;
     }
-    public Contacts(int contactId, String firstName, String surName, String knowAs, String officePhone, String mobilePhone, String sthomePhone, String emailAddress, Integer managerId, String contactType, String bestContactMethod, String jobRole, String workBase, String jobTitle, Boolean isActive, Set programmeses, Set directorateses, Set facilitieses, Set teamses, Set volunteerses) {
+    public Contacts(int contactId, String firstName, String surName, String knowAs, String officePhone, String mobilePhone, String sthomePhone, String emailAddress, Integer managerId, String contactType, String bestContactMethod, String jobRole, String workBase, String jobTitle, Boolean isActive, Set<Programmes>  programmeses, Set<Directorates> directorateses, Set<Facilities> facilitieses, Set<Teams> teamses, Set<Volunteers> volunteerses) {
        this.contactId = contactId;
        this.firstName = firstName;
        this.surName = surName;
@@ -175,39 +171,39 @@ public class Contacts  implements java.io.Serializable {
     public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
     }
-    public Set getProgrammeses() {
+    public Set<Programmes>  getProgrammeses() {
         return this.programmeses;
     }
     
-    public void setProgrammeses(Set programmeses) {
+    public void setProgrammeses(Set<Programmes>  programmeses) {
         this.programmeses = programmeses;
     }
-    public Set getDirectorateses() {
+    public Set<Directorates> getDirectorateses() {
         return this.directorateses;
     }
     
-    public void setDirectorateses(Set directorateses) {
+    public void setDirectorateses(Set<Directorates> directorateses) {
         this.directorateses = directorateses;
     }
-    public Set getFacilitieses() {
+    public Set<Facilities> getFacilitieses() {
         return this.facilitieses;
     }
     
-    public void setFacilitieses(Set facilitieses) {
+    public void setFacilitieses(Set<Facilities> facilitieses) {
         this.facilitieses = facilitieses;
     }
-    public Set getTeamses() {
+    public Set<Teams> getTeamses() {
         return this.teamses;
     }
     
-    public void setTeamses(Set teamses) {
+    public void setTeamses(Set<Teams> teamses) {
         this.teamses = teamses;
     }
-    public Set getVolunteerses() {
+    public Set<Volunteers> getVolunteerses() {
         return this.volunteerses;
     }
     
-    public void setVolunteerses(Set volunteerses) {
+    public void setVolunteerses(Set<Volunteers> volunteerses) {
         this.volunteerses = volunteerses;
     }
 

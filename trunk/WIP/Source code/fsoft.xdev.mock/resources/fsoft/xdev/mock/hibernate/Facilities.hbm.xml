@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 6, 2011 8:45:40 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="fsoft.xdev.mock.models.Facilities" table="Facilities" schema="dbo" catalog="DataMock">
+        <id name="facilityId" type="int">
+            <column name="FacilityID" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select">
+            <column name="ContactID" not-null="true" />
+        </many-to-one>
+        <property name="facilityType" type="java.lang.Integer">
+            <column name="FacilityType" />
+        </property>
+        <property name="facilityDescription" type="string">
+            <column name="FacilityDescription" />
+        </property>
+        <property name="roomCapacity" type="java.lang.Integer">
+            <column name="RoomCapacity" />
+        </property>
+        <property name="roomSize" type="java.lang.Integer">
+            <column name="RoomSize" />
+        </property>
+        <property name="roomConnectivity" type="java.lang.Boolean">
+            <column name="RoomConnectivity" />
+        </property>
+        <property name="equipmentAvailable" type="java.lang.Boolean">
+            <column name="EquipmentAvailable" />
+        </property>
+        <property name="roomEquipmentNotes" type="string">
+            <column name="RoomEquipmentNotes" length="250" />
+        </property>
+        <property name="connectivityType" type="java.lang.Integer">
+            <column name="ConnectivityType" />
+        </property>
+        <property name="wirelessAccessInfomation" type="string">
+            <column name="WirelessAccessInfomation" length="200" />
+        </property>
+        <property name="isActive" type="java.lang.Boolean">
+            <column name="IsActive" />
+        </property>
+        <property name="premiseId" type="java.lang.Integer">
+            <column name="PremiseID" />
+        </property>
+        <property name="facilityTypeName" type="string">
+            <column name="FacilityTypeName" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>
