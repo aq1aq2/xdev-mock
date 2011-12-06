@@ -37,7 +37,6 @@ public class ContactsDao extends HibernateDaoSupport implements IContactsDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Contacts> findAll() {
-		
 		return getHibernateTemplate().find("from Contacts");
 	}
 

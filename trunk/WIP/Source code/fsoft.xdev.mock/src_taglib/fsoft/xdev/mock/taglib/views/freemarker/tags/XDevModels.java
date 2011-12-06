@@ -33,6 +33,7 @@ public class XDevModels {
 	protected OrganisationListModel organisationList;
 	protected OrganisationInputModel organisationInput;
 	protected TextLookupModel textLookup;
+	protected ContactListModel contactList;
 
 	private ValueStack           stack;
 	private HttpServletRequest   req;
@@ -63,6 +64,13 @@ public class XDevModels {
 			textLookup = new TextLookupModel(stack, req, res);
 		}
 		return textLookup;
+	}	
+
+	public ContactListModel getContactList() {
+		if (contactList==null) {
+			contactList = new ContactListModel(stack, req, res);
+		}
+		return contactList;
 	}	
 }
 

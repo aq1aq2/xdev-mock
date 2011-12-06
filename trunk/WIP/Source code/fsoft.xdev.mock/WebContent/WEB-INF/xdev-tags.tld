@@ -6,6 +6,20 @@
 <uri>xdev-tags.tld</uri>
 
 <tag>
+	<description><![CDATA[Render ContactListTag.]]></description>
+	<name>contactList</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.ContactListTag</tag-class>
+	<body-content>empty</body-content>
+	
+	<attribute>
+      <description><![CDATA[HTML id attribute]]></description>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
 	<description><![CDATA[Render OrganisationListTag.]]></description>
 	<name>organisationList</name>
 	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.OrganisationListTag</tag-class>
