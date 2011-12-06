@@ -1,14 +1,11 @@
 package fsoft.xdev.mock.actions.contact;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.IContactsDao;
-import fsoft.xdev.mock.dao.imp.ContactsDao;
 import fsoft.xdev.mock.models.Contacts;
 
 public class ContactAction extends ActionSupport {
@@ -29,6 +26,13 @@ public class ContactAction extends ActionSupport {
 		System.out.println("Action: List contact");
 		listModel = contactsDao.findAll();
 		return SUCCESS;
+	}
+	
+	public String save() {
+		System.out.println("Action: save contact");
+		System.out.println("Contact name: " + contact.getFirstName());
+		contactsDao.add(contact);
+		return "save";
 	}
 	
 	public void setContactsDao(IContactsDao contactsDao) {
