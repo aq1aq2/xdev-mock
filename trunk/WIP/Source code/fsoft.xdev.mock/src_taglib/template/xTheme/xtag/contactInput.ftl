@@ -18,6 +18,10 @@
 			<@xdev.textLookup name="managerName" label="Manager Name" isXField=true/>
 			<@s.select name="contactType" label="Contact Type" list="{}" required="true" isXField=true/>
 			<@s.select name="bestContactMethod" label="Best Contact Method" list="{}" isXField=true/>
+			<@s.textfield name="jobRole" label="Job Role" isXField=true/>
+			<@s.textfield name="workbase" label="Workbase" isXField=true/>
+			<@s.textfield name="jobTitle" label="Job Title" isXField=true/>
+			<@s.checkbox name="isActive" label="Is Active?" isXField=true/>
 		</form>
 		<div class="clear"></div>
 	</div>
