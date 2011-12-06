@@ -1,6 +1,6 @@
 <script>
 	function openOrganisationInput() {
-		window.location.href = "organisationInputTemplate.action";
+		alert(${parameters.id});
 	}
 </script>
 
@@ -11,7 +11,8 @@
 	
 	<div class="xdev-window-header">
 		<@sj.a id="${id!}_saveBtn" 
-			button="true" 
+			button="true"
+			onclick="openOrganisationInput();"
 		>Save</@sj.a>
 		
 		<@sj.a id="${id!}_backBtn" 
@@ -26,12 +27,9 @@
 			
 			<#-- Details 1 -->
 			<div class="xdev-window-body-sub" id="details1">
-					<@s.textfield name="organisationName" label="Organisation Name" required="true"/>
-					<@s.textarea name="organisationDesc" label="Organisation Short Description" cols="12" rows="3" required="true"/>
-					<@s.textfield name="leadContact" label="Lead Contact" readonly="true"/>
-					<@sj.a id="managerLookup" 
-					>lookup</@sj.a>
-					<@xdev.textLookup label="abc"/>
+					<@s.textfield name="organisationName" label="Organisation Name" required="true" isXField=true/>
+					<@s.textarea name="organisationDesc" label="Organisation Short Description" cols="12" rows="3" required="true" isXField=true/>
+					<@xdev.textLookup name="leadContact" label="Lead Contact" readonly="true" isXField=true/>
 				<div class="clear"></div>
 			</div>
 			

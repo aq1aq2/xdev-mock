@@ -1,9 +1,3 @@
-<script>
-	function openOrganisationInput() {
-		window.location.href = "organisationInputTemplate.action";
-	}
-</script>
-
 <div class="xdev-window" id="${id!}" >
 	<div class="xdev-window-title">
 		<h1>Organisation List</h1>
