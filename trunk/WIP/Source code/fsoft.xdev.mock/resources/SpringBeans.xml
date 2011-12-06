@@ -9,9 +9,10 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="config/spring/TransactionManager.xml"/>
 
 	<!-- Beans Declaration -->
-	
-	<!-- <import resource="fsoft/xdev/mock/spring/AddressesBean.xml"/>
-	<import resource="fsoft/xdev/mock/spring/ContactsBean.xml"/>
+
+	<import resource="fsoft/xdev/mock/spring/ContactsBean.xml"/>	
+	<!-- 
+	<import resource="fsoft/xdev/mock/spring/AddressesBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/CountiesBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/CountriesBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/DepartmentsBean.xml"/>
@@ -32,7 +33,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="fsoft/xdev/mock/spring/TrustDistrictsBean.xml"/>	
 	<import resource="fsoft/xdev/mock/spring/TypeOfBusinessBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/UsersBean.xml"/>
-	<import resource="fsoft/xdev/mock/spring/VolunteersBean.xml"/>	 -->
+	<import resource="fsoft/xdev/mock/spring/VolunteersBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/TrustRegionsBean.xml"/>
+	-->
 
 </beans>

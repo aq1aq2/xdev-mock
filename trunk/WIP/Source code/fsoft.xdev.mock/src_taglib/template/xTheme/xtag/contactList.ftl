@@ -43,11 +43,11 @@
 	        autowidth="true"
 	        pager="true"
 	    >
-	        <@sjg.gridColumn name="name" index="name" title="Contact Name" sortable="true"/>
-	        <@sjg.gridColumn name="phone" index="phone" title="Mobile Phone" sortable="true"/>
-	        <@sjg.gridColumn name="email" index="email" title="Email" sortable="true"/>
-	        <@sjg.gridColumn name="type" index="type" title="Contact Type" sortable="true"/>
-	        <@sjg.gridColumn name="isActive" index="isActive" title="Is Active?" sortable="true"/>
+	        <@sjg.gridColumn name="contactName" index="firstName" title="Contact Name" sortable="true"/>
+	        <@sjg.gridColumn name="mobilePhone" index="mobilePhone" title="Mobile Phone" sortable="true"/>
+	        <@sjg.gridColumn name="email" index="emailAddress" title="Email" sortable="true"/>
+	        <@sjg.gridColumn name="contactType" index="contactType" title="Contact Type" sortable="true"/>
+	        <#-- <@sjg.gridColumn name="isActive" index="isActive" title="Is Active?" sortable="true"/> -->
 	    </@sjg.grid>
 	</div>
 	

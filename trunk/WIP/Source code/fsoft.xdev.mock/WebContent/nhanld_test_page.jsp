@@ -20,9 +20,7 @@
 		</div>
 		
 		<div class="xdev-content">
-			<xdev:organisationList id="xOrgList"/>
-			<xdev:organisationInput id="xOrgInput"/>
-			<xdev:organisationInput id="xOrgInput2"/>
+			<xdev:contactList id="myCtList"/>
 		</div>
 		
 		<div class="xdev-footer">

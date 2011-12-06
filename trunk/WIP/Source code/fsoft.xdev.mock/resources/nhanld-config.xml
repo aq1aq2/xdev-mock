@@ -4,23 +4,10 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
     <!-- Configuration Information Created by NhanLD -->
-    <package name="nhanld" namespace="/pages" extends="struts-default">
-    	<!-- Sample action declaration -->
-    	<action name="openOrganisationList" class="fsoft.xdev.mock.actions.PrototypeAction">
-    		<result name="success">/prototype_organisationList.jsp</result>
-    	</action>
-    	
-    	<action name="openOrganisationInput" class="fsoft.xdev.mock.actions.PrototypeAction">
-    		<result name="success">/prototype_organisationInput.jsp</result>
-    	</action>
-    	
-    	<!-- Sample action declaration -->
-    	<action name="openContactList" class="contactAction">
-    		<result name="success">/prototype_contactList.jsp</result>
-    	</action>
-    	
-    	<action name="openContactInput" class="contactAction">
-    		<result name="success">/prototype_contactInput.jsp</result>
+    <package name="nhanld" extends="struts-default,json-default">
+    
+    	<action name="*Contact" method="{1}" class="contactAction">
+    		<result name="success" type="json"></result>
     	</action>
    	</package>
 </struts>
