@@ -20,7 +20,7 @@
         <property name="isActive" type="java.lang.Boolean">
             <column name="IsActive" />
         </property>
-        <set name="organisationProgrammes" inverse="true">
+        <set name="organisationProgrammes" inverse="true" lazy="false">
             <key>
                 <column name="ProgrammeID" />
             </key>

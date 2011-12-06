@@ -14,7 +14,7 @@
         <property name="name" type="string">
             <column name="Name" length="100" />
         </property>
-        <set name="addresseses" inverse="true">
+        <set name="addresseses" inverse="true" lazy="false">
             <key>
                 <column name="TownID" />
             </key>

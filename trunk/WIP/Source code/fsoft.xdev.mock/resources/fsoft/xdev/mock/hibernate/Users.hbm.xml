@@ -20,7 +20,7 @@
         <property name="permission" type="java.lang.Integer">
             <column name="Permission" />
         </property>
-        <set name="supportingMaterialses" inverse="true">
+        <set name="supportingMaterialses" inverse="true" lazy="false">
             <key>
                 <column name="UserID" />
             </key>
