@@ -107,13 +107,13 @@
             </key>
             <one-to-many class="fsoft.xdev.mock.models.OrganisationService" />
         </set>
-        <set name="organisationProgrammes" inverse="true">
+        <set name="organisationProgrammes" inverse="true" lazy="false">
             <key>
                 <column name="OrganisationID" />
             </key>
             <one-to-many class="fsoft.xdev.mock.models.OrganisationProgramme" />
         </set>
-        <set name="supportingMaterialses" inverse="true">
+        <set name="supportingMaterialses" inverse="true" lazy="false">
             <key>
                 <column name="OrganisationID" />
             </key>

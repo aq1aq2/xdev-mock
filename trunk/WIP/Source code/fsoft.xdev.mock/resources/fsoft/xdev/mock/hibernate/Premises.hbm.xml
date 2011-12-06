@@ -146,7 +146,7 @@
         <property name="isActive" type="java.lang.Boolean">
             <column name="IsActive" />
         </property>
-        <set name="servicePremises" inverse="true">
+        <set name="servicePremises" inverse="true" lazy="false">
             <key>
                 <column name="PremiseID" />
             </key>

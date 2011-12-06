@@ -65,7 +65,7 @@
         <property name="isActive" type="boolean">
             <column name="IsActive" not-null="true" />
         </property>
-        <set name="teamses" inverse="true">
+        <set name="teamses" inverse="true" lazy="false">
             <key>
                 <column name="DepartmentID" />
             </key>

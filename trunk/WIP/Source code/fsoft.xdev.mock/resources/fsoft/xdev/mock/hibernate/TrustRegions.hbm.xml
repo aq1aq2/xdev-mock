@@ -20,7 +20,7 @@
         <property name="isActive" type="java.lang.Boolean">
             <column name="IsActive" />
         </property>
-        <set name="trustDistrictses" inverse="true">
+        <set name="trustDistrictses" inverse="true" lazy="false">
             <key>
                 <column name="TrustRegionID" />
             </key>
