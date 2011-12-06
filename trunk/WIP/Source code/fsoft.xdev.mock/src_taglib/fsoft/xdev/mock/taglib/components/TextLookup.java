@@ -20,11 +20,18 @@ public class TextLookup extends TextField {
     public static final String TEMPLATE = "textlookup";
     public static final String COMPONENT_NAME = TextLookup.class.getName();
     
-    public TextLookup(ValueStack stack, HttpServletRequest request, HttpServletResponse response) {
+    protected String lookuptype;
+    
+	public TextLookup(ValueStack stack, HttpServletRequest request, HttpServletResponse response) {
         super(stack, request, response);
     }
 
     protected String getDefaultTemplate() {
         return TEMPLATE;
     }
+
+    public void setLookuptype(String lookuptype) {
+		this.lookuptype = lookuptype;
+	}
+
 }

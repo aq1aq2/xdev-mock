@@ -22,5 +22,8 @@
 -->
 <#-- Only remove tr, td tag -->
 ${parameters.after?if_exists}<#t/>
-</div>
+<#if parameters.isXField!false>
+	</div>
+</#if>
+
 
