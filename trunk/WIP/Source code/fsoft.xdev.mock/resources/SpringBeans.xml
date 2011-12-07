@@ -10,7 +10,10 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<!-- Beans Declaration -->
 
-	<import resource="fsoft/xdev/mock/spring/ContactsBean.xml"/>	
+	<import resource="fsoft/xdev/mock/spring/ContactsBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/GovtOfficeRegionsBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/TrustDistrictsBean.xml"/>	
+	<import resource="fsoft/xdev/mock/spring/TrustRegionsBean.xml"/>
 	<!-- 
 	<import resource="fsoft/xdev/mock/spring/AddressesBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/CountiesBean.xml"/>
@@ -18,7 +21,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="fsoft/xdev/mock/spring/DepartmentsBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/DirectoratesBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/FacilitiesBean.xml"/>
-	<import resource="fsoft/xdev/mock/spring/GovtOfficeRegionsBean.xml"/>
+	
 	<import resource="fsoft/xdev/mock/spring/Organisation_ProgrammeBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/Organisation_ServiceBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/OrganisationsBean.xml"/>
@@ -30,11 +33,11 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="fsoft/xdev/mock/spring/SupportingMaterialsBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/TeamsBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/TownsBean.xml"/>
-	<import resource="fsoft/xdev/mock/spring/TrustDistrictsBean.xml"/>	
+		
 	<import resource="fsoft/xdev/mock/spring/TypeOfBusinessBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/UsersBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/VolunteersBean.xml"/>
-	<import resource="fsoft/xdev/mock/spring/TrustRegionsBean.xml"/>
+	
 	-->
 
 </beans>
