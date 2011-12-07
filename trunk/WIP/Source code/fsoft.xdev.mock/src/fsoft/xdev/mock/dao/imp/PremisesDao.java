@@ -1,10 +1,12 @@
 package fsoft.xdev.mock.dao.imp;
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IPremisesDao;
 import fsoft.xdev.mock.models.Premises;
 
-public class PremisesDao implements IPremisesDao{
+public class PremisesDao extends HibernateDaoSupport implements IPremisesDao{
 
 	@Override
 	public boolean add(Premises entity) {
