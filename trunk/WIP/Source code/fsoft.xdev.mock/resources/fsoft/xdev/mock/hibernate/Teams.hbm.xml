@@ -8,13 +8,13 @@
             <column name="TeamID" />
             <generator class="native" />
         </id>
-        <many-to-one name="departments" class="fsoft.xdev.mock.models.Departments" fetch="select">
+        <many-to-one name="departments" class="fsoft.xdev.mock.models.Departments" fetch="select" lazy="false">
             <column name="DepartmentID" />
         </many-to-one>
-        <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select">
+        <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select" lazy="false">
             <column name="ContactID" />
         </many-to-one>
-        <many-to-one name="typeOfBusiness" class="fsoft.xdev.mock.models.TypeOfBusiness" fetch="select">
+        <many-to-one name="typeOfBusiness" class="fsoft.xdev.mock.models.TypeOfBusiness" fetch="select" lazy="false">
             <column name="TypeOfBusinessID" />
         </many-to-one>
         <property name="name" type="string">

@@ -8,7 +8,7 @@
             <column name="TrustRegionID" />
             <generator class="native" />
         </id>
-        <many-to-one name="countries" class="fsoft.xdev.mock.models.Countries" fetch="select">
+        <many-to-one name="countries" class="fsoft.xdev.mock.models.Countries" fetch="select" lazy="false">
             <column name="CountryID" />
         </many-to-one>
         <property name="name" type="string">
