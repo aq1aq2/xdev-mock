@@ -54,18 +54,6 @@
 		</div>
 		
 		<div class="xdev-sub">
-			<@sj.a id="${id!}_searchBtn" 
-				button="true" 
-			>Search Contact</@sj.a>
-			
-			<@sj.a id="${id!}_noneBtn" 
-				button="true" 
-			>None</@sj.a>
-			
-			<@sj.a id="${id!}_clearBtn" 
-				button="true" 
-			>Clear</@sj.a>
-			
 			<@sj.a id="${id!}_createBtn" 
 				button="true" 
 			>Create</@sj.a>
