@@ -18,7 +18,8 @@
 		<form id="${id!}_form1">
 			<@s.textfield name="trustDistric.trustRegions.name" label="Frist Name" readonly = "true" isXField=true/><br>
 			<@s.textfield name="trustDistric.name" label="Trust Distric Name" required="true" isXField=true/><br>
-			<@s.textfield name="trustDistric.description" label="Description" isXField=true/>
+			<@s.textarea name="trustDistric.description" label="TDescription" cols="12" rows="3" isXField=true/><br>
+			
 		</form>
 		<div class="clear"></div>
 	</div>
