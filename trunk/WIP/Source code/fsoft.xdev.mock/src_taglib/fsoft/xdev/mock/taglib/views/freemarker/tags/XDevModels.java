@@ -26,15 +26,22 @@ import com.opensymphony.xwork2.util.ValueStack;
 
 /**
  * 
- * @author <a href="http://www.jgeppert.com">Johannes Geppert</a>
+ * @author nhanld</a>
  * 
  */
 public class XDevModels {
+	protected TextLookupModel textLookup;
+	
 	protected OrganisationListModel organisationList;
 	protected OrganisationInputModel organisationInput;
-	protected TextLookupModel textLookup;
 	protected ContactListModel contactList;
 	protected ContactInputModel contactInput;
+	protected TrustRegionListModel trustRegionList;
+	protected TrustRegionInputModel trustRegionInput;
+	protected TrustDistrictListModel trustDistrictList;
+	protected TrustDistrictInputModel trustDistrictInput;
+	protected GovOfficeListModel govOfficeList;
+	protected GovOfficeInputModel govOfficeInput;
 
 	private ValueStack           stack;
 	private HttpServletRequest   req;
@@ -45,6 +52,13 @@ public class XDevModels {
 		this.req = req;
 		this.res = res;
 	}
+
+	public TextLookupModel getTextLookup() {
+		if (textLookup==null) {
+			textLookup = new TextLookupModel(stack, req, res);
+		}
+		return textLookup;
+	}	
 
 	public OrganisationListModel getOrganisationList() {
 		if (organisationList==null) {
@@ -60,13 +74,6 @@ public class XDevModels {
 		return organisationInput;
 	}
 
-	public TextLookupModel getTextLookup() {
-		if (textLookup==null) {
-			textLookup = new TextLookupModel(stack, req, res);
-		}
-		return textLookup;
-	}	
-
 	public ContactListModel getContactList() {
 		if (contactList==null) {
 			contactList = new ContactListModel(stack, req, res);
@@ -79,6 +86,48 @@ public class XDevModels {
 			contactInput = new ContactInputModel(stack, req, res);
 		}
 		return contactInput;
+	}
+
+	public TrustRegionListModel getTrustRegionList() {
+		if (trustRegionList==null) {
+			trustRegionList = new TrustRegionListModel(stack, req, res);
+		}
+		return trustRegionList;
+	}
+
+	public TrustRegionInputModel getTrustRegionInput() {
+		if (trustRegionInput==null) {
+			trustRegionInput = new TrustRegionInputModel(stack, req, res);
+		}
+		return trustRegionInput;
+	}
+
+	public TrustDistrictListModel getTrustDistrictList() {
+		if (trustDistrictList==null) {
+			trustDistrictList = new TrustDistrictListModel(stack, req, res);
+		}
+		return trustDistrictList;
+	}
+
+	public TrustDistrictInputModel getTrustDistrictInput() {
+		if (trustDistrictInput==null) {
+			trustDistrictInput = new TrustDistrictInputModel(stack, req, res);
+		}
+		return trustDistrictInput;
+	}
+
+	public GovOfficeListModel getGovOfficeList() {
+		if (govOfficeList==null) {
+			govOfficeList = new GovOfficeListModel(stack, req, res);
+		}
+		return govOfficeList;
+	}
+
+	public GovOfficeInputModel getGovOfficeInput() {
+		if (govOfficeInput==null) {
+			govOfficeInput = new GovOfficeInputModel(stack, req, res);
+		}
+		return govOfficeInput;
 	}
 }
 

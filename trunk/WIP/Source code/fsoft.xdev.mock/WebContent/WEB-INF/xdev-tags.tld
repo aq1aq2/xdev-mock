@@ -20,6 +20,104 @@
 </tag>
 
 <tag>
+	<description><![CDATA[Render ContactInputTag.]]></description>
+	<name>contactInput</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.ContactInputTag</tag-class>
+	<body-content>empty</body-content>
+	
+	<attribute>
+      <description><![CDATA[HTML id attribute]]></description>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<description><![CDATA[Render TrustRegionListTag.]]></description>
+	<name>trustRegionList</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.TrustRegionListTag</tag-class>
+	<body-content>empty</body-content>
+	
+	<attribute>
+      <description><![CDATA[HTML id attribute]]></description>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<description><![CDATA[Render TrustRegionInputTag.]]></description>
+	<name>trustRegionInput</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.TrustRegionInputTag</tag-class>
+	<body-content>empty</body-content>
+	
+	<attribute>
+      <description><![CDATA[HTML id attribute]]></description>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<description><![CDATA[Render TrustDistrictListTag.]]></description>
+	<name>trustDistrictList</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.TrustDistrictListTag</tag-class>
+	<body-content>empty</body-content>
+	
+	<attribute>
+      <description><![CDATA[HTML id attribute]]></description>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<description><![CDATA[Render TrustDistrictInputTag.]]></description>
+	<name>trustDistrictInput</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.TrustDistrictInputTag</tag-class>
+	<body-content>empty</body-content>
+	
+	<attribute>
+      <description><![CDATA[HTML id attribute]]></description>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<description><![CDATA[Render GovOfficeListTag.]]></description>
+	<name>govOfficeList</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.GovOfficeListTag</tag-class>
+	<body-content>empty</body-content>
+	
+	<attribute>
+      <description><![CDATA[HTML id attribute]]></description>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<description><![CDATA[Render GovOfficeInputTag.]]></description>
+	<name>govOfficeInput</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.GovOfficeInputTag</tag-class>
+	<body-content>empty</body-content>
+	
+	<attribute>
+      <description><![CDATA[HTML id attribute]]></description>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
 	<description><![CDATA[Render OrganisationListTag.]]></description>
 	<name>organisationList</name>
 	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.OrganisationListTag</tag-class>
