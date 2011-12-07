@@ -15,7 +15,7 @@
 			<@s.textfield name="contact.mobilePhone" label="Mobile Phone" isXField=true/>
 			<@s.textfield name="contact.homePhone" label="ST Home Phone" isXField=true/>
 			<@s.textfield name="contact.emailAddress" label="Email Address" isXField=true/>
-			<@xdev.textLookup name="contact.managerName" label="Manager Name" isXField=true/>
+			<@xdev.textLookup name="contact.managerName" id="${id!}_managerLookup" label="Manager Name" isXField=true/>
 			<@s.select name="contact.contactType" label="Contact Type" list="{'sample data test'}" required="true" isXField=true/>
 			<@s.select name="contact.bestContactMethod" label="Best Contact Method" list="{'sample data test'}" isXField=true/>
 			<@s.textfield name="contact.jobRole" label="Job Role" isXField=true/>

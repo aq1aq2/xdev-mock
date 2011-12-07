@@ -20,7 +20,7 @@ public class TextLookup extends TextField {
     public static final String TEMPLATE = "textlookup";
     public static final String COMPONENT_NAME = TextLookup.class.getName();
     
-    protected String lookuptype;
+    protected String lookupType; // Dialog type ?????
     
 	public TextLookup(ValueStack stack, HttpServletRequest request, HttpServletResponse response) {
         super(stack, request, response);
@@ -31,7 +31,7 @@ public class TextLookup extends TextField {
     }
 
     public void setLookuptype(String lookuptype) {
-		this.lookuptype = lookuptype;
+		this.lookupType = lookuptype;
 	}
 
 }
