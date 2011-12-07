@@ -11,7 +11,7 @@
         <property name="name" type="string">
             <column name="Name" length="100" />
         </property>
-        <set name="countieses" inverse="true">
+        <set name="countieses" inverse="true" lazy="false">
             <key>
                 <column name="CountryID" />
             </key>
