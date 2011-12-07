@@ -1,39 +1,45 @@
 package fsoft.xdev.mock.dao.imp;
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.ITrustDistrictsDao;
 import fsoft.xdev.mock.models.TrustDistricts;
 
-public class TrustDistrictsDao implements ITrustDistrictsDao{
+public class TrustDistrictsDao extends HibernateDaoSupport implements ITrustDistrictsDao{
 
 	@Override
 	public boolean add(TrustDistricts entity) {
-		// TODO Auto-generated method stub
+		
+		getHibernateTemplate().save(entity);	
 		return false;
 	}
 
 	@Override
 	public boolean edit(TrustDistricts entity) {
-		// TODO Auto-generated method stub
+		
+		getHibernateTemplate().update(entity);
 		return false;
 	}
 
 	@Override
 	public boolean remove(TrustDistricts entity) {
-		// TODO Auto-generated method stub
+		
+		getHibernateTemplate().delete(entity);
 		return false;
 	}
 
 	@Override
 	public TrustDistricts find(TrustDistricts entity) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return (TrustDistricts)getHibernateTemplate().get(TrustDistricts.class, entity.getTrustDistrictId());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<TrustDistricts> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getHibernateTemplate().find("from TrustDistricts");
 	}
 
 	@Override
