@@ -1,6 +1,6 @@
 <script>
-	
 	$(document).ready(function(){
+
 		function add(parentId, dialogId) {
 		
 			$('#'+dialogId+'_saveBtn').click(function(){
@@ -16,7 +16,7 @@
 				});			
 				query = query.substring(0, query.length-1);
 				// Get json
-				$.getJSON("saveContact.action?" + query,
+				$.getJSON("saveTrustDistrict.action?" + query,
 					function(data) {
 						// Do nothing
 						// alert("reload_" + parentId + "_listURL");
@@ -26,25 +26,25 @@
 				);
 			});
 		}
-
-		$('#${id!}_contactInput').hide();
+		
+		$('#${id!}_trustDistrictInput').hide();
 		
 		$('#${id!}_createBtn').click(function(){
-			$('#${id!}_contactInput').show();
+			$('#${id!}_trustDistrictInput').show();
 		});
 		
 		$('#${id!}_includeChkBx').click(function(){
 			alert("click include in-active");
 		});
 		
-		add("${id!}", "${id!}_contactInput");
+		add("${id!}", "${id!}_trustDistrictInput");
 	});
 
 </script>
 
 <div class="xdev-window" id="${id!}" >
 	<div class="xdev-window-title">
-		<h1>Contact List</h1>
+		<h1>Trust Distric List</h1>
 	</div>
 	
 	<div class="xdev-window-header">
@@ -78,22 +78,21 @@
 	<div class="xdev-window-body" >
 	
 		<#-- Grid here -->
-		<@s.url id="${id!}_listURL" action="listContact.action"></@s.url>
+		<@s.url id="${id!}_listURL" action="listTrustDistrict.action"></@s.url>
 		<@sjg.grid
 	        id="${id!}_gridtable"
 	        dataType="json"
 	        href="%{${id!}_listURL}"
-	        gridModel="listModel"
+	        gridModel="listTrustDistrict"
 	        autowidth="true"
 	        pager="true"
     		rowNum="100"
     		rownumbers="true"
 	    >
-	        <@sjg.gridColumn name="firstName" index="firstName" title="Contact Name" sortable="true"/>
-	        <@sjg.gridColumn name="mobilePhone" index="mobilePhone" title="Mobile Phone" sortable="true"/>
-	        <@sjg.gridColumn name="emailAddress" index="emailAddress" title="Email" sortable="true"/>
-	        <@sjg.gridColumn name="contactType" index="contactType" title="Contact Type" sortable="true"/>
-	        <@sjg.gridColumn name="isActive" index="isActive" title="Is Active?" sortable="true"/>
+	    	<@sjg.gridColumn name="name" index="name" title="District Name" sortable="true"/>
+	    	<@sjg.gridColumn name="description" index="description" title="Description" sortable="true"/>
+	    	<@sjg.gridColumn name="trustRegions.name" index="trustRegions" title="Region" sortable="true"/>
+	    	<@sjg.gridColumn name="isActive" index="isActive" title="Is Active?" sortable="true"/>
 	    </@sjg.grid>
 	    
 	</div>
@@ -112,5 +111,6 @@
 		>Close</@sj.a>
 	</div>
 	
-	<@xdev.contactInput id="${id!}_contactInput"/>
+	<@xdev.trustDistrictInput id="${id!}_trustDistrictInput"/>
+	
 </div>
