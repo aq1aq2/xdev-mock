@@ -8,7 +8,7 @@
             <column name="VolunteerID" />
             <generator class="native" />
         </id>
-        <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select">
+        <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select" lazy="false">
             <column name="ContactID" />
         </many-to-one>
         <property name="volunteerPurpose" type="string">

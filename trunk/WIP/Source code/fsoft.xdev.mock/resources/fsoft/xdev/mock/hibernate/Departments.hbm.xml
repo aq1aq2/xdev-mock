@@ -8,7 +8,7 @@
             <column name="DepartmentID" />
             <generator class="native" />
         </id>
-        <many-to-one name="directorates" class="fsoft.xdev.mock.models.Directorates" fetch="select">
+        <many-to-one name="directorates" class="fsoft.xdev.mock.models.Directorates" fetch="select" lazy="false">
             <column name="DirectorateID" not-null="true" />
         </many-to-one>
         <property name="name" type="string">

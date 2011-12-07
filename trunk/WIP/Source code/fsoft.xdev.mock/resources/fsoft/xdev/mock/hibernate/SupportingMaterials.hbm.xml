@@ -8,10 +8,10 @@
             <column name="SupportingMaterialID" />
             <generator class="native" />
         </id>
-        <many-to-one name="organisations" class="fsoft.xdev.mock.models.Organisations" fetch="select">
+        <many-to-one name="organisations" class="fsoft.xdev.mock.models.Organisations" fetch="select" lazy="false">
             <column name="OrganisationID" />
         </many-to-one>
-        <many-to-one name="users" class="fsoft.xdev.mock.models.Users" fetch="select">
+        <many-to-one name="users" class="fsoft.xdev.mock.models.Users" fetch="select" lazy="false">
             <column name="UserID" />
         </many-to-one>
         <property name="url" type="string">

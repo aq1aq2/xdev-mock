@@ -8,7 +8,7 @@
             <column name="OrganisationID" />
             <generator class="native" />
         </id>
-        <many-to-one name="trustDistricts" class="fsoft.xdev.mock.models.TrustDistricts" fetch="select">
+        <many-to-one name="trustDistricts" class="fsoft.xdev.mock.models.TrustDistricts" fetch="select" lazy="false">
             <column name="TrustDistrictID" />
         </many-to-one>
         <property name="name" type="string">
