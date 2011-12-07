@@ -1,15 +1,28 @@
 package fsoft.xdev.mock.dao.imp;
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IGovtOfficeRegionsDao;
 import fsoft.xdev.mock.models.GovtOfficeRegions;
 
-public class GovtOfficeRegionsDao implements IGovtOfficeRegionsDao{
+public class GovtOfficeRegionsDao extends HibernateDaoSupport implements IGovtOfficeRegionsDao{
 
 	@Override
 	public boolean add(GovtOfficeRegions entity) {
+		//if flag = true -> add successfull
+		boolean flag = false;
 		// TODO Auto-generated method stub
-		return false;
+		try {
+			getHibernateTemplate().save(entity);
+			flag = true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Ban bi sai o ham add() trong lop GovtOfficeRegionDao: "+e.getMessage());
+			e.printStackTrace();
+		}
+		return flag;
 	}
 
 	@Override
