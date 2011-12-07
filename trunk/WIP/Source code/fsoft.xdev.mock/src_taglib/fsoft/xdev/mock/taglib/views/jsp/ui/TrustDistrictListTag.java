@@ -8,7 +8,7 @@ import org.apache.struts2.views.jsp.ui.AbstractUITag;
 
 import com.opensymphony.xwork2.util.ValueStack;
 
-import fsoft.xdev.mock.taglib.components.TrustDistrictInput;
+import fsoft.xdev.mock.taglib.components.TrustDistrictList;
 
 
 public class TrustDistrictListTag extends AbstractUITag {
@@ -16,6 +16,6 @@ public class TrustDistrictListTag extends AbstractUITag {
 	private static final long serialVersionUID = 5577089764622677517L;
 
 	public Component getBean(ValueStack stack, HttpServletRequest req, HttpServletResponse res) {
-        return new TrustDistrictInput(stack, req, res);
+        return new TrustDistrictList(stack, req, res);
     }
 }
