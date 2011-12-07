@@ -22,23 +22,4 @@ $(document).ready(function(){
 			);
 	}
 
-	
-	$('#${id!}_contactInput').hide();
-	
-	$('#${id!}_createBtn').click(function(){
-		$('#${id!}_contactInput').show();
-	});
-	
-	$('#${id!}_includeChkBx').click(function(){
-		alert("click include in-active");
-	});
-	
-	$.subscribe('refreshContactList', function(event,data) {
-		$.publish('reloadContactList');	
-	});
-	
-	$(function(){
-		$('#'+dialogId+'_saveBtn').click(add("${id!}", "${id!}_contactInput"));
-	});
-	
 });

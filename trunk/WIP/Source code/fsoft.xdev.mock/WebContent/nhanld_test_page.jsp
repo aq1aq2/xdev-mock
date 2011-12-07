@@ -10,7 +10,6 @@
 	<title>Organisation</title>
 	<sj:head jqueryui="true" jquerytheme="smoothness"/>
 	<link rel="stylesheet" href="css/xdev.css" type="text/css" media="all" />
-	
 </head>
 
 <body>

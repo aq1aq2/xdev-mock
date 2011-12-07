@@ -26,12 +26,10 @@
 		<div class="clear"></div>
 	</div>
 	
-	
 	<div class="xdev-window-footer">
 		<@sj.a id="${id!}_saveBtn"
 			dataType="json"
 			button="true"
-			onClickTopics="refreshContactList" 
 		>
 		Save</@sj.a>
 		
