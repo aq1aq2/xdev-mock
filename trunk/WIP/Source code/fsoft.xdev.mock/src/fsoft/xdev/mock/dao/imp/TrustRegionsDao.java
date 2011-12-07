@@ -1,14 +1,16 @@
 package fsoft.xdev.mock.dao.imp;
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.ITrustRegionsDao;
 import fsoft.xdev.mock.models.TrustRegions;
 
-public class TrustRegionsDao implements ITrustRegionsDao{
+public class TrustRegionsDao extends HibernateDaoSupport implements ITrustRegionsDao{
 
 	@Override
 	public boolean add(TrustRegions entity) {
-		// TODO Auto-generated method stub
+		getHibernateTemplate().save(entity);
 		return false;
 	}
 
@@ -31,9 +33,8 @@ public class TrustRegionsDao implements ITrustRegionsDao{
 	}
 
 	@Override
-	public List<TrustRegions> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<TrustRegions> findAll() {		
+		return getHibernateTemplate().find("from TrustRegions");
 	}
 
 	@Override
