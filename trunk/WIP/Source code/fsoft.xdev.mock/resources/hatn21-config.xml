@@ -14,9 +14,9 @@
     		<result name="list" type="json"></result> 
     		<result name="add" type="json"></result>      		
     	</action>
-    			   			  		             	
+    			  	  		             	
     	<action name="*GovernmentOfficeRegion" method ="{1}" class="goverOfficeRegionsAction">
-    		<result name="list" type="json"></result>     		
+    		<result name="success" type="json"></result>     		
     	</action> 
     	<action name="*BusinessType" method ="{1}" class="fsoft.xdev.mock.actions.test.businesslookup.TestBusinessTypeAction">
     		<result name="list" type="json"></result>     				

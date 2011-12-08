@@ -16,7 +16,7 @@
 				});			
 				query = query.substring(0, query.length-1);
 				// Get json
-				$.getJSON("saveTrustDistrict.action?" + query,
+				$.getJSON("saveGovOffice.action?" + query,
 					function(data) {
 						// Do nothing
 						// alert("reload_" + parentId + "_listURL");
@@ -27,17 +27,17 @@
 			});
 		}
 		
-		$('#${id!}_trustDistrictInput').hide();
+		$('#${id!}_govOfficeInput').hide();
 		
 		$('#${id!}_createBtn').click(function(){
-			$('#${id!}_trustDistrictInput').show();
+			$('#${id!}_govOfficeInput').show();
 		});
 		
 		$('#${id!}_includeChkBx').click(function(){
 			alert("click include in-active");
 		});
 		
-		add("${id!}", "${id!}_trustDistrictInput");
+		add("${id!}", "${id!}_govOfficeInput");
 	});
 
 </script>

@@ -1,4 +1,5 @@
 package fsoft.xdev.mock.dao.imp;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
@@ -11,18 +12,9 @@ public class GovtOfficeRegionsDao extends HibernateDaoSupport implements IGovtOf
 
 	@Override
 	public boolean add(GovtOfficeRegions entity) {
-		//if flag = true -> add successfull
-		boolean flag = false;
-		// TODO Auto-generated method stub
-		try {
-			getHibernateTemplate().save(entity);
-			flag = true;
-		} catch (DataAccessException e) {
-			// TODO Auto-generated catch block
-			System.out.println("Ban bi sai o ham add() trong lop GovtOfficeRegionDao: "+e.getMessage());
-			e.printStackTrace();
-		}
-		return flag;
+		getHibernateTemplate().save(entity);
+		return true;
+
 	}
 
 	@Override
@@ -46,9 +38,15 @@ public class GovtOfficeRegionsDao extends HibernateDaoSupport implements IGovtOf
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<GovtOfficeRegions> findAll() {
+		List<GovtOfficeRegions> listGovernmentOfficeRegion = new ArrayList<GovtOfficeRegions>();
 		// TODO Auto-generated method stub
-		
-		return getHibernateTemplate().find("from GovtOfficeRegions");
+		try{
+			listGovernmentOfficeRegion = getHibernateTemplate().find("from GovtOfficeRegions");
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("loi ne: "+e.getMessage());
+		}
+		return listGovernmentOfficeRegion;
 	}
 
 	@Override
