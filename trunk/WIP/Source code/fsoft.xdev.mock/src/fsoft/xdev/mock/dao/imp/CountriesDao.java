@@ -1,11 +1,13 @@
 package fsoft.xdev.mock.dao.imp;
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.ICountriesDao;
 import fsoft.xdev.mock.models.Countries;
 
 
-public class CountriesDao implements ICountriesDao{
+public class CountriesDao extends HibernateDaoSupport implements ICountriesDao{
 
 	@Override
 	public boolean add(Countries entity) {
@@ -33,8 +35,8 @@ public class CountriesDao implements ICountriesDao{
 
 	@Override
 	public List<Countries> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getHibernateTemplate().find("from Countries");
 	}
 
 	@Override
