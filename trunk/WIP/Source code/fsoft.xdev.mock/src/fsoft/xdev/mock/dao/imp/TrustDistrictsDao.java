@@ -47,5 +47,9 @@ public class TrustDistrictsDao extends HibernateDaoSupport implements ITrustDist
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public List<TrustDistricts> listFilter(String from, String to){
+		return getHibernateTemplate().find("from TrustDistricts where");
+	}
 
 }
