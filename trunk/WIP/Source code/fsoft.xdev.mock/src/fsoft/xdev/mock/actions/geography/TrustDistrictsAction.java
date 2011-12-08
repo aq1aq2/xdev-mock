@@ -15,7 +15,7 @@ public class TrustDistrictsAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	private TrustDistricts trustDistrict;
-	private ITrustDistrictsDao trustDistrictDao;									
+	private ITrustDistrictsDao trustDistrictDao;
 	private List<TrustDistricts> listTrustDistrict = new ArrayList<TrustDistricts>();
 	/**
 	 * List all Trust Distric
