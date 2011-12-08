@@ -13,7 +13,7 @@ public class Countries implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	private int countryId;
 	private String name;
-	private Set<Countries> countieses = new HashSet<Countries>(0);
+	private Set<Counties> countieses = new HashSet<Counties>(0);
 	private Set<TrustRegions> trustRegionses = new HashSet<TrustRegions>(0);
 
 	public Countries() {
@@ -23,7 +23,7 @@ public class Countries implements java.io.Serializable {
 		this.countryId = countryId;
 	}
 
-	public Countries(int countryId, String name, Set<Countries> countieses,
+	public Countries(int countryId, String name, Set<Counties> countieses,
 			Set<TrustRegions> trustRegionses) {
 		this.countryId = countryId;
 		this.name = name;
@@ -47,11 +47,11 @@ public class Countries implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public Set<Countries> getCountieses() {
+	public Set<Counties> getCountieses() {
 		return this.countieses;
 	}
 
-	public void setCountieses(Set<Countries> countieses) {
+	public void setCountieses(Set<Counties> countieses) {
 		this.countieses = countieses;
 	}
 
