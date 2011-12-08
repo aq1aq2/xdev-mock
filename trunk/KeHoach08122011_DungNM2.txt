@@ -1,0 +1,18 @@
+Ke hoach ngay 8/12/2011:
+
+1. Ban thao voi Nhan trong 30 phut
+2. Trien khai theo cac diem sau:
+- Dat moi ftl vao mot trang jsp rieng biet
+- Ap dung template cho tat ca cac trang jsp dang co
+- Xay dung mot file script. Dat no o baseLayout
+- Xay dung cac function cho cac su kien co the co trong trang web
+
+id truyen vao yeu cau can co parent id + child id cua element khoi tao event
+va cong them cac mang id cua cac element co lien quan [opt]
+
+Moi mot element trong trang deu co the gan mot su kien vao no nen cach lam nay kha thi.
+
+Hi vong den 5h chieu ngay 8/12/2011 moi viec co ban da thong nhat
+Ban giao cho cac mem khong di choi de cac ban y viet ho cho tai lieu va jquery code.
+
+Toi ve ngu som sang mai se co ke hoach khac nua :))
