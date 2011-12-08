@@ -13,17 +13,18 @@ function display (category) {
         <li><a href="homeTemplate.action">Home</a></li>
         <li><a href="organisationTemplate.action">Organisation</a></li>
         <li onmouseover="display('space')" onmouseout="display('space')">
-            <a href="serviceMaintenanceTemplate.action" >Services</a>
+            <!-- xxx404 means dead link -->
+            <a href="xxx404" >Services</a>
             <span>
-                <a href="programmeMaintenanceTemplate.action">Programme Maintenances</a> |
-                <a href="serviceMaintenanceTemplate.action">Service Maintenances</a>
+                <a href="programmeTemplate.action">Programme Maintenances</a> |
+                <a href="serviceTemplate.action">Service Maintenances</a>
             </span>
         </li>
         <li onmouseover="display('space')" onmouseout="display('space')">
-            <a href="trustRegionMaintenanceTemplate.action">Geography</a>
+            <a href="xxx404">Geography</a>
             <span>
                 <a href="trustRegionMaintenanceTemplate.action">Trust Region/Trust District Maintenances</a> |
-                <a href="trustRegionMaintenanceTemplate.action">Development</a>
+                <a href="xxx404">Government Office Region</a>
             </span>
         </li>
         <li><a href="premisesTemplate.action">Premises</a></li>

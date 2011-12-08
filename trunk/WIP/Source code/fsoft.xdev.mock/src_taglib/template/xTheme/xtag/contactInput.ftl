@@ -15,7 +15,7 @@
 			<@s.textfield name="contact.mobilePhone" label="Mobile Phone" isXField=true/>
 			<@s.textfield name="contact.homePhone" label="ST Home Phone" isXField=true/>
 			<@s.textfield name="contact.emailAddress" label="Email Address" isXField=true/>
-			<@xdev.textLookup name="contact.managerName" id="${id!}_managerLookup" label="Manager Name" isXField=true/>
+	    	<@xdev.textLookup name="contact.managerName" id="${id!}_managerLookup" label="Manager Name" isXField=true/>
 			<@s.select name="contact.contactType" label="Contact Type" list="{'sample data test'}" required="true" isXField=true/>
 			<@s.select name="contact.bestContactMethod" label="Best Contact Method" list="{'sample data test'}" isXField=true/>
 			<@s.textfield name="contact.jobRole" label="Job Role" isXField=true/>
@@ -30,11 +30,15 @@
 		<@sj.a id="${id!}_saveBtn"
 			dataType="json"
 			button="true"
+			onclick = "$.add('${id!}')"
 		>
 		Save</@sj.a>
 		
 		<@sj.a id="${id!}_backBtn" 
 			button="true" 
 		>Back</@sj.a>
+	</div>
+	
+	<div id="${id!}_contactList">
 	</div>
 </div>
