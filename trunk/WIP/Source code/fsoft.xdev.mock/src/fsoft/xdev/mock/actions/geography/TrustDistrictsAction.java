@@ -28,6 +28,8 @@ public class TrustDistrictsAction extends ActionSupport {
 	}
 	
 	public String save(){
+		System.out.println("vao day");
+		trustDistrict.setIsActive(false);
 		trustDistrictDao.add(trustDistrict);
 		System.out.println("One trust districs is added");
 		return "add";
