@@ -84,5 +84,10 @@ public class TrustRegions implements java.io.Serializable {
 	public void setTrustDistrictses(Set<TrustDistricts> trustDistrictses) {
 		this.trustDistrictses = trustDistrictses;
 	}
+	
+	@Override
+	public String toString() {
+		return name;
+	}
 
 }
