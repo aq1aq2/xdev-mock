@@ -44,7 +44,7 @@
 
 <div class="xdev-window" id="${id!}" >
 	<div class="xdev-window-title">
-		<h1>Contact List</h1>
+		<h1>Government Office Region List</h1>
 	</div>
 	
 	<div class="xdev-window-header">	
@@ -62,7 +62,7 @@
 	        id="${id!}_gridtable"
 	        dataType="json"
 	        href="%{${id!}_listURL}"
-	        gridModel="listModel"
+	        gridModel="listGovernmentOfficeRegion"
 	        autowidth="true"
 	        pager="true"
     		rowNum="100"
@@ -76,19 +76,4 @@
 	    
 	</div>
 
-	<div class="xdev-window-footer">
-		<@sj.a id="${id!}_selectBtn" 
-			button="true"
-		>Select</@sj.a>
-		
-		<@sj.a id="${id!}_editBtn" 
-			button="true"
-		>Edit</@sj.a>
-		
-		<@sj.a id="${id!}_closeBtn" 
-			button="true" 
-		>Close</@sj.a>
-	</div>
-	
-	<@xdev.contactInput id="${id!}_contactInput"/>
 </div>

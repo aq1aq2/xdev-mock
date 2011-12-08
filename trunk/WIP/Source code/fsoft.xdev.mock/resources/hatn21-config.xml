@@ -14,8 +14,8 @@
     		<result name="list" type="json"></result> 
     		<result name="add" type="json"></result>      		
     	</action>
-    	
-    	<action name="*GovermentOfficeRegion" method ="{1}" class="govtOfficeRegionsAction">
+    				             	
+    	<action name="*GovernmentOfficeRegion" method ="{1}" class="goverOfficeRegionsAction">
     		<result name="list" type="json"></result> 
     		<result name="add" type="json"></result>      		
     	</action> 

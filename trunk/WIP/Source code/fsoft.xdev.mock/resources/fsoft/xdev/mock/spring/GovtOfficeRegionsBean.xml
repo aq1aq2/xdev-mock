@@ -5,11 +5,11 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
-	<bean id="govtOfficeRegionsAction" class="fsoft.xdev.mock.actions.geography.GovtOfficeRegionsAction">
-		<property name="govtOfficeRegionsDao" ref="govtOfficeRegionsDao" />
+	<bean id="goverOfficeRegionsAction" class="fsoft.xdev.mock.actions.geography.GovtOfficeRegionsAction">
+		<property name="governmentOfficeRegionDao" ref="governmentOfficeRegionDao" />
 	</bean>
 
-	<bean id="govtOfficeRegionsDao" parent="txProxyTemplate">		
+	<bean id="governmentOfficeRegionDao" parent="txProxyTemplate">		
 		<property name="target">
     		<bean class="fsoft.xdev.mock.dao.imp.GovtOfficeRegionsDao">
         		<property name="sessionFactory" ref="sessionFactory" />
