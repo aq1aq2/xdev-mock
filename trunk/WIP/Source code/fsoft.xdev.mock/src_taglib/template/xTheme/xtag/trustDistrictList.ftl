@@ -15,6 +15,7 @@
 					query = query + str + "&";
 				});			
 				query = query.substring(0, query.length-1);
+				alert(query);
 				// Get json
 				$.getJSON("saveTrustDistrict.action?" + query,
 					function(data) {
@@ -49,8 +50,7 @@
 	
 	<div class="xdev-window-header">
 		<div class="xdev-sub">
-			<@s.textfield label="First Name" id="${id!}_firstName"/>
-			<@s.textfield label="Surname" id="${id!}_surname"/>
+			
 		</div>
 		
 		<div class="xdev-sub">
@@ -86,17 +86,7 @@
 	</div>
 
 	<div class="xdev-window-footer">
-		<@sj.a id="${id!}_selectBtn" 
-			button="true"
-		>Select</@sj.a>
 		
-		<@sj.a id="${id!}_editBtn" 
-			button="true"
-		>Edit</@sj.a>
-		
-		<@sj.a id="${id!}_closeBtn" 
-			button="true" 
-		>Close</@sj.a>
 	</div>
 	
 	<@xdev.trustDistrictInput id="${id!}_trustDistrictInput"/>
