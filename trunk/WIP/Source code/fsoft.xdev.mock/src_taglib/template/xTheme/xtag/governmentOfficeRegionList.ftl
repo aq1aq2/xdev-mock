@@ -75,5 +75,5 @@
 	    </@sjg.grid>
 	    
 	</div>
-
+	<@xdev.contactInput id="${id!}_govOfficeInput"/>
 </div>

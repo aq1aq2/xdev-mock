@@ -32,13 +32,13 @@ public class GovtOfficeRegionsAction extends ActionSupport{
 		this.governmentOfficeRegion = governmentOfficeRegion;
 	}
 
-//	public IGovtOfficeRegionsDao getGovernmentOfficeRegionDAO() {
-//		return governmentOfficeRegionDao;
-//	}
+	public IGovtOfficeRegionsDao getGovernmentOfficeRegionDao() {
+		return governmentOfficeRegionDao;
+	}
 
 	public void setGovernmentOfficeRegionDao(
-			IGovtOfficeRegionsDao governmentOfficeRegionDAO) {
-		this.governmentOfficeRegionDao = governmentOfficeRegionDAO;
+			IGovtOfficeRegionsDao governmentOfficeRegionDao) {
+		this.governmentOfficeRegionDao = governmentOfficeRegionDao;
 	}
 
 	public List<GovtOfficeRegions> getListGovernmentOfficeRegion() {
@@ -50,8 +50,5 @@ public class GovtOfficeRegionsAction extends ActionSupport{
 		this.listGovernmentOfficeRegion = listGovernmentOfficeRegion;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
+
 }
