@@ -3,7 +3,7 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
-
+<!-- Some page don't need menu then it should remove declaration from the page  -->
 <tiles-definitions>
 
   <definition name="baseLayout" template="/template/baseLayout.jsp">
@@ -20,37 +20,82 @@
   
   <definition name="organisation" extends="baseLayout">
       <put-attribute name="title"  value="Organisation Page"/>
-      <put-attribute name="body" value="/pages/organisation.jsp"/>      
+      <put-attribute name="body" value="/pages/organisationList.jsp"/>      
   </definition>
   
-  <definition name="organisationInput" extends="baseLayout">
-      <put-attribute name="title"  value="Organisation Input Page"/>
-      <put-attribute name="body" value="/pages/organisationInput.jsp"/>      
+  <definition name="supportingMaterials" extends="baseLayout">
+      <put-attribute name="title"  value="Supporting Materials Page"/>
+      <put-attribute name="body" value="/pages/supportingMaterialsList.jsp"/>      
   </definition>
   
-  <definition name="serviceMaintenance" extends="baseLayout">
+  <definition name="directorates" extends="baseLayout">
+      <put-attribute name="title"  value="Directorates Page"/>
+      <put-attribute name="body" value="/pages/directoratesList.jsp"/>      
+  </definition>
+  
+  <definition name="department" extends="baseLayout">
+      <put-attribute name="title"  value="Department Page"/>
+      <put-attribute name="body" value="/pages/departmentList.jsp"/>      
+  </definition>
+  
+  <definition name="team" extends="baseLayout">
+      <put-attribute name="title"  value="Team Page"/>
+      <put-attribute name="body" value="/pages/teamList.jsp"/>      
+  </definition>
+  
+   <definition name="service" extends="baseLayout">
       <put-attribute name="title"  value="Service Page"/>
-      <put-attribute name="body" value="/pages/service.jsp"/>      
+      <put-attribute name="body" value="/pages/serviceList.jsp"/>      
   </definition>
   
-    <definition name="programmeMaintenance" extends="baseLayout">
+  <definition name="programme" extends="baseLayout">
       <put-attribute name="title"  value="Programme Page"/>
-      <put-attribute name="body" value="/pages/programme.jsp"/>      
+      <put-attribute name="body" value="/pages/programmeList.jsp"/>      
   </definition>
   
-      <definition name="trustRegionMaintenance" extends="baseLayout">
+     <definition name="trustRegion" extends="baseLayout">
       <put-attribute name="title"  value="Trust Region Page"/>
-      <put-attribute name="body" value="/pages/trustRegion.jsp"/>      
+      <put-attribute name="body" value="/pages/trustRegionList.jsp"/>      
   </definition>
   
-   <definition name="governmentOfficeRegion" extends="baseLayout">
-      <put-attribute name="title"  value="Government Office Region Page"/>
-      <put-attribute name="body" value="/pages/none.jsp"/>      
+  <definition name="trustDistrict" extends="baseLayout">
+      <put-attribute name="title"  value="Trust District Page"/>
+      <put-attribute name="body" value="/pages/trustDistrictList.jsp"/>      
   </definition>
   
-   <definition name="premises" extends="baseLayout">
+  <definition name="premises" extends="baseLayout">
       <put-attribute name="title"  value="Premises Page"/>
-      <put-attribute name="body" value="/pages/premises.jsp"/>      
+      <put-attribute name="body" value="/pages/premisesList.jsp"/>      
+  </definition>
+  
+    <definition name="contact" extends="baseLayout">
+      <put-attribute name="title"  value="Contact Page"/>
+      <put-attribute name="body" value="/pages/contactList.jsp"/>      
+  </definition>
+  
+  <definition name="facility" extends="baseLayout">
+      <put-attribute name="title"  value="Facility Page"/>
+      <put-attribute name="body" value="/pages/facilityList.jsp"/>      
+  </definition>
+  
+  <definition name="volunteering" extends="baseLayout">
+      <put-attribute name="title"  value="Volunteering Page"/>
+      <put-attribute name="body" value="/pages/volunteeringList.jsp"/>      
+  </definition>
+  
+  <definition name="minorWorkProjects" extends="baseLayout">
+      <put-attribute name="title"  value="Minor Work Projects Page"/>
+      <put-attribute name="body" value="/pages/minorWorkProjectsList.jsp"/>      
+  </definition>
+  
+  <definition name="addressLookup" extends="baseLayout">
+      <put-attribute name="title"  value="Address Lookup Page"/>
+      <put-attribute name="body" value="/pages/addressLookupList.jsp"/>      
+  </definition>
+  
+  <definition name="typeOfBusiness" extends="baseLayout">
+      <put-attribute name="title"  value="Type Of Business Page"/>
+      <put-attribute name="body" value="/pages/typeOfBusinessList.jsp"/>      
   </definition>
   
 </tiles-definitions>

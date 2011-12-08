@@ -8,9 +8,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><tiles:insertAttribute name="title" ignore="false" /></title>
         <link rel="stylesheet" href="../css/xdev.css" type="text/css" media="all" />
+        <sj:head jqueryui="true" jquerytheme="smoothness"/>
         <script src="../js/xScript.js"></script>
-        <sj:head jqueryui="true" jquerytheme="smoothness"/> 
-
     </head>
     <body style="margin-top: 0; margin-bottom: 0; padding: 0">
     	<tiles:insertAttribute name="mainMenu" />

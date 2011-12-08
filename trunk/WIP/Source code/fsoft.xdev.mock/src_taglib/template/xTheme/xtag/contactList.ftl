@@ -1,8 +1,9 @@
 <script>
 	
 	$(document).ready(function(){
+		/*
 		function add(parentId, dialogId) {
-		
+			alert(parentId + " " + dialogId);
 			$('#'+dialogId+'_saveBtn').click(function(){
 				var query = "";
 				var xForms = $('form[id^="'+ dialogId +'"]');
@@ -25,19 +26,33 @@
 					}
 				);
 			});
-		}
-
-		$('#${id!}_contactInput').hide();
+		}*/
 		
+		//$('#${id!}_contactInput').hide();
+		
+		/*
 		$('#${id!}_createBtn').click(function(){
+			alert('123');
+			// Load data
+			// Then show
 			$('#${id!}_contactInput').show();
+			$('#${id!}_contactInput').load('contactInput.jsp');
 		});
-		
+		*/
+		/*
 		$('#${id!}_includeChkBx').click(function(){
 			alert("click include in-active");
 		});
+		*/
+		/*
+		$('#${id!}_backBtn').click(function(){
+			$('#${id!}_contactInput').hide();
+		});
+		*/	
+		//$.add("${id!}", "${id!}_contactInput");
 		
-		add("${id!}", "${id!}_contactInput");
+		//$('${id!}_contactInput_managerLookup_dialog').hide();
+		
 	});
 
 </script>
@@ -67,7 +82,8 @@
 			>Clear</@sj.a>
 			
 			<@sj.a id="${id!}_createBtn" 
-				button="true" 
+				button="true"
+				onclick="$.showElement('${id!}_contactInput')"
 			>Create</@sj.a>
 			
 			<@s.checkbox name="${id!}_includeChkBx" label="Include In-active" />
@@ -81,15 +97,20 @@
 		<@s.url id="${id!}_listURL" action="listContact.action"></@s.url>
 		<@sjg.grid
 	        id="${id!}_gridtable"
+    		caption="Contact List"
 	        dataType="json"
 	        href="%{${id!}_listURL}"
-	        gridModel="listModel"
-	        autowidth="true"
 	        pager="true"
-    		rowNum="100"
-    		rownumbers="true"
+	        gridModel="listModel"
+	    	rowList="10,15,20"
+	    	rowNum="15"
+	    	rownumbers="true"
+	    	navigator="false"
+        	navigatorSearch="true"
 	    >
-	        <@sjg.gridColumn name="firstName" index="firstName" title="Contact Name" sortable="true"/>
+	        <@sjg.gridColumn name="firstName" index="firstName" title="Contact Name" sortable="true" 
+	        		search="true"
+        			searchoptions="{sopt:['eq','ne']}"/>
 	        <@sjg.gridColumn name="mobilePhone" index="mobilePhone" title="Mobile Phone" sortable="true"/>
 	        <@sjg.gridColumn name="emailAddress" index="emailAddress" title="Email" sortable="true"/>
 	        <@sjg.gridColumn name="contactType" index="contactType" title="Contact Type" sortable="true"/>
@@ -112,5 +133,7 @@
 		>Close</@sj.a>
 	</div>
 	
-	<@xdev.contactInput id="${id!}_contactInput"/>
+	<div id="${id!}_contactInput">
+		fwwe
+	</div>
 </div>
