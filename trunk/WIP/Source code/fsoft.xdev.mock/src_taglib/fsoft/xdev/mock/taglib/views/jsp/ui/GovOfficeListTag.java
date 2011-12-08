@@ -8,7 +8,7 @@ import org.apache.struts2.views.jsp.ui.AbstractUITag;
 
 import com.opensymphony.xwork2.util.ValueStack;
 
-import fsoft.xdev.mock.taglib.components.GovOfficeInput;
+import fsoft.xdev.mock.taglib.components.GovOfficeList;
 
 
 public class GovOfficeListTag extends AbstractUITag {
@@ -16,6 +16,6 @@ public class GovOfficeListTag extends AbstractUITag {
 	private static final long serialVersionUID = 5577089764622677517L;
 
 	public Component getBean(ValueStack stack, HttpServletRequest req, HttpServletResponse res) {
-        return new GovOfficeInput(stack, req, res);
+        return new GovOfficeList(stack, req, res);
     }
 }

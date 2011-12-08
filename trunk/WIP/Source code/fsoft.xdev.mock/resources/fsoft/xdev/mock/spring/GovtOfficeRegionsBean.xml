@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-
+			  
 	<bean id="goverOfficeRegionsAction" class="fsoft.xdev.mock.actions.geography.GovtOfficeRegionsAction">
 		<property name="governmentOfficeRegionDao" ref="governmentOfficeRegionDao" />
 	</bean>

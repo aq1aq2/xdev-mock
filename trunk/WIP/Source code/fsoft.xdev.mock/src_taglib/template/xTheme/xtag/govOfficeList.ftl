@@ -1,6 +1,6 @@
 <script>
-	
 	$(document).ready(function(){
+
 		function add(parentId, dialogId) {
 		
 			$('#'+dialogId+'_saveBtn').click(function(){
@@ -16,7 +16,7 @@
 				});			
 				query = query.substring(0, query.length-1);
 				// Get json
-				$.getJSON("saveContact.action?" + query,
+				$.getJSON("saveTrustDistrict.action?" + query,
 					function(data) {
 						// Do nothing
 						// alert("reload_" + parentId + "_listURL");
@@ -26,18 +26,18 @@
 				);
 			});
 		}
-
-		$('#${id!}_contactInput').hide();
+		
+		$('#${id!}_trustDistrictInput').hide();
 		
 		$('#${id!}_createBtn').click(function(){
-			$('#${id!}_contactInput').show();
+			$('#${id!}_trustDistrictInput').show();
 		});
 		
 		$('#${id!}_includeChkBx').click(function(){
 			alert("click include in-active");
 		});
 		
-		add("${id!}", "${id!}_contactInput");
+		add("${id!}", "${id!}_trustDistrictInput");
 	});
 
 </script>
@@ -48,10 +48,9 @@
 	</div>
 	
 	<div class="xdev-window-header">	
-		<div class="xdev-sub">
+		<div class="xdev-sub">		
 			<@s.checkbox name="${id!}_includeChkBx" label="Include In-active" />
-		</div>
-		
+		</div>	
 	</div>
 	
 	<div class="xdev-window-body" >
@@ -70,10 +69,26 @@
 	    >
 	        <@sjg.gridColumn name="name" index="name" title="Gove Office Region Name" sortable="true"/>
 	        <@sjg.gridColumn name="description" index="description" title="Description" sortable="true"/>
-	        <@sjg.gridColumn name="emailAddress" index="emailAddress" title="Country" sortable="true"/>
+	        <@sjg.gridColumn name="counties.name" index="counties" title="county" sortable="true"/>
 	        <@sjg.gridColumn name="isActive" index="isActive" title="Is Active?" sortable="true"/>
 	    </@sjg.grid>
 	    
 	</div>
-	<@xdev.contactInput id="${id!}_govOfficeInput"/>
+
+	<div class="xdev-window-footer">
+		<@sj.a id="${id!}_selectBtn" 
+			button="true"
+		>Select</@sj.a>
+		
+		<@sj.a id="${id!}_editBtn" 
+			button="true"
+		>Edit</@sj.a>
+		
+		<@sj.a id="${id!}_closeBtn" 
+			button="true" 
+		>Close</@sj.a>
+	</div>
+	
+	<@xdev.govOfficeInput id="${id!}_govOfficeInput"/>
+	
 </div>
