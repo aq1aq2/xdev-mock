@@ -42,7 +42,8 @@ public class GovtOfficeRegionsDao extends HibernateDaoSupport implements IGovtOf
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<GovtOfficeRegions> findAll() {
 		// TODO Auto-generated method stub
