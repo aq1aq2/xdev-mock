@@ -49,7 +49,79 @@
 	</div>
 	
 	<div class="xdev-window-header">		
-		
+		<div class="xdev-sub">
+			<table>
+					<tr>
+						<td>
+							 <!--Filter all-->
+				            <@s.url var="url" action="searchTrustRegion.action">
+				                <@s.param name="key">All</@s.param>                            
+				            </@s.url>
+				            <@s.if test="%{key==\"All\" || key==null}" ><@s.a href="%{url}"> All</@s.a></@s.if>
+				            <@s.else><@s.a href="%{url}" >All</@s.a></@s.else>
+	            		<td>
+	            		<td>
+							 <!--Filter 0 - 9-->
+				            <@s.url var="url" action="searchTrustRegion.action">
+				                <@s.param name="key">0-9</@s.param>                            
+				            </@s.url>
+				            <@s.if test="%{key==\"0-9\" || key==null}" ><@s.a href="%{url}"> 0-9</@s.a></@s.if>
+				            <@s.else><@s.a href="%{url}" >0-9</@s.a></@s.else>
+	            		<td>
+	            		<td>
+							 <!--Filter A B C D E-->
+				            <@s.url var="url" action="searchTrustRegion.action">
+				                <@s.param name="key">A B C D E</@s.param>                            
+				            </@s.url>
+				            <@s.if test="%{key==\"A B C D E\" || key==null}" ><@s.a href="%{url}">A B C D E</@s.a></@s.if>
+				            <@s.else><@s.a href="%{url}" >A B C D E</@s.a></@s.else>
+	            		<td>
+	            		<td>
+							 <!--Filter F G H I J-->
+				            <@s.url var="url" action="searchTrustRegion.action">
+				                <@s.param name="key">F G H I J</@s.param>                            
+				            </@s.url>
+				            <@s.if test="%{key==\"F G H I J\" || key==null}" ><@s.a href="%{url}">F G H I J</@s.a></@s.if>
+				            <@s.else><@s.a href="%{url}" >F G H I J</@s.a></@s.else>
+	            		<td>
+	            		<td>
+							  <!--Filter K L M N-->
+				            <@s.url var="url" action="searchTrustRegion.action">
+				                <@s.param name="key">K L M N</@s.param>                            
+				            </@s.url>
+				            <@s.if test="%{key==\"K L M N\" || key==null}" ><@s.a href="%{url}">K L M N</@s.a></@s.if>
+				            <@s.else><@s.a href="%{url}" >K L M N</@s.a></@s.else>
+	            		<td>
+	            		<td>
+							   <!--Filter O P Q R-->
+				            <@s.url var="url" action="searchTrustRegion.action">
+				                <@s.param name="key">O P Q R</@s.param>                            
+				            </@s.url>
+				            <@s.if test="%{key==\"O P Q R\" || key==null}" ><@s.a href="%{url}">O P Q R</@s.a></@s.if>
+				            <@s.else><@s.a href="%{url}" >O P Q R</@s.a></@s.else>
+	            		<td>
+	            		<td>
+							   <!--Filter S T U V-->
+				            <@s.url var="url" action="searchTrustRegion.action">
+				                <@s.param name="key">S T U V</@s.param>                            
+				            </@s.url>
+				            <@s.if test="%{key==\"S T U V\" || key==null}" ><@s.a href="%{url}">S T U V</@s.a></@s.if>
+				            <@s.else><@s.a href="%{url}" >S T U V</@s.a></@s.else>
+	            		<td>
+	            		
+	            		<td>
+							   <!--Filter W X Y Z-->
+				            <@s.url var="url" action="searchTrustRegion.action">
+				                <@s.param name="key">W X Y Z</@s.param>                            
+				            </@s.url>
+				            <@s.if test="%{key==\"W X Y Z\" || key==null}" ><@s.a href="%{url}">W X Y Z</@s.a></@s.if>
+				            <@s.else><@s.a href="%{url}" >W X Y Z</@s.a></@s.else>
+	            		<td>	            		
+	            	
+					</tr>
+			    </table>
+			
+		</div>
 		<div class="xdev-sub">
 			<@sj.a id="${id!}_createBtn" 
 				button="true" 

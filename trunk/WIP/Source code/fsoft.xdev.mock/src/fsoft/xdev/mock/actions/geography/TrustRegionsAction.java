@@ -20,6 +20,15 @@ public class TrustRegionsAction extends ActionSupport {
 	private List<TrustRegions> listModel = new ArrayList<TrustRegions>();
 	private List<Countries> listCountries = new ArrayList<Countries>();
 	private ICountriesDao countriesDao;
+	private String key;
+
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
 
 	public TrustRegions getTrustRegions() {
 		return trustRegions;
@@ -76,4 +85,11 @@ public class TrustRegionsAction extends ActionSupport {
 		return "add";
 	}
 
+	// search trust regions
+	public String search() throws Exception{
+		System.out.println(key);
+		listModel = trustRegionDao.search(key);
+		return "list";
+	}
+	
 }
