@@ -17,10 +17,17 @@ public class GovtOfficeRegionsAction extends ActionSupport{
 	private GovtOfficeRegions governmentOfficeRegion;
 	private IGovtOfficeRegionsDao governmentOfficeRegionDao;
 	private List<GovtOfficeRegions> listGovernmentOfficeRegion = new ArrayList<GovtOfficeRegions>();
-	
+									
 	public String list(){
 		System.out.println("co vao day khong");
 		listGovernmentOfficeRegion = governmentOfficeRegionDao.findAll();
+		for(GovtOfficeRegions gov: listGovernmentOfficeRegion){
+			System.out.println(gov.getGovtOfficeRegionId());
+			System.out.println(gov.getName());
+			System.out.println(gov.getDescription());
+			System.out.println(gov.getCounties().getName());
+			System.out.println(gov.getIsActive());
+		}
 		return "list";
 	}
 
