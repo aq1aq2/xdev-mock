@@ -46,7 +46,8 @@ public class GovtOfficeRegionsDao extends HibernateDaoSupport implements IGovtOf
 	@Override
 	public List<GovtOfficeRegions> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		return getHibernateTemplate().find("from GovtOfficeRegions");
 	}
 
 	@Override
