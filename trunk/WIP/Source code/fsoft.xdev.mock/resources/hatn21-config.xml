@@ -21,5 +21,10 @@
     	<action name="*BusinessType" method ="{1}" class="fsoft.xdev.mock.actions.test.businesslookup.TestBusinessTypeAction">
     		<result name="list" type="json"></result>     				
     	</action>      	
+    	
+    	<action name ="executeThuAction" method ="{1}" class = "fsoft.xdev.actions.ThuAction">
+    		<result type ="json"></result>
+    	</action>
+    	
     </package>
 </struts>
