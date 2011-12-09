@@ -8,6 +8,12 @@ import fsoft.xdev.mock.models.Programmes;
 public class ProgrammesDao implements IProgrammesDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(Programmes entity) {
 		// TODO Auto-generated method stub
 		return false;

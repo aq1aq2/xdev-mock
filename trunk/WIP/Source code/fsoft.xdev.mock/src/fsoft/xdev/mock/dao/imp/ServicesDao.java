@@ -7,6 +7,12 @@ import fsoft.xdev.mock.models.Services;
 public class ServicesDao implements IServicesDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(Services entity) {
 		// TODO Auto-generated method stub
 		return false;

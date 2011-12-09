@@ -7,6 +7,12 @@ import fsoft.xdev.mock.models.Volunteers;
 public class VolunteersDao implements IVolunteersDao {
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(Volunteers entity) {
 		// TODO Auto-generated method stub
 		return false;

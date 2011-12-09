@@ -25,6 +25,12 @@ public class TypeOfBusinessDao implements ITypeOfBusinessDao{
 	}
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public TypeOfBusiness find(TypeOfBusiness entity) {
 		// TODO Auto-generated method stub
 		return null;

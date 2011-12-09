@@ -32,6 +32,12 @@ public class CountiesDao implements ICountiesDao{
 	}
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public List<Counties> findAll() {
 		// TODO Auto-generated method stub
 		return null;

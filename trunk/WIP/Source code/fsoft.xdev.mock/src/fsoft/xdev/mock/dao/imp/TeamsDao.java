@@ -7,6 +7,12 @@ import fsoft.xdev.mock.models.Teams;
 public class TeamsDao implements ITeamsDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(Teams entity) {
 		// TODO Auto-generated method stub
 		return false;

@@ -29,6 +29,12 @@ public class ContactsDao extends HibernateDaoSupport implements IContactsDao {
 	}
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public Contacts find(Contacts entity) {
 		return (Contacts)getHibernateTemplate().get(Contacts.class, entity.getContactId());
 		

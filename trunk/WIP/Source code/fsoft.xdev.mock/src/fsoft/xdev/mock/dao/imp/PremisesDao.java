@@ -9,6 +9,12 @@ import fsoft.xdev.mock.models.Premises;
 public class PremisesDao extends HibernateDaoSupport implements IPremisesDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(Premises entity) {
 		getHibernateTemplate().save(entity);
 		return false;
