@@ -36,6 +36,7 @@
 		
 		$('#${id!}_includeChkBx').click(function(){
 			alert("click include in-active");
+	
 		});
 		
 		add("${id!}", "${id!}_trustDistrictInput");
@@ -74,7 +75,8 @@
 	        gridModel="listTrustDistrict"
 	        autowidth="true"
 	        pager="true"
-    		rowNum="100"
+	        navigator="true"
+    		rowNum="3"
     		rownumbers="true"
 	    >
 	    	<@sjg.gridColumn name="name" index="name" title="District Name" sortable="true"/>
