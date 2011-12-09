@@ -2,6 +2,8 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import fsoft.xdev.mock.dao.ITrustRegionsDao;
@@ -16,11 +18,12 @@ public class TrustRegionsDao extends HibernateDaoSupport implements
 		return false;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<TrustRegions> search(String criteria) {
 		String query = null;
-		if (criteria.equals("All")) {
-			query = "from TrustRegions";
+		if (criteria == null || "All".equals(criteria)) {
+			query = "from TrustRegions";			
 		} else if (criteria.equals("0-9")) {
 			query = "from TrustRegions t where substring(lower(t.name),1,1) in ('0','1','2','3','4','5','6','7','8','9')";
 		} else if (criteria.equals("A B C D E")) {
@@ -42,6 +45,10 @@ public class TrustRegionsDao extends HibernateDaoSupport implements
 	}
 
 	@Override
+	public int count(){
+		return DataAccessUtils.intResult(getHibernateTemplate().find("select count(*) from TrustRegions"));
+	}
+	@Override
 	public boolean edit(TrustRegions entity) {
 		// TODO Auto-generated method stub
 		return false;
@@ -55,19 +62,24 @@ public class TrustRegionsDao extends HibernateDaoSupport implements
 
 	@Override
 	public TrustRegions find(TrustRegions entity) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<TrustRegions> findAll() {
 		return getHibernateTemplate().find("from TrustRegions");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<TrustRegions> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("from TrustRegions");
+		query.setFirstResult(from);
+		query.setMaxResults(to - from);		
+		return (List<TrustRegions>) query.list();
+		
 	}
 
 }
