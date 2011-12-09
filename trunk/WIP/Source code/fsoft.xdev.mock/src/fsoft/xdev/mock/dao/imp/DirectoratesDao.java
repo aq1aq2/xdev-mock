@@ -8,6 +8,12 @@ import fsoft.xdev.mock.models.Directorates;
 public class DirectoratesDao implements IDirectoratesDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(Directorates entity) {
 		// TODO Auto-generated method stub
 		return false;

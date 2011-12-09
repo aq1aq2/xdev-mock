@@ -7,6 +7,12 @@ import fsoft.xdev.mock.models.Users;
 public class UsersDao implements IUsersDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(Users entity) {
 		// TODO Auto-generated method stub
 		return false;

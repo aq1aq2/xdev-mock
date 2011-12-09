@@ -7,6 +7,12 @@ import fsoft.xdev.mock.models.ReferenceData;
 public class ReferenceDataDao implements IReferenceDataDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(ReferenceData entity) {
 		// TODO Auto-generated method stub
 		return false;

@@ -8,6 +8,12 @@ import fsoft.xdev.mock.models.Facilities;
 public class FacilitiesDao implements IFacilitiesDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(Facilities entity) {
 		// TODO Auto-generated method stub
 		return false;

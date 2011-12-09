@@ -7,6 +7,12 @@ import fsoft.xdev.mock.models.Departments;
 public class DepartmentsDao implements IDepartmentsDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(Departments entity) {
 		// TODO Auto-generated method stub
 		return false;

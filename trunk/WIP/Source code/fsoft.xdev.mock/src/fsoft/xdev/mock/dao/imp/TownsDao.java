@@ -7,6 +7,12 @@ import fsoft.xdev.mock.models.Towns;
 public class TownsDao implements ITownsDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(Towns entity) {
 		// TODO Auto-generated method stub
 		return false;

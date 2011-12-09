@@ -9,6 +9,12 @@ import fsoft.xdev.mock.models.TrustDistricts;
 public class TrustDistrictsDao extends HibernateDaoSupport implements ITrustDistrictsDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(TrustDistricts entity) {
 		
 		getHibernateTemplate().save(entity);	

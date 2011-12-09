@@ -7,6 +7,12 @@ import fsoft.xdev.mock.models.ServicePremise;
 public class Service_PremiseDao implements IServicePremiseDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(ServicePremise entity) {
 		// TODO Auto-generated method stub
 		return false;

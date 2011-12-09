@@ -10,6 +10,12 @@ import fsoft.xdev.mock.models.Countries;
 public class CountriesDao extends HibernateDaoSupport implements ICountriesDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(Countries entity) {
 		// TODO Auto-generated method stub
 		return false;

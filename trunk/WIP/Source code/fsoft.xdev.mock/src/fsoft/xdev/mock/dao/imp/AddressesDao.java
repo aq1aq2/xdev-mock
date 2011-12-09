@@ -26,6 +26,12 @@ public class AddressesDao implements IAddressesDao{
 	}
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public Addresses find(Addresses entity) {
 		// TODO Auto-generated method stub
 		return null;

@@ -11,6 +11,12 @@ import fsoft.xdev.mock.models.GovtOfficeRegions;
 public class GovtOfficeRegionsDao extends HibernateDaoSupport implements IGovtOfficeRegionsDao{
 
 	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
 	public boolean add(GovtOfficeRegions entity) {
 		getHibernateTemplate().save(entity);
 		return true;
