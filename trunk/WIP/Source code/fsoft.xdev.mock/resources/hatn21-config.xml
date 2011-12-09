@@ -12,7 +12,8 @@
     				
     	<action name="*TrustDistrict" method ="{1}" class="trustDistrictAction">
     		<result name="list" type="json"></result> 
-    		<result name="add" type="json"></result>      		
+    		<result name="add" type="json"></result>
+    		<result name="listAll" type="json"></result>      		
     	</action>
     			  	  		             	
     	<action name="*GovernmentOfficeRegion" method ="{1}" class="goverOfficeRegionsAction">
