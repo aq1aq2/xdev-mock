@@ -6,25 +6,10 @@
 <struts>
     <!-- Configuration Information Created by DungNM2 -->
     <package name="phongtv" extends="json-default">
-		<action name="getPremiseList" class="fsoft.xdev.mock.actions.test.premises.TestPremiseAction">
-    		<result name="success" type="json"></result>
-    	</action>
-    	
-    	<action name="getFacilitiesList" class="fsoft.xdev.mock.actions.test.premises.TestFacilitiesAction">
-    		<result name="success" type="json"></result>
-    	</action>
-    	
-    	<action name="getVolunteeringList" class="fsoft.xdev.mock.actions.test.premises.TestVolunteeringAction">
-    		<result name="success" type="json"></result>
-    	</action>
-    	
-    	<action name="getMinorWorksList" class="fsoft.xdev.mock.actions.test.premises.TestMinorWorksAction">
-    		<result name="success" type="json"></result>
-    	</action>
-    	
-    	<action name="getServicePremise" class="fsoft.xdev.mock.actions.test.premises.TestPremiseServiceAction">
-    		<result name="success" type="json"></result>
-    	</action>
-    	
+		<action name="*Premises" method ="{1}" class="premisesAction">
+    		<result name="list" type="json"></result> 
+    		<result name="add" type="json"></result>      		
+    	</action> 
+ 
 	</package>
 </struts>

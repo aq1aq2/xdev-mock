@@ -10,7 +10,7 @@ public class PremisesDao extends HibernateDaoSupport implements IPremisesDao{
 
 	@Override
 	public boolean add(Premises entity) {
-		// TODO Auto-generated method stub
+		getHibernateTemplate().save(entity);
 		return false;
 	}
 
@@ -32,10 +32,11 @@ public class PremisesDao extends HibernateDaoSupport implements IPremisesDao{
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Premises> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getHibernateTemplate().find("from Premises");
 	}
 
 	@Override

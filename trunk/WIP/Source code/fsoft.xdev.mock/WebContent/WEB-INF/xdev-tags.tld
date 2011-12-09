@@ -144,4 +144,35 @@
       <rtexprvalue>false</rtexprvalue>
     </attribute>
 </tag> 
+
+<!-- this place for premise -->
+
+<tag>
+	<description><![CDATA[Render PremiseListTag.]]></description>
+	<name>premiseList</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.PremiseListTag</tag-class>
+	<body-content>empty</body-content>
+	
+	<attribute>
+      <description><![CDATA[HTML id attribute]]></description>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+</tag>
+
+<tag>
+	<description><![CDATA[Render PremiseInputTag.]]></description>
+	<name>premiseInput</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.PremiseInputTag</tag-class>
+	<body-content>empty</body-content>
+	
+	<attribute>
+      <description><![CDATA[HTML id attribute]]></description>
+      <name>id</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+</tag>
+
 </taglib>
