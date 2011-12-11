@@ -20,23 +20,25 @@ public class TrustRegionsAction extends ActionSupport {
 	private List<TrustRegions> listModel = new ArrayList<TrustRegions>();
 	private List<Countries> listCountries = new ArrayList<Countries>();
 	private ICountriesDao countriesDao;
-	//get how many rows we want to have into the grid - rowNum attribute in the grid
-	  private Integer             rows             = 0;
 
-	  //Get the requested page. By default grid sets this to 1.
-	  private Integer             page             = 0;
+	// get how many rows we want to have into the grid - rowNum attribute in the
+	// grid
+	private Integer rows = 0;
 
-	  // sorting order - asc or desc
-	  private String              sord;
+	// Get the requested page. By default grid sets this to 1.
+	private Integer page = 0;
 
-	  // get index row - i.e. user click to sort.
-	  private String              sidx;
+	// sorting order - asc or desc
+	private String sord;
 
-	  // Your Total Pages
-	  private Integer             total            = 0;
+	// get index row - i.e. user click to sort.
+	private String sidx;
 
-	  // All Record
-	  private Integer             records          = 0;
+	// Your Total Pages
+	private Integer total = 0;
+
+	// All Record
+	private Integer records = 0;
 
 	public Integer getRows() {
 		return rows;
@@ -123,7 +125,6 @@ public class TrustRegionsAction extends ActionSupport {
 	public void setTrustRegions(TrustRegions trustRegions) {
 		this.trustRegions = trustRegions;
 	}
-	
 
 	public void setTrustRegionDao(ITrustRegionsDao trustRegionDao) {
 		this.trustRegionDao = trustRegionDao;
@@ -134,26 +135,24 @@ public class TrustRegionsAction extends ActionSupport {
 	}
 
 	// list all trust region
-	public String list() {		
-//		listModel = trustRegionDao.findAll();
-		
+	public String list() {
+		// listModel = trustRegionDao.findAll();
+
 		int to = (rows * page);
-	    int from = to - rows;
+		int from = to - rows;
 
+		// Count Rows (select count(*) from trust Region)
+		records = trustRegionDao.count();
 
-	    //Count Rows (select count(*) from trust Region)
-	    records = trustRegionDao.count();
+		// Your logic to search and select the required data.
+		listModel = trustRegionDao.findRange(from, to);
 
-	    //Your logic to search and select the required data.
-	    listModel = trustRegionDao.findRange(from, to);
+		// calculate the total pages for the query
+		total = (int) Math.ceil((double) records / (double) rows);
 
-	    //calculate the total pages for the query
-	    total =(int) Math.ceil((double)records / (double)rows);
-	    
-		listCountries = countriesDao.findAll();		
+		listCountries = countriesDao.findAll();
 		return "list";
 	}
-	
 
 	// save trust region into database
 	public String save() {
@@ -162,10 +161,21 @@ public class TrustRegionsAction extends ActionSupport {
 	}
 
 	// search trust regions
-	public String search() throws Exception{
+	public String search() throws Exception {
 		System.out.println(key);
 		listModel = trustRegionDao.search(key);
 		return "list";
 	}
+
+	// find trust region by ID
+	public String detail(){
+		System.out.println(trustRegions.getTrustRegionId());
+		trustRegions = trustRegionDao.find(trustRegions);		
+		return "detail";
+	}
 	
+	public String update() {
+		trustRegionDao.edit(trustRegions);
+		return "update";
+	}
 }
