@@ -26,17 +26,17 @@ public class TrustRegionsDao extends HibernateDaoSupport implements
 			query = "from TrustRegions";			
 		} else if (criteria.equals("0-9")) {
 			query = "from TrustRegions t where substring(lower(t.name),1,1) in ('0','1','2','3','4','5','6','7','8','9')";
-		} else if (criteria.equals("A B C D E")) {
+		} else if ("A B C D E".equals(criteria)) {
 			query = "from TrustRegions t where substring(lower(t.name),1,1) in ('a','b','c','d','e')";
-		} else if (criteria.equals("F G H I J")) {
+		} else if ("F G H I J".equals(criteria)) {
 			query = "from TrustRegions t where substring(lower(t.name),1,1) in ('f','g','h','i','j')";
-		} else if (criteria.equals("K L M N")) {
+		} else if ("K L M N".equals(criteria)) {
 			query = "from TrustRegions t where substring(lower(t.name),1,1) in ('k','l','m','n')";
-		} else if (criteria.equals("O P Q R")) {
+		} else if ("O P Q R".equals(criteria)) {
 			query = "from TrustRegions t where substring(lower(t.name),1,1) in ('o','p','q','r')";
-		} else if (criteria.equals("S T U V")) {
+		} else if ("S T U V".equals(criteria)) {
 			query = "from TrustRegions t where substring(lower(t.name),1,1) in ('s','t','u','v')";
-		} else if (criteria.equals("W X Y Z")) {
+		} else if ("W X Y Z".equals(criteria)) {
 			query = "from TrustRegions t where substring(lower(t.name),1,1) in ('w','x','y','z')";
 		}
 
@@ -50,7 +50,7 @@ public class TrustRegionsDao extends HibernateDaoSupport implements
 	}
 	@Override
 	public boolean edit(TrustRegions entity) {
-		// TODO Auto-generated method stub
+		getHibernateTemplate().update(entity);
 		return false;
 	}
 
@@ -63,7 +63,7 @@ public class TrustRegionsDao extends HibernateDaoSupport implements
 	@Override
 	public TrustRegions find(TrustRegions entity) {
 		
-		return null;
+		return (TrustRegions)getHibernateTemplate().get(TrustRegions.class, entity.getTrustRegionId());
 	}
 
 	@SuppressWarnings("unchecked")

@@ -26,13 +26,25 @@
 			<#-- Details 1 -->
 			<form id="${id!}_form">
 					<@s.url id="${id!}_listURL" action="listTrustRegion.action"/>
-					<@sj.select
-						dataType="json"
-						href="%{${id!}_listURL}"
-						list="listCountries" listValue='name' listKey='countryId'
-						name="trustRegions.countries.countryId" label="Nation/Country" required="true" /></br>
-					<@s.textfield name="trustRegions.name" label="Trust Region Name" cols="12" rows="3" required="true"/></br>
-					<@s.textarea name="trustRegions.description" label="Description" cols="12" rows="3" />
+					<table>
+						<tr>
+							<td>Nation/Country</td>
+							<td><@sj.select
+								dataType="json"
+								href="%{${id!}_listURL}"
+								list="listCountries" listValue='name' listKey='countryId'
+								name="trustRegions.countries.countryId" required="true" />
+							</td>
+						</tr>
+						<tr>
+							<td>Trust region name</td>
+							<td><@s.textfield name="trustRegions.name"  cols="120" rows="3" required="true"/></td>
+						</tr>
+						<tr>
+							<td>Description</td>
+							<td><@s.textarea name="trustRegions.description"  cols="120" rows="3" /></td>
+						</tr>
+					</table>					
 				
 				
 			</form>		

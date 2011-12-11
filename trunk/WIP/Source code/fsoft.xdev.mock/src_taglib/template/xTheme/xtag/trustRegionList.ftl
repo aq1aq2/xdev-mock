@@ -1,3 +1,4 @@
+<@s.url id="detail" action="detailTrustRegion.action"></@s.url>
 <script>
 	$(document).ready(function(){
 
@@ -28,6 +29,7 @@
 			});
 		}
 		
+		
 		$('#${id!}_trustRegionInput').hide();
 		
 		$('#${id!}_createBtn').click(function(){
@@ -38,11 +40,20 @@
 			alert("click include in-active");
 		});
 		
-		add("${id!}", "${id!}_trustRegionInput");
+		add("${id!}", "${id!}_trustRegionInput");		
+		
 	});
-
+	
 </script>
-
+<script>	
+	function formatLink(cellvalue, options, rowObject) {		
+       return "<a href='detailTrustRegion.action?trustRegions.trustRegionId="+rowObject["trustRegionId"] +"'>"+rowObject["name"]+"</a>";  
+                 
+    }
+     
+    
+</script>
+       
 <div class="xdev-window" id="${id!}" >
 	<div class="xdev-window-title">
 		<h1>Trust Region List</h1>
@@ -147,11 +158,12 @@
 	        pager="true"
 	        navigator="true"	        
     		rowNum="3"
-    		rownumbers="true"
-    		caption="Customer Examples"
-    		
+    		rownumbers="true"    	
+    		viewrecords="true"	
+    		 
 	    >
-	    	<@sjg.gridColumn name="name" index="name" title="Trust Region Name" sortable="true"/>
+	    	<@sjg.gridColumn name="trustRegionId" index="trustRegionId" title="ID" sortable="true" hidden="true" key="true"/>
+	    	<@sjg.gridColumn name="name" index="name" title="Trust Region Name" sortable="true" formatter = "formatLink"/>
 	        <@sjg.gridColumn name="description" index="description" title="Description" sortable="true"/>
 	        <@sjg.gridColumn name="countries.name" index="countries.name" title="Nation/Country" sortable="true"/>	       
 	        <@sjg.gridColumn name="isActive" index="isActive" title="IsActive" sortable="false"/>

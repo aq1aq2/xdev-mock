@@ -2,6 +2,8 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import fsoft.xdev.mock.dao.IContactsDao;
@@ -31,7 +33,7 @@ public class ContactsDao extends HibernateDaoSupport implements IContactsDao {
 	@Override
 	public int count() {
 		// TODO Auto-generated method stub
-		return 0;
+		return DataAccessUtils.intResult(getHibernateTemplate().find("select count(*) from Countacts"));
 	}
 
 	@Override
@@ -48,8 +50,10 @@ public class ContactsDao extends HibernateDaoSupport implements IContactsDao {
 
 	@Override
 	public List<Contacts> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("from Countacts");
+		query.setFirstResult(from);
+		query.setMaxResults(to - from);		
+		return (List<Contacts>) query.list();
 	}
 
 }
