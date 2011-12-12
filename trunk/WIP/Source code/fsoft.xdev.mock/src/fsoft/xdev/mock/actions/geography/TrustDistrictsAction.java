@@ -48,7 +48,6 @@ public class TrustDistrictsAction extends ActionSupport {
 	 */
 	public String list(){
 		System.out.println("We change");
-		//listTrustDistrict = trustDistrictDao.findAll();
 		int to = (rows*page);
 		int from = to - rows;
 		
