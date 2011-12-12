@@ -15,9 +15,10 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="fsoft/xdev/mock/spring/TrustRegionsBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/GovtOfficeRegionsBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/PremisesBean.xml"/>
+
 <!-- 	
 	<import resource="fsoft/xdev/mock/spring/AddressesBean.xml"/>
-	<import resource="fsoft/xdev/mock/spring/CountiesBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/CountiesBean.xml"/>	
 	<import resource="fsoft/xdev/mock/spring/CountriesBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/DepartmentsBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/DirectoratesBean.xml"/>

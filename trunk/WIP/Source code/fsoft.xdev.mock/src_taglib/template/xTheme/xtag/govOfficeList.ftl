@@ -64,7 +64,8 @@
 	        gridModel="listGovernmentOfficeRegion"
 	        autowidth="true"
 	        pager="true"
-    		rowNum="100"
+	        navigator="true"
+    		rowNum="2"
     		rownumbers="true"
 	    >
 	        <@sjg.gridColumn name="name" index="name" title="Gove Office Region Name" sortable="true"/>
