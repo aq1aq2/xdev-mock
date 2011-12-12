@@ -15,6 +15,7 @@
         		<property name="sessionFactory" ref="sessionFactory" />
         	</bean>
         </property>
-	</bean>    
+	</bean>   
+	
 
 </beans>
