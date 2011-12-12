@@ -8,7 +8,7 @@
     	<action name="*TrustRegion" method ="{1}" class="trustRegionAction">
     		<result name="list" type="json"></result> 
     		<result name="add" type="json"></result>  
-    		<result name="detail">TrustRegionInput.jsp</result>
+    		<result name="detail" type="json"></result>
     		<result name="update" type="json">TrustRegionList.jsp</result>      		
     	</action> 
     				
