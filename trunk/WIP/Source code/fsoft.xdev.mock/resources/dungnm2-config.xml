@@ -4,20 +4,20 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
     <!-- Configuration Information Created by DungNM2 -->
-    <package name="dungnm2" extends="json-default">
-		<action name="*Organisation" method="{1}" class="fsoft.xdev.mock.actions.test.organisations.TestOrganisationAction">
+    <package name="dungnm2" extends="struts-default,json-default">    				
+		<action name="*Organisation" method="{1}" class="organisationAction">
     		<result name="list" type="json"></result>
     		<result name="add" type="json"></result>
     	</action>
-    	<action name="*Directorate" method="{1}" class="fsoft.xdev.mock.actions.test.organisations.TestDirectorateAction">
+    	<action name="*Directorate" method="{1}" class="directorateAction">
     		<result name="list" type="json"></result>
     		<result name="add" type="json"></result>
     	</action>
-    	<action name="*SupportingMaterial" method="{1}" class="fsoft.xdev.mock.actions.test.organisations.TestSupportingMaterialAction">
+    	<action name="*SupportingMaterial" method="{1}" class="supportingMaterialAction">
     		<result name="list" type="json"></result>
     		<result name="add" type="json"></result>
     	</action>
-    	<action name="*Department" method="{1}" class="fsoft.xdev.mock.actions.test.organisations.TestDepartmentAction">
+    	<action name="*Department" method="{1}" class="departmentAction">
     		<result name="list" type="json"></result>
     		<result name="add" type="json"></result>
     	</action>
