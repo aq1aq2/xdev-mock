@@ -78,6 +78,8 @@ ul#topnav li span a:hover {text-decoration: underline;}
 /*************************************/
 ul#xdev-filter {
 	display:block;
+	margin-left: 0;
+	padding-left: 0;
 	float: left;
 	list-style: none;
 	position: relative;
