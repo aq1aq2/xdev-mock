@@ -31,17 +31,6 @@ import com.opensymphony.xwork2.util.ValueStack;
  */
 public class XDevModels {
 	protected TextLookupModel textLookup;
-	
-	protected OrganisationListModel organisationList;
-	protected OrganisationInputModel organisationInput;
-	protected ContactListModel contactList;
-	protected ContactInputModel contactInput;
-	protected TrustRegionListModel trustRegionList;
-	protected TrustRegionInputModel trustRegionInput;
-	protected TrustDistrictListModel trustDistrictList;
-	protected TrustDistrictInputModel trustDistrictInput;
-	protected GovOfficeListModel govOfficeList;
-	protected GovOfficeInputModel govOfficeInput;
 
 	private ValueStack           stack;
 	private HttpServletRequest   req;
@@ -59,75 +48,5 @@ public class XDevModels {
 		}
 		return textLookup;
 	}	
-
-	public OrganisationListModel getOrganisationList() {
-		if (organisationList==null) {
-			organisationList = new OrganisationListModel(stack, req, res);
-		}
-		return organisationList;
-	}
-
-	public OrganisationInputModel getOrganisationInput() {
-		if (organisationInput==null) {
-			organisationInput = new OrganisationInputModel(stack, req, res);
-		}
-		return organisationInput;
-	}
-
-	public ContactListModel getContactList() {
-		if (contactList==null) {
-			contactList = new ContactListModel(stack, req, res);
-		}
-		return contactList;
-	}
-
-	public ContactInputModel getContactInput() {
-		if (contactInput==null) {
-			contactInput = new ContactInputModel(stack, req, res);
-		}
-		return contactInput;
-	}
-
-	public TrustRegionListModel getTrustRegionList() {
-		if (trustRegionList==null) {
-			trustRegionList = new TrustRegionListModel(stack, req, res);
-		}
-		return trustRegionList;
-	}
-
-	public TrustRegionInputModel getTrustRegionInput() {
-		if (trustRegionInput==null) {
-			trustRegionInput = new TrustRegionInputModel(stack, req, res);
-		}
-		return trustRegionInput;
-	}
-
-	public TrustDistrictListModel getTrustDistrictList() {
-		if (trustDistrictList==null) {
-			trustDistrictList = new TrustDistrictListModel(stack, req, res);
-		}
-		return trustDistrictList;
-	}
-
-	public TrustDistrictInputModel getTrustDistrictInput() {
-		if (trustDistrictInput==null) {
-			trustDistrictInput = new TrustDistrictInputModel(stack, req, res);
-		}
-		return trustDistrictInput;
-	}
-
-	public GovOfficeListModel getGovOfficeList() {
-		if (govOfficeList==null) {
-			govOfficeList = new GovOfficeListModel(stack, req, res);
-		}
-		return govOfficeList;
-	}
-
-	public GovOfficeInputModel getGovOfficeInput() {
-		if (govOfficeInput==null) {
-			govOfficeInput = new GovOfficeInputModel(stack, req, res);
-		}
-		return govOfficeInput;
-	}
 }
 
