@@ -8,6 +8,9 @@
             <column name="OrganisationID" />
             <generator class="native" />
         </id>
+         <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select" lazy="false">
+            <column name="ContactID" />
+        </many-to-one>
         <many-to-one name="trustDistricts" class="fsoft.xdev.mock.models.TrustDistricts" fetch="select" lazy="false">
             <column name="TrustDistrictID" />
         </many-to-one>

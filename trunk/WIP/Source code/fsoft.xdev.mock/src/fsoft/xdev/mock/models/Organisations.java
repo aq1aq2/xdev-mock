@@ -43,6 +43,16 @@ public class Organisations implements java.io.Serializable {
 	private Integer govOffRegionId;
 	private String postCode;
 	private Boolean isActive;
+	public Contacts getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(Contacts contacts) {
+		this.contacts = contacts;
+	}
+
+	private Contacts contacts;
+	
 	private Set<OrganisationService> organisationServices = new HashSet<OrganisationService>(
 			0);
 	private Set<OrganisationProgramme> organisationProgrammes = new HashSet<OrganisationProgramme>(
@@ -57,6 +67,8 @@ public class Organisations implements java.io.Serializable {
 		this.organisationId = organisationId;
 	}
 
+	
+
 	public Organisations(int organisationId, TrustDistricts trustDistricts,
 			String name, String shortDesc, Integer contactId, String addr1,
 			String addr2, String addr3, String city, String county,
@@ -68,9 +80,10 @@ public class Organisations implements java.io.Serializable {
 			String servicePerCirCap, String serviceEthCap,
 			String accreditation, String eoiprogramme, String eoiservice,
 			Integer govOffRegionId, String postCode, Boolean isActive,
-			Set<OrganisationService> organisationServices,
+			Contacts contacts, Set<OrganisationService> organisationServices,
 			Set<OrganisationProgramme> organisationProgrammes,
 			Set<SupportingMaterials> supportingMaterialses) {
+		super();
 		this.organisationId = organisationId;
 		this.trustDistricts = trustDistricts;
 		this.name = name;
@@ -103,6 +116,7 @@ public class Organisations implements java.io.Serializable {
 		this.govOffRegionId = govOffRegionId;
 		this.postCode = postCode;
 		this.isActive = isActive;
+		this.contacts = contacts;
 		this.organisationServices = organisationServices;
 		this.organisationProgrammes = organisationProgrammes;
 		this.supportingMaterialses = supportingMaterialses;

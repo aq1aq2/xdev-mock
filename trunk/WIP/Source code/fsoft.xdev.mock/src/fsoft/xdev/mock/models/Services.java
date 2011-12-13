@@ -54,6 +54,16 @@ public class Services implements java.io.Serializable {
 	private String contractOutcome;
 	private String participartion;
 	private String contractObligation;
+	private Contacts contacts;
+	
+	public Contacts getContacts() {
+		return contacts;
+	}
+
+	public void setContacts(Contacts contacts) {
+		this.contacts = contacts;
+	}
+
 	private Set<OrganisationService> organisationServices = new HashSet<OrganisationService>(
 			0);
 	private Set<ServicePremise> servicePremises = new HashSet<ServicePremise>(0);
@@ -65,6 +75,7 @@ public class Services implements java.io.Serializable {
 		this.serviceId = serviceId;
 	}
 
+	
 	public Services(int serviceId, String name, String shortDescription,
 			String serviceType, Integer contactId, Boolean isActive,
 			String serviceSubType, String fullDescription,
@@ -82,8 +93,9 @@ public class Services implements java.io.Serializable {
 			String accreditation, String otherService, String referralSources,
 			Integer programmeId, String supportCenters, String contractOutcome,
 			String participartion, String contractObligation,
-			Set<OrganisationService> organisationServices,
+			Contacts contacts, Set<OrganisationService> organisationServices,
 			Set<ServicePremise> servicePremises) {
+		super();
 		this.serviceId = serviceId;
 		this.name = name;
 		this.shortDescription = shortDescription;
@@ -126,6 +138,7 @@ public class Services implements java.io.Serializable {
 		this.contractOutcome = contractOutcome;
 		this.participartion = participartion;
 		this.contractObligation = contractObligation;
+		this.contacts = contacts;
 		this.organisationServices = organisationServices;
 		this.servicePremises = servicePremises;
 	}
