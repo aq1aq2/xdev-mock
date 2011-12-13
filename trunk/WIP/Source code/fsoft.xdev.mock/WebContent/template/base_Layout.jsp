@@ -1,8 +1,10 @@
-<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="dec" %>
+<%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
+
 <head>
  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Insert title here</title>
@@ -11,24 +13,32 @@
         <script src="../../js/xScript.js"></script>
 </head>
 
- <body style="margin-top: 0; margin-bottom: 0; padding: 0">
-    	<div class="xdev-wrapper">
-    	<%@ include file="mainMenu.jsp" %>
-		<div id="content">
-			<div id="filter">
-				<a href="#" >All	|</a>
-				<a href="#" >0-9   |</a>
-				<a href="#" >A B C D E   |</a>
-				<a href="#" >F G H I J   |</a>
-				<a href="#" >K L M N    |</a>
-				<a href="#" >O P Q R    |</a>
-				<a href="#" >S T U V    |</a>
-				<a href="#" >W X Y Z    |</a>
-			</div>
-             <dec:body />
-         </div>
+<body style="margin-top: 0; margin-bottom: 0; padding: 0">
+	
+	<div class="xdev-wrapper">
+
+		<!-- Main menu -->	
+		<%@ include file="mainMenu.jsp" %>
+		
+		<!-- Filter -->
+		<ul id="xdev-filter">
+			<li>All</li>
+			<li>0-9</li>
+			<li>A B C D E</li>
+			<li>F G H I J</li>
+			<li>K L M N</li>
+			<li>O P Q R</li>
+			<li>S T U V</li>
+			<li>W X Y Z</li>
+		</ul>
+		<div class="clear"></div>
+	
+		<!-- Body -->
+		<dec:body />
+	
+		<!-- Footer -->
 		<%@ include file="footer.jsp" %>
-		</div>
-    </body>
+	</div>
+</body>
 
 </html>
