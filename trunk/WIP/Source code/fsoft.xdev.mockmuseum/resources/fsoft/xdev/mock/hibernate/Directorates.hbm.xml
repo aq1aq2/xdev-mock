@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 6, 2011 8:45:40 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="fsoft.xdev.mock.models.Directorates" table="Directorates" schema="dbo" catalog="DataMock">
+        <id name="directorateId" type="int">
+            <column name="DirectorateID" />
+            <generator class="native" />
+        </id>
+        <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select" lazy="false">
+            <column name="ContactID" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" length="50" />
+        </property>
+        <property name="shortDesc" type="string">
+            <column name="ShortDesc" />
+        </property>
+        <property name="copyAddrOrg" type="java.lang.Boolean">
+            <column name="CopyAddrOrg" />
+        </property>
+        <property name="addr1" type="string">
+            <column name="Addr1" length="200" />
+        </property>
+        <property name="addr2" type="string">
+            <column name="Addr2" length="200" />
+        </property>
+        <property name="addr3" type="string">
+            <column name="Addr3" length="200" />
+        </property>
+        <property name="postCode" type="string">
+            <column name="PostCode" length="50" />
+        </property>
+        <property name="town" type="string">
+            <column name="Town" length="100" />
+        </property>
+        <property name="countyId" type="string">
+            <column name="CountyID" length="100" />
+        </property>
+        <property name="countryId" type="string">
+            <column name="CountryID" length="100" />
+        </property>
+        <property name="typeOfBusinessId" type="java.lang.Integer">
+            <column name="TypeOfBusinessID" />
+        </property>
+        <property name="fullDesc" type="string">
+            <column name="FullDesc" />
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="PhoneNumber" length="50" />
+        </property>
+        <property name="fax" type="string">
+            <column name="Fax" length="50" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="50" />
+        </property>
+        <property name="webAddr" type="string">
+            <column name="WebAddr" length="50" />
+        </property>
+        <property name="charityNumber" type="string">
+            <column name="CharityNumber" length="50" />
+        </property>
+        <property name="companyNumber" type="string">
+            <column name="CompanyNumber" length="50" />
+        </property>
+        <property name="organisationId" type="java.lang.Integer">
+            <column name="OrganisationID" />
+        </property>
+        <property name="isActive" type="java.lang.Boolean">
+            <column name="IsActive" />
+        </property>
+        <set name="departmentses" inverse="true" lazy="false">
+            <key>
+                <column name="DirectorateID" not-null="true" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Departments" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="trustDistrictAction" class="fsoft.xdev.mock.actions.geography.TrustDistrictsAction">
+		<property name="trustDistrictDao" ref="trustDistrictDao" />
+		<property name="trustRegionsDao" ref="trustRegionsDao" />
+	</bean>
+
+	<bean id="trustDistrictDao" parent="txProxyTemplate">		
+		<property name="target">
+    		<bean class="fsoft.xdev.mock.dao.imp.TrustDistrictsDao">
+        		<property name="sessionFactory" ref="sessionFactory" />
+        	</bean>
+        </property>
+	</bean>
+	
+	<bean id="trustRegionsDao" parent="txProxyTemplate">		
+		<property name="target">
+    		<bean class="fsoft.xdev.mock.dao.imp.TrustRegionsDao">
+        		<property name="sessionFactory" ref="sessionFactory" />
+        	</bean>
+        </property>
+	</bean>      
+
+</beans>

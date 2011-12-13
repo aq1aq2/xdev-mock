@@ -1,0 +1,141 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	font: 10px normal Verdana, Arial, Helvetica, sans-serif;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+/* 	background-color: black; */
+/* 	/*  */
+/* 	 * Follow the background, font color should be white	 */
+/* 	 */ */
+/* 	color: white; */
+}
+
+div.xdev-sign {
+	color: green;
+	margin: 5px auto 5px;
+	padding: 5px;
+	text-align: center;
+}
+
+/* For menu template */
+.container {width: 965px; margin: 0 auto;}
+
+ul#topnav {
+	display:block;
+	margin: 0; padding: 0;
+	float: left;
+	width: 965px;
+	list-style: none;
+	position: relative;
+	font-size: 1.2em;
+	background: url(../images/xmock_stretch_green.gif) repeat-x;
+}
+ul#topnav li {
+	float: left;
+	margin: 0; padding: 0;
+	border-right: 1px solid #555;
+}
+ul#topnav li a {
+	padding: 10px 15px;
+	display: block;
+	color: #f0f0f0;
+	text-decoration: none;
+}
+ul#topnav li:hover { background: #1376c9 url(../images/xmock_active_green.gif) repeat-x; }
+ul#topnav li span {
+	float: left;
+	padding: 15px 0;
+	position: absolute;
+	left: 0; top:35px;
+	display: none;
+	width: 965px;
+	background: green;
+	color: #fff;
+	-moz-border-radius-bottomright: 5px;
+	-khtml-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+ul#topnav li:hover span { display: block; }
+ul#topnav li span a { display: inline; }
+ul#topnav li span a:hover {text-decoration: underline;}
+
+#space {
+	height: 35px;
+	float: left;
+	margin-bottom: 5px;
+	position: relative;
+	border: 1px;
+}
+
+.show {
+	display: block;
+}
+.hide {
+	display:none;
+}
+
+/************************************************************************************/
+
+.required {color: red;}
+.clear {clear: left;}
+
+.xdev-wrapper {
+	margin: 0 auto;
+	width: 965px;
+/*  Remove conflict with above CSS */
+/* 	position: relative; */
+}
+
+.xdev-window {width: 100%;}
+.xdev-window-title h1 {
+	color: green;
+/* 	/* */
+/* 	 * Gradient background */
+/* 	 * View details here: http://gradients.glrzad.com/ */
+/* 	 */ */
+/* 	background-image: linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
+/* 	background-image: -o-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
+/* 	background-image: -moz-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
+/* 	background-image: -webkit-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
+/* 	background-image: -ms-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
+	
+/* 	background-image: -webkit-gradient( */
+/* 		linear, */
+/* 		left bottom, */
+/* 		left top, */
+/* 		color-stop(0.28, rgb(65,71,65)), */
+/* 		color-stop(0.64, rgb(3,3,3)), */
+/* 		color-stop(0.82, rgb(62,66,62)) */
+/* 	); */
+/* 	color: lime; */
+}
+
+.xdev-window-header {
+	width: 100%;
+	margin: 5px 5px 5px 5px;
+}
+
+.xdev-window-body {
+	width: 100%;
+	margin: 5px 5px 5px 5px;
+	}
+
+.xdev-window-footer {
+	width: 100%;
+	margin: 5px 5px 5px 5px;
+}
+
+.xdev-sub {margin: 5px 5px 5px 5px;}
+
+.xdev-field {
+	width: 50%; float: left;
+}
+.xdev-field > * {margin-right: 5px;}
+.xdev-field > label {width: 30%; display: inline-block; vertical-align: top;}
+.xdev-field > input,select,textarea {width: 40%;}
+.xdev-field > a {width: 20%;}
