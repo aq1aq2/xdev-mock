@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators>
+
     <decorator name="list" page="/template/base_Layout.jsp">
         <pattern>/pages/list/*</pattern>
     </decorator>
-     <decorator name="input" page="/template/base_LayoutInput.jsp">
-        <pattern>/pages/input/*</pattern>
-    </decorator>
+    
+	<decorator name="input" page="/template/base_LayoutInput.jsp">
+		<pattern>/pages/input/*</pattern>
+	</decorator>
+	
+	<decorator name="lookup" page="/template/base_LayoutLookup.jsp">
+		<pattern>/pages/lookup/*</pattern>
+	</decorator>
+		
 </decorators>

@@ -36,6 +36,18 @@
 		
 		<!-- Top buttons -->
 		<div class="xdev-sub">
+			<sj:a id="searchBtn" 
+				button="true" 
+			>Search</sj:a>
+			
+			<sj:a id="noneBtn" 
+				button="true" 
+			>None</sj:a>
+			
+			<sj:a id="clearBtn" 
+				button="true" 
+			>Clear</sj:a>
+			
 			<sj:a id="createBtn" 
 				button="true" 
 			>Create</sj:a>
@@ -45,6 +57,18 @@
 		
 		<!-- Body -->
 		<dec:body />
+		
+		<!-- Bottom buttons -->
+	
+		<div class="xdev-sub">
+			<sj:a id="selectBtn" 
+				button="true"
+			>Select</sj:a>
+			
+			<sj:a id="closeBtn" 
+				button="true" 
+			>Close</sj:a>
+		</div>
 	
 		<!-- Footer -->
 		<%@ include file="footer.jsp" %>
