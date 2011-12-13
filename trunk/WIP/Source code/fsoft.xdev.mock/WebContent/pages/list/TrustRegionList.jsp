@@ -4,12 +4,14 @@
 <title>Trust Region</title>
 <script type="text/javascript">
         function formatLink(cellvalue, options, rowObject) {
-                return "<a href='detailTrustRegion.action?trustRegions.trustRegionId="+rowObject['trustRegionId']+")'>" + cellvalue + "</a>";
+                return "<a href='detailTrustRegion.action?trustRegions.trustRegionId="+rowObject['trustRegionId']+"'>" + cellvalue + "</a>";
         }        
 </script>
 
 <!-- body -->
 
+	<a href="detailTrustRegion.action">asdasdas</a>
+	
 	<s:form>
 		<s:url id="listTrustRegion" action="listTrustRegion.action"></s:url>
 		<sjg:grid
