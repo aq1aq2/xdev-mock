@@ -61,7 +61,9 @@ public class GovtOfficeRegionsDao extends HibernateDaoSupport implements IGovtOf
 	public List<GovtOfficeRegions> findRange(int from, int to) {
 		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("from GovtOfficeRegions");
 		query.setFirstResult(from);
-		query.setMaxResults(to - from);		
+		query.setMaxResults(to - from);	
+		System.out.println("to: " + to);
+		System.out.println("from: " +  from);
 		return (List<GovtOfficeRegions>) query.list();
 	}
 
