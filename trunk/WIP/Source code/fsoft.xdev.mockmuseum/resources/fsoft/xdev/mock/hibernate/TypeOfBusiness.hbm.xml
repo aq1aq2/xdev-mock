@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 6, 2011 8:45:40 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="fsoft.xdev.mock.models.TypeOfBusiness" table="TypeOfBusiness" schema="dbo" catalog="DataMock">
+        <id name="typeOfBusinessId" type="int">
+            <column name="TypeOfBusinessID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="string">
+            <column name="Name" length="100" />
+        </property>
+        <property name="sicCode" type="string">
+            <column name="SicCode" length="50" />
+        </property>
+        <set name="teamses" inverse="true" lazy="false">
+            <key>
+                <column name="TypeOfBusinessID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Teams" />
+        </set>
+    </class>
+</hibernate-mapping>

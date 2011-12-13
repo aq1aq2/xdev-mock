@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 6, 2011 8:45:40 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="fsoft.xdev.mock.models.Premises" table="Premises" schema="dbo" catalog="DataMock">
+        <id name="premiseId" type="int">
+            <column name="PremiseID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="string">
+            <column name="Name" length="100" />
+        </property>
+        <property name="locationName" type="string">
+            <column name="LocationName" length="100" />
+        </property>
+        <property name="knownAs" type="string">
+            <column name="KnownAs" length="100" />
+        </property>
+        <property name="primaryLocation" type="java.lang.Boolean">
+            <column name="PrimaryLocation" />
+        </property>
+        <property name="locationManaged" type="java.lang.Boolean">
+            <column name="LocationManaged" />
+        </property>
+        <property name="orgnisationId" type="java.lang.Integer">
+            <column name="OrgnisationID" />
+        </property>
+        <property name="locationStatus" type="string">
+            <column name="LocationStatus" length="200" />
+        </property>
+        <property name="stnetworkConectivity" type="java.lang.Boolean">
+            <column name="STNetworkConectivity" />
+        </property>
+        <property name="locationStatusDate" type="timestamp">
+            <column name="LocationStatusDate" length="23" />
+        </property>
+        <property name="locationType" type="string">
+            <column name="LocationType" />
+        </property>
+        <property name="locationDescription" type="string">
+            <column name="LocationDescription" />
+        </property>
+        <property name="addressLine1" type="string">
+            <column name="AddressLine1" length="200" />
+        </property>
+        <property name="addressLine2" type="string">
+            <column name="AddressLine2" length="200" />
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="PhoneNumber" length="30" />
+        </property>
+        <property name="postcode" type="string">
+            <column name="Postcode" length="20" />
+        </property>
+        <property name="faxNumber" type="string">
+            <column name="FaxNumber" length="30" />
+        </property>
+        <property name="cityTown" type="string">
+            <column name="CityTown" length="100" />
+        </property>
+        <property name="county" type="string">
+            <column name="County" length="100" />
+        </property>
+        <property name="isNewShop" type="java.lang.Boolean">
+            <column name="IsNewShop" />
+        </property>
+        <property name="nation" type="string">
+            <column name="Nation" length="200" />
+        </property>
+        <property name="shopFlagDate" type="timestamp">
+            <column name="ShopFlagDate" length="23" />
+        </property>
+        <property name="specialistShop" type="java.lang.Boolean">
+            <column name="SpecialistShop" />
+        </property>
+        <property name="accreditations" type="string">
+            <column name="Accreditations" length="200" />
+        </property>
+        <property name="jcpoffices" type="string">
+            <column name="JCPOffices" length="200" />
+        </property>
+        <property name="cateringType" type="java.lang.Integer">
+            <column name="CateringType" />
+        </property>
+        <property name="localDemographicIssue" type="string">
+            <column name="LocalDemographicIssue" />
+        </property>
+        <property name="isnetwork" type="java.lang.Integer">
+            <column name="ISNetwork" />
+        </property>
+        <property name="roomAvailability" type="java.lang.Boolean">
+            <column name="RoomAvailability" />
+        </property>
+        <property name="volunteeringOpportunities" type="java.lang.Boolean">
+            <column name="VolunteeringOpportunities" />
+        </property>
+        <property name="outreachLocation" type="string">
+            <column name="OutreachLocation" />
+        </property>
+        <property name="localHotel" type="string">
+            <column name="LocalHotel" />
+        </property>
+        <property name="travelDetails" type="string">
+            <column name="TravelDetails" length="250" />
+        </property>
+        <property name="visitorParkingOnsite" type="java.lang.Boolean">
+            <column name="VisitorParkingOnsite" />
+        </property>
+        <property name="travelNearestBus" type="string">
+            <column name="TravelNearestBus" length="250" />
+        </property>
+        <property name="hostVisits" type="java.lang.Boolean">
+            <column name="HostVisits" />
+        </property>
+        <property name="contactId" type="java.lang.Integer">
+            <column name="ContactID" />
+        </property>
+        <property name="roomOnlyRate" type="java.lang.Double">
+            <column name="RoomOnlyRate" precision="53" scale="0" />
+        </property>
+        <property name="negotiatedRoomOnlyRate" type="java.lang.Double">
+            <column name="NegotiatedRoomOnlyRate" precision="53" scale="0" />
+        </property>
+        <property name="bbrate" type="java.lang.Double">
+            <column name="BBRate" precision="53" scale="0" />
+        </property>
+        <property name="bbnegotiatedRate" type="java.lang.Double">
+            <column name="BBNegotiatedRate" precision="53" scale="0" />
+        </property>
+        <property name="lunch" type="java.lang.Boolean">
+            <column name="Lunch" />
+        </property>
+        <property name="lastNegotiatedDate" type="timestamp">
+            <column name="LastNegotiatedDate" length="23" />
+        </property>
+        <property name="reNegotiatedOn" type="timestamp">
+            <column name="ReNegotiatedOn" length="23" />
+        </property>
+        <property name="noOfMeetingRoom" type="java.lang.Integer">
+            <column name="NoOfMeetingRoom" />
+        </property>
+        <property name="meetingRoomRatePerDay" type="java.lang.Double">
+            <column name="MeetingRoomRatePerDay" precision="53" scale="0" />
+        </property>
+        <property name="isActive" type="java.lang.Boolean">
+            <column name="IsActive" />
+        </property>
+        <set name="servicePremises" inverse="true" lazy="false">
+            <key>
+                <column name="PremiseID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.ServicePremise" />
+        </set>
+    </class>
+</hibernate-mapping>

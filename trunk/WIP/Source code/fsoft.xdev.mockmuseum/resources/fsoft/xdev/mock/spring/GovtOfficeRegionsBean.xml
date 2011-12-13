@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+			  
+	<bean id="goverOfficeRegionsAction" class="fsoft.xdev.mock.actions.geography.GovtOfficeRegionsAction">
+		<property name="governmentOfficeRegionDao" ref="governmentOfficeRegionDao" />
+	</bean>
+
+	<bean id="governmentOfficeRegionDao" parent="txProxyTemplate">		
+		<property name="target">
+    		<bean class="fsoft.xdev.mock.dao.imp.GovtOfficeRegionsDao">
+        		<property name="sessionFactory" ref="sessionFactory" />
+        	</bean>
+        </property>
+	</bean>   
+	
+
+</beans>
