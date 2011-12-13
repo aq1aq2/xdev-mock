@@ -6,7 +6,6 @@
 	</div>
 	
 	<div class="xdev-content">
-		<xdev:contactInput id="myContactInput"/>
 	</div>
 	
 	<div class="xdev-footer">
