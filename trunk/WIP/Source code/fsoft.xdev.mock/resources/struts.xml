@@ -13,15 +13,7 @@
 	<!-- Use modified theme -->
 	<constant name="struts.ui.theme" value="xTheme" />
 	<constant name="struts.ui.templateDir" value="template" /> 
-	
-    <package name="default" namespace="/" extends="json-default">
-    	<!-- Sample action declaration -->
-    	<action name="getcustomer" class="fsoft.xdev.mock.actions.TestAction">
-    		<result name="success" type="json"></result>
-    	</action>
-   	</package>
-   	<!-- Configuration Information for Template -->
-  	<include file="templateConfiguration.xml" />
+   	
    	<!-- Configuration Information Created by NhanLD  -->
    	<include file = "nhanld-config.xml"/>
    	<!-- Configuration Information Created by DungNM2  -->

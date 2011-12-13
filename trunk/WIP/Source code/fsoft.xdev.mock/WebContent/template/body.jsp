@@ -1,1 +1,0 @@
-<div>The content page</div>
