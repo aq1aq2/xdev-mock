@@ -60,6 +60,7 @@ public class TrustDistrictsDao extends HibernateDaoSupport implements ITrustDist
 		return (List<TrustDistricts>)query.list();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<TrustDistricts> listFilter(String from, String to){
 		return getHibernateTemplate().find("from TrustDistricts where");
 	}
