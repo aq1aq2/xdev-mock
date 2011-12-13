@@ -65,15 +65,15 @@ public class GovtOfficeRegionsAction extends ActionSupport{
 		//listCounties = countiesDao.findAll();
 		
 		//listGovernmentOfficeRegion = governmentOfficeRegionDao.findAll();
-		System.out.println("+++++++++++++++++++++++++++++++++++++");
-		System.out.println("||||||||||||||||||||||||||||||||||||");
-		for(GovtOfficeRegions gov: listGovernmentOfficeRegion){
-			System.out.println(gov.getGovtOfficeRegionId());
-			System.out.println(gov.getName());
-			System.out.println(gov.getDescription());
-			System.out.println(gov.getCounties().getName());
-			System.out.println(gov.getIsActive());
-		}
+//		System.out.println("+++++++++++++++++++++++++++++++++++++");
+//		System.out.println("||||||||||||||||||||||||||||||||||||");
+//		for(GovtOfficeRegions gov: listGovernmentOfficeRegion){
+//			System.out.println(gov.getGovtOfficeRegionId());
+//			System.out.println(gov.getName());
+//			System.out.println(gov.getDescription());
+//			System.out.println(gov.getCounties().getName());
+//			System.out.println(gov.getIsActive());
+//		}
 		return "list";
 	}
 
