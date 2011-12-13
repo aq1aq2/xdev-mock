@@ -1,6 +1,8 @@
 package fsoft.xdev.mock.dao.imp;
 import java.util.List;
 
+import org.hibernate.Query;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import fsoft.xdev.mock.dao.IPremisesDao;
@@ -10,8 +12,8 @@ public class PremisesDao extends HibernateDaoSupport implements IPremisesDao{
 
 	@Override
 	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return DataAccessUtils.intResult(getHibernateTemplate().find("select count(*) from Premises"));
 	}
 
 	@Override
@@ -22,20 +24,20 @@ public class PremisesDao extends HibernateDaoSupport implements IPremisesDao{
 
 	@Override
 	public boolean edit(Premises entity) {
-		// TODO Auto-generated method stub
+		getHibernateTemplate().update(entity);
 		return false;
 	}
 
 	@Override
 	public boolean remove(Premises entity) {
-		// TODO Auto-generated method stub
+		getHibernateTemplate().delete(entity);
 		return false;
 	}
 
 	@Override
 	public Premises find(Premises entity) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return (Premises)getHibernateTemplate().get(Premises.class, entity.getPremiseId());
 	}
 
 	@SuppressWarnings("unchecked")
@@ -45,10 +47,13 @@ public class PremisesDao extends HibernateDaoSupport implements IPremisesDao{
 		return getHibernateTemplate().find("from Premises");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Premises> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("from Premises");
+		query.setFirstResult(from);
+		query.setMaxResults(to-from);
+		return (List<Premises>)query.list();
 	}
 
 }
