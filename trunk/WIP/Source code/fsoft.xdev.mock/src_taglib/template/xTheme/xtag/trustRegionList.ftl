@@ -49,8 +49,7 @@
 	function formatLink(cellvalue, options, rowObject) {		
        return "<a href='detailTrustRegion.action?trustRegions.trustRegionId="+rowObject["trustRegionId"] +"'>"+rowObject["name"]+"</a>";  
                  
-    }
-     
+    }     
     
 </script>
        
