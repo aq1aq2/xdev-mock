@@ -1,4 +1,5 @@
 <%@ taglib prefix="dec" uri="http://www.opensymphony.com/sitemesh/decorator" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -32,13 +33,34 @@
 			<li>W X Y Z</li>
 		</ul>
 		<div class="clear"></div>
-	
+		
+		<!-- Top buttons -->
+		<div class="xdev-sub">
+			<sj:a id="searchBtn" 
+				button="true" 
+			>Search</sj:a>
+			
+			<sj:a id="noneBtn" 
+				button="true" 
+			>None</sj:a>
+			
+			<sj:a id="clearBtn" 
+				button="true" 
+			>Clear</sj:a>
+			
+			<sj:a id="createBtn" 
+				button="true" 
+			>Create</sj:a>
+			
+			<s:checkbox name="includeChkBx" label="Include In-active" />
+		</div>
+		
 		<!-- Body -->
 		<dec:body />
 	
 		<!-- Footer -->
 		<%@ include file="footer.jsp" %>
-	</div>
+	</div> <!-- End of xdev-wrapper -->
 </body>
 
 </html>
