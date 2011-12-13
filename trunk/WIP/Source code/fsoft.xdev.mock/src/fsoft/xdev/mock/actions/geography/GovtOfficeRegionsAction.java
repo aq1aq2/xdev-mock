@@ -47,6 +47,7 @@ public class GovtOfficeRegionsAction extends ActionSupport{
 	 * @return action, listGovernmentOfficeRegion
 	 */
 	public String list(){
+		System.out.println("+++++++++++++++++++++++++++++++++++++");		
 		System.out.println("co vao day khong");
 		
 		int to = (rows*page);
@@ -64,13 +65,15 @@ public class GovtOfficeRegionsAction extends ActionSupport{
 		//listCounties = countiesDao.findAll();
 		
 		//listGovernmentOfficeRegion = governmentOfficeRegionDao.findAll();
-		/*for(GovtOfficeRegions gov: listGovernmentOfficeRegion){
+		System.out.println("+++++++++++++++++++++++++++++++++++++");
+		System.out.println("||||||||||||||||||||||||||||||||||||");
+		for(GovtOfficeRegions gov: listGovernmentOfficeRegion){
 			System.out.println(gov.getGovtOfficeRegionId());
 			System.out.println(gov.getName());
 			System.out.println(gov.getDescription());
 			System.out.println(gov.getCounties().getName());
 			System.out.println(gov.getIsActive());
-		}*/
+		}
 		return "list";
 	}
 
@@ -159,10 +162,6 @@ public class GovtOfficeRegionsAction extends ActionSupport{
 		this.records = records;
 	}
 
-	public IGovtOfficeRegionsDao getGovernmentOfficeRegionDao() {
-		return governmentOfficeRegionDao;
-	}
 
-	
 	
 }
