@@ -18,6 +18,10 @@ public class ContactAction extends ActionSupport {
 	
 	private List<Contacts> listModel = new ArrayList<Contacts>();
 
+	public String execute() {
+		return SUCCESS;
+	}
+	
 	/**
 	 * List all Contacts
 	 * @return action returns listModel
@@ -25,7 +29,7 @@ public class ContactAction extends ActionSupport {
 	public String list() {
 		System.out.println("Action: List contact");
 		listModel = contactsDao.findAll();
-		return SUCCESS;
+		return "list";
 	}
 	
 	public String save() {
