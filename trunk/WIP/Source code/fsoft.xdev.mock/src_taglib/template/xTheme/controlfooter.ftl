@@ -22,16 +22,4 @@
 -->
 <#-- Only remove tr, td tag -->
 ${parameters.after?if_exists}<#t/>
-<#if parameters.isXField??>
-	</div>
-<#else>
-	adsfadfasdf
-</#if>
-
-<#if isXField??>
-	<div class="xdev-field">
-<#else>
-	654321
-</#if>
-
 

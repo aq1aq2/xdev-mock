@@ -22,17 +22,5 @@
 -->
 
 <#-- Only remove tr, td tag -->
-<#if parameters.isXField??>
-	<div class="xdev-field">
-<#else>
-	adsfadfasdf
-</#if>
-
-<#if isXField??>
-	<div class="xdev-field">
-<#else>
-	123654
-</#if>
-
 <#include "/${parameters.templateDir}/xTheme/controlheader-core.ftl" />
 

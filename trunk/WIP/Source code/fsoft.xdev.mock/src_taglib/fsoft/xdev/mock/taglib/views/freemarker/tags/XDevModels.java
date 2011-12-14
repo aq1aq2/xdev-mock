@@ -24,6 +24,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.opensymphony.xwork2.util.ValueStack;
 
+import fsoft.xdev.mock.taglib.components.XField;
+
 /**
  * 
  * @author nhanld</a>
@@ -31,6 +33,7 @@ import com.opensymphony.xwork2.util.ValueStack;
  */
 public class XDevModels {
 	protected TextLookupModel textLookup;
+	protected XField xField;
 
 	private ValueStack           stack;
 	private HttpServletRequest   req;
@@ -47,6 +50,13 @@ public class XDevModels {
 			textLookup = new TextLookupModel(stack, req, res);
 		}
 		return textLookup;
+	}
+	
+	public XField getXField() {
+		if (xField==null) {
+			xField = new XField(stack, req, res);
+		}
+		return xField;
 	}	
 }
 

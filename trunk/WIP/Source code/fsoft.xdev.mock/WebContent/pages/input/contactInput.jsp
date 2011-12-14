@@ -8,7 +8,8 @@
 			
 	<div id="details1" >
 		<form id="form" >
-			<s:textfield name="contact.firstName" label="Frist Name" required="true" isXField="asdsadasdasd"/>
+			<xdev:xfield type="textfield" name="contact.firstName" label="Frist Name" required="true" />
+			<xdev:xfield type="textarea" name="abc" label="Frist Name" required="true" />
 			<s:textfield name="contact.surname" label="Surname" required="true" isXField="true"/>
 			<s:textfield name="contact.knowAs" label="Know As" isXField="true"/>
 			<s:textfield name="contact.officePhone" label="Office Phone" isXField="true"/>
