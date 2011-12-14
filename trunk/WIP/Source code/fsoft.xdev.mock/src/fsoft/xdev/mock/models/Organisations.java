@@ -12,9 +12,11 @@ public class Organisations implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int organisationId;
+	private Contacts contacts;
 	private TrustDistricts trustDistricts;
+	private ReferenceData referenceData;
 	private String name;
-	private String shortDesc;	
+	private String shortDesc;
 	private String addr1;
 	private String addr2;
 	private String addr3;
@@ -22,7 +24,6 @@ public class Organisations implements java.io.Serializable {
 	private String county;
 	private Boolean preferredOrg;
 	private Boolean expOfInterest;
-	private Integer typeOfBusinessId;
 	private String fullDesc;
 	private String phoneNumber;
 	private String fax;
@@ -36,12 +37,76 @@ public class Organisations implements java.io.Serializable {
 	private String serviceBenCap;
 	private String servicePerCirCap;
 	private String serviceEthCap;
-	private String accreditation;
-	private String eoiprogramme;
-	private String eoiservice;
-	private Integer govOffRegionId;
-	private String postCode;
-	private Boolean isActive;
+
+	public Organisations() {
+		super();
+	}
+
+	public Organisations(int organisationId) {
+		super();
+		this.organisationId = organisationId;
+	}
+
+	public Organisations(int organisationId, Contacts contacts,
+			TrustDistricts trustDistricts, ReferenceData referenceData,
+			String name, String shortDesc, String addr1, String addr2,
+			String addr3, String city, String county, Boolean preferredOrg,
+			Boolean expOfInterest, String fullDesc, String phoneNumber,
+			String fax, String email, String webAddr, String charityNumber,
+			String companyNumber, String orgSpecicalism, String serviceDisCap,
+			String serviceBarCap, String serviceBenCap,
+			String servicePerCirCap, String serviceEthCap,
+			String accreditation, String eoiprogramme, String eoiservice,
+			Integer govOffRegionId, String postCode, Boolean isActive,
+			Set<OrganisationService> organisationServices,
+			Set<OrganisationProgramme> organisationProgrammes,
+			Set<SupportingMaterials> supportingMaterialses) {
+		super();
+		this.organisationId = organisationId;
+		this.contacts = contacts;
+		this.trustDistricts = trustDistricts;
+		this.referenceData = referenceData;
+		this.name = name;
+		this.shortDesc = shortDesc;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
+		this.addr3 = addr3;
+		this.city = city;
+		this.county = county;
+		this.preferredOrg = preferredOrg;
+		this.expOfInterest = expOfInterest;
+		this.fullDesc = fullDesc;
+		this.phoneNumber = phoneNumber;
+		this.fax = fax;
+		this.email = email;
+		this.webAddr = webAddr;
+		this.charityNumber = charityNumber;
+		this.companyNumber = companyNumber;
+		this.orgSpecicalism = orgSpecicalism;
+		this.serviceDisCap = serviceDisCap;
+		this.serviceBarCap = serviceBarCap;
+		this.serviceBenCap = serviceBenCap;
+		this.servicePerCirCap = servicePerCirCap;
+		this.serviceEthCap = serviceEthCap;
+		this.accreditation = accreditation;
+		this.eoiprogramme = eoiprogramme;
+		this.eoiservice = eoiservice;
+		this.govOffRegionId = govOffRegionId;
+		this.postCode = postCode;
+		this.isActive = isActive;
+		this.organisationServices = organisationServices;
+		this.organisationProgrammes = organisationProgrammes;
+		this.supportingMaterialses = supportingMaterialses;
+	}
+
+	public int getOrganisationId() {
+		return organisationId;
+	}
+
+	public void setOrganisationId(int organisationId) {
+		this.organisationId = organisationId;
+	}
+
 	public Contacts getContacts() {
 		return contacts;
 	}
@@ -50,94 +115,24 @@ public class Organisations implements java.io.Serializable {
 		this.contacts = contacts;
 	}
 
-	private Contacts contacts;
-	
-	private Set<OrganisationService> organisationServices = new HashSet<OrganisationService>(
-			0);
-	private Set<OrganisationProgramme> organisationProgrammes = new HashSet<OrganisationProgramme>(
-			0);
-	private Set<SupportingMaterials> supportingMaterialses = new HashSet<SupportingMaterials>(
-			0);
-
-	public Organisations() {
-	}
-
-	public Organisations(int organisationId) {
-		this.organisationId = organisationId;
-	}
-
-	
-
-	public Organisations(int organisationId, TrustDistricts trustDistricts,
-			String name, String shortDesc, String addr1,
-			String addr2, String addr3, String city, String county,
-			Boolean preferredOrg, Boolean expOfInterest,
-			Integer typeOfBusinessId, String fullDesc, String phoneNumber,
-			String fax, String email, String webAddr, String charityNumber,
-			String companyNumber, String orgSpecicalism, String serviceDisCap,
-			String serviceBarCap, String serviceBenCap,
-			String servicePerCirCap, String serviceEthCap,
-			String accreditation, String eoiprogramme, String eoiservice,
-			Integer govOffRegionId, String postCode, Boolean isActive,
-			Contacts contacts, Set<OrganisationService> organisationServices,
-			Set<OrganisationProgramme> organisationProgrammes,
-			Set<SupportingMaterials> supportingMaterialses) {
-		super();
-		this.organisationId = organisationId;
-		this.trustDistricts = trustDistricts;
-		this.name = name;
-		this.shortDesc = shortDesc;		
-		this.addr1 = addr1;
-		this.addr2 = addr2;
-		this.addr3 = addr3;
-		this.city = city;
-		this.county = county;
-		this.preferredOrg = preferredOrg;
-		this.expOfInterest = expOfInterest;
-		this.typeOfBusinessId = typeOfBusinessId;
-		this.fullDesc = fullDesc;
-		this.phoneNumber = phoneNumber;
-		this.fax = fax;
-		this.email = email;
-		this.webAddr = webAddr;
-		this.charityNumber = charityNumber;
-		this.companyNumber = companyNumber;
-		this.orgSpecicalism = orgSpecicalism;
-		this.serviceDisCap = serviceDisCap;
-		this.serviceBarCap = serviceBarCap;
-		this.serviceBenCap = serviceBenCap;
-		this.servicePerCirCap = servicePerCirCap;
-		this.serviceEthCap = serviceEthCap;
-		this.accreditation = accreditation;
-		this.eoiprogramme = eoiprogramme;
-		this.eoiservice = eoiservice;
-		this.govOffRegionId = govOffRegionId;
-		this.postCode = postCode;
-		this.isActive = isActive;
-		this.contacts = contacts;
-		this.organisationServices = organisationServices;
-		this.organisationProgrammes = organisationProgrammes;
-		this.supportingMaterialses = supportingMaterialses;
-	}
-
-	public int getOrganisationId() {
-		return this.organisationId;
-	}
-
-	public void setOrganisationId(int organisationId) {
-		this.organisationId = organisationId;
-	}
-
 	public TrustDistricts getTrustDistricts() {
-		return this.trustDistricts;
+		return trustDistricts;
 	}
 
 	public void setTrustDistricts(TrustDistricts trustDistricts) {
 		this.trustDistricts = trustDistricts;
 	}
 
+	public ReferenceData getReferenceData() {
+		return referenceData;
+	}
+
+	public void setReferenceData(ReferenceData referenceData) {
+		this.referenceData = referenceData;
+	}
+
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
@@ -145,16 +140,15 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getShortDesc() {
-		return this.shortDesc;
+		return shortDesc;
 	}
 
 	public void setShortDesc(String shortDesc) {
 		this.shortDesc = shortDesc;
 	}
-	
 
 	public String getAddr1() {
-		return this.addr1;
+		return addr1;
 	}
 
 	public void setAddr1(String addr1) {
@@ -162,7 +156,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getAddr2() {
-		return this.addr2;
+		return addr2;
 	}
 
 	public void setAddr2(String addr2) {
@@ -170,7 +164,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getAddr3() {
-		return this.addr3;
+		return addr3;
 	}
 
 	public void setAddr3(String addr3) {
@@ -178,7 +172,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getCity() {
-		return this.city;
+		return city;
 	}
 
 	public void setCity(String city) {
@@ -186,7 +180,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getCounty() {
-		return this.county;
+		return county;
 	}
 
 	public void setCounty(String county) {
@@ -194,7 +188,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public Boolean getPreferredOrg() {
-		return this.preferredOrg;
+		return preferredOrg;
 	}
 
 	public void setPreferredOrg(Boolean preferredOrg) {
@@ -202,23 +196,15 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public Boolean getExpOfInterest() {
-		return this.expOfInterest;
+		return expOfInterest;
 	}
 
 	public void setExpOfInterest(Boolean expOfInterest) {
 		this.expOfInterest = expOfInterest;
 	}
 
-	public Integer getTypeOfBusinessId() {
-		return this.typeOfBusinessId;
-	}
-
-	public void setTypeOfBusinessId(Integer typeOfBusinessId) {
-		this.typeOfBusinessId = typeOfBusinessId;
-	}
-
 	public String getFullDesc() {
-		return this.fullDesc;
+		return fullDesc;
 	}
 
 	public void setFullDesc(String fullDesc) {
@@ -226,7 +212,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getPhoneNumber() {
-		return this.phoneNumber;
+		return phoneNumber;
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
@@ -234,7 +220,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getFax() {
-		return this.fax;
+		return fax;
 	}
 
 	public void setFax(String fax) {
@@ -242,7 +228,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getEmail() {
-		return this.email;
+		return email;
 	}
 
 	public void setEmail(String email) {
@@ -250,7 +236,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getWebAddr() {
-		return this.webAddr;
+		return webAddr;
 	}
 
 	public void setWebAddr(String webAddr) {
@@ -258,7 +244,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getCharityNumber() {
-		return this.charityNumber;
+		return charityNumber;
 	}
 
 	public void setCharityNumber(String charityNumber) {
@@ -266,7 +252,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getCompanyNumber() {
-		return this.companyNumber;
+		return companyNumber;
 	}
 
 	public void setCompanyNumber(String companyNumber) {
@@ -274,7 +260,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getOrgSpecicalism() {
-		return this.orgSpecicalism;
+		return orgSpecicalism;
 	}
 
 	public void setOrgSpecicalism(String orgSpecicalism) {
@@ -282,7 +268,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getServiceDisCap() {
-		return this.serviceDisCap;
+		return serviceDisCap;
 	}
 
 	public void setServiceDisCap(String serviceDisCap) {
@@ -290,7 +276,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getServiceBarCap() {
-		return this.serviceBarCap;
+		return serviceBarCap;
 	}
 
 	public void setServiceBarCap(String serviceBarCap) {
@@ -298,7 +284,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getServiceBenCap() {
-		return this.serviceBenCap;
+		return serviceBenCap;
 	}
 
 	public void setServiceBenCap(String serviceBenCap) {
@@ -306,7 +292,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getServicePerCirCap() {
-		return this.servicePerCirCap;
+		return servicePerCirCap;
 	}
 
 	public void setServicePerCirCap(String servicePerCirCap) {
@@ -314,7 +300,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getServiceEthCap() {
-		return this.serviceEthCap;
+		return serviceEthCap;
 	}
 
 	public void setServiceEthCap(String serviceEthCap) {
@@ -322,7 +308,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getAccreditation() {
-		return this.accreditation;
+		return accreditation;
 	}
 
 	public void setAccreditation(String accreditation) {
@@ -330,7 +316,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getEoiprogramme() {
-		return this.eoiprogramme;
+		return eoiprogramme;
 	}
 
 	public void setEoiprogramme(String eoiprogramme) {
@@ -338,7 +324,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getEoiservice() {
-		return this.eoiservice;
+		return eoiservice;
 	}
 
 	public void setEoiservice(String eoiservice) {
@@ -346,7 +332,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public Integer getGovOffRegionId() {
-		return this.govOffRegionId;
+		return govOffRegionId;
 	}
 
 	public void setGovOffRegionId(Integer govOffRegionId) {
@@ -354,7 +340,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public String getPostCode() {
-		return this.postCode;
+		return postCode;
 	}
 
 	public void setPostCode(String postCode) {
@@ -362,7 +348,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public Boolean getIsActive() {
-		return this.isActive;
+		return isActive;
 	}
 
 	public void setIsActive(Boolean isActive) {
@@ -370,7 +356,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public Set<OrganisationService> getOrganisationServices() {
-		return this.organisationServices;
+		return organisationServices;
 	}
 
 	public void setOrganisationServices(
@@ -379,7 +365,7 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public Set<OrganisationProgramme> getOrganisationProgrammes() {
-		return this.organisationProgrammes;
+		return organisationProgrammes;
 	}
 
 	public void setOrganisationProgrammes(
@@ -388,12 +374,25 @@ public class Organisations implements java.io.Serializable {
 	}
 
 	public Set<SupportingMaterials> getSupportingMaterialses() {
-		return this.supportingMaterialses;
+		return supportingMaterialses;
 	}
 
 	public void setSupportingMaterialses(
 			Set<SupportingMaterials> supportingMaterialses) {
 		this.supportingMaterialses = supportingMaterialses;
 	}
+
+	private String accreditation;
+	private String eoiprogramme;
+	private String eoiservice;
+	private Integer govOffRegionId;
+	private String postCode;
+	private Boolean isActive;
+	private Set<OrganisationService> organisationServices = new HashSet<OrganisationService>(
+			0);
+	private Set<OrganisationProgramme> organisationProgrammes = new HashSet<OrganisationProgramme>(
+			0);
+	private Set<SupportingMaterials> supportingMaterialses = new HashSet<SupportingMaterials>(
+			0);
 
 }

@@ -1,25 +1,28 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 6, 2011 8:45:40 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Dec 14, 2011 2:49:43 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="fsoft.xdev.mock.models.Organisations" table="Organisations" schema="dbo" catalog="DataMock">
         <id name="organisationId" type="int">
             <column name="OrganisationID" />
-            <generator class="native" />
+            <generator class="indentity" />
         </id>
-         <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select" lazy="false">
+        <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select" lazy="false">
             <column name="ContactID" />
         </many-to-one>
         <many-to-one name="trustDistricts" class="fsoft.xdev.mock.models.TrustDistricts" fetch="select" lazy="false">
             <column name="TrustDistrictID" />
+        </many-to-one>
+        <many-to-one name="referenceData" class="fsoft.xdev.mock.models.ReferenceData" fetch="select" lazy="false">
+            <column name="TypeOfBusiness" />
         </many-to-one>
         <property name="name" type="string">
             <column name="Name" length="100" />
         </property>
         <property name="shortDesc" type="string">
             <column name="ShortDesc" />
-        </property>        
+        </property>
         <property name="addr1" type="string">
             <column name="Addr1" length="200" />
         </property>
@@ -40,9 +43,6 @@
         </property>
         <property name="expOfInterest" type="java.lang.Boolean">
             <column name="ExpOfInterest" />
-        </property>
-        <property name="typeOfBusinessId" type="java.lang.Integer">
-            <column name="TypeOfBusinessID" />
         </property>
         <property name="fullDesc" type="string">
             <column name="FullDesc" />

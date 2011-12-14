@@ -1,5 +1,8 @@
 package fsoft.xdev.mock.models;
 
+import java.util.Set;
+import java.util.HashSet;
+
 // Generated Dec 6, 2011 8:45:37 AM by Hibernate Tools 3.2.1.GA
 
 /**
@@ -11,22 +14,40 @@ public class ReferenceData implements java.io.Serializable {
 	private int referenceDataId;
 	private String refType;
 	private String value;
+	private Set<Organisations> organisationses = new HashSet<Organisations>(0);
+	private Set<Facilities> facilitieses = new HashSet<Facilities>(0);
+	private Set<Services> servicesesForServiceType = new HashSet<Services>(0);
+	private Set<Premises> premiseses = new HashSet<Premises>(0);
+	private Set<Services> servicesesForServiceSubType = new HashSet<Services>(0);
+	private Set<Contacts> contactses = new HashSet<Contacts>(0);
 
 	public ReferenceData() {
+		super();
 	}
 
 	public ReferenceData(int referenceDataId) {
+		super();
 		this.referenceDataId = referenceDataId;
 	}
 
-	public ReferenceData(int referenceDataId, String refType, String value) {
+	public ReferenceData(int referenceDataId, String refType, String value,
+			Set<Organisations> organisationses, Set<Facilities> facilitieses,
+			Set<Services> servicesesForServiceType, Set<Premises> premiseses,
+			Set<Services> servicesesForServiceSubType, Set<Contacts> contactses) {
+		super();
 		this.referenceDataId = referenceDataId;
 		this.refType = refType;
 		this.value = value;
+		this.organisationses = organisationses;
+		this.facilitieses = facilitieses;
+		this.servicesesForServiceType = servicesesForServiceType;
+		this.premiseses = premiseses;
+		this.servicesesForServiceSubType = servicesesForServiceSubType;
+		this.contactses = contactses;
 	}
 
 	public int getReferenceDataId() {
-		return this.referenceDataId;
+		return referenceDataId;
 	}
 
 	public void setReferenceDataId(int referenceDataId) {
@@ -34,7 +55,7 @@ public class ReferenceData implements java.io.Serializable {
 	}
 
 	public String getRefType() {
-		return this.refType;
+		return refType;
 	}
 
 	public void setRefType(String refType) {
@@ -42,11 +63,61 @@ public class ReferenceData implements java.io.Serializable {
 	}
 
 	public String getValue() {
-		return this.value;
+		return value;
 	}
 
 	public void setValue(String value) {
 		this.value = value;
+	}
+
+	public Set<Organisations> getOrganisationses() {
+		return organisationses;
+	}
+
+	public void setOrganisationses(Set<Organisations> organisationses) {
+		this.organisationses = organisationses;
+	}
+
+	public Set<Facilities> getFacilitieses() {
+		return facilitieses;
+	}
+
+	public void setFacilitieses(Set<Facilities> facilitieses) {
+		this.facilitieses = facilitieses;
+	}
+
+	public Set<Services> getServicesesForServiceType() {
+		return servicesesForServiceType;
+	}
+
+	public void setServicesesForServiceType(
+			Set<Services> servicesesForServiceType) {
+		this.servicesesForServiceType = servicesesForServiceType;
+	}
+
+	public Set<Premises> getPremiseses() {
+		return premiseses;
+	}
+
+	public void setPremiseses(Set<Premises> premiseses) {
+		this.premiseses = premiseses;
+	}
+
+	public Set<Services> getServicesesForServiceSubType() {
+		return servicesesForServiceSubType;
+	}
+
+	public void setServicesesForServiceSubType(
+			Set<Services> servicesesForServiceSubType) {
+		this.servicesesForServiceSubType = servicesesForServiceSubType;
+	}
+
+	public Set<Contacts> getContactses() {
+		return contactses;
+	}
+
+	public void setContactses(Set<Contacts> contactses) {
+		this.contactses = contactses;
 	}
 
 }

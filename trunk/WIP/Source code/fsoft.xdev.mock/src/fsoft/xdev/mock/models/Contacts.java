@@ -13,8 +13,8 @@ public class Contacts implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	private int contactId;
+	private ReferenceData referenceData;
 	private String firstName;
 	private String surName;
 	private String knowAs;
@@ -23,14 +23,11 @@ public class Contacts implements java.io.Serializable {
 	private String sthomePhone;
 	private String emailAddress;
 	private Integer managerId;
-	private String contactType;
 	private String bestContactMethod;
 	private String jobRole;
 	private String workBase;
 	private String jobTitle;
 	private Boolean isActive;
-
-	private Set<Services> serviceses = new HashSet<Services>(0);
 	private Set<Organisations> organisationses = new HashSet<Organisations>(0);
 	private Set<Programmes> programmeses = new HashSet<Programmes>(0);
 	private Set<Directorates> directorateses = new HashSet<Directorates>(0);
@@ -45,18 +42,17 @@ public class Contacts implements java.io.Serializable {
 		this.contactId = contactId;
 	}
 
-	
-	public Contacts(int contactId, String firstName, String surName,
-			String knowAs, String officePhone, String mobilePhone,
-			String sthomePhone, String emailAddress, Integer managerId,
-			String contactType, String bestContactMethod, String jobRole,
-			String workBase, String jobTitle, Boolean isActive,
-			Set<Services> serviceses, Set<Organisations> organisationses,
-			Set<Programmes> programmeses, Set<Directorates> directorateses,
-			Set<Facilities> facilitieses, Set<Teams> teamses,
-			Set<Volunteers> volunteerses) {
+	public Contacts(int contactId, ReferenceData referenceData,
+			String firstName, String surName, String knowAs,
+			String officePhone, String mobilePhone, String sthomePhone,
+			String emailAddress, Integer managerId, String bestContactMethod,
+			String jobRole, String workBase, String jobTitle, Boolean isActive,
+			Set<Organisations> organisationses, Set<Programmes> programmeses,
+			Set<Directorates> directorateses, Set<Facilities> facilitieses,
+			Set<Teams> teamses, Set<Volunteers> volunteerses) {
 		super();
 		this.contactId = contactId;
+		this.referenceData = referenceData;
 		this.firstName = firstName;
 		this.surName = surName;
 		this.knowAs = knowAs;
@@ -65,13 +61,11 @@ public class Contacts implements java.io.Serializable {
 		this.sthomePhone = sthomePhone;
 		this.emailAddress = emailAddress;
 		this.managerId = managerId;
-		this.contactType = contactType;
 		this.bestContactMethod = bestContactMethod;
 		this.jobRole = jobRole;
 		this.workBase = workBase;
 		this.jobTitle = jobTitle;
 		this.isActive = isActive;
-		this.serviceses = serviceses;
 		this.organisationses = organisationses;
 		this.programmeses = programmeses;
 		this.directorateses = directorateses;
@@ -81,15 +75,23 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public int getContactId() {
-		return this.contactId;
+		return contactId;
 	}
 
 	public void setContactId(int contactId) {
 		this.contactId = contactId;
 	}
 
+	public ReferenceData getReferenceData() {
+		return referenceData;
+	}
+
+	public void setReferenceData(ReferenceData referenceData) {
+		this.referenceData = referenceData;
+	}
+
 	public String getFirstName() {
-		return this.firstName;
+		return firstName;
 	}
 
 	public void setFirstName(String firstName) {
@@ -97,7 +99,7 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public String getSurName() {
-		return this.surName;
+		return surName;
 	}
 
 	public void setSurName(String surName) {
@@ -105,7 +107,7 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public String getKnowAs() {
-		return this.knowAs;
+		return knowAs;
 	}
 
 	public void setKnowAs(String knowAs) {
@@ -113,7 +115,7 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public String getOfficePhone() {
-		return this.officePhone;
+		return officePhone;
 	}
 
 	public void setOfficePhone(String officePhone) {
@@ -121,7 +123,7 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public String getMobilePhone() {
-		return this.mobilePhone;
+		return mobilePhone;
 	}
 
 	public void setMobilePhone(String mobilePhone) {
@@ -129,7 +131,7 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public String getSthomePhone() {
-		return this.sthomePhone;
+		return sthomePhone;
 	}
 
 	public void setSthomePhone(String sthomePhone) {
@@ -137,7 +139,7 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public String getEmailAddress() {
-		return this.emailAddress;
+		return emailAddress;
 	}
 
 	public void setEmailAddress(String emailAddress) {
@@ -145,23 +147,15 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public Integer getManagerId() {
-		return this.managerId;
+		return managerId;
 	}
 
 	public void setManagerId(Integer managerId) {
 		this.managerId = managerId;
 	}
 
-	public String getContactType() {
-		return this.contactType;
-	}
-
-	public void setContactType(String contactType) {
-		this.contactType = contactType;
-	}
-
 	public String getBestContactMethod() {
-		return this.bestContactMethod;
+		return bestContactMethod;
 	}
 
 	public void setBestContactMethod(String bestContactMethod) {
@@ -169,7 +163,7 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public String getJobRole() {
-		return this.jobRole;
+		return jobRole;
 	}
 
 	public void setJobRole(String jobRole) {
@@ -177,7 +171,7 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public String getWorkBase() {
-		return this.workBase;
+		return workBase;
 	}
 
 	public void setWorkBase(String workBase) {
@@ -185,7 +179,19 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public String getJobTitle() {
-		return this.jobTitle;
+		return jobTitle;
+	}
+
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+
+	public Boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	public Set<Organisations> getOrganisationses() {
@@ -196,28 +202,8 @@ public class Contacts implements java.io.Serializable {
 		this.organisationses = organisationses;
 	}
 
-	public Set<Services> getServiceses() {
-		return serviceses;
-	}
-
-	public void setServiceses(Set<Services> serviceses) {
-		this.serviceses = serviceses;
-	}
-
-	public void setJobTitle(String jobTitle) {
-		this.jobTitle = jobTitle;
-	}
-
-	public Boolean getIsActive() {
-		return this.isActive;
-	}
-
-	public void setIsActive(Boolean isActive) {
-		this.isActive = isActive;
-	}
-
 	public Set<Programmes> getProgrammeses() {
-		return this.programmeses;
+		return programmeses;
 	}
 
 	public void setProgrammeses(Set<Programmes> programmeses) {
@@ -225,7 +211,7 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public Set<Directorates> getDirectorateses() {
-		return this.directorateses;
+		return directorateses;
 	}
 
 	public void setDirectorateses(Set<Directorates> directorateses) {
@@ -233,7 +219,7 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public Set<Facilities> getFacilitieses() {
-		return this.facilitieses;
+		return facilitieses;
 	}
 
 	public void setFacilitieses(Set<Facilities> facilitieses) {
@@ -241,7 +227,7 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public Set<Teams> getTeamses() {
-		return this.teamses;
+		return teamses;
 	}
 
 	public void setTeamses(Set<Teams> teamses) {
@@ -249,7 +235,7 @@ public class Contacts implements java.io.Serializable {
 	}
 
 	public Set<Volunteers> getVolunteerses() {
-		return this.volunteerses;
+		return volunteerses;
 	}
 
 	public void setVolunteerses(Set<Volunteers> volunteerses) {

@@ -13,11 +13,12 @@ public class Services implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int serviceId;
+	private ReferenceData referenceDataByServiceType;
+	private ReferenceData referenceDataByServiceSubType;
 	private String name;
 	private String shortDescription;
-	private String serviceType;	
+	private Integer contactId;
 	private Boolean isActive;
-	private String serviceSubType;
 	private String fullDescription;
 	private Integer departmentId;
 	private String clientDescription;
@@ -53,54 +54,47 @@ public class Services implements java.io.Serializable {
 	private String contractOutcome;
 	private String participartion;
 	private String contractObligation;
-	private Contacts contacts;
-	
-	public Contacts getContacts() {
-		return contacts;
-	}
-
-	public void setContacts(Contacts contacts) {
-		this.contacts = contacts;
-	}
-
 	private Set<OrganisationService> organisationServices = new HashSet<OrganisationService>(
 			0);
 	private Set<ServicePremise> servicePremises = new HashSet<ServicePremise>(0);
 
 	public Services() {
+		super();
 	}
 
 	public Services(int serviceId) {
+		super();
 		this.serviceId = serviceId;
 	}
 
-	
-	public Services(int serviceId, String name, String shortDescription,
-			String serviceType, Boolean isActive,
-			String serviceSubType, String fullDescription,
-			Integer departmentId, String clientDescription,
-			String descriptionDelivery, String serviceAttendace,
-			Date serviceStartExpected, Date serviceStart, Date serviceEnd,
-			Boolean serviceExtendable, String serviceContractCode,
-			Double serviceContactValue, Boolean contractStagedPayment,
-			String referralProcessMethod, Boolean serviceTimeLimited,
-			Integer serviceTimeLimitedMonth, Integer serviceExtendableMonth,
-			String serBenCrit, String serBarCrit, String serEthCrit,
-			String serDisCrit, String serPerCirCrit, String serOrtherCrit,
+	public Services(int serviceId, ReferenceData referenceDataByServiceType,
+			ReferenceData referenceDataByServiceSubType, String name,
+			String shortDescription, Integer contactId, Boolean isActive,
+			String fullDescription, Integer departmentId,
+			String clientDescription, String descriptionDelivery,
+			String serviceAttendace, Date serviceStartExpected,
+			Date serviceStart, Date serviceEnd, Boolean serviceExtendable,
+			String serviceContractCode, Double serviceContactValue,
+			Boolean contractStagedPayment, String referralProcessMethod,
+			Boolean serviceTimeLimited, Integer serviceTimeLimitedMonth,
+			Integer serviceExtendableMonth, String serBenCrit,
+			String serBarCrit, String serEthCrit, String serDisCrit,
+			String serPerCirCrit, String serOrtherCrit,
 			String clientSupportProcess, String clientOutcome,
 			String intervention, String targetClient, String clientJourney,
 			String accreditation, String otherService, String referralSources,
 			Integer programmeId, String supportCenters, String contractOutcome,
 			String participartion, String contractObligation,
-			Contacts contacts, Set<OrganisationService> organisationServices,
+			Set<OrganisationService> organisationServices,
 			Set<ServicePremise> servicePremises) {
 		super();
 		this.serviceId = serviceId;
+		this.referenceDataByServiceType = referenceDataByServiceType;
+		this.referenceDataByServiceSubType = referenceDataByServiceSubType;
 		this.name = name;
 		this.shortDescription = shortDescription;
-		this.serviceType = serviceType;		
+		this.contactId = contactId;
 		this.isActive = isActive;
-		this.serviceSubType = serviceSubType;
 		this.fullDescription = fullDescription;
 		this.departmentId = departmentId;
 		this.clientDescription = clientDescription;
@@ -136,21 +130,38 @@ public class Services implements java.io.Serializable {
 		this.contractOutcome = contractOutcome;
 		this.participartion = participartion;
 		this.contractObligation = contractObligation;
-		this.contacts = contacts;
 		this.organisationServices = organisationServices;
 		this.servicePremises = servicePremises;
 	}
 
 	public int getServiceId() {
-		return this.serviceId;
+		return serviceId;
 	}
 
 	public void setServiceId(int serviceId) {
 		this.serviceId = serviceId;
 	}
 
+	public ReferenceData getReferenceDataByServiceType() {
+		return referenceDataByServiceType;
+	}
+
+	public void setReferenceDataByServiceType(
+			ReferenceData referenceDataByServiceType) {
+		this.referenceDataByServiceType = referenceDataByServiceType;
+	}
+
+	public ReferenceData getReferenceDataByServiceSubType() {
+		return referenceDataByServiceSubType;
+	}
+
+	public void setReferenceDataByServiceSubType(
+			ReferenceData referenceDataByServiceSubType) {
+		this.referenceDataByServiceSubType = referenceDataByServiceSubType;
+	}
+
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
@@ -158,40 +169,31 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getShortDescription() {
-		return this.shortDescription;
+		return shortDescription;
 	}
 
 	public void setShortDescription(String shortDescription) {
 		this.shortDescription = shortDescription;
 	}
 
-	public String getServiceType() {
-		return this.serviceType;
+	public Integer getContactId() {
+		return contactId;
 	}
 
-	public void setServiceType(String serviceType) {
-		this.serviceType = serviceType;
+	public void setContactId(Integer contactId) {
+		this.contactId = contactId;
 	}
-	
 
 	public Boolean getIsActive() {
-		return this.isActive;
+		return isActive;
 	}
 
 	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
 
-	public String getServiceSubType() {
-		return this.serviceSubType;
-	}
-
-	public void setServiceSubType(String serviceSubType) {
-		this.serviceSubType = serviceSubType;
-	}
-
 	public String getFullDescription() {
-		return this.fullDescription;
+		return fullDescription;
 	}
 
 	public void setFullDescription(String fullDescription) {
@@ -199,7 +201,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Integer getDepartmentId() {
-		return this.departmentId;
+		return departmentId;
 	}
 
 	public void setDepartmentId(Integer departmentId) {
@@ -207,7 +209,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getClientDescription() {
-		return this.clientDescription;
+		return clientDescription;
 	}
 
 	public void setClientDescription(String clientDescription) {
@@ -215,7 +217,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getDescriptionDelivery() {
-		return this.descriptionDelivery;
+		return descriptionDelivery;
 	}
 
 	public void setDescriptionDelivery(String descriptionDelivery) {
@@ -223,7 +225,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getServiceAttendace() {
-		return this.serviceAttendace;
+		return serviceAttendace;
 	}
 
 	public void setServiceAttendace(String serviceAttendace) {
@@ -231,7 +233,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Date getServiceStartExpected() {
-		return this.serviceStartExpected;
+		return serviceStartExpected;
 	}
 
 	public void setServiceStartExpected(Date serviceStartExpected) {
@@ -239,7 +241,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Date getServiceStart() {
-		return this.serviceStart;
+		return serviceStart;
 	}
 
 	public void setServiceStart(Date serviceStart) {
@@ -247,7 +249,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Date getServiceEnd() {
-		return this.serviceEnd;
+		return serviceEnd;
 	}
 
 	public void setServiceEnd(Date serviceEnd) {
@@ -255,7 +257,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Boolean getServiceExtendable() {
-		return this.serviceExtendable;
+		return serviceExtendable;
 	}
 
 	public void setServiceExtendable(Boolean serviceExtendable) {
@@ -263,7 +265,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getServiceContractCode() {
-		return this.serviceContractCode;
+		return serviceContractCode;
 	}
 
 	public void setServiceContractCode(String serviceContractCode) {
@@ -271,7 +273,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Double getServiceContactValue() {
-		return this.serviceContactValue;
+		return serviceContactValue;
 	}
 
 	public void setServiceContactValue(Double serviceContactValue) {
@@ -279,7 +281,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Boolean getContractStagedPayment() {
-		return this.contractStagedPayment;
+		return contractStagedPayment;
 	}
 
 	public void setContractStagedPayment(Boolean contractStagedPayment) {
@@ -287,7 +289,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getReferralProcessMethod() {
-		return this.referralProcessMethod;
+		return referralProcessMethod;
 	}
 
 	public void setReferralProcessMethod(String referralProcessMethod) {
@@ -295,7 +297,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Boolean getServiceTimeLimited() {
-		return this.serviceTimeLimited;
+		return serviceTimeLimited;
 	}
 
 	public void setServiceTimeLimited(Boolean serviceTimeLimited) {
@@ -303,7 +305,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Integer getServiceTimeLimitedMonth() {
-		return this.serviceTimeLimitedMonth;
+		return serviceTimeLimitedMonth;
 	}
 
 	public void setServiceTimeLimitedMonth(Integer serviceTimeLimitedMonth) {
@@ -311,7 +313,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Integer getServiceExtendableMonth() {
-		return this.serviceExtendableMonth;
+		return serviceExtendableMonth;
 	}
 
 	public void setServiceExtendableMonth(Integer serviceExtendableMonth) {
@@ -319,7 +321,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getSerBenCrit() {
-		return this.serBenCrit;
+		return serBenCrit;
 	}
 
 	public void setSerBenCrit(String serBenCrit) {
@@ -327,7 +329,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getSerBarCrit() {
-		return this.serBarCrit;
+		return serBarCrit;
 	}
 
 	public void setSerBarCrit(String serBarCrit) {
@@ -335,7 +337,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getSerEthCrit() {
-		return this.serEthCrit;
+		return serEthCrit;
 	}
 
 	public void setSerEthCrit(String serEthCrit) {
@@ -343,7 +345,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getSerDisCrit() {
-		return this.serDisCrit;
+		return serDisCrit;
 	}
 
 	public void setSerDisCrit(String serDisCrit) {
@@ -351,7 +353,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getSerPerCirCrit() {
-		return this.serPerCirCrit;
+		return serPerCirCrit;
 	}
 
 	public void setSerPerCirCrit(String serPerCirCrit) {
@@ -359,7 +361,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getSerOrtherCrit() {
-		return this.serOrtherCrit;
+		return serOrtherCrit;
 	}
 
 	public void setSerOrtherCrit(String serOrtherCrit) {
@@ -367,7 +369,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getClientSupportProcess() {
-		return this.clientSupportProcess;
+		return clientSupportProcess;
 	}
 
 	public void setClientSupportProcess(String clientSupportProcess) {
@@ -375,7 +377,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getClientOutcome() {
-		return this.clientOutcome;
+		return clientOutcome;
 	}
 
 	public void setClientOutcome(String clientOutcome) {
@@ -383,7 +385,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getIntervention() {
-		return this.intervention;
+		return intervention;
 	}
 
 	public void setIntervention(String intervention) {
@@ -391,7 +393,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getTargetClient() {
-		return this.targetClient;
+		return targetClient;
 	}
 
 	public void setTargetClient(String targetClient) {
@@ -399,7 +401,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getClientJourney() {
-		return this.clientJourney;
+		return clientJourney;
 	}
 
 	public void setClientJourney(String clientJourney) {
@@ -407,7 +409,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getAccreditation() {
-		return this.accreditation;
+		return accreditation;
 	}
 
 	public void setAccreditation(String accreditation) {
@@ -415,7 +417,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getOtherService() {
-		return this.otherService;
+		return otherService;
 	}
 
 	public void setOtherService(String otherService) {
@@ -423,7 +425,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getReferralSources() {
-		return this.referralSources;
+		return referralSources;
 	}
 
 	public void setReferralSources(String referralSources) {
@@ -431,7 +433,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Integer getProgrammeId() {
-		return this.programmeId;
+		return programmeId;
 	}
 
 	public void setProgrammeId(Integer programmeId) {
@@ -439,7 +441,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getSupportCenters() {
-		return this.supportCenters;
+		return supportCenters;
 	}
 
 	public void setSupportCenters(String supportCenters) {
@@ -447,7 +449,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getContractOutcome() {
-		return this.contractOutcome;
+		return contractOutcome;
 	}
 
 	public void setContractOutcome(String contractOutcome) {
@@ -455,7 +457,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getParticipartion() {
-		return this.participartion;
+		return participartion;
 	}
 
 	public void setParticipartion(String participartion) {
@@ -463,7 +465,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public String getContractObligation() {
-		return this.contractObligation;
+		return contractObligation;
 	}
 
 	public void setContractObligation(String contractObligation) {
@@ -471,7 +473,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Set<OrganisationService> getOrganisationServices() {
-		return this.organisationServices;
+		return organisationServices;
 	}
 
 	public void setOrganisationServices(
@@ -480,7 +482,7 @@ public class Services implements java.io.Serializable {
 	}
 
 	public Set<ServicePremise> getServicePremises() {
-		return this.servicePremises;
+		return servicePremises;
 	}
 
 	public void setServicePremises(Set<ServicePremise> servicePremises) {

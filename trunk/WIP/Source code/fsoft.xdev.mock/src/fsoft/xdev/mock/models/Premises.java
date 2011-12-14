@@ -13,6 +13,7 @@ public class Premises implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int premiseId;
+	private ReferenceData referenceData;
 	private String name;
 	private String locationName;
 	private String knownAs;
@@ -37,7 +38,6 @@ public class Premises implements java.io.Serializable {
 	private Boolean specialistShop;
 	private String accreditations;
 	private String jcpoffices;
-	private Integer cateringType;
 	private String localDemographicIssue;
 	private Integer isnetwork;
 	private Boolean roomAvailability;
@@ -68,19 +68,19 @@ public class Premises implements java.io.Serializable {
 		this.premiseId = premiseId;
 	}
 
-	public Premises(int premiseId, String name, String locationName,
-			String knownAs, Boolean primaryLocation, Boolean locationManaged,
-			Integer orgnisationId, String locationStatus,
-			Boolean stnetworkConectivity, Date locationStatusDate,
-			String locationType, String locationDescription,
-			String addressLine1, String addressLine2, String phoneNumber,
-			String postcode, String faxNumber, String cityTown, String county,
+	public Premises(int premiseId, ReferenceData referenceData, String name,
+			String locationName, String knownAs, Boolean primaryLocation,
+			Boolean locationManaged, Integer orgnisationId,
+			String locationStatus, Boolean stnetworkConectivity,
+			Date locationStatusDate, String locationType,
+			String locationDescription, String addressLine1,
+			String addressLine2, String phoneNumber, String postcode,
+			String faxNumber, String cityTown, String county,
 			Boolean isNewShop, String nation, Date shopFlagDate,
 			Boolean specialistShop, String accreditations, String jcpoffices,
-			Integer cateringType, String localDemographicIssue,
-			Integer isnetwork, Boolean roomAvailability,
-			Boolean volunteeringOpportunities, String outreachLocation,
-			String localHotel, String travelDetails,
+			String localDemographicIssue, Integer isnetwork,
+			Boolean roomAvailability, Boolean volunteeringOpportunities,
+			String outreachLocation, String localHotel, String travelDetails,
 			Boolean visitorParkingOnsite, String travelNearestBus,
 			Boolean hostVisits, Integer contactId, Double roomOnlyRate,
 			Double negotiatedRoomOnlyRate, Double bbrate,
@@ -88,7 +88,9 @@ public class Premises implements java.io.Serializable {
 			Date reNegotiatedOn, Integer noOfMeetingRoom,
 			Double meetingRoomRatePerDay, Boolean isActive,
 			Set<ServicePremise> servicePremises) {
+		super();
 		this.premiseId = premiseId;
+		this.referenceData = referenceData;
 		this.name = name;
 		this.locationName = locationName;
 		this.knownAs = knownAs;
@@ -113,7 +115,6 @@ public class Premises implements java.io.Serializable {
 		this.specialistShop = specialistShop;
 		this.accreditations = accreditations;
 		this.jcpoffices = jcpoffices;
-		this.cateringType = cateringType;
 		this.localDemographicIssue = localDemographicIssue;
 		this.isnetwork = isnetwork;
 		this.roomAvailability = roomAvailability;
@@ -139,15 +140,23 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public int getPremiseId() {
-		return this.premiseId;
+		return premiseId;
 	}
 
 	public void setPremiseId(int premiseId) {
 		this.premiseId = premiseId;
 	}
 
+	public ReferenceData getReferenceData() {
+		return referenceData;
+	}
+
+	public void setReferenceData(ReferenceData referenceData) {
+		this.referenceData = referenceData;
+	}
+
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public void setName(String name) {
@@ -155,7 +164,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getLocationName() {
-		return this.locationName;
+		return locationName;
 	}
 
 	public void setLocationName(String locationName) {
@@ -163,7 +172,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getKnownAs() {
-		return this.knownAs;
+		return knownAs;
 	}
 
 	public void setKnownAs(String knownAs) {
@@ -171,7 +180,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Boolean getPrimaryLocation() {
-		return this.primaryLocation;
+		return primaryLocation;
 	}
 
 	public void setPrimaryLocation(Boolean primaryLocation) {
@@ -179,7 +188,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Boolean getLocationManaged() {
-		return this.locationManaged;
+		return locationManaged;
 	}
 
 	public void setLocationManaged(Boolean locationManaged) {
@@ -187,7 +196,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Integer getOrgnisationId() {
-		return this.orgnisationId;
+		return orgnisationId;
 	}
 
 	public void setOrgnisationId(Integer orgnisationId) {
@@ -195,7 +204,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getLocationStatus() {
-		return this.locationStatus;
+		return locationStatus;
 	}
 
 	public void setLocationStatus(String locationStatus) {
@@ -203,7 +212,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Boolean getStnetworkConectivity() {
-		return this.stnetworkConectivity;
+		return stnetworkConectivity;
 	}
 
 	public void setStnetworkConectivity(Boolean stnetworkConectivity) {
@@ -211,7 +220,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Date getLocationStatusDate() {
-		return this.locationStatusDate;
+		return locationStatusDate;
 	}
 
 	public void setLocationStatusDate(Date locationStatusDate) {
@@ -219,7 +228,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getLocationType() {
-		return this.locationType;
+		return locationType;
 	}
 
 	public void setLocationType(String locationType) {
@@ -227,7 +236,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getLocationDescription() {
-		return this.locationDescription;
+		return locationDescription;
 	}
 
 	public void setLocationDescription(String locationDescription) {
@@ -235,7 +244,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getAddressLine1() {
-		return this.addressLine1;
+		return addressLine1;
 	}
 
 	public void setAddressLine1(String addressLine1) {
@@ -243,7 +252,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getAddressLine2() {
-		return this.addressLine2;
+		return addressLine2;
 	}
 
 	public void setAddressLine2(String addressLine2) {
@@ -251,7 +260,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getPhoneNumber() {
-		return this.phoneNumber;
+		return phoneNumber;
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
@@ -259,7 +268,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getPostcode() {
-		return this.postcode;
+		return postcode;
 	}
 
 	public void setPostcode(String postcode) {
@@ -267,7 +276,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getFaxNumber() {
-		return this.faxNumber;
+		return faxNumber;
 	}
 
 	public void setFaxNumber(String faxNumber) {
@@ -275,7 +284,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getCityTown() {
-		return this.cityTown;
+		return cityTown;
 	}
 
 	public void setCityTown(String cityTown) {
@@ -283,7 +292,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getCounty() {
-		return this.county;
+		return county;
 	}
 
 	public void setCounty(String county) {
@@ -291,7 +300,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Boolean getIsNewShop() {
-		return this.isNewShop;
+		return isNewShop;
 	}
 
 	public void setIsNewShop(Boolean isNewShop) {
@@ -299,7 +308,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getNation() {
-		return this.nation;
+		return nation;
 	}
 
 	public void setNation(String nation) {
@@ -307,7 +316,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Date getShopFlagDate() {
-		return this.shopFlagDate;
+		return shopFlagDate;
 	}
 
 	public void setShopFlagDate(Date shopFlagDate) {
@@ -315,7 +324,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Boolean getSpecialistShop() {
-		return this.specialistShop;
+		return specialistShop;
 	}
 
 	public void setSpecialistShop(Boolean specialistShop) {
@@ -323,7 +332,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getAccreditations() {
-		return this.accreditations;
+		return accreditations;
 	}
 
 	public void setAccreditations(String accreditations) {
@@ -331,23 +340,15 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getJcpoffices() {
-		return this.jcpoffices;
+		return jcpoffices;
 	}
 
 	public void setJcpoffices(String jcpoffices) {
 		this.jcpoffices = jcpoffices;
 	}
 
-	public Integer getCateringType() {
-		return this.cateringType;
-	}
-
-	public void setCateringType(Integer cateringType) {
-		this.cateringType = cateringType;
-	}
-
 	public String getLocalDemographicIssue() {
-		return this.localDemographicIssue;
+		return localDemographicIssue;
 	}
 
 	public void setLocalDemographicIssue(String localDemographicIssue) {
@@ -355,7 +356,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Integer getIsnetwork() {
-		return this.isnetwork;
+		return isnetwork;
 	}
 
 	public void setIsnetwork(Integer isnetwork) {
@@ -363,7 +364,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Boolean getRoomAvailability() {
-		return this.roomAvailability;
+		return roomAvailability;
 	}
 
 	public void setRoomAvailability(Boolean roomAvailability) {
@@ -371,7 +372,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Boolean getVolunteeringOpportunities() {
-		return this.volunteeringOpportunities;
+		return volunteeringOpportunities;
 	}
 
 	public void setVolunteeringOpportunities(Boolean volunteeringOpportunities) {
@@ -379,7 +380,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getOutreachLocation() {
-		return this.outreachLocation;
+		return outreachLocation;
 	}
 
 	public void setOutreachLocation(String outreachLocation) {
@@ -387,7 +388,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getLocalHotel() {
-		return this.localHotel;
+		return localHotel;
 	}
 
 	public void setLocalHotel(String localHotel) {
@@ -395,7 +396,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getTravelDetails() {
-		return this.travelDetails;
+		return travelDetails;
 	}
 
 	public void setTravelDetails(String travelDetails) {
@@ -403,7 +404,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Boolean getVisitorParkingOnsite() {
-		return this.visitorParkingOnsite;
+		return visitorParkingOnsite;
 	}
 
 	public void setVisitorParkingOnsite(Boolean visitorParkingOnsite) {
@@ -411,7 +412,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public String getTravelNearestBus() {
-		return this.travelNearestBus;
+		return travelNearestBus;
 	}
 
 	public void setTravelNearestBus(String travelNearestBus) {
@@ -419,7 +420,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Boolean getHostVisits() {
-		return this.hostVisits;
+		return hostVisits;
 	}
 
 	public void setHostVisits(Boolean hostVisits) {
@@ -427,7 +428,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Integer getContactId() {
-		return this.contactId;
+		return contactId;
 	}
 
 	public void setContactId(Integer contactId) {
@@ -435,7 +436,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Double getRoomOnlyRate() {
-		return this.roomOnlyRate;
+		return roomOnlyRate;
 	}
 
 	public void setRoomOnlyRate(Double roomOnlyRate) {
@@ -443,7 +444,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Double getNegotiatedRoomOnlyRate() {
-		return this.negotiatedRoomOnlyRate;
+		return negotiatedRoomOnlyRate;
 	}
 
 	public void setNegotiatedRoomOnlyRate(Double negotiatedRoomOnlyRate) {
@@ -451,7 +452,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Double getBbrate() {
-		return this.bbrate;
+		return bbrate;
 	}
 
 	public void setBbrate(Double bbrate) {
@@ -459,7 +460,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Double getBbnegotiatedRate() {
-		return this.bbnegotiatedRate;
+		return bbnegotiatedRate;
 	}
 
 	public void setBbnegotiatedRate(Double bbnegotiatedRate) {
@@ -467,7 +468,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Boolean getLunch() {
-		return this.lunch;
+		return lunch;
 	}
 
 	public void setLunch(Boolean lunch) {
@@ -475,7 +476,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Date getLastNegotiatedDate() {
-		return this.lastNegotiatedDate;
+		return lastNegotiatedDate;
 	}
 
 	public void setLastNegotiatedDate(Date lastNegotiatedDate) {
@@ -483,7 +484,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Date getReNegotiatedOn() {
-		return this.reNegotiatedOn;
+		return reNegotiatedOn;
 	}
 
 	public void setReNegotiatedOn(Date reNegotiatedOn) {
@@ -491,7 +492,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Integer getNoOfMeetingRoom() {
-		return this.noOfMeetingRoom;
+		return noOfMeetingRoom;
 	}
 
 	public void setNoOfMeetingRoom(Integer noOfMeetingRoom) {
@@ -499,7 +500,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Double getMeetingRoomRatePerDay() {
-		return this.meetingRoomRatePerDay;
+		return meetingRoomRatePerDay;
 	}
 
 	public void setMeetingRoomRatePerDay(Double meetingRoomRatePerDay) {
@@ -507,7 +508,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Boolean getIsActive() {
-		return this.isActive;
+		return isActive;
 	}
 
 	public void setIsActive(Boolean isActive) {
@@ -515,7 +516,7 @@ public class Premises implements java.io.Serializable {
 	}
 
 	public Set<ServicePremise> getServicePremises() {
-		return this.servicePremises;
+		return servicePremises;
 	}
 
 	public void setServicePremises(Set<ServicePremise> servicePremises) {
