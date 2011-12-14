@@ -26,6 +26,11 @@
 			<dec:getProperty property="page.sectionTitle"/>
 		</h1>
 		
+		<!-- Search options -->
+		<div class="xdev-sub">
+			<dec:getProperty property="page.searchOptions"/>
+		</div>
+		
 		<!-- Filter -->
 		<ul id="xdev-filter">
 			<li>All</li>

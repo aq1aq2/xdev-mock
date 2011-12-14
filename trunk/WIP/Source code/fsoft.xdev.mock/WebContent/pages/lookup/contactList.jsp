@@ -10,6 +10,12 @@
 <!-- Section Title -->
 <content tag="sectionTitle">Contact List</content>
 
+<!-- Search Options -->
+<content tag="searchOptions">
+	<s:textfield id="opFirstName" label="Frist Name" />
+	<s:textfield id="opSurname" label="Surname" />
+</content>
+
 <!-- Grid -->
 <s:url id="listURL" action="listContact.action"/>
 <sjg:grid
