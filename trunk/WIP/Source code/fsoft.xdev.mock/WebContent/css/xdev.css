@@ -151,10 +151,7 @@ ul#xdev-filter li:hover {
 
 .xdev-sub {margin: 5px 5px 5px 5px;}
 
-.xdev-field {
-	width: 50%; float: left;
-}
-.xdev-field > * {margin-right: 5px;}
-.xdev-field > label {width: 30%; display: inline-block; vertical-align: top;}
-.xdev-field > input,select,textarea {width: 40%;}
-.xdev-field > a {width: 20%;}
+.xdev-form tr {	width: 50%; float: left; }
+.xdev-form td {	float: left; width: 60%; }
+.xdev-form td > input, select {	width: 70%; }
+.xdev-form td.tdLabel {	width: 30%; }
