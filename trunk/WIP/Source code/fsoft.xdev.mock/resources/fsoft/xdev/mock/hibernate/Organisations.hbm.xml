@@ -6,7 +6,7 @@
     <class name="fsoft.xdev.mock.models.Organisations" table="Organisations" schema="dbo" catalog="DataMock">
         <id name="organisationId" type="int">
             <column name="OrganisationID" />
-            <generator class="indentity" />
+            <generator class="identity" />
         </id>
         <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select" lazy="false">
             <column name="ContactID" />
