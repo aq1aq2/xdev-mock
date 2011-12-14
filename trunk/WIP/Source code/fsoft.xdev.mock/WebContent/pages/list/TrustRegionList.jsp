@@ -5,14 +5,12 @@
 <script type="text/javascript">
         function formatLink(cellvalue, options, rowObject) {
                 return "<a href='detailTrustRegion.action?trustRegions.trustRegionId="+rowObject['trustRegionId']+"'>" + cellvalue + "</a>";
-        }        
+        }      
 </script>
-
-<!-- body -->
-
-	<a href="detailTrustRegion.action">asdasdas</a>
-	
-	<s:form>
+<!-- body -->	
+ <content tag="quote"> When a cat is dropped, it always lands on its feet, 
+	and when toast is dropped... </content>
+		
 		<s:url id="listTrustRegion" action="listTrustRegion.action"></s:url>
 		<sjg:grid
 	        id="gridtable"
@@ -30,7 +28,6 @@
 	        <sjg:gridColumn name="description" index="description" title="Descripstion" sortable="false"/>
 	        <sjg:gridColumn name="countries.name" index="countries.name" title="Nation/country" sortable="true"/>
 	        <sjg:gridColumn name="isActive" index="isActive" title="IsActived" sortable="true"/>	        
-	    </sjg:grid>
-    
-    </s:form>
+	    </sjg:grid>    
+  
 

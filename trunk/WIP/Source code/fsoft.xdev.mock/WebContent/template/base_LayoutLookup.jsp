@@ -8,7 +8,7 @@
 
 <head>
  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Insert title here</title>
+		<title><dec:title default="Welcome" /></title>
 		<link rel="stylesheet" href="../../css/xdev.css" type="text/css" media="all" />
         <sj:head jqueryui="true" jquerytheme="smoothness"/>
         <script src="../../js/xScript.js"></script>

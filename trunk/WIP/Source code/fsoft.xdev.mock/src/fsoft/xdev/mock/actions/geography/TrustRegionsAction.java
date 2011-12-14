@@ -169,7 +169,7 @@ public class TrustRegionsAction extends ActionSupport {
 
 	// find trust region by ID
 	public String detail(){
-		System.out.println(trustRegions.getTrustRegionId());
+		System.out.println(" vao day nha" +trustRegions.getTrustRegionId());
 		trustRegions = trustRegionDao.find(trustRegions);
 		
 		listCountries = countriesDao.findAll();
