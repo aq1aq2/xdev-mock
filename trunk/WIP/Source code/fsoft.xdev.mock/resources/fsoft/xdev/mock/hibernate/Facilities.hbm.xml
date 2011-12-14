@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 6, 2011 8:45:40 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Dec 14, 2011 2:49:43 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="fsoft.xdev.mock.models.Facilities" table="Facilities" schema="dbo" catalog="DataMock">
         <id name="facilityId" type="int">
             <column name="FacilityID" />
-            <generator class="native" />
+            <generator class="identity" />
         </id>
+        <many-to-one name="referenceData" class="fsoft.xdev.mock.models.ReferenceData" fetch="select" lazy="false">
+            <column name="FacilityType" />
+        </many-to-one>
         <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select" lazy="false">
             <column name="ContactID" not-null="true" />
         </many-to-one>
-        <property name="facilityType" type="java.lang.Integer">
-            <column name="FacilityType" />
-        </property>
         <property name="facilityDescription" type="string">
             <column name="FacilityDescription" />
         </property>

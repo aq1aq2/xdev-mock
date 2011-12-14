@@ -9,8 +9,8 @@ public class Facilities implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int facilityId;
+	private ReferenceData referenceData;
 	private Contacts contacts;
-	private Integer facilityType;
 	private String facilityDescription;
 	private Integer roomCapacity;
 	private Integer roomSize;
@@ -31,28 +31,6 @@ public class Facilities implements java.io.Serializable {
 		this.contacts = contacts;
 	}
 
-	public Facilities(int facilityId, Contacts contacts, Integer facilityType,
-			String facilityDescription, Integer roomCapacity, Integer roomSize,
-			Boolean roomConnectivity, Boolean equipmentAvailable,
-			String roomEquipmentNotes, Integer connectivityType,
-			String wirelessAccessInfomation, Boolean isActive,
-			Integer premiseId, String facilityTypeName) {
-		this.facilityId = facilityId;
-		this.contacts = contacts;
-		this.facilityType = facilityType;
-		this.facilityDescription = facilityDescription;
-		this.roomCapacity = roomCapacity;
-		this.roomSize = roomSize;
-		this.roomConnectivity = roomConnectivity;
-		this.equipmentAvailable = equipmentAvailable;
-		this.roomEquipmentNotes = roomEquipmentNotes;
-		this.connectivityType = connectivityType;
-		this.wirelessAccessInfomation = wirelessAccessInfomation;
-		this.isActive = isActive;
-		this.premiseId = premiseId;
-		this.facilityTypeName = facilityTypeName;
-	}
-
 	public int getFacilityId() {
 		return this.facilityId;
 	}
@@ -69,12 +47,35 @@ public class Facilities implements java.io.Serializable {
 		this.contacts = contacts;
 	}
 
-	public Integer getFacilityType() {
-		return this.facilityType;
+	public Facilities(int facilityId, ReferenceData referenceData,
+			Contacts contacts, String facilityDescription,
+			Integer roomCapacity, Integer roomSize, Boolean roomConnectivity,
+			Boolean equipmentAvailable, String roomEquipmentNotes,
+			Integer connectivityType, String wirelessAccessInfomation,
+			Boolean isActive, Integer premiseId, String facilityTypeName) {
+		super();
+		this.facilityId = facilityId;
+		this.referenceData = referenceData;
+		this.contacts = contacts;
+		this.facilityDescription = facilityDescription;
+		this.roomCapacity = roomCapacity;
+		this.roomSize = roomSize;
+		this.roomConnectivity = roomConnectivity;
+		this.equipmentAvailable = equipmentAvailable;
+		this.roomEquipmentNotes = roomEquipmentNotes;
+		this.connectivityType = connectivityType;
+		this.wirelessAccessInfomation = wirelessAccessInfomation;
+		this.isActive = isActive;
+		this.premiseId = premiseId;
+		this.facilityTypeName = facilityTypeName;
 	}
 
-	public void setFacilityType(Integer facilityType) {
-		this.facilityType = facilityType;
+	public ReferenceData getReferenceData() {
+		return referenceData;
+	}
+
+	public void setReferenceData(ReferenceData referenceData) {
+		this.referenceData = referenceData;
 	}
 
 	public String getFacilityDescription() {

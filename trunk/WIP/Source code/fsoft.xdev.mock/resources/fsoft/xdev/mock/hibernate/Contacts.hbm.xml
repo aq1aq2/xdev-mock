@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 13, 2011 4:28:55 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Dec 14, 2011 2:49:43 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="fsoft.xdev.mock.models.Contacts" table="Contacts" schema="dbo" catalog="DataMock">
         <id name="contactId" type="int">
             <column name="ContactID" />
             <generator class="identity" />
         </id>
+        <many-to-one name="referenceData" class="fsoft.xdev.mock.models.ReferenceData" fetch="select" lazy="false">
+            <column name="ContactType" />
+        </many-to-one>
         <property name="firstName" type="string">
             <column name="FirstName" length="50" />
         </property>
@@ -32,9 +35,6 @@
         <property name="managerId" type="java.lang.Integer">
             <column name="ManagerID" />
         </property>
-        <property name="contactType" type="string">
-            <column name="ContactType" length="100" />
-        </property>
         <property name="bestContactMethod" type="string">
             <column name="BestContactMethod" length="100" />
         </property>
@@ -55,12 +55,6 @@
                 <column name="ContactID" />
             </key>
             <one-to-many class="fsoft.xdev.mock.models.Organisations" />
-        </set>
-        <set name="serviceses" inverse="true" lazy="false">
-            <key>
-                <column name="ContactID" />
-            </key>
-            <one-to-many class="fsoft.xdev.mock.models.Services" />
         </set>
         <set name="programmeses" inverse="true" lazy="false">
             <key>

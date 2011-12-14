@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 6, 2011 8:45:40 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Dec 14, 2011 2:49:43 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="fsoft.xdev.mock.models.Premises" table="Premises" schema="dbo" catalog="DataMock">
         <id name="premiseId" type="int">
             <column name="PremiseID" />
-            <generator class="native" />
+            <generator class="identity" />
         </id>
+        <many-to-one name="referenceData" class="fsoft.xdev.mock.models.ReferenceData" fetch="select" lazy="false">
+            <column name="CateringType" />
+        </many-to-one>
         <property name="name" type="string">
             <column name="Name" length="100" />
         </property>
@@ -79,9 +82,6 @@
         </property>
         <property name="jcpoffices" type="string">
             <column name="JCPOffices" length="200" />
-        </property>
-        <property name="cateringType" type="java.lang.Integer">
-            <column name="CateringType" />
         </property>
         <property name="localDemographicIssue" type="string">
             <column name="LocalDemographicIssue" />

@@ -1,15 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 6, 2011 8:45:40 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Dec 14, 2011 2:49:43 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="fsoft.xdev.mock.models.Services" table="Services" schema="dbo" catalog="DataMock">
         <id name="serviceId" type="int">
             <column name="ServiceID" />
-            <generator class="native" />
+            <generator class="identity" />
         </id>
-        <many-to-one name="contacts" class="fsoft.xdev.mock.models.Contacts" fetch="select" lazy="false">
-            <column name="ContactID" />
+        <many-to-one name="referenceDataByServiceType" class="fsoft.xdev.mock.models.ReferenceData" fetch="select" lazy="false">
+            <column name="ServiceType" />
+        </many-to-one>
+        <many-to-one name="referenceDataByServiceSubType" class="fsoft.xdev.mock.models.ReferenceData" fetch="select" lazy="false">
+            <column name="ServiceSubType" />
         </many-to-one>
         <property name="name" type="string">
             <column name="Name" length="100" />
@@ -17,14 +20,11 @@
         <property name="shortDescription" type="string">
             <column name="ShortDescription" />
         </property>
-        <property name="serviceType" type="string">
-            <column name="ServiceType" length="100" />
-        </property>        
+        <property name="contactId" type="java.lang.Integer">
+            <column name="ContactID" />
+        </property>
         <property name="isActive" type="java.lang.Boolean">
             <column name="IsActive" />
-        </property>
-        <property name="serviceSubType" type="string">
-            <column name="ServiceSubType" length="100" />
         </property>
         <property name="fullDescription" type="string">
             <column name="FullDescription" />

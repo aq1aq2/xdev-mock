@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 6, 2011 8:45:40 AM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated Dec 14, 2011 2:49:43 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="fsoft.xdev.mock.models.ReferenceData" table="ReferenceData" schema="dbo" catalog="DataMock">
         <id name="referenceDataId" type="int">
             <column name="ReferenceDataID" />
-            <generator class="native" />
+            <generator class="identity" />
         </id>
         <property name="refType" type="string">
             <column name="RefType" length="100" />
@@ -14,5 +14,41 @@
         <property name="value" type="string">
             <column name="Value" />
         </property>
+        <set name="organisationses" inverse="true" lazy="false">
+            <key>
+                <column name="TypeOfBusiness" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Organisations" />
+        </set>
+        <set name="facilitieses" inverse="true" lazy="false">
+            <key>
+                <column name="FacilityType" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Facilities" />
+        </set>
+        <set name="servicesesForServiceType" inverse="true" lazy="false">
+            <key>
+                <column name="ServiceType" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Services" />
+        </set>
+        <set name="premiseses" inverse="true" lazy="false">
+            <key>
+                <column name="CateringType" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Premises" />
+        </set>
+        <set name="servicesesForServiceSubType" inverse="true" lazy="false">
+            <key>
+                <column name="ServiceSubType" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Services" />
+        </set>
+        <set name="contactses" inverse="true" lazy="false">
+            <key>
+                <column name="ContactType" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Contacts" />
+        </set>
     </class>
 </hibernate-mapping>
