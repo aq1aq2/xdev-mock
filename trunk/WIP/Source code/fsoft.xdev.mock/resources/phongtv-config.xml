@@ -2,14 +2,19 @@
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
-    
+
 <struts>
-    <!-- Configuration Information Created by DungNM2 -->
-    <package name="phongtv" extends="json-default">
-		<action name="*Premises" method ="{1}" class="premisesAction">
-    		<result name="list" type="json"></result> 
-    		<result name="add" type="json"></result>      		
-    	</action> 
- 
+	<!-- Configuration Information Created by DungNM2 -->
+	<package name="phongtv" extends="json-default">
+		<action name="*Premises" method="{1}" class="premisesAction">
+			<result name="list" type="json"></result>
+			<result name="add" type="json"></result>
+		</action>
+		<action name="*Facilities" method="{1}" class="facilitiesAction">
+			<result name="list" type="json"></result>
+			<result name="add" type="json"></result>
+			<result name="detail" type="redirect">/pages/input/facilitiesInput.jsp</result>
+		</action>
 	</package>
+	
 </struts>

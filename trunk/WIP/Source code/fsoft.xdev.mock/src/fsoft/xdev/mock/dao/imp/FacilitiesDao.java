@@ -1,21 +1,25 @@
 package fsoft.xdev.mock.dao.imp;
 import java.util.List;
 
+import org.hibernate.Query;
+import org.springframework.dao.support.DataAccessUtils;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IFacilitiesDao;
 import fsoft.xdev.mock.models.Facilities;
 
 
-public class FacilitiesDao implements IFacilitiesDao{
+public class FacilitiesDao extends HibernateDaoSupport implements IFacilitiesDao{
 
 	@Override
 	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return DataAccessUtils.intResult(getHibernateTemplate().find("select count(*) from Facilities"));
 	}
 
 	@Override
 	public boolean add(Facilities entity) {
-		// TODO Auto-generated method stub
+		getHibernateTemplate().save(entity);
 		return false;
 	}
 
@@ -27,7 +31,7 @@ public class FacilitiesDao implements IFacilitiesDao{
 
 	@Override
 	public boolean remove(Facilities entity) {
-		// TODO Auto-generated method stub
+		getHibernateTemplate().delete(entity);
 		return false;
 	}
 
@@ -37,16 +41,20 @@ public class FacilitiesDao implements IFacilitiesDao{
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Facilities> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getHibernateTemplate().find("from Facilities");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Facilities> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("from Facilities");
+		query.setFirstResult(from);
+		query.setMaxResults(to-from);
+		return (List<Facilities>)query.list();
 	}
 
 }
