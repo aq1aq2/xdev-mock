@@ -18,9 +18,6 @@
 	
 	<div class="xdev-wrapper">
 
-		<!-- Main menu -->	
-		<%@ include file="mainMenu.jsp" %>
-		
 		<!-- Section title -->
 		<h1 class="xdev-section-title">
 			<dec:getProperty property="page.sectionTitle"/>
@@ -80,8 +77,6 @@
 			>Close</sj:a>
 		</div>
 	
-		<!-- Footer -->
-		<%@ include file="footer.jsp" %>
 	</div> <!-- End of xdev-wrapper -->
 </body>
 

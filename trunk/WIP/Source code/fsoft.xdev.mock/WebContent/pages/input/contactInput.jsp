@@ -2,6 +2,11 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 
+<title>Contact Input</title>
+
+<!-- Section Title -->
+<content tag="sectionTitle">Contact Input</content>
+
 <sj:tabbedpanel id="tabs">
 	<sj:tab id="tab1" target="details1" label="Details 1"/>
 	<sj:tab id="tab2" target="details2" label="Details 2"/>
