@@ -1,4 +1,4 @@
-(function($){
+/*(function($){
 	$(document).ready(function(){
 		
 		jQuery.add = function (dialogId) {
@@ -37,3 +37,8 @@
 		};
 	});
 })(jQuery);
+
+Move the file to museum !!!
+
+*/
+
