@@ -47,7 +47,7 @@ public class ServiceAction extends ActionSupport{
 	public String list(){
 		System.out.println("chay vao list() cua Services");
 		listService = servicesDao.findAll();
-		System.out.println("Nam of Contact: "+listService.);
+		System.out.println("Nam of Contact: ");
 		return "list";
 	}
 	
