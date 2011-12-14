@@ -18,6 +18,7 @@
 	rownumbers="true"
 	navigator="false"
 	navigatorSearch="true"
+	autowidth="true"
 >
 	<sjg:gridColumn name="firstName" index="firstName" title="Contact Name" sortable="true" 
 	        		search="true"
