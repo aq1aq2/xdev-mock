@@ -14,7 +14,9 @@ div.xdev-sign {
 	text-align: center;
 }
 
-/* For menu template */
+/*************************************/
+/************** Menu *****************/
+/*************************************/
 
 ul#topnav {
 	display:block;
@@ -110,46 +112,11 @@ ul#xdev-filter li:hover {
 	width: 965px;
 }
 
-.xdev-window {width: 100%;}
-.xdev-window-title h1 {
+h1.xdev-section-title {
 	color: green;
-/* 	/* */
-/* 	 * Gradient background */
-/* 	 * View details here: http://gradients.glrzad.com/ */
-/* 	 */ */
-/* 	background-image: linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
-/* 	background-image: -o-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
-/* 	background-image: -moz-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
-/* 	background-image: -webkit-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
-/* 	background-image: -ms-linear-gradient(bottom, rgb(65,71,65) 28%, rgb(3,3,3) 64%, rgb(62,66,62) 82%); */
-	
-/* 	background-image: -webkit-gradient( */
-/* 		linear, */
-/* 		left bottom, */
-/* 		left top, */
-/* 		color-stop(0.28, rgb(65,71,65)), */
-/* 		color-stop(0.64, rgb(3,3,3)), */
-/* 		color-stop(0.82, rgb(62,66,62)) */
-/* 	); */
-/* 	color: lime; */
 }
 
-.xdev-window-header {
-	width: 100%;
-	margin: 5px 5px 5px 5px;
-}
-
-.xdev-window-body {
-	width: 100%;
-	margin: 5px 5px 5px 5px;
-	}
-
-.xdev-window-footer {
-	width: 100%;
-	margin: 5px 5px 5px 5px;
-}
-
-.xdev-sub {margin: 5px 5px 5px 5px;}
+.xdev-sub { margin: 5px; }
 
 .xdev-form tr {	width: 50%; float: left; }
 .xdev-form td {	float: left; width: 60%; }

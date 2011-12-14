@@ -5,6 +5,8 @@
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 
+<content tag="sectionTitle">Contact List</content>
+
 <s:url id="listURL" action="listContact.action"/>
 <sjg:grid
 	id="gridtable"
