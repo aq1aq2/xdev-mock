@@ -4,18 +4,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.components.Component;
-import org.apache.struts2.views.jsp.ui.AbstractUITag;
+import org.apache.struts2.views.jsp.ui.AbstractListTag;
 
 import com.opensymphony.xwork2.util.ValueStack;
 
 import fsoft.xdev.mock.taglib.components.XField;
 
 
-public class XFieldTag extends AbstractUITag {
+public class XFieldTag extends AbstractListTag {
 
 	private static final long serialVersionUID = 5577089764622677517L;
 	
 	protected String type; // Input type
+	protected String fieldValue;
 
 	public Component getBean(ValueStack stack, HttpServletRequest req, HttpServletResponse res) {
         return new XField(stack, req, res);
@@ -27,10 +28,14 @@ public class XFieldTag extends AbstractUITag {
 
 	    XField xfield = (XField) component;
 	    xfield.setType(type);
+	    xfield.setFieldValue(fieldValue);
 	  }
 
 	public void setType(String type) {
 		this.type = type;
 	}
 
+    public void setFieldValue(String aValue) {
+        this.fieldValue = aValue;
+    }
 }
