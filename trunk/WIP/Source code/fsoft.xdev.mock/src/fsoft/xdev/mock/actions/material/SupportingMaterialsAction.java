@@ -20,11 +20,21 @@ public class SupportingMaterialsAction extends ActionSupport{
 	
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
-	  private Integer             rows             = 0;
+    private Integer            rows             = 0;
+	//Get the requested page. By default grid sets this to 1.
+    private Integer             page             = 0;
 
-	  public ISupportingMaterialsDao getSupportingMaterialsDao() {
-		return supportingMaterialsDao;
-	}
+    // sorting order - asc or desc
+    private String              sord;
+
+    // get index row - i.e. user click to sort.
+    private String              sidx;
+
+    // Your Total Pages
+    private Integer             total            = 0;
+
+    // All Record
+    private Integer             records          = 0;
 
 	public void setSupportingMaterialsDao(
 			ISupportingMaterialsDao supportingMaterialsDao) {
@@ -95,26 +105,10 @@ public class SupportingMaterialsAction extends ActionSupport{
 		this.records = records;
 	}
 
-	//Get the requested page. By default grid sets this to 1.
-	  private Integer             page             = 0;
-
-	  // sorting order - asc or desc
-	  private String              sord;
-
-	  // get index row - i.e. user click to sort.
-	  private String              sidx;
-
-	  // Your Total Pages
-	  private Integer             total            = 0;
-
-	  // All Record
-	  private Integer             records          = 0;
-
-	
-	/**
-	 * List all Trust Distric
-	 * @return action returns listTrustDistrict
-	 */
+	public SupportingMaterialsAction() {
+		XDebugger.show("Constructor: Create supporting material action");
+	}
+	  
 	public String list(){
 		XDebugger.show("Supporting Material said: list method");
 		int to = (rows*page);
