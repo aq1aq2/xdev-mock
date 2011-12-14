@@ -8,6 +8,8 @@
 		<#include "/${parameters.templateDir}/xTheme/checkbox.ftl" />
 	<#elseif (parameters.type!) = "select">
 		<#include "/${parameters.templateDir}/xTheme/select.ftl" />
+	<#elseif (parameters.type!) = "textlookup">
+		<#include "/${parameters.templateDir}/xTheme/textlookup.ftl" />
 	</#if> 
 
 </div>

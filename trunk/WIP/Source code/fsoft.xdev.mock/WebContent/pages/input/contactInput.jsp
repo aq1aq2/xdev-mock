@@ -8,21 +8,20 @@
 			
 	<div id="details1" >
 		<form id="form" >
-			<xdev:xfield type="textfield" name="contact.firstName" label="Frist Name" required="true" />
-			<xdev:xfield type="textarea" name="abc" label="Frist Name" required="true" />
-			<s:textfield name="contact.surname" label="Surname" required="true" isXField="true"/>
-			<s:textfield name="contact.knowAs" label="Know As" isXField="true"/>
-			<s:textfield name="contact.officePhone" label="Office Phone" isXField="true"/>
-			<s:textfield name="contact.mobilePhone" label="Mobile Phone" isXField="true"/>
-			<s:textfield name="contact.homePhone" label="ST Home Phone" isXField="true"/>
-			<s:textfield name="contact.emailAddress" label="Email Address" isXField="true"/>
-	    	<xdev:textLookup name="contact.managerName" id="managerLookup" label="Manager Name" isXField="true"/>
-			<s:select name="contact.contactType" label="Contact Type" list="{'sample data test'}" required="true" isXField="true"/>
-			<s:select name="contact.bestContactMethod" label="Best Contact Method" list="{'sample data test'}" isXField="true"/>
-			<s:textfield name="contact.jobRole" label="Job Role" isXField="true"/>
-			<s:textfield name="contact.workbase" label="Workbase" isXField="true"/>
-			<s:textfield name="contact.jobTitle" label="Job Title" isXField="true"/>
-			<s:checkbox name="contact.isActive" label="Is Active?" isXField="true"/>
+			<xdev:xfield type="textfield" name="contact.firstName" label="Frist Name" />
+			<xdev:xfield type="textfield" name="contact.surname" label="Surname" required="true" />
+			<xdev:xfield type="textfield" name="contact.knowAs" label="Know As" isXField="true"/>
+			<xdev:xfield type="textfield" name="contact.officePhone" label="Office Phone" />
+			<xdev:xfield type="textfield" name="contact.mobilePhone" label="Mobile Phone" />
+			<xdev:xfield type="textfield" name="contact.homePhone" label="ST Home Phone" />
+			<xdev:xfield type="textfield" name="contact.emailAddress" label="Email Address" />
+	    	<xdev:xfield type="textlookup" name="contact.managerName" id="managerLookup" label="Manager Name" />
+			<xdev:xfield type="select" name="contact.contactType" label="Contact Type" list="{'sample data test'}" required="true" />
+			<xdev:xfield type="select" name="contact.bestContactMethod" label="Best Contact Method" list="{'sample data test'}" />
+			<xdev:xfield type="textfield" name="contact.jobRole" label="Job Role" />
+			<xdev:xfield type="textfield" name="contact.workbase" label="Workbase" />
+			<xdev:xfield type="textfield" name="contact.jobTitle" label="Job Title" />
+			<xdev:xfield type="checkbox" name="contact.isActive" label="Is Active?" />
 		</form>
 		<div class="clear"></div>
 	</div>

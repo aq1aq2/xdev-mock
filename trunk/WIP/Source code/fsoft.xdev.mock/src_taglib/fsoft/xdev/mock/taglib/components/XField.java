@@ -20,6 +20,7 @@ public class XField extends ListUIBean {
     public static final String COMPONENT_NAME = XField.class.getName();
     
     protected String type; // Input type
+    protected String fieldValue;
     
 	public XField(ValueStack stack, HttpServletRequest request, HttpServletResponse response) {
         super(stack, request, response);
@@ -36,9 +37,18 @@ public class XField extends ListUIBean {
 	    {
 	      addParameter("type", findValue(type, String.class));
 	    }
+		if (fieldValue != null) {
+            addParameter("fieldValue", findString(fieldValue));
+        } else {
+            addParameter("fieldValue", "true");
+        }
 	}
 	
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	public void setFieldValue(String fieldValue) {
+        this.fieldValue = fieldValue;
+    }
 }
