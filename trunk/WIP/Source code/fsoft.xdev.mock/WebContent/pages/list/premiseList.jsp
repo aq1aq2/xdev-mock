@@ -5,6 +5,7 @@
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 <title>Premise</title>
 
+<!-- body -->
 	<s:form>
 		<s:url id="premiseList" action="listPremises"></s:url>
 		<sjg:grid
@@ -25,4 +26,3 @@
 	        <sjg:gridColumn name="isActive" index="isActive" title="Is Active" sortable="false"/>
 	    </sjg:grid>
 	</s:form>
-s

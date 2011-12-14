@@ -1,1 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="facilitiesAction" class="fsoft.xdev.mock.actions.facility.FacilitiesAction">
+		<property name="facilitiesDao" ref="facilitiesDao" />
+	</bean>
+
+	<bean id="facilitiesDao" parent="txProxyTemplate">		
+		<property name="target">
+    		<bean class="fsoft.xdev.mock.dao.imp.FacilitiesDao">
+        		<property name="sessionFactory" ref="sessionFactory" />
+        	</bean>
+        </property>
+	</bean>    
+
+</beans>
