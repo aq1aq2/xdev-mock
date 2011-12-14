@@ -13,7 +13,7 @@
 		<action name="*Facilities" method="{1}" class="facilitiesAction">
 			<result name="list" type="json"></result>
 			<result name="add" type="json"></result>
-			<result name="detail" type="redirect">/pages/input/facilitiesInput.jsp</result>
+			<result name="detail">/pages/input/facilitiesInput.jsp</result>
 		</action>
 	</package>
 	

@@ -10,9 +10,18 @@
         }        
 </script>
 
+<script type="text/javascript">
+$.subscribe('rowselect', function(event, data) {
+        alert('Selected Row : ' + event.originalEvent.id);
+       	
+
+});
+</script>
+
+
 <!-- body -->
 
-	<s:form>
+	<s:form name="facilities">
 		<s:url id="facilitiesList" action="listFacilities"></s:url>
 		<sjg:grid
 	        id="gridtable"
@@ -24,6 +33,7 @@
 	        rowNum="3"
 	        rownumbers="true"
 	        navigator="true"
+	        onSelectRowTopics="rowselect"
 	        >	        
 			<sjg:gridColumn name="facilityId" index="facilityId" title="ID" hidden="true"/>
 	        <sjg:gridColumn name="facilityType" index="facilityType" title="Facility Type" sortable="true" formatter="formatLink"/>
