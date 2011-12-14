@@ -121,4 +121,5 @@ h1.xdev-section-title {
 .xdev-form tr {	width: 50%; float: left; }
 .xdev-form td {	float: left; width: 60%; }
 .xdev-form td > input, select {	width: 70%; }
-.xdev-form td.tdLabel {	width: 30%; }
+.xdev-form td > input[type="checkbox"] {width: auto;}
+.xdev-form td.tdLabel, .checkboxLabel {	width: 30%; }
