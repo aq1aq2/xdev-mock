@@ -6,7 +6,7 @@
     <class name="fsoft.xdev.mock.models.GovtOfficeRegions" table="GovtOfficeRegions" schema="dbo" catalog="DataMock">
         <id name="govtOfficeRegionId" type="int">
             <column name="GovtOfficeRegionID" />
-            <generator class="native" />
+            <generator class="identity" />
         </id>
         <many-to-one name="counties" class="fsoft.xdev.mock.models.Counties" fetch="select" lazy="false">
             <column name="CountyID" />
