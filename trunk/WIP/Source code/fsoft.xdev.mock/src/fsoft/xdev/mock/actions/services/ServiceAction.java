@@ -45,9 +45,22 @@ public class ServiceAction extends ActionSupport{
 	 * return list
 	 */
 	public String list(){
-		System.out.println("chay vao list() cua Services");
-		listService = servicesDao.findAll();
-		System.out.println("Nam of Contact: ");
+		System.out.println("+++++++++++++++++++++++++++++++++++++");		
+		System.out.println("co vao day khong");
+		
+		int to = (rows*page);
+		int from = to-rows;
+		
+		//Count Rows (select count(*) from GovtOfficeRegion)
+		records = servicesDao.count();
+		
+		//Your logic to search and select the required data.
+		listService = servicesDao.findRange(from, to);
+		
+		//calculate the total pages for the query
+		total = (int)Math.ceil((double)records/(double)rows);
+		
+
 		return "list";
 	}
 	
