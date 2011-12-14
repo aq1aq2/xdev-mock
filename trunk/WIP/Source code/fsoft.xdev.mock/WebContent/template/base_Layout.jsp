@@ -21,6 +21,11 @@
 		<!-- Main menu -->	
 		<%@ include file="mainMenu.jsp" %>
 		
+		<!-- Section title -->
+		<h1 class="xdev-section-title">
+			<dec:getProperty property="page.sectionTitle"/>
+		</h1>
+		
 		<!-- Filter -->
 		<ul id="xdev-filter">
 			<li>All</li>
@@ -42,7 +47,7 @@
 			
 			<s:checkbox name="includeChkBx" label="Include In-active" />
 		</div>
-		cho nay truyen vao<dec:getProperty property="page.quote"/>
+		
 		<!-- Body -->
 		<dec:body />
 			

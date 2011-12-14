@@ -21,6 +21,11 @@
 		<!-- Main menu -->	
 		<%@ include file="mainMenu.jsp" %>
 		
+		<!-- Section title -->
+		<h1 class="xdev-section-title">
+			<dec:getProperty property="page.sectionTitle"/>
+		</h1>
+		
 		<!-- Filter -->
 		<ul id="xdev-filter">
 			<li>All</li>
