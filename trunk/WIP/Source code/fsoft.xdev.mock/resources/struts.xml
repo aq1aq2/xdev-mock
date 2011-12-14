@@ -11,7 +11,7 @@
 	<!-- <constant name="struts.ui.theme" value="simple" /> -->
 	
 	<!-- Use modified theme -->
-	<constant name="struts.ui.theme" value="xTheme" />
+	<constant name="struts.ui.theme" value="xhtml" />
 	<constant name="struts.ui.templateDir" value="template" /> 
    	
    	<!-- Configuration Information Created by NhanLD  -->
