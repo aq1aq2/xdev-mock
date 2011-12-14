@@ -1,7 +1,8 @@
 
-<title>Insert title here</title>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
+<%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
+<title> Premise Input</title>
 
-<body>
-		thu day ne
-		
-</body>
+<s:textfield name="facilities.facilityId" value="%{facilities.facilityId}"></s:textfield>
