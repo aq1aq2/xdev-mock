@@ -7,27 +7,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Service</title>
+<title>Team</title>
 </head>
 <body>
 	<div class="xdev-window-body">
 		<s:form>
-		<s:url id="listService" action="listService.action"></s:url>
+		<s:url id="listTeam" action="listTeam.action"></s:url>
 		<sjg:grid
 	        id="gridtable"
 	        dataType="json"
-	        href="%{listService}"
-	        gridModel="listService"
+	        href="%{listTeam}"
+	        gridModel="listTeam"
 	        autowidth="true"
 	        rowNum="2"
      		rownumbers="true"
 	        pager="true"
        		navigator="true"
 	    >
-	        <sjg:gridColumn name="name" index="name" title="Service Name" sortable="true"/>
-	        <sjg:gridColumn name="descriptionDelivery" index="descriptionDelivery" title="Description" sortable="false"/>
-	        <sjg:gridColumn name="serviceType" index="serviceType" title="Service Type" sortable="false"/>
-	        <sjg:gridColumn name="contacts.surName" index="contacts" title="Contact"></sjg:gridColumn>
+	        <sjg:gridColumn name="name" index="name" title="Team Name" sortable="true"/>
+	        <sjg:gridColumn name="addr1" index="addr1" title="Address Line 1" sortable="false"/>
+	        <sjg:gridColumn name="postCode" index="postCode" title="Postcode" sortable="false"/>
+	        <sjg:gridColumn name="contacts.surName" index="contacts" title="Contact"/>
 	        <sjg:gridColumn name="isActive" index="isActive" title="IsActived" sortable="false"/>
 	    </sjg:grid>
 	    </s:form>
