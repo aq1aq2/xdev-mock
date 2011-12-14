@@ -14,8 +14,7 @@ public class Organisations implements java.io.Serializable {
 	private int organisationId;
 	private TrustDistricts trustDistricts;
 	private String name;
-	private String shortDesc;
-	private Integer contactId;
+	private String shortDesc;	
 	private String addr1;
 	private String addr2;
 	private String addr3;
@@ -70,7 +69,7 @@ public class Organisations implements java.io.Serializable {
 	
 
 	public Organisations(int organisationId, TrustDistricts trustDistricts,
-			String name, String shortDesc, Integer contactId, String addr1,
+			String name, String shortDesc, String addr1,
 			String addr2, String addr3, String city, String county,
 			Boolean preferredOrg, Boolean expOfInterest,
 			Integer typeOfBusinessId, String fullDesc, String phoneNumber,
@@ -87,8 +86,7 @@ public class Organisations implements java.io.Serializable {
 		this.organisationId = organisationId;
 		this.trustDistricts = trustDistricts;
 		this.name = name;
-		this.shortDesc = shortDesc;
-		this.contactId = contactId;
+		this.shortDesc = shortDesc;		
 		this.addr1 = addr1;
 		this.addr2 = addr2;
 		this.addr3 = addr3;
@@ -153,14 +151,7 @@ public class Organisations implements java.io.Serializable {
 	public void setShortDesc(String shortDesc) {
 		this.shortDesc = shortDesc;
 	}
-
-	public Integer getContactId() {
-		return this.contactId;
-	}
-
-	public void setContactId(Integer contactId) {
-		this.contactId = contactId;
-	}
+	
 
 	public String getAddr1() {
 		return this.addr1;

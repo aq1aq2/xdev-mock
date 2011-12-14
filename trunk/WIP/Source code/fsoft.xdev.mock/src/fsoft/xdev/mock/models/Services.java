@@ -15,8 +15,7 @@ public class Services implements java.io.Serializable {
 	private int serviceId;
 	private String name;
 	private String shortDescription;
-	private String serviceType;
-	private Integer contactId;
+	private String serviceType;	
 	private Boolean isActive;
 	private String serviceSubType;
 	private String fullDescription;
@@ -77,7 +76,7 @@ public class Services implements java.io.Serializable {
 
 	
 	public Services(int serviceId, String name, String shortDescription,
-			String serviceType, Integer contactId, Boolean isActive,
+			String serviceType, Boolean isActive,
 			String serviceSubType, String fullDescription,
 			Integer departmentId, String clientDescription,
 			String descriptionDelivery, String serviceAttendace,
@@ -99,8 +98,7 @@ public class Services implements java.io.Serializable {
 		this.serviceId = serviceId;
 		this.name = name;
 		this.shortDescription = shortDescription;
-		this.serviceType = serviceType;
-		this.contactId = contactId;
+		this.serviceType = serviceType;		
 		this.isActive = isActive;
 		this.serviceSubType = serviceSubType;
 		this.fullDescription = fullDescription;
@@ -174,14 +172,7 @@ public class Services implements java.io.Serializable {
 	public void setServiceType(String serviceType) {
 		this.serviceType = serviceType;
 	}
-
-	public Integer getContactId() {
-		return this.contactId;
-	}
-
-	public void setContactId(Integer contactId) {
-		this.contactId = contactId;
-	}
+	
 
 	public Boolean getIsActive() {
 		return this.isActive;
