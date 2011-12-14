@@ -1,7 +1,24 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
+<script>
+
+$(document).ready(function(){
+	$("#createBtn").click(function(){
+		// Open two tab
+		// Call file organisationInput.jsp
+		var url = "../input/organisationInput.jsp";    
+		$(location).attr('href',url);
+	});
+});
+
+</script>
+
 <title>Organisation List</title>
+
+<!-- Section Title -->
+<content tag="sectionTitle">Organisation List</content>
+
 <s:form>
 	<s:url id="organisationList_listURL" action="listOrganisation.action"></s:url>
 	<sjg:grid

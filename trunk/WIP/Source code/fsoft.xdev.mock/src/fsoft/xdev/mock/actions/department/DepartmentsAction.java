@@ -1,23 +1,19 @@
-package fsoft.xdev.mock.actions.organisation;
+package fsoft.xdev.mock.actions.department;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.opensymphony.xwork2.ActionSupport;
-
-import fsoft.xdev.mock.dao.IOrganisationsDao;
-import fsoft.xdev.mock.models.Organisations;
+import fsoft.xdev.mock.dao.IDepartmentsDao;
+import fsoft.xdev.mock.models.Departments;
 import fsoft.xdev.mock.utilities.XDebugger;
 
-public class OrganisationsAction extends ActionSupport{
+public class DepartmentsAction {
 	/**
 	 * 
 	 */
-	private Organisations organisation;
-	private IOrganisationsDao organisationDao;
-	private List<Organisations> listModel = new ArrayList<Organisations>();
-
-	private static final long serialVersionUID = 1L;
+	private Departments department;
+	private IDepartmentsDao departmentsDao;
+	private List<Departments> listModel = new ArrayList<Departments>();
 	
 	public Integer getRows() {
 		return rows;
@@ -86,44 +82,45 @@ public class OrganisationsAction extends ActionSupport{
 	// All Record
 	private Integer records = 0;
 	
-	public Organisations getOrganisation() {
-		return organisation;
-	}
 
-	public void setOrganisation(Organisations organisation) {
-		this.organisation = organisation;
-	}
+
 	
-
-	public void setOrganisationDao(IOrganisationsDao organisationDao) {
-		this.organisationDao = organisationDao;
+	
+	public Departments getDepartment() {
+		return department;
 	}
 
-	public List<Organisations> getListModel() {
+	public void setDepartment(Departments department) {
+		this.department = department;
+	}
+
+	public List<Departments> getListModel() {
 		return listModel;
 	}
 
-	public void setListModel(List<Organisations> listModel) {
+	public void setListModel(List<Departments> listModel) {
 		this.listModel = listModel;
 	}
 
-	
-	
-	public OrganisationsAction() {
-		XDebugger.show("Constructor: Create Organisation Action");
+	public void setDepartmentsDao(IDepartmentsDao departmentsDao) {
+		this.departmentsDao = departmentsDao;
+	}
+
+	public DepartmentsAction() {
+		XDebugger.show("Constructor: Create Department Action");
 	}
 	
 	public String list() {
-		XDebugger.show("OrganisationAction said: list method");
+		XDebugger.show("DepartmentAction said: list method");
 		// listModel = trustRegionDao.findAll();
 		int to = (rows * page);
 		int from = to - rows;
 
 		// Count Rows (select count(*) from trust Region)
-		records = organisationDao.count();
+		records = departmentsDao.count();
 
 		// Your logic to search and select the required data.
-		listModel = organisationDao.findRange(from, to);
+		listModel = departmentsDao.findRange(from, to);
 
 		// calculate the total pages for the query
 		total = (int) Math.ceil((double) records / (double) rows);
@@ -132,8 +129,8 @@ public class OrganisationsAction extends ActionSupport{
 	}
 	
 	public String add() {
-		XDebugger.show("OrganisationAction said: add method");
-		organisationDao.add(organisation);
+		XDebugger.show("DepartmentAction said: add method");
+		departmentsDao.add(department);
 		return "add";
 	}
 }

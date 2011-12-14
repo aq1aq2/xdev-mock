@@ -1,12 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
+<title>Department List</title>
 
-</body>
-</html>
+<!-- Section Title -->
+<content tag="sectionTitle">Department List</content>
+
+<s:form>
+	<s:url id="departmentList_listURL" action="listDepartment.action"></s:url>
+	<sjg:grid
+	   	id="departmentList_gridtable"
+	  	dataType="json"
+	  	href="%{departmentList_listURL}"
+	    gridModel="listModel"
+	    autowidth="true"
+	    pager="true"
+	    rowNum="15"
+       	rownumbers="true"
+	>
+		<sjg:gridColumn name="name" index="name" title="name" sortable="true"/>
+		<sjg:gridColumn name="addr1" index="addr1" title="addr1" sortable="true"/>
+		<sjg:gridColumn name="postCode" index="postCode" title="postCode" sortable="true"/>
+<%-- Need more column <sjg:gridColumn name="users" index="users" title="Added By" sortable="false" formatter="checkbox"/> --%>
+		<sjg:gridColumn name="isActive" index="isActive" title="isActive" sortable="true"/>
+	</sjg:grid>
+</s:form>
