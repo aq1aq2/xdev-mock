@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import fsoft.xdev.mock.dao.ICountriesDao;
-import fsoft.xdev.mock.dao.ITrustRegionsDao;
+import fsoft.xdev.mock.dao.ICountryDao;
+import fsoft.xdev.mock.dao.ITrustRegionDao;
 import fsoft.xdev.mock.models.Countries;
 import fsoft.xdev.mock.models.TrustRegions;
 
@@ -16,10 +16,10 @@ public class TrustRegionsAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	private TrustRegions trustRegions;
-	private ITrustRegionsDao trustRegionDao;
+	private ITrustRegionDao trustRegionDao;
 	private List<TrustRegions> listModel = new ArrayList<TrustRegions>();
 	private List<Countries> listCountries = new ArrayList<Countries>();
-	private ICountriesDao countriesDao;
+	private ICountryDao countriesDao;
 
 	// get how many rows we want to have into the grid - rowNum attribute in the
 	// grid
@@ -110,7 +110,7 @@ public class TrustRegionsAction extends ActionSupport {
 		this.listCountries = listCountries;
 	}
 
-	public void setCountriesDao(ICountriesDao countriesDao) {
+	public void setCountriesDao(ICountryDao countriesDao) {
 		this.countriesDao = countriesDao;
 	}
 
@@ -126,7 +126,7 @@ public class TrustRegionsAction extends ActionSupport {
 		this.trustRegions = trustRegions;
 	}
 
-	public void setTrustRegionDao(ITrustRegionsDao trustRegionDao) {
+	public void setTrustRegionDao(ITrustRegionDao trustRegionDao) {
 		this.trustRegionDao = trustRegionDao;
 	}
 

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 15, 2011 10:01:56 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Programme" table="Programme" schema="dbo" catalog="XDevMock">
+        <id name="programmeId" type="int">
+            <column name="ProgrammeID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="contact" class="Contact" fetch="select" lazy="false">
+            <column name="ContactID" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" length="50" />
+        </property>
+        <property name="description" type="string">
+            <column name="Description" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="Status" />
+        </property>
+        <set name="services" table="Service" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ProgrammeID" />
+            </key>
+            <one-to-many class="Service" />
+        </set>
+    </class>
+</hibernate-mapping>

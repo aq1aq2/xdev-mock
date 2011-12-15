@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import fsoft.xdev.mock.dao.IContactsDao;
+import fsoft.xdev.mock.dao.IContactDao;
 import fsoft.xdev.mock.models.Contacts;
 
 public class ContactAction extends ActionSupport {
@@ -14,7 +14,7 @@ public class ContactAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Contacts contact;
-	private IContactsDao contactsDao;
+	private IContactDao contactsDao;
 	
 	private List<Contacts> listModel = new ArrayList<Contacts>();
 
@@ -39,7 +39,7 @@ public class ContactAction extends ActionSupport {
 		return "save";
 	}
 	
-	public void setContactsDao(IContactsDao contactsDao) {
+	public void setContactsDao(IContactDao contactsDao) {
 		this.contactsDao = contactsDao;
 	}
 

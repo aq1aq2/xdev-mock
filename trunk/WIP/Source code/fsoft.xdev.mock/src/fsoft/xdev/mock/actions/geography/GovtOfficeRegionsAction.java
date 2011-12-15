@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import fsoft.xdev.mock.dao.ICountiesDao;
-import fsoft.xdev.mock.dao.IGovtOfficeRegionsDao;
+import fsoft.xdev.mock.dao.ICountyDao;
+import fsoft.xdev.mock.dao.IGovOfficeRegionDao;
 import fsoft.xdev.mock.models.Counties;
 import fsoft.xdev.mock.models.GovtOfficeRegions;
 
@@ -18,7 +18,7 @@ public class GovtOfficeRegionsAction extends ActionSupport{
 
 
 	private GovtOfficeRegions governmentOfficeRegion;
-	private IGovtOfficeRegionsDao governmentOfficeRegionDao;
+	private IGovOfficeRegionDao governmentOfficeRegionDao;
 	//private ICountiesDao countiesDao;
 	private List<Counties> listCounties = new ArrayList<Counties>();
 	private List<GovtOfficeRegions> listGovernmentOfficeRegion = new ArrayList<GovtOfficeRegions>();
@@ -85,7 +85,7 @@ public class GovtOfficeRegionsAction extends ActionSupport{
 		this.governmentOfficeRegion = governmentOfficeRegion;
 	}
 	public void setGovernmentOfficeRegionDao(
-			IGovtOfficeRegionsDao governmentOfficeRegionDao) {
+			IGovOfficeRegionDao governmentOfficeRegionDao) {
 		this.governmentOfficeRegionDao = governmentOfficeRegionDao;
 	}
 

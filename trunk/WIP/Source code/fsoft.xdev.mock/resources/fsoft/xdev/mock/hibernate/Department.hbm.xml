@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 15, 2011 10:01:56 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Department" table="Department" schema="dbo" catalog="XDevMock">
+        <id name="departmentId" type="int">
+            <column name="DepartmentID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="contact" class="Contact" fetch="select" lazy="false">
+            <column name="ContactID" />
+        </many-to-one>
+        <many-to-one name="typeOfBusiness" class="TypeOfBusiness" fetch="select" lazy="false">
+            <column name="TypeOfBusinessID" />
+        </many-to-one>
+        <many-to-one name="directorate" class="Directorate" fetch="select" lazy="false">
+            <column name="DirectorateID" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" length="50" />
+        </property>
+        <property name="shortDesc" type="string">
+            <column name="ShortDesc" />
+        </property>
+        <property name="copyAddr" type="java.lang.Boolean">
+            <column name="CopyAddr" />
+        </property>
+        <property name="addr1" type="string">
+            <column name="Addr1" length="200" />
+        </property>
+        <property name="addr2" type="string">
+            <column name="Addr2" length="200" />
+        </property>
+        <property name="addr3" type="string">
+            <column name="Addr3" length="200" />
+        </property>
+        <property name="postCode" type="string">
+            <column name="PostCode" length="50" />
+        </property>
+        <property name="town" type="string">
+            <column name="Town" length="50" />
+        </property>
+        <property name="countyId" type="java.lang.Integer">
+            <column name="CountyID" />
+        </property>
+        <property name="fullDesc" type="string">
+            <column name="FullDesc" />
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="PhoneNumber" length="50" />
+        </property>
+        <property name="fax" type="string">
+            <column name="Fax" length="50" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="50" />
+        </property>
+        <property name="webAddr" type="string">
+            <column name="WebAddr" length="50" />
+        </property>
+        <property name="status" type="boolean">
+            <column name="Status" not-null="true" />
+        </property>
+        <set name="teams" table="Team" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="DepartmentID" />
+            </key>
+            <one-to-many class="Team" />
+        </set>
+    </class>
+</hibernate-mapping>

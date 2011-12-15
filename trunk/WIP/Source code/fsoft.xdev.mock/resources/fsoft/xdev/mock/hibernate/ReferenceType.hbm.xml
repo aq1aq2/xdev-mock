@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 15, 2011 10:01:56 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="ReferenceType" table="ReferenceType" schema="dbo" catalog="XDevMock">
+        <id name="refTypeId" type="int">
+            <column name="RefTypeID" />
+            <generator class="identity" />
+        </id>
+        <property name="refTypeName" type="string">
+            <column name="RefTypeName" length="50" />
+        </property>
+        <set name="referenceDatas" table="ReferenceData" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RefTypeID" />
+            </key>
+            <one-to-many class="ReferenceData" />
+        </set>
+    </class>
+</hibernate-mapping>
