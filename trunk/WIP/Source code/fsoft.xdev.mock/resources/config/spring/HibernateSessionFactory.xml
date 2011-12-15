@@ -21,30 +21,28 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  
     <property name="mappingResources">
 		<list>
-         	<value>fsoft/xdev/mock/hibernate/Addresses.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Contacts.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Counties.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Countries.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Departments.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Directorates.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Facilities.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/GovtOfficeRegions.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/OrganisationProgramme.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/OrganisationService.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Organisations.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Premises.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Programmes.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/ReferenceData.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/ServicePremise.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Services.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/SupportingMaterials.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Teams.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Towns.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/TrustDistricts.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/TrustRegions.hbm.xml</value>
+         	<value>fsoft/xdev/mock/hibernate/Address.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/Contact.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/County.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/Country.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/Department.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/Directorate.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/Facility.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/GovOfficeRegion.hbm.xml</value>			
+			<value>fsoft/xdev/mock/hibernate/Organisation.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/Premise.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/Programme.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/ReferenceData.hbm.xml</value>			
+			<value>fsoft/xdev/mock/hibernate/Service.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/SupportingMaterial.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/Team.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/Town.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/TrustDistrict.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/TrustRegion.hbm.xml</value>
 			<value>fsoft/xdev/mock/hibernate/TypeOfBusiness.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Users.hbm.xml</value>
-			<value>fsoft/xdev/mock/hibernate/Volunteers.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/Account.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/Volunteer.hbm.xml</value>
+			<value>fsoft/xdev/mock/hibernate/ReferenceType.hbm.xml</value>
 		</list>
     </property>	
  
