@@ -1,7 +1,4 @@
 package fsoft.xdev.mock.models;
-
-// Generated Dec 6, 2011 8:45:37 AM by Hibernate Tools 3.2.1.GA
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,7 +11,10 @@ public class TypeOfBusiness implements java.io.Serializable {
 	private int typeOfBusinessId;
 	private String name;
 	private String sicCode;
-	private Set<Teams> teamses = new HashSet<Teams>(0);
+	private Set<Team> teams = new HashSet<Team>(0);
+	private Set<Organisation> organisations = new HashSet<Organisation>(0);
+	private Set<Department> departments = new HashSet<Department>(0);
+	private Set<Directorate> directorates = new HashSet<Directorate>(0);
 
 	public TypeOfBusiness() {
 	}
@@ -24,11 +24,15 @@ public class TypeOfBusiness implements java.io.Serializable {
 	}
 
 	public TypeOfBusiness(int typeOfBusinessId, String name, String sicCode,
-			Set<Teams> teamses) {
+			Set<Team> teams, Set<Organisation> organisations,
+			Set<Department> departments, Set<Directorate> directorates) {
 		this.typeOfBusinessId = typeOfBusinessId;
 		this.name = name;
 		this.sicCode = sicCode;
-		this.teamses = teamses;
+		this.teams = teams;
+		this.organisations = organisations;
+		this.departments = departments;
+		this.directorates = directorates;
 	}
 
 	public int getTypeOfBusinessId() {
@@ -55,12 +59,36 @@ public class TypeOfBusiness implements java.io.Serializable {
 		this.sicCode = sicCode;
 	}
 
-	public Set<Teams> getTeamses() {
-		return this.teamses;
+	public Set<Team> getTeams() {
+		return this.teams;
 	}
 
-	public void setTeamses(Set<Teams> teamses) {
-		this.teamses = teamses;
+	public void setTeams(Set<Team> teams) {
+		this.teams = teams;
+	}
+
+	public Set<Organisation> getOrganisations() {
+		return this.organisations;
+	}
+
+	public void setOrganisations(Set<Organisation> organisations) {
+		this.organisations = organisations;
+	}
+
+	public Set<Department> getDepartments() {
+		return this.departments;
+	}
+
+	public void setDepartments(Set<Department> departments) {
+		this.departments = departments;
+	}
+
+	public Set<Directorate> getDirectorates() {
+		return this.directorates;
+	}
+
+	public void setDirectorates(Set<Directorate> directorates) {
+		this.directorates = directorates;
 	}
 
 }

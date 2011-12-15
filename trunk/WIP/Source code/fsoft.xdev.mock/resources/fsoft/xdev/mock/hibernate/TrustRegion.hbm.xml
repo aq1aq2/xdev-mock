@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 15, 2011 10:01:56 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="TrustRegion" table="TrustRegion" schema="dbo" catalog="XDevMock">
+        <id name="trustRegionId" type="int">
+            <column name="TrustRegionID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="country" class="Country" fetch="select" lazy="false">
+            <column name="CountryID" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" length="100" />
+        </property>
+        <property name="description" type="string">
+            <column name="Description" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="Status" />
+        </property>
+        <set name="trustDistricts" table="TrustDistrict" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TrustRegionID" />
+            </key>
+            <one-to-many class="TrustDistrict" />
+        </set>
+    </class>
+</hibernate-mapping>

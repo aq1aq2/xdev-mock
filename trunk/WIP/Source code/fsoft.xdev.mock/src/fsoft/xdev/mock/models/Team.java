@@ -1,0 +1,211 @@
+package fsoft.xdev.mock.models;
+public class Team implements java.io.Serializable {
+
+	private static final long serialVersionUID = 1L;
+	private int teamId;
+	private Department department;
+	private Contact contact;
+	private TypeOfBusiness typeOfBusiness;
+	private County county;
+	private String name;
+	private String shortDesc;
+	private Boolean copyAddr;
+	private String addr1;
+	private String addr2;
+	private String addr3;
+	private String postCode;
+	private String town;
+	private String fullDesc;
+	private String phoneNumber;
+	private String fax;
+	private String email;
+	private String webAddr;
+	private Boolean status;
+
+	public Team() {
+	}
+
+	public Team(int teamId) {
+		this.teamId = teamId;
+	}
+
+	public Team(int teamId, Department department, Contact contact,
+			TypeOfBusiness typeOfBusiness, County county, String name,
+			String shortDesc, Boolean copyAddr, String addr1, String addr2,
+			String addr3, String postCode, String town, String fullDesc,
+			String phoneNumber, String fax, String email, String webAddr,
+			Boolean status) {
+		this.teamId = teamId;
+		this.department = department;
+		this.contact = contact;
+		this.typeOfBusiness = typeOfBusiness;
+		this.county = county;
+		this.name = name;
+		this.shortDesc = shortDesc;
+		this.copyAddr = copyAddr;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
+		this.addr3 = addr3;
+		this.postCode = postCode;
+		this.town = town;
+		this.fullDesc = fullDesc;
+		this.phoneNumber = phoneNumber;
+		this.fax = fax;
+		this.email = email;
+		this.webAddr = webAddr;
+		this.status = status;
+	}
+
+	public int getTeamId() {
+		return this.teamId;
+	}
+
+	public void setTeamId(int teamId) {
+		this.teamId = teamId;
+	}
+
+	public Department getDepartment() {
+		return this.department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public Contact getContact() {
+		return this.contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
+	public TypeOfBusiness getTypeOfBusiness() {
+		return this.typeOfBusiness;
+	}
+
+	public void setTypeOfBusiness(TypeOfBusiness typeOfBusiness) {
+		this.typeOfBusiness = typeOfBusiness;
+	}
+
+	public County getCounty() {
+		return this.county;
+	}
+
+	public void setCounty(County county) {
+		this.county = county;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getShortDesc() {
+		return this.shortDesc;
+	}
+
+	public void setShortDesc(String shortDesc) {
+		this.shortDesc = shortDesc;
+	}
+
+	public Boolean getCopyAddr() {
+		return this.copyAddr;
+	}
+
+	public void setCopyAddr(Boolean copyAddr) {
+		this.copyAddr = copyAddr;
+	}
+
+	public String getAddr1() {
+		return this.addr1;
+	}
+
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
+
+	public String getAddr2() {
+		return this.addr2;
+	}
+
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
+
+	public String getAddr3() {
+		return this.addr3;
+	}
+
+	public void setAddr3(String addr3) {
+		this.addr3 = addr3;
+	}
+
+	public String getPostCode() {
+		return this.postCode;
+	}
+
+	public void setPostCode(String postCode) {
+		this.postCode = postCode;
+	}
+
+	public String getTown() {
+		return this.town;
+	}
+
+	public void setTown(String town) {
+		this.town = town;
+	}
+
+	public String getFullDesc() {
+		return this.fullDesc;
+	}
+
+	public void setFullDesc(String fullDesc) {
+		this.fullDesc = fullDesc;
+	}
+
+	public String getPhoneNumber() {
+		return this.phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getFax() {
+		return this.fax;
+	}
+
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getWebAddr() {
+		return this.webAddr;
+	}
+
+	public void setWebAddr(String webAddr) {
+		this.webAddr = webAddr;
+	}
+
+	public Boolean getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
+}

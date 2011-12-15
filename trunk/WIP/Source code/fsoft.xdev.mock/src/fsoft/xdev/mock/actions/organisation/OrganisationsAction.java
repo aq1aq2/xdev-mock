@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import fsoft.xdev.mock.dao.IOrganisationsDao;
+import fsoft.xdev.mock.dao.IOrganisationDao;
 import fsoft.xdev.mock.models.Organisations;
 import fsoft.xdev.mock.utilities.XDebugger;
 
@@ -14,7 +14,7 @@ public class OrganisationsAction extends ActionSupport{
 	 * 
 	 */
 	private Organisations organisation;
-	private IOrganisationsDao organisationDao;
+	private IOrganisationDao organisationDao;
 	private List<Organisations> listModel = new ArrayList<Organisations>();
 
 	private static final long serialVersionUID = 1L;
@@ -95,7 +95,7 @@ public class OrganisationsAction extends ActionSupport{
 	}
 	
 
-	public void setOrganisationDao(IOrganisationsDao organisationDao) {
+	public void setOrganisationDao(IOrganisationDao organisationDao) {
 		this.organisationDao = organisationDao;
 	}
 

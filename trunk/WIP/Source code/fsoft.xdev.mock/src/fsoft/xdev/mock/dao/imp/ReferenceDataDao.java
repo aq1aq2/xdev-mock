@@ -1,16 +1,11 @@
 package fsoft.xdev.mock.dao.imp;
+
 import java.util.List;
 
 import fsoft.xdev.mock.dao.IReferenceDataDao;
 import fsoft.xdev.mock.models.ReferenceData;
 
-public class ReferenceDataDao implements IReferenceDataDao{
-
-	@Override
-	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+public class ReferenceDataDao implements IReferenceDataDao {
 
 	@Override
 	public boolean add(ReferenceData entity) {
@@ -46,6 +41,12 @@ public class ReferenceDataDao implements IReferenceDataDao{
 	public List<ReferenceData> findRange(int from, int to) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

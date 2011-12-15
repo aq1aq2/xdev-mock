@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import fsoft.xdev.mock.dao.ITrustDistrictsDao;
-import fsoft.xdev.mock.dao.ITrustRegionsDao;
+import fsoft.xdev.mock.dao.ITrustDistrictDao;
+import fsoft.xdev.mock.dao.ITrustRegionDao;
 import fsoft.xdev.mock.models.TrustDistricts;
 import fsoft.xdev.mock.models.TrustRegions;
 
@@ -17,8 +17,8 @@ public class TrustDistrictsAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	private TrustDistricts trustDistrict;
-	private ITrustDistrictsDao trustDistrictDao;
-	private ITrustRegionsDao trustRegionsDao;
+	private ITrustDistrictDao trustDistrictDao;
+	private ITrustRegionDao trustRegionsDao;
 	private List<TrustDistricts> listTrustDistrict = new ArrayList<TrustDistricts>();
 	private List<TrustRegions> listTrustRegion = new ArrayList<TrustRegions>();
 	
@@ -82,7 +82,7 @@ public class TrustDistrictsAction extends ActionSupport {
 		this.trustDistrict = trustDistrict;
 	}
 	
-	public void setTrustDistrictDao(ITrustDistrictsDao trustDistrictDao) {
+	public void setTrustDistrictDao(ITrustDistrictDao trustDistrictDao) {
 		this.trustDistrictDao = trustDistrictDao;
 	}
 
@@ -146,7 +146,7 @@ public class TrustDistrictsAction extends ActionSupport {
 		this.records = records;
 	}
 
-	public void setTrustRegionsDao(ITrustRegionsDao trustRegionsDao) {
+	public void setTrustRegionsDao(ITrustRegionDao trustRegionsDao) {
 		this.trustRegionsDao = trustRegionsDao;
 	}
 

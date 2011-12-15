@@ -11,7 +11,7 @@
 
 	<bean id="supportingMaterialsDao" parent="txProxyTemplate">		
 		<property name="target">
-    		<bean class="fsoft.xdev.mock.dao.imp.SupportingMaterialsDao">
+    		<bean class="fsoft.xdev.mock.dao.imp.SupportingMaterialDao">
         		<property name="sessionFactory" ref="sessionFactory" />
         	</bean>
         </property>
