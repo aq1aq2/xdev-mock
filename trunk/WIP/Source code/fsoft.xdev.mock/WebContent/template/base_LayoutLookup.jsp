@@ -16,7 +16,7 @@
 
 <body style="margin-top: 0; margin-bottom: 0; padding: 0">
 	
-	<div class="xdev-wrapper">
+	<div class="xdev-window">
 
 		<!-- Section title -->
 		<h1 class="xdev-section-title">

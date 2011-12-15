@@ -112,6 +112,10 @@ ul#xdev-filter li:hover {
 	width: 965px;
 }
 
+.xdev-window {
+	width: 100%;
+}
+
 h1.xdev-section-title {
 	color: green;
 }

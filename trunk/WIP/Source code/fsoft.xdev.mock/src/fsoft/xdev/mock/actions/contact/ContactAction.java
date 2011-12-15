@@ -6,17 +6,15 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.IContactDao;
-import fsoft.xdev.mock.models.Contacts;
+import fsoft.xdev.mock.models.Contact;
 
 public class ContactAction extends ActionSupport {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private Contacts contact;
+	
+	private Contact contact;
 	private IContactDao contactsDao;
 	
-	private List<Contacts> listModel = new ArrayList<Contacts>();
+	private List<Contact> listModel = new ArrayList<Contact>();
 
 	public String execute() {
 		return SUCCESS;
@@ -31,7 +29,20 @@ public class ContactAction extends ActionSupport {
 		listModel = contactsDao.findAll();
 		return "list";
 	}
+
+	/**
+	 * Contact Input page
+	 * @return action returns Contact Input page
+	 */
+	public String input() {
+		System.out.println("Action: Contact Input");
+		return "input";
+	}
 	
+	/**
+	 * Save Contact
+	 * @return 
+	 */
 	public String save() {
 		System.out.println("Action: save contact");
 		System.out.println("Contact name: " + contact.getFirstName());
@@ -43,19 +54,19 @@ public class ContactAction extends ActionSupport {
 		this.contactsDao = contactsDao;
 	}
 
-	public Contacts getContact() {
+	public Contact getContact() {
 		return contact;
 	}
 
-	public void setContact(Contacts contact) {
+	public void setContact(Contact contact) {
 		this.contact = contact;
 	}
 
-	public List<Contacts> getListModel() {
+	public List<Contact> getListModel() {
 		return listModel;
 	}
 
-	public void setListModel(List<Contacts> listModel) {
+	public void setListModel(List<Contact> listModel) {
 		this.listModel = listModel;
 	}
 

@@ -1,7 +1,7 @@
 <#include "/${parameters.templateDir}/${parameters.theme}/controlheader.ftl" />
 <#include "/${parameters.templateDir}/simple/text.ftl" />
 
-<@sj.a id="${name!}_lookupBtn" 
+<@sj.a id="${parameters.name!}_lookupBtn" 
 	button="true" 
 >lookup</@sj.a>
 
