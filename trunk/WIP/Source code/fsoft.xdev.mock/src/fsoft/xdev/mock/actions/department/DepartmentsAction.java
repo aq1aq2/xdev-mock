@@ -3,17 +3,17 @@ package fsoft.xdev.mock.actions.department;
 import java.util.ArrayList;
 import java.util.List;
 
-import fsoft.xdev.mock.dao.IDepartmentsDao;
-import fsoft.xdev.mock.models.Departments;
+import fsoft.xdev.mock.dao.IDepartmentDao;
+import fsoft.xdev.mock.models.Department;
 import fsoft.xdev.mock.utilities.XDebugger;
 
 public class DepartmentsAction {
 	/**
 	 * 
 	 */
-	private Departments department;
-	private IDepartmentsDao departmentsDao;
-	private List<Departments> listModel = new ArrayList<Departments>();
+	private Department department;
+	private IDepartmentDao departmentDao;
+	private List<Department> listModel = new ArrayList<Department>();
 	
 	public Integer getRows() {
 		return rows;
@@ -86,24 +86,24 @@ public class DepartmentsAction {
 
 	
 	
-	public Departments getDepartment() {
+	public Department getDepartment() {
 		return department;
 	}
 
-	public void setDepartment(Departments department) {
+	public void setDepartment(Department department) {
 		this.department = department;
 	}
 
-	public List<Departments> getListModel() {
+	public List<Department> getListModel() {
 		return listModel;
 	}
 
-	public void setListModel(List<Departments> listModel) {
+	public void setListModel(List<Department> listModel) {
 		this.listModel = listModel;
 	}
 
-	public void setDepartmentsDao(IDepartmentsDao departmentsDao) {
-		this.departmentsDao = departmentsDao;
+	public void setDepartmentsDao(IDepartmentDao departmentDao) {
+		this.departmentDao = departmentDao;
 	}
 
 	public DepartmentsAction() {
@@ -117,10 +117,10 @@ public class DepartmentsAction {
 		int from = to - rows;
 
 		// Count Rows (select count(*) from trust Region)
-		records = departmentsDao.count();
+		records = departmentDao.count();
 
 		// Your logic to search and select the required data.
-		listModel = departmentsDao.findRange(from, to);
+		listModel = departmentDao.findRange(from, to);
 
 		// calculate the total pages for the query
 		total = (int) Math.ceil((double) records / (double) rows);
@@ -130,7 +130,7 @@ public class DepartmentsAction {
 	
 	public String add() {
 		XDebugger.show("DepartmentAction said: add method");
-		departmentsDao.add(department);
+		departmentDao.add(department);
 		return "add";
 	}
 }
