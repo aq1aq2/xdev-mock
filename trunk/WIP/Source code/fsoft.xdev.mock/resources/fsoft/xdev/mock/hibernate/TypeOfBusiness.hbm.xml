@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 15, 2011 10:01:56 AM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated Dec 15, 2011 10:30:38 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="fsoft.xdev.mock.models.TypeOfBusiness" table="TypeOfBusiness" schema="dbo" catalog="XDevMock">
         <id name="typeOfBusinessId" type="int">
@@ -14,29 +14,29 @@
         <property name="sicCode" type="string">
             <column name="SicCode" length="50" />
         </property>
-        <set name="teams" table="Team" inverse="true" lazy="true" fetch="select">
+        <set name="teams" inverse="true">
             <key>
                 <column name="TypeOfBusinessID" />
             </key>
-            <one-to-many class="Team" />
+            <one-to-many class="fsoft.xdev.mock.models.Team" />
         </set>
-        <set name="organisations" table="Organisation" inverse="true" lazy="true" fetch="select">
+        <set name="organisations" inverse="true">
             <key>
                 <column name="TypeOfBusinessID" />
             </key>
-            <one-to-many class="Organisation" />
+            <one-to-many class="fsoft.xdev.mock.models.Organisation" />
         </set>
-        <set name="departments" table="Department" inverse="true" lazy="true" fetch="select">
+        <set name="departments" inverse="true">
             <key>
                 <column name="TypeOfBusinessID" />
             </key>
-            <one-to-many class="Department" />
+            <one-to-many class="fsoft.xdev.mock.models.Department" />
         </set>
-        <set name="directorates" table="Directorate" inverse="true" lazy="true" fetch="select">
+        <set name="directorates" inverse="true">
             <key>
                 <column name="TypeOfBusinessID" />
             </key>
-            <one-to-many class="Directorate" />
+            <one-to-many class="fsoft.xdev.mock.models.Directorate" />
         </set>
     </class>
 </hibernate-mapping>

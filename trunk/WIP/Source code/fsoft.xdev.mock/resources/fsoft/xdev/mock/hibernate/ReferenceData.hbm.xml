@@ -1,60 +1,60 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 15, 2011 10:01:56 AM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated Dec 15, 2011 10:30:38 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="fsoft.xdev.mock.models.ReferenceData" table="ReferenceData" schema="dbo" catalog="XDevMock">
         <id name="referenceDataId" type="int">
             <column name="ReferenceDataID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="referenceType" class="ReferenceType" fetch="select" lazy="false">
+        <many-to-one name="referenceType" class="fsoft.xdev.mock.models.ReferenceType" fetch="select" lazy="false">
             <column name="RefTypeID" />
         </many-to-one>
         <property name="value" type="string">
             <column name="Value" />
         </property>
-        <set name="contactsForContactType" table="Contact" inverse="true" lazy="true" fetch="select">
+        <set name="contactsForContactType" inverse="true">
             <key>
                 <column name="ContactType" />
             </key>
-            <one-to-many class="Contact" />
+            <one-to-many class="fsoft.xdev.mock.models.Contact" />
         </set>
-        <set name="facilitiesForConnectivityType" table="Facility" inverse="true" lazy="true" fetch="select">
+        <set name="facilitiesForConnectivityType" inverse="true">
             <key>
                 <column name="ConnectivityType" />
             </key>
-            <one-to-many class="Facility" />
+            <one-to-many class="fsoft.xdev.mock.models.Facility" />
         </set>
-        <set name="contactsForBestContactMethod" table="Contact" inverse="true" lazy="true" fetch="select">
+        <set name="contactsForBestContactMethod" inverse="true">
             <key>
                 <column name="BestContactMethod" />
             </key>
-            <one-to-many class="Contact" />
+            <one-to-many class="fsoft.xdev.mock.models.Contact" />
         </set>
-        <set name="facilitiesForFacilityType" table="Facility" inverse="true" lazy="true" fetch="select">
+        <set name="facilitiesForFacilityType" inverse="true">
             <key>
                 <column name="FacilityType" />
             </key>
-            <one-to-many class="Facility" />
+            <one-to-many class="fsoft.xdev.mock.models.Facility" />
         </set>
-        <set name="premises" table="Premise" inverse="true" lazy="true" fetch="select">
+        <set name="premises" inverse="true">
             <key>
                 <column name="CateringType" />
             </key>
-            <one-to-many class="Premise" />
+            <one-to-many class="fsoft.xdev.mock.models.Premise" />
         </set>
-        <set name="servicesForServiceType" table="Service" inverse="true" lazy="true" fetch="select">
+        <set name="servicesForServiceType" inverse="true">
             <key>
                 <column name="ServiceType" />
             </key>
-            <one-to-many class="Service" />
+            <one-to-many class="fsoft.xdev.mock.models.Service" />
         </set>
-        <set name="servicesForServiceSubType" table="Service" inverse="true" lazy="true" fetch="select">
+        <set name="servicesForServiceSubType" inverse="true">
             <key>
                 <column name="ServiceSubType" />
             </key>
-            <one-to-many class="Service" />
+            <one-to-many class="fsoft.xdev.mock.models.Service" />
         </set>
     </class>
 </hibernate-mapping>

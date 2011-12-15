@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 15, 2011 10:01:56 AM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated Dec 15, 2011 10:30:38 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="fsoft.xdev.mock.models.Premise"  table="Premise" schema="dbo" catalog="XDevMock">
+    <class name="fsoft.xdev.mock.models.Premise" table="Premise" schema="dbo" catalog="XDevMock">
         <id name="premiseId" type="int">
             <column name="PremiseID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="country" class="Country" fetch="select" lazy="false">
+        <many-to-one name="country" class="fsoft.xdev.mock.models.Country" fetch="select" lazy="false">
             <column name="CountryID" />
         </many-to-one>
-        <many-to-one name="organisation" class="Organisation" fetch="select" lazy="false">
+        <many-to-one name="organisation" class="fsoft.xdev.mock.models.Organisation" fetch="select" lazy="false">
             <column name="OrganisationID" />
         </many-to-one>
-        <many-to-one name="referenceData" class="ReferenceData" fetch="select" lazy="false">
+        <many-to-one name="referenceData" class="fsoft.xdev.mock.models.ReferenceData" fetch="select" lazy="false">
             <column name="CateringType" />
         </many-to-one>
         <property name="name" type="string">
