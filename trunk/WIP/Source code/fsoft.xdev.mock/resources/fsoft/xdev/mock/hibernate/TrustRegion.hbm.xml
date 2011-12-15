@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 15, 2011 10:01:56 AM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated Dec 15, 2011 10:30:38 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="fsoft.xdev.mock.models.TrustRegion"  table="TrustRegion" schema="dbo" catalog="XDevMock">
+    <class name="fsoft.xdev.mock.models.TrustRegion" table="TrustRegion" schema="dbo" catalog="XDevMock">
         <id name="trustRegionId" type="int">
             <column name="TrustRegionID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="country" class="Country" fetch="select" lazy="false">
+        <many-to-one name="country" class="fsoft.xdev.mock.models.Country" fetch="select" lazy="false">
             <column name="CountryID" />
         </many-to-one>
         <property name="name" type="string">
@@ -20,11 +20,11 @@
         <property name="status" type="java.lang.Boolean">
             <column name="Status" />
         </property>
-        <set name="trustDistricts" table="TrustDistrict" inverse="true" lazy="true" fetch="select">
+        <set name="trustDistricts" inverse="true">
             <key>
                 <column name="TrustRegionID" />
             </key>
-            <one-to-many class="TrustDistrict" />
+            <one-to-many class="fsoft.xdev.mock.models.TrustDistrict" />
         </set>
     </class>
 </hibernate-mapping>

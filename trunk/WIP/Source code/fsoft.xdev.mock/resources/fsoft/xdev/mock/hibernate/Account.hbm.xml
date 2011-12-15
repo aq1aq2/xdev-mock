@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 15, 2011 10:01:56 AM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated Dec 15, 2011 10:30:38 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="fsoft.xdev.mock.models.Account" table="Account" schema="dbo" catalog="XDevMock">
         <id name="accountId" type="int">
@@ -20,11 +20,11 @@
         <property name="permission" type="java.lang.Integer">
             <column name="Permission" />
         </property>
-        <set name="supportingMaterials" table="SupportingMaterial" inverse="true" lazy="true" fetch="select">
+        <set name="supportingMaterials" inverse="true">
             <key>
                 <column name="AccountID" />
             </key>
-            <one-to-many class="SupportingMaterial" />
+            <one-to-many class="fsoft.xdev.mock.models.SupportingMaterial" />
         </set>
     </class>
 </hibernate-mapping>

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Dec 15, 2011 10:01:56 AM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated Dec 15, 2011 10:30:38 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="fsoft.xdev.mock.models.ReferenceType"  table="ReferenceType" schema="dbo" catalog="XDevMock">
+    <class name="fsoft.xdev.mock.models.ReferenceType" table="ReferenceType" schema="dbo" catalog="XDevMock">
         <id name="refTypeId" type="int">
             <column name="RefTypeID" />
             <generator class="identity" />
@@ -11,11 +11,11 @@
         <property name="refTypeName" type="string">
             <column name="RefTypeName" length="50" />
         </property>
-        <set name="referenceDatas" table="ReferenceData" inverse="true" lazy="true" fetch="select">
+        <set name="referenceDatas" inverse="true">
             <key>
                 <column name="RefTypeID" />
             </key>
-            <one-to-many class="ReferenceData" />
+            <one-to-many class="fsoft.xdev.mock.models.ReferenceData" />
         </set>
     </class>
 </hibernate-mapping>
