@@ -12,7 +12,7 @@ public class ContactAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	
 	private Contact contact;
-	private IContactDao contactsDao;
+	private IContactDao contactDao;
 	
 	private List<Contact> listModel = new ArrayList<Contact>();
 
@@ -26,7 +26,7 @@ public class ContactAction extends ActionSupport {
 	 */
 	public String list() {
 		System.out.println("Action: List contact");
-		listModel = contactsDao.findAll();
+		listModel = contactDao.findAll();
 		return "list";
 	}
 
@@ -46,12 +46,12 @@ public class ContactAction extends ActionSupport {
 	public String save() {
 		System.out.println("Action: save contact");
 		System.out.println("Contact name: " + contact.getFirstName());
-		contactsDao.add(contact);
+		contactDao.add(contact);
 		return "save";
 	}
 	
-	public void setContactsDao(IContactDao contactsDao) {
-		this.contactsDao = contactsDao;
+	public void setContactDao(IContactDao contactsDao) {
+		this.contactDao = contactsDao;
 	}
 
 	public Contact getContact() {

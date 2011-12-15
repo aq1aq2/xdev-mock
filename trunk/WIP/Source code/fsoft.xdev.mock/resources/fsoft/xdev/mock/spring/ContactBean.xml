@@ -6,10 +6,10 @@
 
 
 	<bean id="contactAction" class="fsoft.xdev.mock.actions.contact.ContactAction">
-		<property name="contactsDao" ref="contactsDao" />
+		<property name="contactDao" ref="contactDao" />
 	</bean>
 
-	<bean id="contactsDao" parent="txProxyTemplate">		
+	<bean id="contactDao" parent="txProxyTemplate">		
 		<property name="target">
     		<bean class="fsoft.xdev.mock.dao.imp.ContactDao">
         		<property name="sessionFactory" ref="sessionFactory" />
