@@ -2,11 +2,29 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 
+<script>
+	$(document).ready(function(){
+		$("#backBtn").click(function(){
+			window.history.back();
+		});
+		
+		var firstTime = true;
+		$("#managerName_lookupBtn").click(function(){
+			if (firstTime) {
+				$("#listDialogContent").load("../lookup/contactList.jsp");
+				firstTime = false;
+			}
+			$( "#listDialog" ).dialog( "open" );
+		});
+	});
+</script>
+
 <title>Contact Input</title>
 
 <!-- Section Title -->
 <content tag="sectionTitle">Contact Input</content>
 
+<!-- Tabbed Panel -->
 <sj:tabbedpanel id="tabs">
 	<sj:tab id="tab1" target="details1" label="Details 1"/>
 			
@@ -27,3 +45,15 @@
 	</div>
 	
 </sj:tabbedpanel>
+
+<!-- Contact Lookup Dialog -->
+<sj:dialog 
+   	id="listDialog" 
+   	autoOpen="false" 
+   	modal="true" 
+   	title="Contact List"
+   	width="965"
+>
+	<div id="listDialogContent"></div>
+</sj:dialog>
+
