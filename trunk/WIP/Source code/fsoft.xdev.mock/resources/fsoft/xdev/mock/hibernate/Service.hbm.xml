@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Dec 15, 2011 10:01:56 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="Service" table="Service" schema="dbo" catalog="XDevMock">
+    <class name="fsoft.xdev.mock.models.Service"  table="Service" schema="dbo" catalog="XDevMock">
         <id name="serviceId" type="int">
             <column name="ServiceID" />
             <generator class="identity" />
