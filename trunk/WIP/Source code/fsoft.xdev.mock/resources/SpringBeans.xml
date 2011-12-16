@@ -10,6 +10,17 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<!-- Beans Declaration -->
 
+
+	<import resource="fsoft/xdev/mock/spring/ContactsBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/TrustDistrictsBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/TrustRegionsBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/GovtOfficeRegionsBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/PremisesBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/FacilitiesBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/DepartmentsBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/DirectoratesBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/ServicesBean.xml"/>		
+
 	<import resource="fsoft/xdev/mock/spring/ContactBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/TrustDistrictBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/TrustRegionBean.xml"/>
@@ -20,8 +31,13 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<import resource="fsoft/xdev/mock/spring/OrganisationBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/SupportingMaterialBean.xml"/>
-
 <!-- 	
+<<<<<<< .mine
+	<import resource="fsoft/xdev/mock/spring/AddressesBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/CountiesBean.xml"/>	
+	<import resource="fsoft/xdev/mock/spring/CountriesBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/ServicesBean.xml"/>	
+=======
 	<import resource="fsoft/xdev/mock/spring/ReferenceType.xml"/>
 	<import resource="fsoft/xdev/mock/spring/AddresseBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/CountyBean.xml"/>	
@@ -29,6 +45,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="fsoft/xdev/mock/spring/DepartmentBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/DirectorateBean.xml"/>
 <import resource="fsoft/xdev/mock/spring/ServiceBean.xml"/>	
+>>>>>>> .r258
 	
 	
 	<import resource="fsoft/xdev/mock/spring/OrganisationBean.xml"/>
@@ -43,7 +60,6 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="fsoft/xdev/mock/spring/TypeOfBusinessBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/AccountBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/VolunteerBean.xml"/>
-	
-	-->
+-->
 
 </beans>

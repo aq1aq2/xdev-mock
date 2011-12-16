@@ -3,33 +3,33 @@ package fsoft.xdev.mock.actions.directorate;
 import java.util.ArrayList;
 import java.util.List;
 
-import fsoft.xdev.mock.dao.IDirectoratesDao;
-import fsoft.xdev.mock.models.Directorates;
+import fsoft.xdev.mock.dao.IDirectorateDao;
+import fsoft.xdev.mock.models.Directorate;
 import fsoft.xdev.mock.utilities.XDebugger;
 
 public class DirectoratesAction {
 
-	private Directorates directorate;
-	private IDirectoratesDao directoratesDao;
-	private List<Directorates> listModel = new ArrayList<Directorates>();
+	private Directorate directorate;
+	private IDirectorateDao directoratesDao;
+	private List<Directorate> listModel = new ArrayList<Directorate>();
 	
-	public Directorates getDirectorate() {
+	public Directorate getDirectorate() {
 		return directorate;
 	}
 
-	public void setDirectorate(Directorates directorate) {
+	public void setDirectorate(Directorate directorate) {
 		this.directorate = directorate;
 	}
 
-	public List<Directorates> getListModel() {
+	public List<Directorate> getListModel() {
 		return listModel;
 	}
 
-	public void setListModel(List<Directorates> listModel) {
+	public void setListModel(List<Directorate> listModel) {
 		this.listModel = listModel;
 	}
 
-	public void setDirectoratesDao(IDirectoratesDao directoratesDao) {
+	public void setDirectoratesDao(IDirectorateDao directoratesDao) {
 		this.directoratesDao = directoratesDao;
 	}
 	

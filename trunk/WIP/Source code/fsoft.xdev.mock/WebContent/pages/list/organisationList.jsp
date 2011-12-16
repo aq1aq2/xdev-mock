@@ -7,9 +7,23 @@ $(document).ready(function(){
 	$("#createBtn").click(function(){
 		// Open two tab
 		// Call file organisationInput.jsp
-		var url = "../input/organisationInput.jsp";    
+		var url = "../input/organisationInput.jsp?mode=add";    
 		$(location).attr('href',url);
 	});
+	
+	$.subscribe("rowSelect", function(event, data) {
+        // Test
+		alert("Selected Row: " + event.originalEvent.id);
+        // Open details with 5 tabs
+		var url = "../input/organisationInput.jsp?mode=amend";    
+		$(location).attr('href',url);
+	});
+	
+	$("#includeChkBx").click(function(){
+		// Test
+		alert("select include check box");
+	});
+
 });
 
 </script>
@@ -30,6 +44,7 @@ $(document).ready(function(){
 	    pager="true"
 	    rowNum="15"
        	rownumbers="true"
+       	onSelectRowTopics="rowSelect"
 	>
 		<sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
 		<sjg:gridColumn name="headOfficeAddLine1" index="headOfficeAddLine1" title="HeadOfficeAddLine1" sortable="true"/>

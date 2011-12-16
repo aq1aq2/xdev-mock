@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import fsoft.xdev.mock.dao.ISupportingMaterialsDao;
-import fsoft.xdev.mock.models.SupportingMaterials;
+import fsoft.xdev.mock.dao.ISupportingMaterialDao;
+import fsoft.xdev.mock.models.SupportingMaterial;
 import fsoft.xdev.mock.utilities.XDebugger;
 
 public class SupportingMaterialsAction extends ActionSupport{
@@ -14,9 +14,9 @@ public class SupportingMaterialsAction extends ActionSupport{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private ISupportingMaterialsDao supportingMaterialsDao;
-	private SupportingMaterials supportingMaterial;
-	private List<SupportingMaterials> listModel = new ArrayList<SupportingMaterials>();
+	private ISupportingMaterialDao supportingMaterialsDao;
+	private SupportingMaterial supportingMaterial;
+	private List<SupportingMaterial> listModel = new ArrayList<SupportingMaterial>();
 	
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
@@ -37,23 +37,23 @@ public class SupportingMaterialsAction extends ActionSupport{
     private Integer             records          = 0;
 
 	public void setSupportingMaterialsDao(
-			ISupportingMaterialsDao supportingMaterialsDao) {
+			ISupportingMaterialDao supportingMaterialsDao) {
 		this.supportingMaterialsDao = supportingMaterialsDao;
 	}
 
-	public SupportingMaterials getSupportingMaterial() {
+	public SupportingMaterial getSupportingMaterial() {
 		return supportingMaterial;
 	}
 
-	public void setSupportingMaterial(SupportingMaterials supportingMaterial) {
+	public void setSupportingMaterial(SupportingMaterial supportingMaterial) {
 		this.supportingMaterial = supportingMaterial;
 	}
 
-	public List<SupportingMaterials> getListModel() {
+	public List<SupportingMaterial> getListModel() {
 		return listModel;
 	}
 
-	public void setListModel(List<SupportingMaterials> listModel) {
+	public void setListModel(List<SupportingMaterial> listModel) {
 		this.listModel = listModel;
 	}
 

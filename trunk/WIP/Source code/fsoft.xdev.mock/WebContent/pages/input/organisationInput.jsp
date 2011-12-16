@@ -3,20 +3,89 @@
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 
+<script>
+
+$(document).ready(function(){
+	$("#expressionOfInterest").click(function(){
+		// Enable the third tab and navigate automatically
+		$("#myOrganisationDetailstabs").tabs("enable", 2);
+		$("#myOrganisationDetailstabs").tabs("select", 2);
+	});
+	
+	$("#backBtn").click(function(){
+		alert('back to organisation list');
+		var url = "../list/organisationList.jsp";
+		$(location).attr('href', url);
+	});
+	
+	$("#saveBtn").click(function(){
+		alert("click save button in organisation input");
+	});
+	
+	// Read param in incoming request
+	function getUrlVars()
+	{
+	    var vars = [];
+	    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+	    for(var i = 0; i < hashes.length; i++)
+	    {
+	        hash = hashes[i].split('=');
+	        vars.push(hash[0]);
+	        vars[hash[0]] = hash[1];
+	    }
+	    return vars;
+	}
+	
+	function x(){
+		$("#myOrganisationDetailstabs").tabs("select", 3);
+	}
+	
+	var mode = getUrlVars()["mode"];
+
+	if(mode == 'amend') {
+		// Test
+		alert("amend");
+		//$("#myOrganisationDetailstabs").disabledTabs("{[2]}"); 
+	}
+	if(mode == 'add') {
+		// Test
+		alert("add");
+		$("#myOrganisationDetailstabs").tabs("disable", 2);
+	}
+	else {
+		alert("default tab");
+	    //x();
+	}
+
+});
+
+</script>
+
+
 <title>Organisation Details</title>
 
 <!-- Section Title -->
 <content tag="sectionTitle">Organisation Details</content>
 
-<sj:tabbedpanel id="myOrganisationDetailstabs" selectedTab="currTab" cssClass="wwFormTable" disabledTabs=""  >   
+<sj:tabbedpanel 
+	id="myOrganisationDetailstabs" 
+	selectedTab="0" 
+	cssClass="wwFormTable"
+	spinner="Please wait..."
+>   
 	<sj:tab id="details1" target="tab1" label="Details1"/>
     <sj:tab id="details2" target="tab2" label="Details2"/>
+    <sj:tab id="details3" target="tab3" label="Details3"/>
+    <sj:tab id="details4" target="tab4" label="Details4"/>
+    <sj:tab id="details5" target="tab5" label="Details5"/>
+    <sj:tab id="bu" target="bu" label="BU/Directorates"/>
+    
     <div id="tab1">
     	<s:form cssClass="xdev-form">
 			<s:textfield name="organisationName" label="Organisation Name" required="true"/>
 			<s:checkbox name="preferredOrganisation" label="Preferred Organisation" />
 			<s:textarea name="OrganisationDesc" label="Organisation Short Description" required="true"/>
-			<s:checkbox name="expressionOfInterest" label="Expression Of Interest" />
+			<s:checkbox id="expressionOfInterest" name="expressionOfInterest" label="Expression Of Interest" />
 			<xdev:textLookup name="leadContact" label="Lead Contact" />
 			<xdev:textLookup name="typeOfBusiness" label="Type of business" />
 			<s:textfield name="addr1" label="Address Line 1" />
@@ -36,11 +105,18 @@
 			<s:textfield name="companyNumber" label="Company Number" />		
 		</s:form>
     </div>
+    
     <div id="tab2">
 		<s:form cssClass="xdev-form">
-			<s:checkboxlist label="Which of the following are states of India"
-                            name="states"
-                            list="#{'01':'January','02':'February','03':'March','04':'April','05':'May'}"
+			This tab is comming soon !
+			<s:checkboxlist 
+				label="Which of the following are states of India"
+	            name="states"
+	            list="#{'01':'January',
+	            		'02':'February',
+	            		'03':'March',
+	            		'04':'April',
+	            		'05':'May'}"
             />
 <!-- 			Organisation Specialism -->
 <!-- 			Service Personal Circumstances Capabilities -->
@@ -51,4 +127,24 @@
 <!-- 			Service Benifits Capabilities 	 -->
 		</s:form>  
     </div>
+    
+    <div id="tab3">
+		<s:form cssClass="xdev-form">
+			EOI Programmes
+			EOI Services
+		</s:form>  
+    </div>
+    
+    <div id="tab4">
+<!-- 		Load premises list into the tab -->
+    </div>
+    
+    <div id="tab5">
+<!-- 		Load supporting material list into the tab -->
+    </div>
+    
+    <div id="bu">
+<!-- 		Load directorateList into the tab -->
+    </div>
+    
 </sj:tabbedpanel>  
