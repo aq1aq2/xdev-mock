@@ -2,10 +2,12 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IContactDao;
 import fsoft.xdev.mock.models.Contact;
 
-public class ContactDao implements IContactDao{
+public class ContactDao extends HibernateDaoSupport implements IContactDao{
 
 	@Override
 	public boolean add(Contact entity) {

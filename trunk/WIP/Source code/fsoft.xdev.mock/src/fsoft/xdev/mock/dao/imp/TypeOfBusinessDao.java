@@ -2,10 +2,12 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.ITypeOfBusinessDao;
 import fsoft.xdev.mock.models.TypeOfBusiness;
 
-public class TypeOfBusinessDao implements ITypeOfBusinessDao {
+public class TypeOfBusinessDao extends HibernateDaoSupport implements ITypeOfBusinessDao {
 
 	@Override
 	public boolean add(TypeOfBusiness entity) {

@@ -2,10 +2,12 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.ITownDao;
 import fsoft.xdev.mock.models.Town;
 
-public class TownDao implements ITownDao{
+public class TownDao extends HibernateDaoSupport implements ITownDao{
 
 	@Override
 	public boolean add(Town entity) {

@@ -2,10 +2,12 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.ITeamDao;
 import fsoft.xdev.mock.models.Team;
 
-public class TeamDao implements ITeamDao{
+public class TeamDao extends HibernateDaoSupport implements ITeamDao{
 
 	@Override
 	public boolean add(Team entity) {
