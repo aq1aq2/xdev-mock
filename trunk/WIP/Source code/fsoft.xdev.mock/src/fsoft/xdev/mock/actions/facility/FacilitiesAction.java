@@ -5,13 +5,13 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import fsoft.xdev.mock.dao.IFacilitiesDao;
-import fsoft.xdev.mock.models.Facilities;
+import fsoft.xdev.mock.dao.IFacilityDao;
+import fsoft.xdev.mock.models.Facility;
 
 public class FacilitiesAction extends ActionSupport {
-	private Facilities facilities;
-	private IFacilitiesDao facilitiesDao;
-	List<Facilities> listFacilities = new ArrayList<Facilities>();
+	private Facility facility;
+	private IFacilityDao facilitiesDao;
+	List<Facility> listFacilities = new ArrayList<Facility>();
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
 	  private Integer             rows             = 0;
@@ -35,16 +35,19 @@ public class FacilitiesAction extends ActionSupport {
 		  int to = (rows*page);
 		  int from = to - rows;
 		  records = facilitiesDao.count();
-		  listFacilities = facilitiesDao.findRange(from, to);
+		  //listFacilities = facilitiesDao.findRange(from, to);
+		  listFacilities = facilitiesDao.findAll();
 		  total = (int)Math.ceil((double)records/(double)rows);
 		  System.out.println("facilities is listed");
+		  System.out.println(listFacilities.size());
+		  System.out.println(listFacilities.get(1).getFacilityTypeName());
 		  return "list";
 	  }
 	  
 	  public String save(){
 			System.out.println("vao day");
-			facilities.setIsActive(false);
-			facilitiesDao.add(facilities);
+			facility.setStatus(false);
+			facilitiesDao.add(facility);
 			System.out.println("one facility is added");
 			return "add";
 		}
@@ -53,25 +56,23 @@ public class FacilitiesAction extends ActionSupport {
 		  return "detail";
 	  }
 	  
-	  
-
-	public Facilities getFacilities() {
-		return facilities;
+	public Facility getFacility() {
+		return facility;
 	}
 
-	public void setFacilities(Facilities facilities) {
-		this.facilities = facilities;
+	public void setFacility(Facility facility) {
+		this.facility = facility;
 	}
 
-	public void setFacilitiesDao(IFacilitiesDao facilitiesDao) {
+	public void setFacilitiesDao(IFacilityDao facilitiesDao) {
 		this.facilitiesDao = facilitiesDao;
 	}
 
-	public List<Facilities> getListFacilities() {
+	public List<Facility> getListFacilities() {
 		return listFacilities;
 	}
 
-	public void setListFacilities(List<Facilities> listFacilities) {
+	public void setListFacilities(List<Facility> listFacilities) {
 		this.listFacilities = listFacilities;
 	}
 

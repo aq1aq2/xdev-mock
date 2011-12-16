@@ -2,51 +2,74 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.springframework.dao.support.DataAccessUtils;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IPremiseDao;
 import fsoft.xdev.mock.models.Premise;
 
-public class PremiseDao implements IPremiseDao{
+public class PremiseDao extends HibernateDaoSupport implements IPremiseDao{
 
 	@Override
 	public boolean add(Premise entity) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			getHibernateTemplate().save(entity);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
 	}
 
 	@Override
 	public boolean edit(Premise entity) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			getHibernateTemplate().update(entity);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
 	}
 
 	@Override
 	public boolean remove(Premise entity) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			getHibernateTemplate().delete(entity);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+		
 	}
 
 	@Override
 	public Premise find(Premise entity) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return (Premise)getHibernateTemplate().get(Premise.class, entity.getPremiseId());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Premise> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return getHibernateTemplate().find("from Premise");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Premise> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("from Premise");
+		query.setFirstResult(from);
+		query.setMaxResults(to-from);
+		return (List<Premise>)query.list();
 	}
 
 	@Override
 	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return DataAccessUtils.intResult(getHibernateTemplate().find("select count(*) from Premise"));
 	}
 
 }

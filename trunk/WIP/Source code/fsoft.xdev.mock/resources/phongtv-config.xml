@@ -15,6 +15,17 @@
 			<result name="add" type="json"></result>
 			<result name="detail">/pages/input/facilitiesInput.jsp</result>
 		</action>
+		
+		<action name="*VolunteeringOpportunity" method="{1}" class="volunteersAction">
+			<result name="list" type="json"></result>
+			<result name="add" type="json"></result>
+		</action>
+		
+		<action name="view"  class="facilitiesAction" method="list">
+			<result name="list">/pages/list/test.jsp</result>
+			<result name="add"></result>
+		</action>
+		
 	</package>
 	
 </struts>
