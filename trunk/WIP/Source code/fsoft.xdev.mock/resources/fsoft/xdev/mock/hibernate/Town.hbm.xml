@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2011 11:06:43 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fsoft.xdev.mock.models.Town" table="Town" schema="dbo" catalog="XDevMock">
+        <id name="townId" type="int">
+            <column name="TownID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="county" class="fsoft.xdev.mock.models.County" fetch="select">
+            <column name="CountyID" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" length="100" />
+        </property>
+        <set name="addresses" table="Address" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="TownID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Address" />
+        </set>
+    </class>
+</hibernate-mapping>

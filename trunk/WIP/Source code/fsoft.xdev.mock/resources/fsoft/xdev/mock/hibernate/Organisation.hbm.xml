@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2011 11:06:43 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fsoft.xdev.mock.models.Organisation" table="Organisation" schema="dbo" catalog="XDevMock">
+        <id name="organisationId" type="int">
+            <column name="OrganisationID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="contact" class="fsoft.xdev.mock.models.Contact" fetch="select">
+            <column name="ContactID" />
+        </many-to-one>
+        <many-to-one name="typeOfBusiness" class="fsoft.xdev.mock.models.TypeOfBusiness" fetch="select">
+            <column name="TypeOfBusinessID" />
+        </many-to-one>
+        <many-to-one name="trustDistrict" class="fsoft.xdev.mock.models.TrustDistrict" fetch="select">
+            <column name="TrustDistrictID" />
+        </many-to-one>
+        <many-to-one name="govOfficeRegion" class="fsoft.xdev.mock.models.GovOfficeRegion" fetch="select">
+            <column name="GovOfficeRegionID" />
+        </many-to-one>
+        <many-to-one name="county" class="fsoft.xdev.mock.models.County" fetch="select">
+            <column name="CountyID" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" length="100" />
+        </property>
+        <property name="shortDesc" type="string">
+            <column name="ShortDesc" />
+        </property>
+        <property name="addr1" type="string">
+            <column name="Addr1" length="200" />
+        </property>
+        <property name="addr2" type="string">
+            <column name="Addr2" length="200" />
+        </property>
+        <property name="addr3" type="string">
+            <column name="Addr3" length="200" />
+        </property>
+        <property name="city" type="string">
+            <column name="City" length="100" />
+        </property>
+        <property name="preferredOrg" type="java.lang.Boolean">
+            <column name="PreferredOrg" />
+        </property>
+        <property name="expOfInterest" type="java.lang.Boolean">
+            <column name="ExpOfInterest" />
+        </property>
+        <property name="fullDesc" type="string">
+            <column name="FullDesc" />
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="PhoneNumber" length="50" />
+        </property>
+        <property name="fax" type="string">
+            <column name="Fax" length="50" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="50" />
+        </property>
+        <property name="webAddr" type="string">
+            <column name="WebAddr" length="50" />
+        </property>
+        <property name="charityNumber" type="string">
+            <column name="CharityNumber" length="50" />
+        </property>
+        <property name="companyNumber" type="string">
+            <column name="CompanyNumber" length="50" />
+        </property>
+        <property name="orgSpecicalism" type="string">
+            <column name="OrgSpecicalism" length="200" />
+        </property>
+        <property name="serviceDisCap" type="string">
+            <column name="ServiceDisCap" length="200" />
+        </property>
+        <property name="serviceBarCap" type="string">
+            <column name="ServiceBarCap" length="200" />
+        </property>
+        <property name="serviceBenCap" type="string">
+            <column name="ServiceBenCap" length="200" />
+        </property>
+        <property name="servicePerCirCap" type="string">
+            <column name="ServicePerCirCap" length="200" />
+        </property>
+        <property name="serviceEthCap" type="string">
+            <column name="ServiceEthCap" length="200" />
+        </property>
+        <property name="accreditation" type="string">
+            <column name="Accreditation" length="200" />
+        </property>
+        <property name="eoiprogramme" type="string">
+            <column name="EOIProgramme" length="200" />
+        </property>
+        <property name="eoiservice" type="string">
+            <column name="EOIService" length="200" />
+        </property>
+        <property name="postCode" type="string">
+            <column name="PostCode" length="20" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="Status" />
+        </property>
+        <property name="role" type="string">
+            <column name="Role" length="50" />
+        </property>
+        <set name="premises" table="Premise" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="OrganisationID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Premise" />
+        </set>
+        <set name="supportingMaterials" table="SupportingMaterial" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="OrganisationID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.SupportingMaterial" />
+        </set>
+        <set name="directorates" table="Directorate" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="OrganisationID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Directorate" />
+        </set>
+    </class>
+</hibernate-mapping>
