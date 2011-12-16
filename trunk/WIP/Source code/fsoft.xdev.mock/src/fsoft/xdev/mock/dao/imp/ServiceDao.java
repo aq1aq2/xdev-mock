@@ -2,10 +2,12 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IServiceDao;
 import fsoft.xdev.mock.models.Service;
 
-public class ServiceDao implements IServiceDao{
+public class ServiceDao extends HibernateDaoSupport implements IServiceDao{
 
 	@Override
 	public boolean add(Service entity) {

@@ -2,10 +2,12 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IProgrammeDao;
 import fsoft.xdev.mock.models.Programme;
 
-public class ProgrammeDao implements IProgrammeDao{
+public class ProgrammeDao extends HibernateDaoSupport implements IProgrammeDao{
 
 	@Override
 	public boolean add(Programme entity) {

@@ -2,10 +2,12 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IAddressDao;
 import fsoft.xdev.mock.models.Address;
 
-public class AddressDao implements IAddressDao {
+public class AddressDao extends HibernateDaoSupport implements IAddressDao {
 
 	@Override
 	public boolean add(Address entity) {

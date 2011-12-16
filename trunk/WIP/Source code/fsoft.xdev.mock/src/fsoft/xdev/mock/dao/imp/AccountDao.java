@@ -2,10 +2,12 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IAccountDao;
 import fsoft.xdev.mock.models.Account;
 
-public class AccountDao implements IAccountDao {
+public class AccountDao extends HibernateDaoSupport implements IAccountDao {
 
 	@Override
 	public boolean add(Account entity) {

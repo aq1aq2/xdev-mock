@@ -2,10 +2,12 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IReferenceDataDao;
 import fsoft.xdev.mock.models.ReferenceData;
 
-public class ReferenceDataDao implements IReferenceDataDao {
+public class ReferenceDataDao extends HibernateDaoSupport implements IReferenceDataDao {
 
 	@Override
 	public boolean add(ReferenceData entity) {
