@@ -10,24 +10,29 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<!-- Beans Declaration -->
 	
-	<import resource="fsoft/xdev/mock/spring/ContactBean.xml"/>	
-	<import resource="fsoft/xdev/mock/spring/FacilityBean.xml"/>
+	
+	
+	<import resource="fsoft/xdev/mock/spring/TrustRegionBean.xml"/>
+
+	
+	
+	
+<!-- 	
+<import resource="fsoft/xdev/mock/spring/CountryBean.xml"/>
+		<import resource="fsoft/xdev/mock/spring/TrustDistrictBean.xml"/>
+	
+
+<import resource="fsoft/xdev/mock/spring/FacilityBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/GovOfficeRegionBean.xml"/>	
 	<import resource="fsoft/xdev/mock/spring/OrganisationBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/PremiseBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/ServiceBean.xml"/>	
 	<import resource="fsoft/xdev/mock/spring/SupportingMaterialBean.xml"/>	
-	<import resource="fsoft/xdev/mock/spring/TrustRegionBean.xml"/>
-	<import resource="fsoft/xdev/mock/spring/TrustDistrictBean.xml"/>
-	
-
-	
-<!-- 	
+<import resource="fsoft/xdev/mock/spring/ContactBean.xml"/>	
 	<import resource="fsoft/xdev/mock/spring/DepartmentBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/DirectorateBean.xml"/>
-	
 	<import resource="fsoft/xdev/mock/spring/CountyBean.xml"/>	
-	<import resource="fsoft/xdev/mock/spring/CountryBean.xml"/>
+	
 	<import resource="fsoft/xdev/mock/spring/AddressBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/ReferenceType.xml"/>
 	<import resource="fsoft/xdev/mock/spring/ProgrammeBean.xml"/>
