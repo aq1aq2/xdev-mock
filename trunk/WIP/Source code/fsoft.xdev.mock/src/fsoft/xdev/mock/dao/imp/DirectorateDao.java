@@ -2,51 +2,60 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.springframework.dao.support.DataAccessUtils;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IDirectorateDao;
 import fsoft.xdev.mock.models.Directorate;
 
-public class DirectorateDao implements IDirectorateDao{
+public class DirectorateDao extends HibernateDaoSupport 
+		implements IDirectorateDao{
 
 	@Override
 	public boolean add(Directorate entity) {
-		// TODO Auto-generated method stub
-		return false;
+		getHibernateTemplate().save(entity);
+		return true;
 	}
 
 	@Override
 	public boolean edit(Directorate entity) {
-		// TODO Auto-generated method stub
-		return false;
+		getHibernateTemplate().update(entity);
+		return true;
 	}
 
 	@Override
 	public boolean remove(Directorate entity) {
-		// TODO Auto-generated method stub
-		return false;
+		getHibernateTemplate().delete(entity);
+		return true;
 	}
 
 	@Override
 	public Directorate find(Directorate entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Directorate) getHibernateTemplate().get(Directorate.class,
+				entity.getDirectorateId());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Directorate> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return getHibernateTemplate().find("from Directorate");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Directorate> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createQuery("from Directorate");
+		query.setFirstResult(from);
+		query.setMaxResults(to - from);
+		return (List<Directorate>) query.list();
 	}
 
 	@Override
 	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
+		return DataAccessUtils.intResult(getHibernateTemplate().find(
+				"select count(*) from Directorate"));
 	}
 
 }
