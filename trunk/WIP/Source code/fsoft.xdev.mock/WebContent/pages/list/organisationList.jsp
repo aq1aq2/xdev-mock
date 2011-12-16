@@ -50,6 +50,6 @@ $(document).ready(function(){
 		<sjg:gridColumn name="headOfficeAddLine1" index="headOfficeAddLine1" title="HeadOfficeAddLine1" sortable="true"/>
 		<sjg:gridColumn name="postCode" index="postCode" title="PostCode" sortable="true"/>
 		<sjg:gridColumn name="contact" index="contact" title="Contact" sortable="true"/>
-		<sjg:gridColumn name="isActive" index="isActive" title="IsActive" sortable="false" formatter="checkbox"/>
+		<sjg:gridColumn name="status" index="status" title="IsActive" sortable="false" formatter="checkbox"/>
 	</sjg:grid>
 </s:form>

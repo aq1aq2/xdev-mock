@@ -128,6 +128,10 @@ public class OrganisationsAction extends ActionSupport{
 		// calculate the total pages for the query
 		total = (int) Math.ceil((double) records / (double) rows);
 
+		// Print list model
+		XDebugger.show("Size of list model: " + listModel.size());
+		XDebugger.show("Contact name: ");
+		//XDebugger.show("Supporting material list: " + listModel.get(0).getSupportingMaterials().iterator().next().getSupportingMaterialId());
 		return "list";
 	}
 	
