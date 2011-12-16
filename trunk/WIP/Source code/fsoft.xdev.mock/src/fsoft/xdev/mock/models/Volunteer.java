@@ -1,4 +1,7 @@
 package fsoft.xdev.mock.models;
+
+// Generated Dec 16, 2011 11:06:42 AM by Hibernate Tools 3.4.0.CR1
+
 import java.util.Date;
 
 /**
@@ -6,7 +9,6 @@ import java.util.Date;
  */
 public class Volunteer implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1L;
 	private int volunteerId;
 	private Contact contact;
 	private String volunteerPurpose;

@@ -1,4 +1,7 @@
 package fsoft.xdev.mock.models;
+
+// Generated Dec 16, 2011 11:06:42 AM by Hibernate Tools 3.4.0.CR1
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,7 +10,6 @@ import java.util.Set;
  */
 public class Town implements java.io.Serializable {
 
-	private static final long serialVersionUID = 1L;
 	private int townId;
 	private County county;
 	private String name;
