@@ -1,20 +1,21 @@
-package fsoft.xdev.mock.actions.premise;
+package fsoft.xdev.mock.actions.volunteering;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
-import fsoft.xdev.mock.dao.IPremiseDao;
-import fsoft.xdev.mock.models.Premise;
 
-public class PremiseAction extends ActionSupport {
+import fsoft.xdev.mock.dao.IVolunteerDao;
+import fsoft.xdev.mock.models.Volunteer;
+
+public class VolunteeringAction extends ActionSupport {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private IPremiseDao premiseDao;
-	private Premise premise;
-	private List<Premise> listPremises = new ArrayList<Premise>();
+	private Volunteer volunteer;
+	private IVolunteerDao volunteerDao;
+	private List<Volunteer> listVolunteer = new ArrayList<Volunteer>();
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
 	  private Integer             rows             = 0;
@@ -33,44 +34,48 @@ public class PremiseAction extends ActionSupport {
 
 	  // All Record
 	  private Integer             records          = 0;
+	  
+	  public String list(){
+		  int to = (rows*page);
+		  int from = to - rows;
+		  records = volunteerDao.count();
+		  listVolunteer = volunteerDao.findRange(from, to);
+		  total = (int)Math.ceil((double)records/(double)rows);
+		  System.out.println("Volunteer is listed");
+		  return "list";
+	  }
+	  
+	  public String save(){
+		  System.out.println("vao day");
+		  volunteer.setStatus(false);
+		  volunteerDao.add(volunteer);
+		  System.out.println("one volunteer is added");
+		  return "add";
+	  }
+	  
+	  public String detail(){
+		  return "detail";
+	  }
 
-	public String list(){
-		int to = (rows*page);
-		int from = to - rows;
-		records = premiseDao.count();
-		listPremises = premiseDao.findRange(from, to);
-		total = (int)Math.ceil((double)records/(double)rows);
-		//listPremises = premisesDao.findAll();
-		System.out.println("List premise " + listPremises.size());
-		return "list";
-	}
-	
-	public String save(){
-		System.out.println("vao day");
-		premise.setStatus(false);
-		premiseDao.add(premise);
-		System.out.println("one premise is added");
-		return "add";
-	}
 
-	public void setPremiseDao(IPremiseDao premiseDao) {
-		this.premiseDao = premiseDao;
-	}
-
-	public Premise getPremise() {
-		return premise;
-	}
-
-	public void setPremise(Premise premise) {
-		this.premise = premise;
+	public Volunteer getVolunteer() {
+		return volunteer;
 	}
 
-	public List<Premise> getListPremise() {
-		return listPremises;
+	public void setVolunteer(Volunteer volunteer) {
+		this.volunteer = volunteer;
 	}
 
-	public void setListPremise(List<Premise> listPremises) {
-		this.listPremises = listPremises;
+	public void setVolunteerDao(IVolunteerDao volunteerDao) {
+		this.volunteerDao = volunteerDao;
+	}
+
+	public List<Volunteer> getListVolunteer() {
+		return listVolunteer;
+	}
+
+	public void setListVolunteer(List<Volunteer> listVolunteer) {
+		this.listVolunteer = listVolunteer;
 	}
 
 	public Integer getRows() {
@@ -120,5 +125,5 @@ public class PremiseAction extends ActionSupport {
 	public void setRecords(Integer records) {
 		this.records = records;
 	}
-
+	  
 }

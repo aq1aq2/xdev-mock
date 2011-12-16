@@ -6,10 +6,10 @@
 
 
 	<bean id="premisesAction" class="fsoft.xdev.mock.actions.premise.PremiseAction">
-		<property name="premisesDao" ref="premisesDao" />
+		<property name="premiseDao" ref="premiseDao" />
 	</bean>
 
-	<bean id="premisesDao" parent="txProxyTemplate">		
+	<bean id="premiseDao" parent="txProxyTemplate">		
 		<property name="target">
     		<bean class="fsoft.xdev.mock.dao.imp.PremiseDao">
         		<property name="sessionFactory" ref="sessionFactory" />

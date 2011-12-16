@@ -20,13 +20,13 @@ $.subscribe('rowselect', function(event, data) {
 
 <!-- body -->
 
-	<s:form name="facilities">
-		<s:url id="facilitiesList" action="listFacilities"></s:url>
+	<s:form name="volunteeringOpportunity">
+		<s:url id="volunteeringOpportunityList" action="listVolunteeringOpportunity"></s:url>
 		<sjg:grid
 	        id="gridtable"
 	        dataType="json"
-	        href="%{facilitiesList}"
-	        gridModel="listFacilities"
+	        href="%{volunteeringOpportunityList}"
+	        gridModel="listVolunteer"
 	        autowidth="true"
 	        pager="true"
 	        rowNum="3"
@@ -34,10 +34,11 @@ $.subscribe('rowselect', function(event, data) {
 	        navigator="true"
 	        onSelectRowTopics="rowselect"
 	        >	        
-			<sjg:gridColumn name="facilityId" index="facilityId" title="ID" hidden="true"/>
-	        <sjg:gridColumn name="facilityType" index="facilityType" title="Facility Type" sortable="true" formatter="formatLink"/>
-	        <sjg:gridColumn name="facilityDescription" index="facilityDescription" title="Description" sortable="false"/>
-	        <sjg:gridColumn name="contacts.firstName" index="contacts" title="Lead Contacts" sortable="false"/>
-	        <sjg:gridColumn name="status" index="status" title="Is Active" sortable="false"/>
+			<sjg:gridColumn name="contacts.firstName" index="facilityId" title="ID" hidden="true"/>
+	        <sjg:gridColumn name="contacts.firstName" index="contacts" title="Contacts" sortable="true" formatter="formatLink"/>
+	        <sjg:gridColumn name="volunteerPurpose" index="volunteerPurpose" title="Purpose" sortable="false"/>
+	        <sjg:gridColumn name="startDate" index="startDate" title="Start Date" sortable="false"/>
+	        <sjg:gridColumn name="endDate" index="endDate" title="End Date" sortable="false"/>
+	        <sjg:gridColumn name="isActive" index="isActive" title="Is Active" sortable="false"/>
 	    </sjg:grid>
 	</s:form>
