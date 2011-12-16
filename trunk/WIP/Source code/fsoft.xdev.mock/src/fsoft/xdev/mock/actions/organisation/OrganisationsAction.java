@@ -6,16 +6,16 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.IOrganisationDao;
-import fsoft.xdev.mock.models.Organisations;
+import fsoft.xdev.mock.models.Organisation;
 import fsoft.xdev.mock.utilities.XDebugger;
 
 public class OrganisationsAction extends ActionSupport{
 	/**
 	 * 
 	 */
-	private Organisations organisation;
+	private Organisation organisation;
 	private IOrganisationDao organisationDao;
-	private List<Organisations> listModel = new ArrayList<Organisations>();
+	private List<Organisation> listModel = new ArrayList<Organisation>();
 
 	private static final long serialVersionUID = 1L;
 	
@@ -86,11 +86,11 @@ public class OrganisationsAction extends ActionSupport{
 	// All Record
 	private Integer records = 0;
 	
-	public Organisations getOrganisation() {
+	public Organisation getOrganisation() {
 		return organisation;
 	}
 
-	public void setOrganisation(Organisations organisation) {
+	public void setOrganisation(Organisation organisation) {
 		this.organisation = organisation;
 	}
 	
@@ -99,11 +99,11 @@ public class OrganisationsAction extends ActionSupport{
 		this.organisationDao = organisationDao;
 	}
 
-	public List<Organisations> getListModel() {
+	public List<Organisation> getListModel() {
 		return listModel;
 	}
 
-	public void setListModel(List<Organisations> listModel) {
+	public void setListModel(List<Organisation> listModel) {
 		this.listModel = listModel;
 	}
 
