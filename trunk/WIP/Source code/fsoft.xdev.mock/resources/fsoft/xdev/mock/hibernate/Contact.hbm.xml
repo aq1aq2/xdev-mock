@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 16, 2011 11:06:43 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="fsoft.xdev.mock.models.Contact" table="Contact" schema="dbo" catalog="XDevMock">
+        <id name="contactId" type="int">
+            <column name="ContactID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="referenceDataByBestContactMethod" class="fsoft.xdev.mock.models.ReferenceData" fetch="select">
+            <column name="BestContactMethod" />
+        </many-to-one>
+        <many-to-one name="referenceDataByContactType" class="fsoft.xdev.mock.models.ReferenceData" fetch="select">
+            <column name="ContactType" />
+        </many-to-one>
+        <property name="firstName" type="string">
+            <column name="FirstName" length="50" />
+        </property>
+        <property name="surName" type="string">
+            <column name="SurName" length="50" />
+        </property>
+        <property name="knowAs" type="string">
+            <column name="KnowAs" length="50" />
+        </property>
+        <property name="officePhone" type="string">
+            <column name="OfficePhone" length="20" />
+        </property>
+        <property name="mobilePhone" type="string">
+            <column name="MobilePhone" length="20" />
+        </property>
+        <property name="sthomePhone" type="string">
+            <column name="STHomePhone" length="20" />
+        </property>
+        <property name="emailAddress" type="string">
+            <column name="EmailAddress" length="50" />
+        </property>
+        <property name="managerId" type="java.lang.Integer">
+            <column name="ManagerID" />
+        </property>
+        <property name="jobRole" type="string">
+            <column name="JobRole" length="50" />
+        </property>
+        <property name="workBase" type="string">
+            <column name="WorkBase" length="50" />
+        </property>
+        <property name="jobTitle" type="string">
+            <column name="JobTitle" length="50" />
+        </property>
+        <property name="status" type="java.lang.Boolean">
+            <column name="Status" />
+        </property>
+        <set name="facilitiesForContactId" table="Facility" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ContactID" not-null="true" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Facility" />
+        </set>
+        <set name="organisations" table="Organisation" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ContactID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Organisation" />
+        </set>
+        <set name="teams" table="Team" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ContactID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Team" />
+        </set>
+        <set name="volunteers" table="Volunteer" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ContactID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Volunteer" />
+        </set>
+        <set name="facilitiesForRoomHost" table="Facility" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RoomHost" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Facility" />
+        </set>
+        <set name="departments" table="Department" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ContactID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Department" />
+        </set>
+        <set name="directorates" table="Directorate" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ContactID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Directorate" />
+        </set>
+        <set name="services" table="Service" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ContactID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Service" />
+        </set>
+        <set name="programmes" table="Programme" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ContactID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Programme" />
+        </set>
+    </class>
+</hibernate-mapping>
