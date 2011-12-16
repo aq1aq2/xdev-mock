@@ -1,8 +1,6 @@
 package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
-
-import org.apache.commons.collections.functors.ExceptionFactory;
 import org.hibernate.Query;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;

@@ -2,51 +2,70 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.springframework.dao.support.DataAccessUtils;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.ITrustDistrictDao;
 import fsoft.xdev.mock.models.TrustDistrict;
+import fsoft.xdev.mock.models.TrustRegion;
 
-public class TrustDistrictDao implements ITrustDistrictDao{
+public class TrustDistrictDao extends HibernateDaoSupport implements ITrustDistrictDao{
 
 	@Override
 	public boolean add(TrustDistrict entity) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			getHibernateTemplate().save(entity);
+			return true;
+		} catch (Exception ex) {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean edit(TrustDistrict entity) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			getHibernateTemplate().update(entity);
+			return true;
+		} catch (Exception ex) {
+			return false;
+		}
 	}
 
 	@Override
 	public boolean remove(TrustDistrict entity) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			getHibernateTemplate().delete(entity);
+			return true;
+		} catch (Exception ex) {
+			return false;
+		}
 	}
 
 	@Override
 	public TrustDistrict find(TrustDistrict entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return (TrustDistrict) getHibernateTemplate().get(TrustDistrict.class,
+				entity.getTrustDistrictId());
 	}
 
 	@Override
 	public List<TrustDistrict> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return getHibernateTemplate().find("from TrustDistrict");
 	}
 
 	@Override
 	public List<TrustDistrict> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createQuery("from TrustDistrict");
+		query.setFirstResult(from);
+		query.setMaxResults(to - from);
+		return (List<TrustDistrict>) query.list();
 	}
 
 	@Override
 	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
+		return DataAccessUtils.intResult(getHibernateTemplate().find(
+				"select count(*) from TrustDistrict"));
 	}
 
 	@Override
@@ -54,5 +73,6 @@ public class TrustDistrictDao implements ITrustDistrictDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	
 }

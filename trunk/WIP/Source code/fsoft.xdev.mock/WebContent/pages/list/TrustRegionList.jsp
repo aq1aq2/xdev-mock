@@ -4,7 +4,7 @@
 <title>Trust Region</title>
 <script type="text/javascript">
         function formatLink(cellvalue, options, rowObject) {
-                return "<a href='detailTrustRegion.action?trustRegions.trustRegionId="+rowObject['trustRegionId']+"'>" + cellvalue + "</a>";
+                return "<a href='detailTrustRegion.action?trustRegion.trustRegionId="+rowObject['trustRegionId']+"'>" + cellvalue + "</a>";
         }      
 </script>
 <!-- body -->	
@@ -27,7 +27,7 @@
 	        <sjg:gridColumn name="name" index="name" title="Name" sortable="true" formatter="formatLink"/>
 	        <sjg:gridColumn name="description" index="description" title="Descripstion" sortable="false"/>
 	        <sjg:gridColumn name="countries.name" index="countries.name" title="Nation/country" sortable="true"/>
-	        <sjg:gridColumn name="isActive" index="isActive" title="IsActived" sortable="true"/>	        
+	        <sjg:gridColumn name="status" index="status" title="IsActived" sortable="true"/>	        
 	    </sjg:grid>    
   
 
