@@ -23,6 +23,6 @@
 	        <sjg:gridColumn name="locationName" index="locationName" title="Location Name" sortable="true"/>
 	        <sjg:gridColumn name="addressLine1" index="addressLine1" title="Address Line1" sortable="false"/>
 	        <sjg:gridColumn name="postCode" index="postCode" title="Post Code" sortable="false"/>
-	        <sjg:gridColumn name="isActive" index="isActive" title="Is Active" sortable="false"/>
+	        <sjg:gridColumn name="status" index="status" title="Is Active" sortable="false"/>
 	    </sjg:grid>
 	</s:form>
