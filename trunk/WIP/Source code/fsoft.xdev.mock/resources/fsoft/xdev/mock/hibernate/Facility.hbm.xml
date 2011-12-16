@@ -8,16 +8,16 @@
             <column name="FacilityID" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="referenceDataByFacilityType" class="fsoft.xdev.mock.models.ReferenceData" fetch="select">
+        <many-to-one name="referenceDataByFacilityType" class="fsoft.xdev.mock.models.ReferenceData" fetch="select" lazy ="false">
             <column name="FacilityType" />
         </many-to-one>
-        <many-to-one name="contactByContactId" class="fsoft.xdev.mock.models.Contact" fetch="select">
+        <many-to-one name="contactByContactId" class="fsoft.xdev.mock.models.Contact" fetch="select" lazy="false">
             <column name="ContactID" not-null="true" />
         </many-to-one>
-        <many-to-one name="contactByRoomHost" class="fsoft.xdev.mock.models.Contact" fetch="select">
+        <many-to-one name="contactByRoomHost" class="fsoft.xdev.mock.models.Contact" fetch="select" lazy="false">
             <column name="RoomHost" />
         </many-to-one>
-        <many-to-one name="referenceDataByConnectivityType" class="fsoft.xdev.mock.models.ReferenceData" fetch="select">
+        <many-to-one name="referenceDataByConnectivityType" class="fsoft.xdev.mock.models.ReferenceData" fetch="select" lazy="false">
             <column name="ConnectivityType" />
         </many-to-one>
         <property name="facilityDescription" type="string">
