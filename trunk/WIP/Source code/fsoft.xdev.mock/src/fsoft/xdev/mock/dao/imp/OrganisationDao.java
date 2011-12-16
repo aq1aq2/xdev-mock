@@ -5,33 +5,40 @@ import java.util.List;
 import org.hibernate.Query;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import fsoft.xdev.mock.dao.IOrganisationDao;
 import fsoft.xdev.mock.models.Organisation;
 
+@Transactional
 public class OrganisationDao extends HibernateDaoSupport 
 				implements IOrganisationDao{
 
+	
 	@Override
 	public boolean add(Organisation entity) {
+		//getHibernateTemplate().initialize(entity);
 		getHibernateTemplate().save(entity);
 		return true;
 	}
 
 	@Override
 	public boolean edit(Organisation entity) {
+		//getHibernateTemplate().initialize(entity);
 		getHibernateTemplate().update(entity);
 		return true;
 	}
 
 	@Override
 	public boolean remove(Organisation entity) {
+		//getHibernateTemplate().initialize(entity);
 		getHibernateTemplate().delete(entity);
 		return true;
 	}
 
 	@Override
 	public Organisation find(Organisation entity) {
+		//getHibernateTemplate().initialize(entity);
 		return (Organisation) getHibernateTemplate().get(Organisation.class,
 				entity.getOrganisationId());
 	}
@@ -49,7 +56,9 @@ public class OrganisationDao extends HibernateDaoSupport
 				.getCurrentSession().createQuery("from Organisation");
 		query.setFirstResult(from);
 		query.setMaxResults(to - from);
-		return (List<Organisation>) query.list();
+		List<Organisation> listOrganisation = query.list();
+		//getHibernateTemplate().initialize(listOrganisation);
+		return listOrganisation;
 	}
 
 	@Override

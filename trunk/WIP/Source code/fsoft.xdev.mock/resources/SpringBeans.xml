@@ -13,7 +13,11 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	
 	
 	<import resource="fsoft/xdev/mock/spring/TrustRegionBean.xml"/>
+<<<<<<< .mine
+	<import resource="fsoft/xdev/mock/spring/OrganisationBean.xml"/>
+=======
 	<import resource="fsoft/xdev/mock/spring/FacilityBean.xml"/>
+>>>>>>> .r273
 	
 	
 	
@@ -24,7 +28,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
 	<import resource="fsoft/xdev/mock/spring/GovOfficeRegionBean.xml"/>	
-	<import resource="fsoft/xdev/mock/spring/OrganisationBean.xml"/>
+
 	<import resource="fsoft/xdev/mock/spring/PremiseBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/ServiceBean.xml"/>	
 	<import resource="fsoft/xdev/mock/spring/SupportingMaterialBean.xml"/>	
@@ -47,4 +51,13 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="fsoft/xdev/mock/spring/VolunteerBean.xml"/>
 -->
 
+<!--     <bean id="openSessionInViewInterceptor"   -->
+<!--         class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">   -->
+<!--         <property name="sessionFactory">   -->
+<!--             <ref="sessionFactory"/>   -->
+<!--         </property>   -->
+<!--         <property name="flushModeName">   -->
+<!--             <value>FLUSH_AUTO</value>   -->
+<!--         </property>   -->
+<!--     </bean>   -->
 </beans>
