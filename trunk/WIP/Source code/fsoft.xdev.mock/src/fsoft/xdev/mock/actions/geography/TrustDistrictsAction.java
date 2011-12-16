@@ -7,8 +7,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.ITrustDistrictDao;
 import fsoft.xdev.mock.dao.ITrustRegionDao;
-import fsoft.xdev.mock.models.TrustDistricts;
-import fsoft.xdev.mock.models.TrustRegions;
+import fsoft.xdev.mock.models.TrustDistrict;
+import fsoft.xdev.mock.models.TrustRegion;
 
 public class TrustDistrictsAction extends ActionSupport {
 
@@ -16,86 +16,53 @@ public class TrustDistrictsAction extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private TrustDistricts trustDistrict;
+	private TrustDistrict trustDistrict;
 	private ITrustDistrictDao trustDistrictDao;
-	private ITrustRegionDao trustRegionsDao;
-	private List<TrustDistricts> listTrustDistrict = new ArrayList<TrustDistricts>();
-	private List<TrustRegions> listTrustRegion = new ArrayList<TrustRegions>();
-	
-	
-	//get how many rows we want to have into the grid - rowNum attribute in the grid
-	  private Integer             rows             = 0;
+	private ITrustRegionDao trustRegionDao;
+	private List<TrustDistrict> listTrustDistrict = new ArrayList<TrustDistrict>();
+	private List<TrustRegion> listTrustRegion = new ArrayList<TrustRegion>();
 
-	  //Get the requested page. By default grid sets this to 1.
-	  private Integer             page             = 0;
+	// get how many rows we want to have into the grid - rowNum attribute in the
+	// grid
+	private Integer rows = 0;
 
-	  // sorting order - asc or desc
-	  private String              sord;
+	// Get the requested page. By default grid sets this to 1.
+	private Integer page = 0;
 
-	  // get index row - i.e. user click to sort.
-	  private String              sidx;
+	// sorting order - asc or desc
+	private String sord;
 
-	  // Your Total Pages
-	  private Integer             total            = 0;
+	// get index row - i.e. user click to sort.
+	private String sidx;
 
-	  // All Record
-	  private Integer             records          = 0;
+	// Your Total Pages
+	private Integer total = 0;
 
-	
-	/**
-	 * List all Trust Distric
-	 * @return action returns listTrustDistrict
-	 */
-	public String list(){
-		System.out.println("We change");
-		int to = (rows*page);
-		int from = to - rows;
-		
-		//Count Rows (select count(*) from trust District)
-		records = trustDistrictDao.count();
-		
-		//Your logic to search and select the required data.
-		listTrustDistrict = trustDistrictDao.findRange(from, to);
-		
-		//calculate the total pages for the query
-		total = (int)Math.ceil((double)records/(double)rows);
-		
-		listTrustRegion = trustRegionsDao.findAll();
-		return "list";
-	}
-	
-	public String save(){
-		System.out.println("vao day");
-		trustDistrict.setIsActive(false);
-		trustDistrictDao.add(trustDistrict);
-		System.out.println("One trust districs is added");
-		return "add";
-	}
-	
-	public String listAll(){
-		System.out.println("We list all");
-		listTrustDistrict = trustDistrictDao.findStart();
-		return "listAll";
-	}
+	// All Record
+	private Integer records = 0;
 
-	public void setTrustDistrict(TrustDistricts trustDistrict) {
-		this.trustDistrict = trustDistrict;
-	}
-	
-	public void setTrustDistrictDao(ITrustDistrictDao trustDistrictDao) {
-		this.trustDistrictDao = trustDistrictDao;
-	}
-
-	public TrustDistricts getTrustDistrict() {
+	public TrustDistrict getTrustDistrict() {
 		return trustDistrict;
 	}
 
-	public List<TrustDistricts> getListTrustDistrict() {
+	public void setTrustDistrict(TrustDistrict trustDistrict) {
+		this.trustDistrict = trustDistrict;
+	}
+
+	public List<TrustDistrict> getListTrustDistrict() {
 		return listTrustDistrict;
 	}
 
-	public void setListTrustDistrict(List<TrustDistricts> listTrustDistrict) {
+	public void setListTrustDistrict(List<TrustDistrict> listTrustDistrict) {
 		this.listTrustDistrict = listTrustDistrict;
+	}
+
+	public List<TrustRegion> getListTrustRegion() {
+		return listTrustRegion;
+	}
+
+	public void setListTrustRegion(List<TrustRegion> listTrustRegion) {
+		this.listTrustRegion = listTrustRegion;
 	}
 
 	public Integer getRows() {
@@ -146,18 +113,49 @@ public class TrustDistrictsAction extends ActionSupport {
 		this.records = records;
 	}
 
-	public void setTrustRegionsDao(ITrustRegionDao trustRegionsDao) {
-		this.trustRegionsDao = trustRegionsDao;
+	public void setTrustDistrictDao(ITrustDistrictDao trustDistrictDao) {
+		this.trustDistrictDao = trustDistrictDao;
 	}
 
-	public List<TrustRegions> getListTrustRegion() {
-		return listTrustRegion;
+	public void setTrustRegionDao(ITrustRegionDao trustRegionDao) {
+		this.trustRegionDao = trustRegionDao;
 	}
 
-	public void setListTrustRegion(List<TrustRegions> listTrustRegion) {
-		this.listTrustRegion = listTrustRegion;
+	/**
+	 * List all Trust Distric
+	 * 
+	 * @return action returns listTrustDistrict
+	 */
+	public String list() {
+		System.out.println("We change");
+		int to = (rows * page);
+		int from = to - rows;
+
+		// Count Rows (select count(*) from trust District)
+		records = trustDistrictDao.count();
+
+		// Your logic to search and select the required data.
+		listTrustDistrict = trustDistrictDao.findRange(from, to);
+
+		// calculate the total pages for the query
+		total = (int) Math.ceil((double) records / (double) rows);
+
+		listTrustRegion = trustRegionDao.findAll();
+		return "list";
 	}
-	
-	
+
+	public String save() {
+		System.out.println("vao day");
+		trustDistrict.setStatus(false);
+		trustDistrictDao.add(trustDistrict);
+		System.out.println("One trust districs is added");
+		return "add";
+	}
+
+	public String listAll() {
+		System.out.println("We list all");
+		listTrustDistrict = trustDistrictDao.findStart();
+		return "listAll";
+	}
 
 }

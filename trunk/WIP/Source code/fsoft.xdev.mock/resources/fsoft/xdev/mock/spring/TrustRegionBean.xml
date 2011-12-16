@@ -7,7 +7,7 @@
 
 	<bean id="trustRegionAction" class="fsoft.xdev.mock.actions.geography.TrustRegionsAction">
 		<property name="trustRegionDao" ref="trustRegionDao" />
-		<property name="countriesDao" ref="countriesDao" />
+		<property name="countryDao" ref="countryDao" />
 	</bean>
 
 	<bean id="trustRegionDao" parent="txProxyTemplate">		
@@ -17,7 +17,7 @@
         	</bean>
         </property>
 	</bean>    
-	<bean id="countriesDao" parent="txProxyTemplate">		
+	<bean id="countryDao" parent="txProxyTemplate">		
 		<property name="target">
     		<bean class="fsoft.xdev.mock.dao.imp.CountryDao">
         		<property name="sessionFactory" ref="sessionFactory" />

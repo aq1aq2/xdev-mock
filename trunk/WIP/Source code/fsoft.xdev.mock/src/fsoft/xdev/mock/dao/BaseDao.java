@@ -55,6 +55,8 @@ public interface BaseDao<E> {
      * @return
      */
     int count();
+    
+    
 }
 
 
