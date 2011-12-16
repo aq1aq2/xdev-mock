@@ -41,6 +41,8 @@ public class FacilitiesAction extends ActionSupport {
 		  System.out.println("facilities is listed");
 		  System.out.println(listFacilities.size());
 		  System.out.println(listFacilities.get(1).getFacilityTypeName());
+		  System.out.println(listFacilities.get(1).getContactByContactId().getFirstName());
+		  System.out.println("doan cuoi");
 		  return "list";
 	  }
 	  
