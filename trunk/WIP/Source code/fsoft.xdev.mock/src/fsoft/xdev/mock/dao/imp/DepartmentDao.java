@@ -2,51 +2,60 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.springframework.dao.support.DataAccessUtils;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IDepartmentDao;
 import fsoft.xdev.mock.models.Department;
 
-public class DepartmentDao implements IDepartmentDao{
+public class DepartmentDao extends HibernateDaoSupport 
+						implements IDepartmentDao{
 
 	@Override
 	public boolean add(Department entity) {
-		// TODO Auto-generated method stub
-		return false;
+		getHibernateTemplate().save(entity);
+		return true;
 	}
 
 	@Override
 	public boolean edit(Department entity) {
-		// TODO Auto-generated method stub
-		return false;
+		getHibernateTemplate().update(entity);
+		return true;
 	}
 
 	@Override
 	public boolean remove(Department entity) {
-		// TODO Auto-generated method stub
-		return false;
+		getHibernateTemplate().delete(entity);
+		return true;
 	}
 
 	@Override
 	public Department find(Department entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Department) getHibernateTemplate().get(Department.class,
+				entity.getDepartmentId());
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Department> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return getHibernateTemplate().find("from Department");
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Department> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createQuery("from Department");
+		query.setFirstResult(from);
+		query.setMaxResults(to - from);
+		return (List<Department>) query.list();
 	}
 
 	@Override
 	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
+		return DataAccessUtils.intResult(getHibernateTemplate().find(
+				"select count(*) from Department"));
 	}
 
 }
