@@ -7,8 +7,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.ICountyDao;
 import fsoft.xdev.mock.dao.IGovOfficeRegionDao;
-import fsoft.xdev.mock.models.Counties;
-import fsoft.xdev.mock.models.GovtOfficeRegions;
+import fsoft.xdev.mock.models.County;
+import fsoft.xdev.mock.models.GovOfficeRegion;
 
 public class GovtOfficeRegionsAction extends ActionSupport{
 	/**
@@ -17,11 +17,11 @@ public class GovtOfficeRegionsAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 
 
-	private GovtOfficeRegions governmentOfficeRegion;
+	private GovOfficeRegion governmentOfficeRegion;
 	private IGovOfficeRegionDao governmentOfficeRegionDao;
 	//private ICountiesDao countiesDao;
-	private List<Counties> listCounties = new ArrayList<Counties>();
-	private List<GovtOfficeRegions> listGovernmentOfficeRegion = new ArrayList<GovtOfficeRegions>();
+	private List<County> listCounties = new ArrayList<County>();
+	private List<GovOfficeRegion> listGovernmentOfficeRegion = new ArrayList<GovOfficeRegion>();
 
 
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
@@ -77,41 +77,29 @@ public class GovtOfficeRegionsAction extends ActionSupport{
 		return "list";
 	}
 
-	public GovtOfficeRegions getGovernmentOfficeRegion() {
+	public GovOfficeRegion getGovernmentOfficeRegion() {
 		return governmentOfficeRegion;
 	}
 
-	public void setGovernmentOfficeRegion(GovtOfficeRegions governmentOfficeRegion) {
+	public void setGovernmentOfficeRegion(GovOfficeRegion governmentOfficeRegion) {
 		this.governmentOfficeRegion = governmentOfficeRegion;
 	}
-	public void setGovernmentOfficeRegionDao(
-			IGovOfficeRegionDao governmentOfficeRegionDao) {
-		this.governmentOfficeRegionDao = governmentOfficeRegionDao;
+
+	public List<County> getListCounties() {
+		return listCounties;
 	}
 
-	public List<GovtOfficeRegions> getListGovernmentOfficeRegion() {
+	public void setListCounties(List<County> listCounties) {
+		this.listCounties = listCounties;
+	}
+
+	public List<GovOfficeRegion> getListGovernmentOfficeRegion() {
 		return listGovernmentOfficeRegion;
 	}
 
 	public void setListGovernmentOfficeRegion(
-			List<GovtOfficeRegions> listGovernmentOfficeRegion) {
+			List<GovOfficeRegion> listGovernmentOfficeRegion) {
 		this.listGovernmentOfficeRegion = listGovernmentOfficeRegion;
-	}
-
-//	public ICountiesDao getCountiesDao() {
-//		return countiesDao;
-//	}
-//
-//	public void setCountiesDao(ICountiesDao countiesDao) {
-//		this.countiesDao = countiesDao;
-//	}
-
-	public List<Counties> getListCounties() {
-		return listCounties;
-	}
-
-	public void setListCounties(List<Counties> listCounties) {
-		this.listCounties = listCounties;
 	}
 
 	public Integer getRows() {
@@ -162,6 +150,12 @@ public class GovtOfficeRegionsAction extends ActionSupport{
 		this.records = records;
 	}
 
+	public void setGovernmentOfficeRegionDao(
+			IGovOfficeRegionDao governmentOfficeRegionDao) {
+		this.governmentOfficeRegionDao = governmentOfficeRegionDao;
+	}
+
+	
 
 	
 }

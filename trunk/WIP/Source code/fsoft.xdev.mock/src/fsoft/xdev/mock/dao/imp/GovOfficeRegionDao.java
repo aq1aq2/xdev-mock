@@ -2,15 +2,24 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.springframework.dao.support.DataAccessUtils;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+
 import fsoft.xdev.mock.dao.IGovOfficeRegionDao;
 import fsoft.xdev.mock.models.GovOfficeRegion;
+import fsoft.xdev.mock.models.TrustDistrict;
 
-public class GovOfficeRegionDao implements IGovOfficeRegionDao{
+public class GovOfficeRegionDao extends HibernateDaoSupport implements IGovOfficeRegionDao{
 
 	@Override
 	public boolean add(GovOfficeRegion entity) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			getHibernateTemplate().save(entity);
+			return true;
+		} catch (Exception ex) {
+			return false;
+		}
 	}
 
 	@Override
@@ -39,14 +48,17 @@ public class GovOfficeRegionDao implements IGovOfficeRegionDao{
 
 	@Override
 	public List<GovOfficeRegion> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createQuery("from GovOfficeRegion");
+		query.setFirstResult(from);
+		query.setMaxResults(to - from);
+		return (List<GovOfficeRegion>) query.list();
 	}
 
 	@Override
 	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
+		return DataAccessUtils.intResult(getHibernateTemplate().find(
+				"select count(*) from GovOfficeRegion"));
 	}
 
 }
