@@ -1,7 +1,10 @@
 package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -65,6 +68,19 @@ public class TrustRegionDao extends HibernateDaoSupport implements
 		query.setFirstResult(from);
 		query.setMaxResults(to - from);
 		return (List<TrustRegion>) query.list();
+		
+		
+//		// vi du 1
+//		http://www.javalobby.org/java/forums/t62077.html
+//			
+//			// phan trang nay
+//			http://forum.springsource.org/showthread.php?54556-Criteria-Query-with-setFetchMode-and-pagination
+//		
+//		// vi du sau
+//		User user = (User) session.createCriteria(User.class)
+//                .setFetchMode("permissions", FetchMode.JOIN)
+//                .add( Restrictions.idEq(userId) )
+//                .uniqueResult();
 
 	}
 
