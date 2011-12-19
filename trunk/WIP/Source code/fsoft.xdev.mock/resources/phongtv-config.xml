@@ -16,7 +16,7 @@
 			<result name="detail">/pages/input/facilitiesInput.jsp</result>
 		</action>
 		
-		<action name="*VolunteeringOpportunity" method="{1}" class="volunteersAction">
+		<action name="*VolunteeringOpportunity" method="{1}" class="volunteerAction">
 			<result name="list" type="json"></result>
 			<result name="add" type="json"></result>
 		</action>

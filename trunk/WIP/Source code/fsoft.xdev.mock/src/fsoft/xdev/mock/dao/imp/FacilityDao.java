@@ -65,6 +65,7 @@ public class FacilityDao extends HibernateDaoSupport implements IFacilityDao{
 //		return (List<Facility>)query.list();
 //	}
 	
+	@SuppressWarnings("unchecked")
 	public List<FacilityList> findRange(int from, int to){
 		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("select new fsoft.xdev.mock.models.FacilityList(c.facilityId, b.value, c.facilityDescription,d.firstName, c.status) from Facility c left join c.referenceDataByFacilityType b left join c.contactByContactId d");
 		query.setFirstResult(from);

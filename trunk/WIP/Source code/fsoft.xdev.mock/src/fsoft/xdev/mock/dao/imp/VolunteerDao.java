@@ -8,6 +8,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import fsoft.xdev.mock.dao.IVolunteerDao;
 import fsoft.xdev.mock.models.Volunteer;
+import fsoft.xdev.mock.models.VolunteerList;
 
 public class VolunteerDao extends HibernateDaoSupport implements IVolunteerDao{
 
@@ -65,6 +66,14 @@ public class VolunteerDao extends HibernateDaoSupport implements IVolunteerDao{
 //		return (List<Volunteer>)query.list();
 //	}
 
+	@SuppressWarnings("unchecked")
+	public List<VolunteerList> findRange(int from, int to){
+		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("select new fsoft.xdev.mock.models.VolunteerList"
+								+"(c.volunteerId,ctact.firstName + ctact.surName,c.volunteerPurpose,c.startDate,c.endDate,c.status ) from Volunteer c left join c.contact ctact ");
+		query.setFirstResult(from);
+		query.setMaxResults(to-from);
+		return query.list();
+	}
 	@Override
 	public int count() {
 		

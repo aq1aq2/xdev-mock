@@ -6,6 +6,7 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import fsoft.xdev.mock.dao.IPremiseDao;
 import fsoft.xdev.mock.models.Premise;
+import fsoft.xdev.mock.models.PremiseList;
 
 public class PremiseAction extends ActionSupport {
 	/**
@@ -14,7 +15,7 @@ public class PremiseAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private IPremiseDao premiseDao;
 	private Premise premise;
-	private List<Premise> listPremises = new ArrayList<Premise>();
+	private List<PremiseList> listPremises = new ArrayList<PremiseList>();
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
 	  private Integer             rows             = 0;
@@ -65,11 +66,11 @@ public class PremiseAction extends ActionSupport {
 		this.premise = premise;
 	}
 
-	public List<Premise> getListPremise() {
+	public List<PremiseList> getListPremises() {
 		return listPremises;
 	}
 
-	public void setListPremise(List<Premise> listPremises) {
+	public void setListPremises(List<PremiseList> listPremises) {
 		this.listPremises = listPremises;
 	}
 
