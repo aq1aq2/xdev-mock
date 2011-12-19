@@ -61,7 +61,7 @@
 	</div>
 	
 	<!-- Body -->
-	<!-- Grid -->
+		<!-- Grid -->
 	<s:url id="listURL" action="listContact.action"/>
 	<sjg:grid
 		id="gridtable"
@@ -71,19 +71,20 @@
 		pager="true"
 		gridModel="listModel"
 		rowList="10,15,20"
-		rowNum="15"
+		rowNum="5"
 		rownumbers="true"
 		navigator="false"
 		navigatorSearch="true"
 		autowidth="true"
 	>
-		<sjg:gridColumn name="firstName" index="firstName" title="Contact Name" sortable="true" 
+		<sjg:gridColumn name="contactId" index="contactId" title="ID" hidden="true"/>
+		<sjg:gridColumn name="name" index="name" title="Contact Name" sortable="true" 
 		        		search="true"
 	        			searchoptions="{sopt:['eq','ne']}"/>
 		<sjg:gridColumn name="mobilePhone" index="mobilePhone" title="Mobile Phone" sortable="true"/>
-		<sjg:gridColumn name="emailAddress" index="emailAddress" title="Email" sortable="true"/>
+		<sjg:gridColumn name="email" index="email" title="Email" sortable="true"/>
 		<sjg:gridColumn name="contactType" index="contactType" title="Contact Type" sortable="true"/>
-		<sjg:gridColumn name="isActive" index="isActive" title="Is Active?" sortable="true"/>
+		<sjg:gridColumn name="status" index="status" title="Is Active?" sortable="true" formatter="checkbox"/>
 	</sjg:grid>	
 	
 	<!-- Bottom buttons -->
