@@ -56,14 +56,14 @@ public class VolunteerDao extends HibernateDaoSupport implements IVolunteerDao{
 		return getHibernateTemplate().find("from Volunteer");
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Volunteer> findRange(int from, int to) {
-		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("from Volunteer");
-		query.setFirstResult(from);
-		query.setMaxResults(to - from);
-		return (List<Volunteer>)query.list();
-	}
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public List<Volunteer> findRange(int from, int to) {
+//		Query query = getHibernateTempsate().getSessionFactory().getCurrentSession().createQuery("from Volunteer");
+//		query.setFirstResult(from);
+//		query.setMaxResults(to - from);
+//		return (List<Volunteer>)query.list();
+//	}
 
 	@Override
 	public int count() {

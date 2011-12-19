@@ -49,17 +49,17 @@ public class OrganisationDao extends HibernateDaoSupport
 		return getHibernateTemplate().find("from Organisation");
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Organisation> findRange(int from, int to) {
-		Query query = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createQuery("from Organisation");
-		query.setFirstResult(from);
-		query.setMaxResults(to - from);
-		List<Organisation> listOrganisation = query.list();
-		//getHibernateTemplate().initialize(listOrganisation);
-		return listOrganisation;
-	}
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public List<Organisation> findRange(int from, int to) {
+//		Query query = getHibernateTemplate().getSessionFactory()
+//				.getCurrentSession().createQuery("from Organisation");
+//		query.setFirstResult(from);
+//		query.setMaxResults(to - from);
+//		List<Organisation> listOrganisation = query.list();
+//		//getHibernateTemplate().initialize(listOrganisation);
+//		return listOrganisation;
+//	}
 
 	@Override
 	public int count() {

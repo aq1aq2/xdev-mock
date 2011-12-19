@@ -42,15 +42,15 @@ public class DepartmentDao extends HibernateDaoSupport
 		return getHibernateTemplate().find("from Department");
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Department> findRange(int from, int to) {
-		Query query = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createQuery("from Department");
-		query.setFirstResult(from);
-		query.setMaxResults(to - from);
-		return (List<Department>) query.list();
-	}
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public List<Department> findRange(int from, int to) {
+//		Query query = getHibernateTemplate().getSessionFactory()
+//				.getCurrentSession().createQuery("from Department");
+//		query.setFirstResult(from);
+//		query.setMaxResults(to - from);
+//		return (List<Department>) query.list();
+//	}
 
 	@Override
 	public int count() {

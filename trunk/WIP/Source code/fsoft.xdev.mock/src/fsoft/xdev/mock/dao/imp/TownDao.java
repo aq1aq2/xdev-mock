@@ -39,11 +39,11 @@ public class TownDao extends HibernateDaoSupport implements ITownDao{
 		return null;
 	}
 
-	@Override
-	public List<Town> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public List<Town> findRange(int from, int to) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public int count() {

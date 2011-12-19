@@ -39,11 +39,11 @@ public class CountyDao extends HibernateDaoSupport implements ICountyDao{
 		return null;
 	}
 
-	@Override
-	public List<County> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public List<County> findRange(int from, int to) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public int count() {

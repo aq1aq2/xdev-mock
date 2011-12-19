@@ -39,11 +39,11 @@ public class TypeOfBusinessDao extends HibernateDaoSupport implements ITypeOfBus
 		return null;
 	}
 
-	@Override
-	public List<TypeOfBusiness> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public List<TypeOfBusiness> findRange(int from, int to) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public int count() {

@@ -38,11 +38,11 @@ public class ContactDao extends HibernateDaoSupport implements IContactDao{
 		return getHibernateTemplate().find("from Contact");
 	}
 
-	@Override
-	public List<Contact> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public List<Contact> findRange(int from, int to) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public int count() {

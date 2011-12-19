@@ -56,15 +56,15 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao{
 		
 		return getHibernateTemplate().find("from Premise");
 	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Premise> findRange(int from, int to) {
-		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("from Premise");
-		query.setFirstResult(from);
-		query.setMaxResults(to-from);
-		return (List<Premise>)query.list();
-	}
+//
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public List<Premise> findRange(int from, int to) {
+//		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("from Premise");
+//		query.setFirstResult(from);
+//		query.setMaxResults(to-from);
+//		return (List<Premise>)query.list();
+//	}
 
 	@Override
 	public int count() {

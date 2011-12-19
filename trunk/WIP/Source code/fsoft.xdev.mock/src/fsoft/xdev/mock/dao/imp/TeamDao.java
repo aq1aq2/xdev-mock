@@ -39,11 +39,11 @@ public class TeamDao extends HibernateDaoSupport implements ITeamDao{
 		return null;
 	}
 
-	@Override
-	public List<Team> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public List<Team> findRange(int from, int to) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public int count() {
