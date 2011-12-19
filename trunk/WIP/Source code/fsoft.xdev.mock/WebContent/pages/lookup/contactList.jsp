@@ -7,11 +7,12 @@
 
 <script>
 	$(document).ready(function(){
+		/* Create click event */
 		$("#createBtn").click(function(){
 			window.location.href = "inputContact.action";
 		});
 		
-		/* Filter click event */
+		/* Filter click events */
 		var filterKey = "";
 		var filterActive = false;
 		
@@ -19,9 +20,9 @@
 			query = "filterKey="+filterKey;
 			query += '&';
 			query += "filterActive="+filterActive;
-			$.getJSON("saveContact.action?" + query,
+			$.getJSON("listContact.action?" + query,
 				function(data) {
-					alert(query);
+					$('#gridtable').trigger('reloadGrid');
 			});
 		}
 		
