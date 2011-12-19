@@ -10,6 +10,30 @@
 		$("#createBtn").click(function(){
 			window.location.href = "inputContact.action";
 		});
+		
+		/* Filter click event */
+		var filterKey = "";
+		var filterActive = false;
+		
+		function sendFilterOptions() {
+			query = "filterKey="+filterKey;
+			query += '&';
+			query += "filterActive="+filterActive;
+			$.getJSON("saveContact.action?" + query,
+				function(data) {
+					alert(query);
+			});
+		}
+		
+		$("ul#xdev-filter > li").click(function(){
+			filterKey = this.textContent;
+			sendFilterOptions();
+		});
+		
+		$("#includeChkBx").click(function(){
+			filterActive = $(this).is(":checked");
+			sendFilterOptions();
+		});
 	});
 </script>
 

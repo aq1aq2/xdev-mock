@@ -4,10 +4,13 @@
 
 <script>
 	$(document).ready(function(){
+		
+		/* Back event */
 		$("#backBtn").click(function(){
 			window.history.back();
 		});
 		
+		/* Manager lookup event */
 		var firstTime = true;
 		$("#managerName_lookupBtn").click(function(){
 			if (firstTime) {
@@ -53,6 +56,7 @@
    	modal="true" 
    	title="Contact List"
    	width="965"
+   	height="650"
 >
 	<div id="listDialogContent"></div>
 </sj:dialog>
