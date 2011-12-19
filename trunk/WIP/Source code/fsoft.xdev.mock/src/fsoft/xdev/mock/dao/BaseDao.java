@@ -47,14 +47,15 @@ public interface BaseDao<E> {
      * @param to
      * @return
      */
-    List<E> findRange(int from, int to);
+//    List<E> findRange(int from, int to);
     /**
      * get record number
      * @param from
      * @param to
      * @return
      */
-    int count();
+    int count();    
+   
     
     
 }

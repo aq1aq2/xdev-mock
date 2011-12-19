@@ -39,11 +39,11 @@ public class ReferenceDataDao extends HibernateDaoSupport implements IReferenceD
 		return null;
 	}
 
-	@Override
-	public List<ReferenceData> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public List<ReferenceData> findRange(int from, int to) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public int count() {

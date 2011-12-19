@@ -1,8 +1,11 @@
 package fsoft.xdev.mock.dao.imp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
+import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.dao.support.DataAccessUtils;
@@ -10,6 +13,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import fsoft.xdev.mock.dao.ITrustRegionDao;
 import fsoft.xdev.mock.models.TrustRegion;
+import fsoft.xdev.mock.models.TrustRegionList;
 
 public class TrustRegionDao extends HibernateDaoSupport implements
 		ITrustRegionDao {
@@ -60,14 +64,20 @@ public class TrustRegionDao extends HibernateDaoSupport implements
 
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<TrustRegion> findRange(int from, int to) {
+	
+	
+	public List<TrustRegionList>   findRange(int from, int to) {
 		Query query = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createQuery("from TrustRegion");
+				.getCurrentSession().createQuery("select new fsoft.xdev.mock.models.TrustRegionList(c.trustRegionId , c.name ,c.description,c.status,b.name) from TrustRegion c left join c.country b");
 		query.setFirstResult(from);
 		query.setMaxResults(to - from);
-		return (List<TrustRegion>) query.list();
+		
+//		List<Object[]> list = query.list();
+//		List<TrustRegion> listTrustRegion = new ArrayList<TrustRegion>();		
+//		for(Object[] o: list){
+//			listTrustRegion.add(new TrustRegion((Integer)o[0],  o[1].toString(),o[2].toString(), (Boolean)o[3])); 
+//		}
+		return query.list();
 		
 		
 //		// vi du 1
@@ -81,6 +91,18 @@ public class TrustRegionDao extends HibernateDaoSupport implements
 //                .setFetchMode("permissions", FetchMode.JOIN)
 //                .add( Restrictions.idEq(userId) )
 //                .uniqueResult();
+		
+//		Criteria crit = getHibernateTemplate().getSessionFactory().openSession().createCriteria(TrustRegion.class);
+//		crit.setFirstResult(2);
+//		crit.setMaxResults(10);
+//		crit.setFetchMode("country",FetchMode.JOIN);
+//		List<TrustRegion> list = crit.list();
+//		getHibernateTemplate().getSessionFactory().close();
+		
+//		for( TrustRegion c: list){
+//			Hibernate.initialize(c.getCountry().getCounties());
+//		}
+//		return  list;
 
 	}
 

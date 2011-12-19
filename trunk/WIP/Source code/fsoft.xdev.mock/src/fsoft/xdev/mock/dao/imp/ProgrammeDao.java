@@ -39,11 +39,11 @@ public class ProgrammeDao extends HibernateDaoSupport implements IProgrammeDao{
 		return null;
 	}
 
-	@Override
-	public List<Programme> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public List<Programme> findRange(int from, int to) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public int count() {

@@ -42,15 +42,15 @@ public class SupportingMaterialDao extends HibernateDaoSupport
 		return getHibernateTemplate().find("from SupportingMaterial");
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<SupportingMaterial> findRange(int from, int to) {
-		Query query = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createQuery("from SupportingMaterial");
-		query.setFirstResult(from);
-		query.setMaxResults(to - from);
-		return (List<SupportingMaterial>) query.list();
-	}
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public List<SupportingMaterial> findRange(int from, int to) {
+//		Query query = getHibernateTemplate().getSessionFactory()
+//				.getCurrentSession().createQuery("from SupportingMaterial");
+//		query.setFirstResult(from);
+//		query.setMaxResults(to - from);
+//		return (List<SupportingMaterial>) query.list();
+//	}
 
 	@Override
 	public int count() {

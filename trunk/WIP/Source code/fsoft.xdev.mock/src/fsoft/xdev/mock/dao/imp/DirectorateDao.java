@@ -42,15 +42,15 @@ public class DirectorateDao extends HibernateDaoSupport
 		return getHibernateTemplate().find("from Directorate");
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Directorate> findRange(int from, int to) {
-		Query query = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createQuery("from Directorate");
-		query.setFirstResult(from);
-		query.setMaxResults(to - from);
-		return (List<Directorate>) query.list();
-	}
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public List<Directorate> findRange(int from, int to) {
+//		Query query = getHibernateTemplate().getSessionFactory()
+//				.getCurrentSession().createQuery("from Directorate");
+//		query.setFirstResult(from);
+//		query.setMaxResults(to - from);
+//		return (List<Directorate>) query.list();
+//	}
 
 	@Override
 	public int count() {

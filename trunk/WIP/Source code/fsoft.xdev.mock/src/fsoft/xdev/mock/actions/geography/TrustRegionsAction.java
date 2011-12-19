@@ -9,6 +9,7 @@ import fsoft.xdev.mock.dao.ICountryDao;
 import fsoft.xdev.mock.dao.ITrustRegionDao;
 import fsoft.xdev.mock.models.Country;
 import fsoft.xdev.mock.models.TrustRegion;
+import fsoft.xdev.mock.models.TrustRegionList;
 
 public class TrustRegionsAction extends ActionSupport {
 	/**
@@ -17,7 +18,7 @@ public class TrustRegionsAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private TrustRegion trustRegion;
 	private ITrustRegionDao trustRegionDao;
-	private List<TrustRegion> listModel = new ArrayList<TrustRegion>();
+	private List<TrustRegionList> listModel ;
 	private List<Country> listCountry = new ArrayList<Country>();
 	private ICountryDao countryDao;
 	private String key;
@@ -60,7 +61,10 @@ public class TrustRegionsAction extends ActionSupport {
 		// calculate the total pages for the query
 		total = (int) Math.ceil((double) records / (double) rows);
 
-		listCountry = countryDao.findAll();
+//		listCountry = countryDao.findAll();
+		
+		System.out.println("du lieu tu action: " + listModel.size());
+		
 		return "list";
 	}
 
@@ -78,11 +82,11 @@ public class TrustRegionsAction extends ActionSupport {
 		this.trustRegion = trustRegion;
 	}
 
-	public List<TrustRegion> getListModel() {
+	public List<TrustRegionList>  getListModel() {
 		return listModel;
 	}
 
-	public void setListModel(List<TrustRegion> listModel) {
+	public void setListModel(List<TrustRegionList>  listModel) {
 		this.listModel = listModel;
 	}
 
@@ -161,7 +165,7 @@ public class TrustRegionsAction extends ActionSupport {
 	// search trust regions
 	public String search() throws Exception {
 		System.out.println(key);
-		listModel = trustRegionDao.search(key);
+//		listModel = trustRegionDao.search(key);
 		return "list";
 	}
 
@@ -170,7 +174,7 @@ public class TrustRegionsAction extends ActionSupport {
 		System.out.println(" vao day nha" + trustRegion.getTrustRegionId());
 		trustRegion = trustRegionDao.find(trustRegion);
 
-		listCountry = countryDao.findAll();
+//		listCountry = countryDao.findAll();
 		return "detail";
 	}
 

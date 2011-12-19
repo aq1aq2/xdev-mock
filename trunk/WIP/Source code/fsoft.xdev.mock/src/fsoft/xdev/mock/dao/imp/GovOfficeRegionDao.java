@@ -46,14 +46,14 @@ public class GovOfficeRegionDao extends HibernateDaoSupport implements IGovOffic
 		return null;
 	}
 
-	@Override
-	public List<GovOfficeRegion> findRange(int from, int to) {
-		Query query = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createQuery("from GovOfficeRegion");
-		query.setFirstResult(from);
-		query.setMaxResults(to - from);
-		return (List<GovOfficeRegion>) query.list();
-	}
+//	@Override
+//	public List<GovOfficeRegion> findRange(int from, int to) {
+//		Query query = getHibernateTemplate().getSessionFactory()
+//				.getCurrentSession().createQuery("from GovOfficeRegion");
+//		query.setFirstResult(from);
+//		query.setMaxResults(to - from);
+//		return (List<GovOfficeRegion>) query.list();
+//	}
 
 	@Override
 	public int count() {

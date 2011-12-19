@@ -26,7 +26,7 @@
 	    	<sjg:gridColumn name="trustRegionId" index="trustRegionId" title="ID" hidden="true"/>
 	        <sjg:gridColumn name="name" index="name" title="Name" sortable="true" formatter="formatLink"/>
 	        <sjg:gridColumn name="description" index="description" title="Descripstion" sortable="false"/>
-	        <sjg:gridColumn name="countries.name" index="countries.name" title="Nation/country" sortable="true"/>
+	        <sjg:gridColumn name="countryName" index="countryName" title="Nation/country" sortable="true"/>
 	        <sjg:gridColumn name="status" index="status" title="IsActived" sortable="true"/>	        
 	    </sjg:grid>    
   

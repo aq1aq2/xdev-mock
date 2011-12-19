@@ -39,11 +39,11 @@ public class ServiceDao extends HibernateDaoSupport implements IServiceDao{
 		return null;
 	}
 
-	@Override
-	public List<Service> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public List<Service> findRange(int from, int to) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public int count() {
