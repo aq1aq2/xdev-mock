@@ -35,8 +35,7 @@ public class ContactDao extends HibernateDaoSupport implements IContactDao{
 
 	@Override
 	public List<Contact> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return getHibernateTemplate().find("from Contact");
 	}
 
 	@Override

@@ -7,7 +7,7 @@
     <package name="nhanld" extends="struts-default,json-default">
     
     	<action name="*Contact" method="{1}" class="contactAction">
-    		<result name="success" >/pages/input/contactInput.jsp</result>
+    		<result name="success" ></result>
     		
     		<result name="list" type="json"></result>
     		<result name="input">/pages/input/contactInput.jsp</result>
