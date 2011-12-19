@@ -59,39 +59,38 @@ public class TrustRegionDao extends HibernateDaoSupport implements
 
 	}
 	@Override
-	public List<TrustRegionList> findRange(int from, int to, String key,
-			Boolean status) {
+	public List<TrustRegionList> findRange(int from, int to, String filterKey,
+			Boolean filterActive) {
 		String criteria = "select new fsoft.xdev.mock.models.TrustRegionList(c.trustRegionId , c.name ,c.description,c.status,b.name) from TrustRegion c left join c.country b where";
 
-		if (status == null || status == true) {
+		if (filterActive == null || filterActive == false) {
 			criteria = criteria + " (c.status = true) ";
 		} else {
 			criteria = criteria + " (1 = 1) ";
 		}
-		if ("0-9".equals(key)) {
+		if ("0-9".equals(filterKey)) {
 			criteria = criteria
 					+ " and  (c.name like '[1-9]%')";
-		} else if ("A B C D E".equals(key)) {
+		} else if ("A B C D E".equals(filterKey)) {
 			criteria = criteria
 					+ " and (c.name like '[a-e]%') ";
-		} else if ("F G H I J".equals(key)) {
+		} else if ("F G H I J".equals(filterKey)) {
 			criteria = criteria
 					+ " and (c.name like '[f-j]%')";
-		} else if ("K L M N".equals(key)) {
+		} else if ("K L M N".equals(filterKey)) {
 			criteria = criteria
 					+ " and  (c.name like '[k-n]%' )";
-		} else if ("O P Q R".equals(key)) {
+		} else if ("O P Q R".equals(filterKey)) {
 			criteria = criteria
 					+ " and  (c.name like '[o-r]%') ";
-		} else if ("S T U V".equals(key)) {
+		} else if ("S T U V".equals(filterKey)) {
 			criteria = criteria
 					+ " and  (c.name like '[s-v]%')";
-		} else if ("W X Y Z".equals(key)) {
+		} else if ("W X Y Z".equals(filterKey)) {
 			criteria = criteria
 					+ " and  (c.name like '[w-z]%') ";
 		}
 		
-		System.out.println("chuoi cua ta la " + criteria);
 
 		Query query = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createQuery(criteria);
@@ -134,9 +133,37 @@ public class TrustRegionDao extends HibernateDaoSupport implements
 	}
 
 	@Override
-	public int count() {
-		return DataAccessUtils.intResult(getHibernateTemplate().find(
-				"select count(*) from TrustRegion"));
+	public int count(String filterKey,	Boolean filterActive) {
+		String criteria = "select count(*) from TrustRegion c where";
+
+		if (filterActive == null || filterActive == false) {
+			criteria = criteria + " (c.status = true) ";
+		} else {
+			criteria = criteria + " (1 = 1) ";
+		}
+		if ("0-9".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[1-9]%')";
+		} else if ("A B C D E".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[a-e]%') ";
+		} else if ("F G H I J".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[f-j]%')";
+		} else if ("K L M N".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[k-n]%' )";
+		} else if ("O P Q R".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[o-r]%') ";
+		} else if ("S T U V".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[s-v]%')";
+		} else if ("W X Y Z".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[w-z]%') ";
+		}
+		return DataAccessUtils.intResult(getHibernateTemplate().find(criteria));
 
 	}
 
