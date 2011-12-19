@@ -17,6 +17,7 @@ public class ContactAction extends ActionSupport {
 	private List<Contact> listModel = new ArrayList<Contact>();
 
 	public String execute() {
+		listModel = contactDao.findAll();
 		return SUCCESS;
 	}
 	
