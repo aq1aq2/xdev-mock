@@ -19,10 +19,10 @@
 	        rownumbers="true"
 	        navigator="true"
 	        >
-
+			<sjg:gridColumn name="premiseId" index="premiseId" title="ID" hidden="true"/>
 	        <sjg:gridColumn name="locationName" index="locationName" title="Location Name" sortable="true"/>
 	        <sjg:gridColumn name="addressLine1" index="addressLine1" title="Address Line1" sortable="false"/>
-	        <sjg:gridColumn name="postCode" index="postCode" title="Post Code" sortable="false"/>
+	        <sjg:gridColumn name="postcode" index="postcode" title="Post Code" sortable="false"/>
 	        <sjg:gridColumn name="status" index="status" title="Is Active" sortable="false"/>
 	    </sjg:grid>
 	</s:form>

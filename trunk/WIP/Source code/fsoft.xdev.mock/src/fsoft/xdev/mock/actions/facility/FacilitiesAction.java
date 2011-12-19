@@ -9,11 +9,13 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.IFacilityDao;
 import fsoft.xdev.mock.models.Facility;
+import fsoft.xdev.mock.models.FacilityList;
 
 public class FacilitiesAction extends ActionSupport {
 	private Facility facility;
 	private IFacilityDao facilitiesDao;
-	List<Facility> listFacilities = new ArrayList<Facility>();
+	List<FacilityList> listFacilities = new ArrayList<FacilityList>();
+	
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
 	  private Integer             rows             = 0;
@@ -39,12 +41,10 @@ public class FacilitiesAction extends ActionSupport {
 		  records = facilitiesDao.count();
 		  //listFacilities = facilitiesDao.findRange(from, to);
 		 
-		  listFacilities = facilitiesDao.findAll();
+		  listFacilities = facilitiesDao.findRange(from, to);
 		  total = (int)Math.ceil((double)records/(double)rows);
 		  System.out.println("facilities is listed");
 		  System.out.println(listFacilities.size());
-		  System.out.println(listFacilities.get(1).getFacilityTypeName());
-		  System.out.println(listFacilities.get(1).getContactByContactId().getFirstName());
 		  System.out.println("doan cuoi");
 		  return "list";
 	  }
@@ -73,11 +73,12 @@ public class FacilitiesAction extends ActionSupport {
 		this.facilitiesDao = facilitiesDao;
 	}
 
-	public List<Facility> getListFacilities() {
+
+	public List<FacilityList> getListFacilities() {
 		return listFacilities;
 	}
 
-	public void setListFacilities(List<Facility> listFacilities) {
+	public void setListFacilities(List<FacilityList> listFacilities) {
 		this.listFacilities = listFacilities;
 	}
 

@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.IVolunteerDao;
 import fsoft.xdev.mock.models.Volunteer;
+import fsoft.xdev.mock.models.VolunteerList;
 
 public class VolunteeringAction extends ActionSupport {
 	/**
@@ -15,7 +16,7 @@ public class VolunteeringAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private Volunteer volunteer;
 	private IVolunteerDao volunteerDao;
-	private List<Volunteer> listVolunteer = new ArrayList<Volunteer>();
+	private List<VolunteerList> listVolunteer = new ArrayList<VolunteerList>();
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
 	  private Integer             rows             = 0;
@@ -70,11 +71,11 @@ public class VolunteeringAction extends ActionSupport {
 		this.volunteerDao = volunteerDao;
 	}
 
-	public List<Volunteer> getListVolunteer() {
+	public List<VolunteerList> getListVolunteer() {
 		return listVolunteer;
 	}
 
-	public void setListVolunteer(List<Volunteer> listVolunteer) {
+	public void setListVolunteer(List<VolunteerList> listVolunteer) {
 		this.listVolunteer = listVolunteer;
 	}
 

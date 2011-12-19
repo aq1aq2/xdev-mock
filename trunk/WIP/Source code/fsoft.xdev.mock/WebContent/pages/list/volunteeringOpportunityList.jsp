@@ -34,11 +34,11 @@ $.subscribe('rowselect', function(event, data) {
 	        navigator="true"
 	        onSelectRowTopics="rowselect"
 	        >	        
-			<sjg:gridColumn name="contacts.firstName" index="facilityId" title="ID" hidden="true"/>
-	        <sjg:gridColumn name="contacts.firstName" index="contacts" title="Contacts" sortable="true" formatter="formatLink"/>
+			<sjg:gridColumn name="volunteerId" index="volunteerId" title="ID" hidden="true"/>
+	        <sjg:gridColumn name="contactName" index="contactName" title="Contacts" sortable="true" formatter="formatLink"/>
 	        <sjg:gridColumn name="volunteerPurpose" index="volunteerPurpose" title="Purpose" sortable="false"/>
 	        <sjg:gridColumn name="startDate" index="startDate" title="Start Date" sortable="false"/>
 	        <sjg:gridColumn name="endDate" index="endDate" title="End Date" sortable="false"/>
-	        <sjg:gridColumn name="isActive" index="isActive" title="Is Active" sortable="false"/>
+	        <sjg:gridColumn name="status" index="status" title="Is Active" sortable="false"/>
 	    </sjg:grid>
 	</s:form>
