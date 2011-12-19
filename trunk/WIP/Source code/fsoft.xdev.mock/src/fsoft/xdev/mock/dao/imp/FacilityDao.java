@@ -8,6 +8,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import fsoft.xdev.mock.dao.IFacilityDao;
 import fsoft.xdev.mock.models.Facility;
+import fsoft.xdev.mock.models.FacilityList;
 
 public class FacilityDao extends HibernateDaoSupport implements IFacilityDao{
 
@@ -63,7 +64,13 @@ public class FacilityDao extends HibernateDaoSupport implements IFacilityDao{
 //		query.setMaxResults(to-from);
 //		return (List<Facility>)query.list();
 //	}
-
+	
+	public List<FacilityList> findRange(int from, int to){
+		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("select new fsoft.xdev.mock.models.FacilityList(c.facilityId, b.value, c.facilityDescription,d.firstName, c.status) from Facility c left join c.referenceDataByFacilityType b left join c.contactByContactId d");
+		query.setFirstResult(from);
+		query.setMaxResults(to-from);
+		return query.list();
+	}
 	@Override
 	public int count() {
 		

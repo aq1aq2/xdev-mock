@@ -35,9 +35,9 @@ $.subscribe('rowselect', function(event, data) {
 	        onSelectRowTopics="rowselect"
 	        >	        
 			<sjg:gridColumn name="facilityId" index="facilityId" title="ID" hidden="true"/>
-	        
-	        <sjg:gridColumn name="facilityDescription" index="facilityDescription" title="Description" sortable="false"/>
-	        <sjg:gridColumn name="contactByContactId.firstName" index="contactByContactId" title="Lead Contacts" sortable="false"/>
+	        <sjg:gridColumn name="facilityType" index="facilityType" title="Facility Type" sortable="false"/>
+	        <sjg:gridColumn name="description" index="description" title="Description" sortable="false"/>
+	        <sjg:gridColumn name="contactName" index="contactName" title="Lead Contacts" sortable="false"/>
 	        <sjg:gridColumn name="status" index="status" title="Is Active" sortable="false"/>
 	    </sjg:grid>
 	</s:form>
