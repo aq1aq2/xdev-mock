@@ -56,7 +56,7 @@ public class TrustRegionsAction extends ActionSupport {
 		records = trustRegionDao.count();
 
 		// Your logic to search and select the required data.
-		listModel = trustRegionDao.findRange(from, to);
+		listModel = trustRegionDao.findRange(from, to,"S T U V",true);
 
 		// calculate the total pages for the query
 		total = (int) Math.ceil((double) records / (double) rows);

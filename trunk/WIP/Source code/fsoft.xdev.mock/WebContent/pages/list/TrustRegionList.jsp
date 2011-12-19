@@ -5,11 +5,20 @@
 <script type="text/javascript">
         function formatLink(cellvalue, options, rowObject) {
                 return "<a href='detailTrustRegion.action?trustRegion.trustRegionId="+rowObject['trustRegionId']+"'>" + cellvalue + "</a>";
-        }      
+        }   
+       
 </script>
+
+<script>
+	$(document).ready(function(){
+		$("ul#xdev-filter > li").click(function() {
+			alert(this.textContent);
+		});
+	});
+</script>
+
+
 <!-- body -->	
- <content tag="quote"> When a cat is dropped, it always lands on its feet, 
-	and when toast is dropped... </content>
 		
 		<s:url id="listTrustRegion" action="listTrustRegion.action"></s:url>
 		<sjg:grid
