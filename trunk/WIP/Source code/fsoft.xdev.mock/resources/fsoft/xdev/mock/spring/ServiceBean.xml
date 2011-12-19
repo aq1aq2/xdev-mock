@@ -7,7 +7,7 @@
 		<property name="servicesDao" ref="servicesDao"/>
 	</bean>
 	
-	<bean id="servicesDao" parent="txtProxyTemplate">
+	<bean id="servicesDao" parent="txProxyTemplate">
 		<property name="target">
 			<bean class="fsoft.xdev.mock.dao.imp.ServiceDao">
 				<property name="sessionFactory" ref="sessionFactory"/>

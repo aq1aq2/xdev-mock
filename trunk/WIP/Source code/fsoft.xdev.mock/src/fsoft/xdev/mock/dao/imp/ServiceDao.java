@@ -2,10 +2,12 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import fsoft.xdev.mock.dao.IServiceDao;
 import fsoft.xdev.mock.models.Service;
+import fsoft.xdev.mock.models.ServiceList;
 
 public class ServiceDao extends HibernateDaoSupport implements IServiceDao{
 
@@ -49,6 +51,21 @@ public class ServiceDao extends HibernateDaoSupport implements IServiceDao{
 	public int count() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<ServiceList> findRange(int from, int to) {
+		// TODO Auto-generated method stub
+		String strQuery = "select new fsoft.xdev.mock.models.ServiceList" +
+				"(s.serviceId, s.name, s.descriptionDelivery, rDST.value, c.firstName, s.status) " +
+				"from Service as s left join s.contact as c left join s.referenceDataByServiceType as rDST";
+		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(strQuery);
+		query.setFirstResult(from);
+		query.setMaxResults(to-from);
+		
+		
+		
+		return query.list();
 	}
 
 }

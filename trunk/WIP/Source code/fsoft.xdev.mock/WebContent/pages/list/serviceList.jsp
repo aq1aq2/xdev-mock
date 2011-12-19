@@ -19,7 +19,7 @@
 	        href="%{listService}"
 	        gridModel="listService"
 	        autowidth="true"
-	        rowNum="2"
+	        rowNum="3"
      		rownumbers="true"
 	        pager="true"
        		navigator="true"
@@ -27,8 +27,8 @@
 	        <sjg:gridColumn name="name" index="name" title="Service Name" sortable="true"/>
 	        <sjg:gridColumn name="descriptionDelivery" index="descriptionDelivery" title="Description" sortable="false"/>
 	        <sjg:gridColumn name="serviceType" index="serviceType" title="Service Type" sortable="false"/>
-	        <sjg:gridColumn name="contacts.surName" index="contacts" title="Contact"></sjg:gridColumn>
-	        <sjg:gridColumn name="isActive" index="isActive" title="IsActived" sortable="false"/>
+	        <sjg:gridColumn name="contact" index="contact" title="Contact"></sjg:gridColumn>
+	        <sjg:gridColumn name="status" index="status" title="IsActived" sortable="false"/>
 	    </sjg:grid>
 	    </s:form>
 	</div>
