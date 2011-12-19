@@ -4,6 +4,5 @@ import java.util.List;
 import fsoft.xdev.mock.models.TrustDistrict;
 
 
-public interface ITrustDistrictDao extends BaseDao<TrustDistrict>{
-	List<TrustDistrict> findStart();
+public interface ITrustDistrictDao extends BaseDao<TrustDistrict>{	
 }

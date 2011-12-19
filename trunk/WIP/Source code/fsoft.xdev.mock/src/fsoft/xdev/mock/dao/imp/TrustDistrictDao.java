@@ -49,30 +49,19 @@ public class TrustDistrictDao extends HibernateDaoSupport implements ITrustDistr
 	}
 
 	@Override
-	public List<TrustDistrict> findAll() {
-		return getHibernateTemplate().find("from TrustDistrict");
-	}
-
-//	@Override
-//	public List<TrustDistrict> findRange(int from, int to) {
-//		Query query = getHibernateTemplate().getSessionFactory()
-//				.getCurrentSession().createQuery("from TrustDistrict");
-//		query.setFirstResult(from);
-//		query.setMaxResults(to - from);
-//		return (List<TrustDistrict>) query.list();
-//	}
-
-	@Override
-	public int count() {
-		return DataAccessUtils.intResult(getHibernateTemplate().find(
-				"select count(*) from TrustDistrict"));
+	public int count(String filterKey, Boolean filterActive) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
-	public List<TrustDistrict> findStart() {
+	public List findRange(int from, int to, String filterKey,
+			Boolean filterActive) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 	
 	
 }

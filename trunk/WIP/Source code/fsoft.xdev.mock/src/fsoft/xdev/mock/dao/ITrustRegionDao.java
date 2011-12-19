@@ -5,9 +5,7 @@ import fsoft.xdev.mock.models.TrustRegion;
 import fsoft.xdev.mock.models.TrustRegionList;
 
 
-public interface ITrustRegionDao extends BaseDao<TrustRegion> {
-	List<TrustRegion> search(String query);
-
-	List<TrustRegionList> findRange(int from, int to, String filterKey, Boolean filterActive);
+public interface ITrustRegionDao extends BaseDao<TrustRegion> {	
+	
 	
 }

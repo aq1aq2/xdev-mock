@@ -36,26 +36,19 @@ public class DepartmentDao extends HibernateDaoSupport
 				entity.getDepartmentId());
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Department> findAll() {
-		return getHibernateTemplate().find("from Department");
+	public int count(String filterKey, Boolean filterActive) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
-//	@SuppressWarnings("unchecked")
-//	@Override
-//	public List<Department> findRange(int from, int to) {
-//		Query query = getHibernateTemplate().getSessionFactory()
-//				.getCurrentSession().createQuery("from Department");
-//		query.setFirstResult(from);
-//		query.setMaxResults(to - from);
-//		return (List<Department>) query.list();
-//	}
-
 	@Override
-	public int count() {
-		return DataAccessUtils.intResult(getHibernateTemplate().find(
-				"select count(*) from Department"));
+	public List findRange(int from, int to, String filterKey,
+			Boolean filterActive) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	
 
 }

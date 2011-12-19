@@ -18,7 +18,7 @@ public class TrustRegionsAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private TrustRegion trustRegion;
 	private ITrustRegionDao trustRegionDao;
-	private List<TrustRegionList> listModel ;
+	private List listModel ;
 	private List<Country> listCountry = new ArrayList<Country>();
 	private ICountryDao countryDao;
 	private String filterKey;
@@ -83,11 +83,11 @@ public class TrustRegionsAction extends ActionSupport {
 		this.trustRegion = trustRegion;
 	}
 
-	public List<TrustRegionList>  getListModel() {
+	public List  getListModel() {
 		return listModel;
 	}
 
-	public void setListModel(List<TrustRegionList>  listModel) {
+	public void setListModel(List  listModel) {
 		this.listModel = listModel;
 	}
 

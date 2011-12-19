@@ -39,23 +39,10 @@ public interface BaseDao<E> {
      * find all List
      * @return
      */
-    List<E> findAll();
-
-    /**
-     * Find all generic entity
-     * @param from
-     * @param to
-     * @return
-     */
-//    List<E> findRange(int from, int to);
-    /**
-     * get record number
-     * @param from
-     * @param to
-     * @return
-     */
+   
     int count(String filterKey,	Boolean filterActive);    
    
+    List  findRange(int from, int to, String filterKey, Boolean filterActive);
     
     
 }

@@ -36,26 +36,19 @@ public class DirectorateDao extends HibernateDaoSupport
 				entity.getDirectorateId());
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Directorate> findAll() {
-		return getHibernateTemplate().find("from Directorate");
+	public int count(String filterKey, Boolean filterActive) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
-//	@SuppressWarnings("unchecked")
-//	@Override
-//	public List<Directorate> findRange(int from, int to) {
-//		Query query = getHibernateTemplate().getSessionFactory()
-//				.getCurrentSession().createQuery("from Directorate");
-//		query.setFirstResult(from);
-//		query.setMaxResults(to - from);
-//		return (List<Directorate>) query.list();
-//	}
-
 	@Override
-	public int count() {
-		return DataAccessUtils.intResult(getHibernateTemplate().find(
-				"select count(*) from Directorate"));
+	public List findRange(int from, int to, String filterKey,
+			Boolean filterActive) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	
 
 }
