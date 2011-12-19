@@ -13,11 +13,11 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	
 	
 	<import resource="fsoft/xdev/mock/spring/TrustRegionBean.xml"/>
-<<<<<<< .mine
+
 	<import resource="fsoft/xdev/mock/spring/OrganisationBean.xml"/>
-=======
+
 	<import resource="fsoft/xdev/mock/spring/FacilityBean.xml"/>
->>>>>>> .r273
+
 	
 	
 	
