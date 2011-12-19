@@ -16,7 +16,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<import resource="fsoft/xdev/mock/spring/FacilityBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/ServiceBean.xml"/>	
-	
+	<import resource="fsoft/xdev/mock/spring/VolunteerBean.xml"/>
 	
 	
 <!-- 	
