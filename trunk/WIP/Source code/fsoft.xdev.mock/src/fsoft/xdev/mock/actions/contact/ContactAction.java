@@ -1,6 +1,5 @@
 package fsoft.xdev.mock.actions.contact;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -8,7 +7,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import fsoft.xdev.mock.dao.IContactDao;
 import fsoft.xdev.mock.models.Contact;
 import fsoft.xdev.mock.models.ContactList;
-import fsoft.xdev.mock.models.TrustRegion;
 
 public class ContactAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
@@ -18,7 +16,8 @@ public class ContactAction extends ActionSupport {
 	
 	private List<ContactList> listModel;
 	
-	private String key;
+	private String filterKey; // Filter by key
+	private boolean filterActive; // Filter by active
 	
 	// get how many rows we want to have into the grid - rowNum attribute in the grid
 	private Integer rows = 0;
@@ -35,7 +34,6 @@ public class ContactAction extends ActionSupport {
 
 	
 	public String execute() {
-//		listModel = contactDao.findAll();
 		return SUCCESS;
 	}
 	
@@ -96,17 +94,30 @@ public class ContactAction extends ActionSupport {
 	public void setListModel(List<ContactList> listModel) {
 		this.listModel = listModel;
 	}
+	
+	/* 
+	 * Filter
+	 */
+	
+	public String getFilterKey() {
+		return filterKey;
+	}
+
+	public void setFilterKey(String filterKey) {
+		this.filterKey = filterKey;
+	}
+
+	public boolean isFilterActive() {
+		return filterActive;
+	}
+
+	public void setFilterActive(boolean filterActive) {
+		this.filterActive = filterActive;
+	}
 
 	/* 
 	 * Display grid
 	 */
-	public String getKey() {
-		return key;
-	}
-
-	public void setKey(String key) {
-		this.key = key;
-	}
 
 	public Integer getRows() {
 		return rows;
