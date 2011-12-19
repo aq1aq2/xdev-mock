@@ -22,7 +22,7 @@ $.subscribe('rowselect', function(event, data) {
 
 	<s:form name="facilities">
 		<s:url id="facilitiesList" action="listFacilities"></s:url>
-		<sjg:grid
+		<sjg:grid 
 	        id="gridtable"
 	        dataType="json"
 	        href="%{facilitiesList}"

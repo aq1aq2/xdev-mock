@@ -3,6 +3,8 @@ package fsoft.xdev.mock.actions.facility;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.json.annotations.JSON;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.IFacilityDao;
@@ -30,12 +32,13 @@ public class FacilitiesAction extends ActionSupport {
 
 	  // All Record
 	  private Integer             records          = 0;
-	  
+	 
 	  public String list(){
 		  int to = (rows*page);
 		  int from = to - rows;
 		  records = facilitiesDao.count();
 		  //listFacilities = facilitiesDao.findRange(from, to);
+		 
 		  listFacilities = facilitiesDao.findAll();
 		  total = (int)Math.ceil((double)records/(double)rows);
 		  System.out.println("facilities is listed");
