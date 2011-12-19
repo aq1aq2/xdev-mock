@@ -11,8 +11,28 @@
 
 <script>
 	$(document).ready(function(){
-		$("ul#xdev-filter > li").click(function() {
-			alert(this.textContent);
+		/* Filter click event */
+		var filterKey = "";
+		var filterActive = false;
+		
+		function sendFilterOptions() {
+			query = "filterKey="+filterKey;
+			query += '&';
+			query += "filterActive="+filterActive;
+			$.getJSON("listTrustRegion.action?" + query,
+				function(data) {
+					$('#gridtable').trigger('reloadGrid');
+			});
+		}
+		
+		$("ul#xdev-filter > li").click(function(){
+			filterKey = this.textContent;
+			sendFilterOptions();
+		});
+		
+		$("#includeChkBx").click(function(){
+			filterActive = $(this).is(":checked");
+			sendFilterOptions();
 		});
 	});
 </script>
@@ -28,7 +48,7 @@
 	        gridModel="listModel"
 	        autowidth="true"
 	        pager="true"
-	        rowNum="15"
+	        rowNum="10"
        		rownumbers="true"
 	        
 	    >

@@ -21,7 +21,8 @@ public class TrustRegionsAction extends ActionSupport {
 	private List<TrustRegionList> listModel ;
 	private List<Country> listCountry = new ArrayList<Country>();
 	private ICountryDao countryDao;
-	private String key;
+	private String filterKey;
+	private boolean filterActive;
 	// get how many rows we want to have into the grid - rowNum attribute in the
 	// grid
 	private Integer rows = 0;
@@ -56,7 +57,7 @@ public class TrustRegionsAction extends ActionSupport {
 		records = trustRegionDao.count();
 
 		// Your logic to search and select the required data.
-		listModel = trustRegionDao.findRange(from, to,"S T U V",true);
+		listModel = trustRegionDao.findRange(from, to, filterKey, filterActive);
 
 		// calculate the total pages for the query
 		total = (int) Math.ceil((double) records / (double) rows);
@@ -98,12 +99,20 @@ public class TrustRegionsAction extends ActionSupport {
 		this.listCountry = listCountry;
 	}
 
-	public String getKey() {
-		return key;
+	public String getFilterKey() {
+		return filterKey;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
+	public void setFilterKey(String filterKey) {
+		this.filterKey = filterKey;
+	}
+
+	public boolean getFilterActive() {
+		return filterActive;
+	}
+
+	public void setFilterActive(boolean filterActive) {
+		this.filterActive = filterActive;
 	}
 
 	public Integer getRows() {
@@ -164,7 +173,6 @@ public class TrustRegionsAction extends ActionSupport {
 
 	// search trust regions
 	public String search() throws Exception {
-		System.out.println(key);
 //		listModel = trustRegionDao.search(key);
 		return "list";
 	}
