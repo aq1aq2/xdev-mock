@@ -3,8 +3,6 @@ package fsoft.xdev.mock.actions.facility;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.struts2.json.annotations.JSON;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.IFacilityDao;
@@ -12,9 +10,15 @@ import fsoft.xdev.mock.models.Facility;
 import fsoft.xdev.mock.models.FacilityList;
 
 public class FacilitiesAction extends ActionSupport {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Facility facility;
 	private IFacilityDao facilitiesDao;
 	List<FacilityList> listFacilities = new ArrayList<FacilityList>();
+	private String filterKey;
+	private boolean filterActive;
 	
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
@@ -38,7 +42,7 @@ public class FacilitiesAction extends ActionSupport {
 	  public String list(){
 		  int to = (rows*page);
 		  int from = to - rows;
-		  records = facilitiesDao.count();
+		  records = facilitiesDao.count(filterKey, filterActive);
 		  //listFacilities = facilitiesDao.findRange(from, to);
 		 
 		  listFacilities = facilitiesDao.findRange(from, to);
@@ -128,6 +132,22 @@ public class FacilitiesAction extends ActionSupport {
 
 	public void setRecords(Integer records) {
 		this.records = records;
+	}
+
+	public String getFilterKey() {
+		return filterKey;
+	}
+
+	public void setFilterKey(String filterKey) {
+		this.filterKey = filterKey;
+	}
+
+	public boolean isFilterActive() {
+		return filterActive;
+	}
+
+	public void setFilterActive(boolean filterActive) {
+		this.filterActive = filterActive;
 	}
 	  
 }

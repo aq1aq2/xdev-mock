@@ -16,6 +16,8 @@ public class PremiseAction extends ActionSupport {
 	private IPremiseDao premiseDao;
 	private Premise premise;
 	private List<PremiseList> listPremises = new ArrayList<PremiseList>();
+	private String filterKey;
+	private boolean filterActive;
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
 	  private Integer             rows             = 0;
@@ -38,7 +40,7 @@ public class PremiseAction extends ActionSupport {
 	public String list(){
 		int to = (rows*page);
 		int from = to - rows;
-		records = premiseDao.count();
+		records = premiseDao.count(filterKey, filterActive);
 		listPremises = premiseDao.findRange(from, to);
 		total = (int)Math.ceil((double)records/(double)rows);
 		//listPremises = premisesDao.findAll();
@@ -121,5 +123,22 @@ public class PremiseAction extends ActionSupport {
 	public void setRecords(Integer records) {
 		this.records = records;
 	}
+
+	public String getFilterKey() {
+		return filterKey;
+	}
+
+	public void setFilterKey(String filterKey) {
+		this.filterKey = filterKey;
+	}
+
+	public boolean isFilterActive() {
+		return filterActive;
+	}
+
+	public void setFilterActive(boolean filterActive) {
+		this.filterActive = filterActive;
+	}
+	
 
 }
