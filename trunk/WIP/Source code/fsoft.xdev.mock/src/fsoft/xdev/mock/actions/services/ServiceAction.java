@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.IServiceDao;
 import fsoft.xdev.mock.models.Service;
+import fsoft.xdev.mock.models.ServiceList;
 
 public class ServiceAction extends ActionSupport{
 
@@ -17,7 +18,7 @@ public class ServiceAction extends ActionSupport{
 
 	private Service service;
 	private IServiceDao servicesDao;
-	private List<Service> listService = new ArrayList<Service>();
+	private List<ServiceList> listService = new ArrayList<ServiceList>();
 	
 	/**
 	 * parameters for paging
@@ -90,12 +91,12 @@ public class ServiceAction extends ActionSupport{
 	}
 
 
-	public List<Service> getListService() {
+	public List<ServiceList> getListService() {
 		return listService;
 	}
 
 
-	public void setListService(List<Service> listService) {
+	public void setListService(List<ServiceList> listService) {
 		this.listService = listService;
 	}
 
