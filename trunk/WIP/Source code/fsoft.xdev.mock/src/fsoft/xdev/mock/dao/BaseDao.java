@@ -54,7 +54,7 @@ public interface BaseDao<E> {
      * @param to
      * @return
      */
-    int count();    
+    int count(String filterKey,	Boolean filterActive);    
    
     
     

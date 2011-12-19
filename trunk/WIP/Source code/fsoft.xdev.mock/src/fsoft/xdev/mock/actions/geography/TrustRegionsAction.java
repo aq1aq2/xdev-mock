@@ -54,7 +54,7 @@ public class TrustRegionsAction extends ActionSupport {
 		int from = to - rows;
 
 		// Count Rows (select count(*) from trust Region)
-		records = trustRegionDao.count();
+		records = trustRegionDao.count( filterKey, filterActive);
 
 		// Your logic to search and select the required data.
 		listModel = trustRegionDao.findRange(from, to, filterKey, filterActive);
