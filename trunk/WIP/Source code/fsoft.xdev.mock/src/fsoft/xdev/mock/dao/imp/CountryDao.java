@@ -36,22 +36,18 @@ public class CountryDao extends HibernateDaoSupport implements ICountryDao{
 	}
 
 	@Override
-	public List<Country> findAll() {
-//		return getHibernateTemplate().find("from Country");
-		Criteria crit = getHibernateTemplate().getSessionFactory().getCurrentSession().createCriteria(Country.class);
-		return  (List<Country>) crit.list();
-	}
-
-//	@Override
-//	public List<Country> findRange(int from, int to) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	@Override
-	public int count() {
+	public int count(String filterKey, Boolean filterActive) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public List findRange(int from, int to, String filterKey,
+			Boolean filterActive) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }

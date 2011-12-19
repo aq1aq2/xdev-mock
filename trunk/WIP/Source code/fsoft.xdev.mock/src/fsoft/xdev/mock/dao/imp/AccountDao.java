@@ -34,21 +34,18 @@ public class AccountDao extends HibernateDaoSupport implements IAccountDao {
 	}
 
 	@Override
-	public List<Account> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-//	@Override
-//	public List<Account> findRange(int from, int to) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	@Override
-	public int count() {
+	public int count(String filterKey, Boolean filterActive) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public List findRange(int from, int to, String filterKey,
+			Boolean filterActive) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
 
 }

@@ -16,6 +16,19 @@ public class AddressDao extends HibernateDaoSupport implements IAddressDao {
 	}
 
 	@Override
+	public int count(String filterKey, Boolean filterActive) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List findRange(int from, int to, String filterKey,
+			Boolean filterActive) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public boolean edit(Address entity) {
 		// TODO Auto-generated method stub
 		return false;
@@ -31,24 +44,8 @@ public class AddressDao extends HibernateDaoSupport implements IAddressDao {
 	public Address find(Address entity) {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}	
 
-	@Override
-	public List<Address> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Address> findRange(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 }
