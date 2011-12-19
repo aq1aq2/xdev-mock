@@ -120,6 +120,16 @@ h1.xdev-section-title {
 	color: green;
 }
 
+div.scroll {
+	height: 100px;
+	width: 250px;
+	overflow-y:scroll;
+	overflow-x:scroll;
+	border: 1px solid #666;
+	background-color: #ccc;
+	padding: 8px;
+}
+
 .xdev-sub { margin: 5px; }
 
 .xdev-form tr {	width: 50%; float: left; }
