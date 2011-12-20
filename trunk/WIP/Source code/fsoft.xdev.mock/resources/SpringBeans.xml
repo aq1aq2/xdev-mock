@@ -17,7 +17,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="fsoft/xdev/mock/spring/FacilityBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/ServiceBean.xml"/>	
 	<import resource="fsoft/xdev/mock/spring/VolunteerBean.xml"/>
-	
+	<import resource="fsoft/xdev/mock/spring/PremiseBean.xml"/>
 	
 <!-- 	
 <import resource="fsoft/xdev/mock/spring/CountryBean.xml"/>
@@ -27,7 +27,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<import resource="fsoft/xdev/mock/spring/GovOfficeRegionBean.xml"/>	
 
-	<import resource="fsoft/xdev/mock/spring/PremiseBean.xml"/>
+	
 
 	<import resource="fsoft/xdev/mock/spring/SupportingMaterialBean.xml"/>	
 	<import resource="fsoft/xdev/mock/spring/DepartmentBean.xml"/>
@@ -45,7 +45,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 		
 	<import resource="fsoft/xdev/mock/spring/TypeOfBusinessBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/AccountBean.xml"/>
-	<import resource="fsoft/xdev/mock/spring/VolunteerBean.xml"/>
+	
 -->
 
 <!--     <bean id="openSessionInViewInterceptor"   -->

@@ -51,12 +51,6 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao{
 		return (Premise)getHibernateTemplate().get(Premise.class, entity.getPremiseId());
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Premise> findAll() {
-		
-		return getHibernateTemplate().find("from Premise");
-	}
 //
 //	@SuppressWarnings("unchecked")
 //	@Override
@@ -69,18 +63,76 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao{
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<PremiseList> findRange(int from, int to){
-		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("select new fsoft.xdev.mock.models.PremiseList"
-											+ "(c.premiseId,c.locationName,c.addressLine1,c.postcode,c.status) from Premise c ");
+	public List<PremiseList> findRange(int from, int to, String filterKey, Boolean filterActive){
+		String criteria = "select new fsoft.xdev.mock.models.PremiseList"
+				+ "(c.premiseId, c.name,c.locationName,c.addressLine1,c.postcode,c.status) from Premise c where";
+		
+		if (filterActive == null || filterActive == false) {
+			criteria = criteria + " (c.status = true) ";
+		} else {
+			criteria = criteria + " (1 = 1) ";
+		}
+		if ("0-9".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[0-9]%')";
+		} else if ("A B C D E".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[a-e]%') ";
+		} else if ("F G H I J".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[f-j]%')";
+		} else if ("K L M N".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[k-n]%' )";
+		} else if ("O P Q R".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[o-r]%') ";
+		} else if ("S T U V".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[s-v]%')";
+		} else if ("W X Y Z".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[w-z]%') ";
+		}
+		
+		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(criteria);
 		query.setFirstResult(from);
 		query.setMaxResults(to -  from);
 		return query.list();
 	}
 
 	@Override
-	public int count() {
+	public int count(String filterKey, Boolean filterActive) {
+		String criteria = "select count(*) from Premise c where";
+		if (filterActive == null || filterActive == false) {
+			criteria = criteria + " (c.status = true) ";
+		} else {
+			criteria = criteria + " (1 = 1) ";
+		}
+		if ("0-9".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[0-9]%')";
+		} else if ("A B C D E".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[a-e]%') ";
+		} else if ("F G H I J".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[f-j]%')";
+		} else if ("K L M N".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[k-n]%' )";
+		} else if ("O P Q R".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[o-r]%') ";
+		} else if ("S T U V".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[s-v]%')";
+		} else if ("W X Y Z".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[w-z]%') ";
+		}
 		
-		return DataAccessUtils.intResult(getHibernateTemplate().find("select count(*) from Premise"));
+		return DataAccessUtils.intResult(getHibernateTemplate().find(criteria));
 	}
 
 }

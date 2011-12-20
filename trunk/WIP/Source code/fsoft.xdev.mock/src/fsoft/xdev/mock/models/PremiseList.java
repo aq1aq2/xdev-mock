@@ -2,15 +2,17 @@ package fsoft.xdev.mock.models;
 
 public class PremiseList {
 	private int premiseId;
+	private String name;
 	private String locationName;
 	private String addressLine1;
 	private String postcode;
 	private Boolean status;
-	
-	public PremiseList(int premiseId, String locationName, String addressLine1,
-			String postcode, Boolean status) {
+
+	public PremiseList(int premiseId, String name, String locationName,
+			String addressLine1, String postcode, Boolean status) {
 		super();
 		this.premiseId = premiseId;
+		this.name = name;
 		this.locationName = locationName;
 		this.addressLine1 = addressLine1;
 		this.postcode = postcode;
@@ -61,7 +63,13 @@ public class PremiseList {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
-	
-	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 }

@@ -41,7 +41,7 @@ public class PremiseAction extends ActionSupport {
 		int to = (rows*page);
 		int from = to - rows;
 		records = premiseDao.count(filterKey, filterActive);
-		listPremises = premiseDao.findRange(from, to);
+		listPremises = premiseDao.findRange(from, to, filterKey, filterActive);
 		total = (int)Math.ceil((double)records/(double)rows);
 		//listPremises = premisesDao.findAll();
 		System.out.println("List premise " + listPremises.size());

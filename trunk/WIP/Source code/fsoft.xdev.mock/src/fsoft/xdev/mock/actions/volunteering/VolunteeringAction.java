@@ -17,6 +17,8 @@ public class VolunteeringAction extends ActionSupport {
 	private Volunteer volunteer;
 	private IVolunteerDao volunteerDao;
 	private List<VolunteerList> listVolunteer = new ArrayList<VolunteerList>();
+	private String filterKey;
+	private boolean filterActive;
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
 	  private Integer             rows             = 0;
@@ -36,11 +38,12 @@ public class VolunteeringAction extends ActionSupport {
 	  // All Record
 	  private Integer             records          = 0;
 	  
-	  public String list(){
+	  @SuppressWarnings("unchecked")
+	public String list(){
 		  int to = (rows*page);
 		  int from = to - rows;
-		  records = volunteerDao.count();
-		  listVolunteer = volunteerDao.findRange(from, to);
+		  records = volunteerDao.count(filterKey, filterActive);
+		  listVolunteer = volunteerDao.findRange(from, to, filterKey, filterActive);
 		  total = (int)Math.ceil((double)records/(double)rows);
 		  System.out.println("Volunteer is listed");
 		  return "list";
@@ -125,6 +128,22 @@ public class VolunteeringAction extends ActionSupport {
 
 	public void setRecords(Integer records) {
 		this.records = records;
+	}
+
+	public String getFilterKey() {
+		return filterKey;
+	}
+
+	public void setFilterKey(String filterKey) {
+		this.filterKey = filterKey;
+	}
+
+	public boolean isFilterActive() {
+		return filterActive;
+	}
+
+	public void setFilterActive(boolean filterActive) {
+		this.filterActive = filterActive;
 	}
 	  
 }
