@@ -41,21 +41,16 @@ public class FacilitiesAction extends ActionSupport {
 	 
 	  @SuppressWarnings("unchecked")
 	public String list(){
-		  //total = 0;
-		  page = 1;
 		  int to = (rows*page);
 		  int from = to - rows;
-		  
-		  System.out.println("from: " + from);
-		  System.out.println("to: " + to);
-		  System.out.println("key: " + filterKey);
-		  System.out.println("active: " + filterActive);
 		  records = facilitiesDao.count(filterKey, filterActive);
 		 
 		  listFacilities = facilitiesDao.findRange(from, to,filterKey,filterActive);
 		  
 		  System.out.println("total record: " + records);
+		  
 		  total = (int)Math.ceil((double)records/(double)rows);
+		  
 		  System.out.println("facilities is listed");
 		  System.out.println(listFacilities.size());
 		  System.out.println("doan cuoi");

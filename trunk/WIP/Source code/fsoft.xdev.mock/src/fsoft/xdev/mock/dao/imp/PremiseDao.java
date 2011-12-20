@@ -9,6 +9,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import fsoft.xdev.mock.dao.IPremiseDao;
 import fsoft.xdev.mock.models.Premise;
 import fsoft.xdev.mock.models.PremiseList;
+import fsoft.xdev.mock.models.Service;
 
 public class PremiseDao extends HibernateDaoSupport implements IPremiseDao{
 	
@@ -134,5 +135,9 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao{
 		
 		return DataAccessUtils.intResult(getHibernateTemplate().find(criteria));
 	}
-
+//	@Override
+//	public List<Service> listServiceAlready(){
+//		
+//	}
+	
 }

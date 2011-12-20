@@ -16,7 +16,7 @@ $(document).ready(function(){
 		query += "filterActive="+filterActive;
 		$.getJSON("listPremises.action?" + query,
 			function(data) {
-				$('#gridtable').trigger('reloadGrid');
+				$('#gridtable').trigger('reloadGrid',[{page:1}]);
 		});
 	}
 	
