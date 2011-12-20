@@ -20,6 +20,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="fsoft/xdev/mock/spring/PremiseBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/TrustDistrictBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/GovOfficeRegionBean.xml"/>	
+	<import resource="fsoft/xdev/mock/spring/ProgrammeBean.xml"/>
 	
 <!-- 	
 <import resource="fsoft/xdev/mock/spring/CountryBean.xml"/>
@@ -38,7 +39,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	
 	<import resource="fsoft/xdev/mock/spring/AddressBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/ReferenceType.xml"/>
-	<import resource="fsoft/xdev/mock/spring/ProgrammeBean.xml"/>
+	
 	<import resource="fsoft/xdev/mock/spring/ReferenceDataBean.xml"/>
 	
 	<import resource="fsoft/xdev/mock/spring/ServiceBean.xml"/>

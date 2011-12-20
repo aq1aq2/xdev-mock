@@ -8,5 +8,9 @@
 		<action name="*Service" method="{1}" class="serviceAction">
 			<result name="list" type="json"></result>
 		</action>
+		
+		<action name="*Programme" method="{1}" class="programmeAction">
+			<result name="list" type="json"></result>
+		</action>
 	</package>
 </struts>
