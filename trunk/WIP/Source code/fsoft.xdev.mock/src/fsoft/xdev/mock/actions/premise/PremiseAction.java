@@ -37,13 +37,16 @@ public class PremiseAction extends ActionSupport {
 	  // All Record
 	  private Integer             records          = 0;
 
+	@SuppressWarnings("unchecked")
 	public String list(){
 		int to = (rows*page);
 		int from = to - rows;
+		
 		records = premiseDao.count(filterKey, filterActive);
+		
 		listPremises = premiseDao.findRange(from, to, filterKey, filterActive);
+		
 		total = (int)Math.ceil((double)records/(double)rows);
-		//listPremises = premisesDao.findAll();
 		System.out.println("List premise " + listPremises.size());
 		return "list";
 	}

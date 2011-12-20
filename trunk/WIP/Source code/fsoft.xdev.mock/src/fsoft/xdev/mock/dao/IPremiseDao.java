@@ -4,8 +4,10 @@ import java.util.List;
 
 import fsoft.xdev.mock.models.Premise;
 import fsoft.xdev.mock.models.PremiseList;
+import fsoft.xdev.mock.models.Service;
 
 public interface IPremiseDao extends BaseDao<Premise> {
-	//List<PremiseList> findRange(int from, int to);
+	//List<Service> listServiceAlready();
+	//void remove(Service service);
 	
 }
