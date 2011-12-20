@@ -5,6 +5,5 @@ import fsoft.xdev.mock.models.Service;
 import fsoft.xdev.mock.models.ServiceList;
 
 
-public interface IServiceDao extends BaseDao<Service>{
-	List<ServiceList> findRange(int from, int to);
+public interface IServiceDao extends BaseDao<Service>{	
 }
