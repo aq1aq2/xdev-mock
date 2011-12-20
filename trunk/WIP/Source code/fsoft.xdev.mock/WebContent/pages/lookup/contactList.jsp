@@ -54,6 +54,19 @@
 		$("#createBtn").click(function(){
 			window.location.href = "inputContact.action";
 		});
+		
+		/*
+		 * Grid events
+		 */
+		$.subscribe("onRowSelected", 
+			function(event, data) {
+		        // Get status of the record
+		        var grid = event.originalEvent.grid;
+		        var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
+		        var contactId = grid.jqGrid('getCell', selectedRowId, 'contactId');
+		        $(":input[name*='gridSelectedRow']").val(contactId);
+	        }
+		);
 	});
 </script>
 
@@ -103,6 +116,7 @@
         pager="true"
         rowNum="10"
 		rownumbers="true"
+		onSelectRowTopics="onRowSelected"
 	>
 		<sjg:gridColumn name="contactId" index="contactId" title="ID" hidden="true"/>
 		<sjg:gridColumn name="name" index="name" title="Contact Name" sortable="true" 
@@ -112,7 +126,10 @@
 		<sjg:gridColumn name="email" index="email" title="Email" sortable="true"/>
 		<sjg:gridColumn name="contactType" index="contactType" title="Contact Type" sortable="true"/>
 		<sjg:gridColumn name="status" index="status" title="Is Active?" sortable="true" formatter="checkbox"/>
-	</sjg:grid>	
+	</sjg:grid>
+	
+		<!-- Grid selected row -->
+	<s:hidden name="gridSelectedRow" />
 	
 	<!-- Bottom buttons -->
 

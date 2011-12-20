@@ -30,8 +30,9 @@
 							$( "#listDialog" ).dialog( "close" );
 						});
 						/* Dialog Select button */
-						$("#noneBtn").click(function(){
-							$(":input[name*='managerName']").val("");
+						$("#selectBtn").click(function(){
+							var managerId = $(":input[name*='gridSelectedRow']").val();
+							$(":input[name*='managerName']").val(managerId);
 							$( "#listDialog" ).dialog( "close" );
 						});
 					}
