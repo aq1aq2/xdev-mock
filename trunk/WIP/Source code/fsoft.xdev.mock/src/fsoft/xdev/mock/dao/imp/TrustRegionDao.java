@@ -64,7 +64,7 @@ public class TrustRegionDao extends HibernateDaoSupport implements
 		}
 		if ("0-9".equals(filterKey)) {
 			criteria = criteria
-					+ " and  (c.name like '[1-9]%')";
+					+ " and  (c.name like '[0-9]%')";
 		} else if ("A B C D E".equals(filterKey)) {
 			criteria = criteria
 					+ " and (c.name like '[a-e]%') ";
@@ -86,43 +86,12 @@ public class TrustRegionDao extends HibernateDaoSupport implements
 		}
 		
 
+		System.out.println(criteria );
 		Query query = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createQuery(criteria);
 		query.setFirstResult(from);
 		query.setMaxResults(to - from);
-
-		// List<Object[]> list = query.list();
-		// List<TrustRegion> listTrustRegion = new ArrayList<TrustRegion>();
-		// for(Object[] o: list){
-		// listTrustRegion.add(new TrustRegion((Integer)o[0],
-		// o[1].toString(),o[2].toString(), (Boolean)o[3]));
-		// }
-		return query.list();
-
-		// // vi du 1
-		// http://www.javalobby.org/java/forums/t62077.html
-		//
-		// // phan trang nay
-		// http://forum.springsource.org/showthread.php?54556-Criteria-Query-with-setFetchMode-and-pagination
-		//
-		// // vi du sau
-		// User user = (User) session.createCriteria(User.class)
-		// .setFetchMode("permissions", FetchMode.JOIN)
-		// .add( Restrictions.idEq(userId) )
-		// .uniqueResult();
-
-		// Criteria crit =
-		// getHibernateTemplate().getSessionFactory().openSession().createCriteria(TrustRegion.class);
-		// crit.setFirstResult(2);
-		// crit.setMaxResults(10);
-		// crit.setFetchMode("country",FetchMode.JOIN);
-		// List<TrustRegion> list = crit.list();
-		// getHibernateTemplate().getSessionFactory().close();
-
-		// for( TrustRegion c: list){
-		// Hibernate.initialize(c.getCountry().getCounties());
-		// }
-		// return list;
+		return query.list();		
 
 	}
 
@@ -137,7 +106,7 @@ public class TrustRegionDao extends HibernateDaoSupport implements
 		}
 		if ("0-9".equals(filterKey)) {
 			criteria = criteria
-					+ " and  (c.name like '[1-9]%')";
+					+ " and  (c.name like '[0-9]%')";
 		} else if ("A B C D E".equals(filterKey)) {
 			criteria = criteria
 					+ " and (c.name like '[a-e]%') ";

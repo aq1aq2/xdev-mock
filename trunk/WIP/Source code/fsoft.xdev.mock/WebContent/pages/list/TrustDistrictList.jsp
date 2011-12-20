@@ -4,7 +4,7 @@
 <title>Trust Region</title>
 <script type="text/javascript">
         function formatLink(cellvalue, options, rowObject) {
-                return "<a href='detailTrustRegion.action?trustRegion.trustRegionId="+rowObject['trustRegionId']+"'>" + cellvalue + "</a>";
+                return "<a href='detailTrustDistrict.action?trustDistrict.trustDistrictId="+rowObject['trustDistrictId']+"'>" + cellvalue + "</a>";
         }   
        
 </script>
@@ -18,10 +18,10 @@
 		function sendFilterOptions() {
 			query = "filterKey="+filterKey;
 			query += '&';
-			query += "filterActive="+filterActive;			
-			$.getJSON("listTrustRegion.action?" + query,
+			query += "filterActive="+filterActive;
+			$.getJSON("listTrustDistrict.action?" + query,
 				function(data) {
-					$('#gridtable').trigger('reloadGrid',[{page:1}]);
+					$('#gridtable').trigger('reloadGrid');
 			});
 		}
 		
@@ -36,24 +36,26 @@
 		});
 	});
 </script>
+
+
 <!-- body -->	
 		
-		<s:url id="listTrustRegion" action="listTrustRegion.action"></s:url>
+		<s:url id="listTrustDistrict" action="listTrustDistrict.action"></s:url>
 		<sjg:grid
 	        id="gridtable"
 	        dataType="json"
-	        href="%{listTrustRegion}"
+	        href="%{listTrustDistrict}"
 	        gridModel="listModel"
 	        autowidth="true"
 	        pager="true"
-	        rowNum="1"
+	        rowNum="3"
        		rownumbers="true"
 	        
 	    >
-	    	<sjg:gridColumn name="trustRegionId" index="trustRegionId" title="ID" hidden="true"/>
+	    	<sjg:gridColumn name="trustDistrictId" index="trustDistrictId" title="ID" hidden="true"/>
 	        <sjg:gridColumn name="name" index="name" title="Name" sortable="true" formatter="formatLink"/>
 	        <sjg:gridColumn name="description" index="description" title="Descripstion" sortable="false"/>
-	        <sjg:gridColumn name="countryName" index="countryName" title="Nation/country" sortable="true"/>
+	        <sjg:gridColumn name="trustRegionName" index="trustRegionName" title="Region Name" sortable="true"/>
 	        <sjg:gridColumn name="status" index="status" title="IsActived" sortable="true"/>	        
 	    </sjg:grid>    
   

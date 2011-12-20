@@ -4,18 +4,17 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-			  
-	<bean id="goverOfficeRegionsAction" class="fsoft.xdev.mock.actions.geography.GovtOfficeRegionsAction">
-		<property name="governmentOfficeRegionDao" ref="governmentOfficeRegionDao" />
+
+	<bean id="govOfficeRegionAction" class="fsoft.xdev.mock.actions.geography.GovOfficeRegionsAction">
+		<property name="govOfficeRegionDao" ref="govOfficeRegionDao" />		
 	</bean>
 
-	<bean id="governmentOfficeRegionDao" parent="txProxyTemplate">		
+	<bean id="govOfficeRegionDao" parent="txProxyTemplate">		
 		<property name="target">
     		<bean class="fsoft.xdev.mock.dao.imp.GovOfficeRegionDao">
         		<property name="sessionFactory" ref="sessionFactory" />
         	</bean>
         </property>
-	</bean>   
-	
+	</bean> 	
 
 </beans>

@@ -18,14 +18,16 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="fsoft/xdev/mock/spring/ServiceBean.xml"/>	
 	<import resource="fsoft/xdev/mock/spring/VolunteerBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/PremiseBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/TrustDistrictBean.xml"/>
+	<import resource="fsoft/xdev/mock/spring/GovOfficeRegionBean.xml"/>	
 	
 <!-- 	
 <import resource="fsoft/xdev/mock/spring/CountryBean.xml"/>
-		<import resource="fsoft/xdev/mock/spring/TrustDistrictBean.xml"/>
+		
 	
 
 
-	<import resource="fsoft/xdev/mock/spring/GovOfficeRegionBean.xml"/>	
+	
 
 	
 
