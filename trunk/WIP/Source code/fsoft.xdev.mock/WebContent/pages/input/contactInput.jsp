@@ -10,15 +10,37 @@
 			window.history.back();
 		});
 		
+		/*
+		 * Dialog events
+		 */
+		
 		/* Manager lookup event */
 		var firstTime = true;
 		$("#managerName_lookupBtn").click(function(){
 			if (firstTime) {
-				$("#listDialogContent").load("../lookup/contactList.jsp");
+				$("#listDialogContent").load("../lookup/contactList.jsp",
+					function(response){ // Function execute after load complete
+						/* Dialog None button */
+						$("#noneBtn").click(function(){
+							$(":input[name*='managerName']").val("");
+							$( "#listDialog" ).dialog( "close" );
+						});
+						/* Dialog Close button */
+						$("#closeBtn").click(function(){
+							$( "#listDialog" ).dialog( "close" );
+						});
+						/* Dialog Select button */
+						$("#noneBtn").click(function(){
+							$(":input[name*='managerName']").val("");
+							$( "#listDialog" ).dialog( "close" );
+						});
+					}
+				);
 				firstTime = false;
 			}
 			$( "#listDialog" ).dialog( "open" );
 		});
+		
 	});
 </script>
 

@@ -14,9 +14,10 @@ public class ContactAction extends ActionSupport {
 	private Contact contact;
 	private IContactDao contactDao;
 	
-	private List<ContactList> listModel;
+	private List listModel;
 	
-	private String filterKey; // Filter by key
+	private String filterFirstName = ""; // Filter by first name
+	private String filterSurname = ""; // Filter by surname
 	private boolean filterActive; // Filter by active
 	
 	// get how many rows we want to have into the grid - rowNum attribute in the grid
@@ -46,9 +47,9 @@ public class ContactAction extends ActionSupport {
 		int from = to - rows;
 
 		// Count Rows (select count(*) from trust Region)
-		records = contactDao.count();
+		records = contactDao.count(filterFirstName, filterSurname, filterActive);
 		// Your logic to search and select the required data.
-		listModel = contactDao.findRange(from, to);
+		listModel = contactDao.search(from, to, filterFirstName, filterSurname, filterActive);
 		// calculate the total pages for the query
 		total = (int) Math.ceil((double) records / (double) rows);
 		
@@ -87,11 +88,11 @@ public class ContactAction extends ActionSupport {
 		this.contact = contact;
 	}
 
-	public List<ContactList> getListModel() {
+	public List getListModel() {
 		return listModel;
 	}
 
-	public void setListModel(List<ContactList> listModel) {
+	public void setListModel(List listModel) {
 		this.listModel = listModel;
 	}
 	
@@ -99,14 +100,22 @@ public class ContactAction extends ActionSupport {
 	 * Filter
 	 */
 	
-	public String getFilterKey() {
-		return filterKey;
+	public String getFilterFirstName() {
+		return filterFirstName;
 	}
 
-	public void setFilterKey(String filterKey) {
-		this.filterKey = filterKey;
+	public void setFilterFirstName(String filterFirstName) {
+		this.filterFirstName = filterFirstName;
 	}
 
+	public String getFilterSurname() {
+		return filterSurname;
+	}
+
+	public void setFilterSurname(String filterSurname) {
+		this.filterSurname = filterSurname;
+	}
+	
 	public boolean isFilterActive() {
 		return filterActive;
 	}

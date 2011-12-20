@@ -7,33 +7,52 @@
 
 <script>
 	$(document).ready(function(){
-		/* Create click event */
-		$("#createBtn").click(function(){
-			window.location.href = "inputContact.action";
-		});
-		
-		/* Filter click events */
-		var filterKey = "";
+		/* 
+		 * Filter click events 
+		 */
+		var filterFirstName = "";
+		var filterSurname = "";
 		var filterActive = false;
 		
 		function sendFilterOptions() {
-			query = "filterKey="+filterKey;
+			filterFirstName = $("#opFirstName").val();
+			filterSurname = $("#opSurname").val();
+			
+			query = "filterFirstName="+filterFirstName;
+			query += '&';
+			query += "filterSurname="+filterSurname;
 			query += '&';
 			query += "filterActive="+filterActive;
 			$.getJSON("listContact.action?" + query,
 				function(data) {
-					$('#gridtable').trigger('reloadGrid');
+					$('#gridtable').trigger('reloadGrid', [{page:1}]);
 			});
 		}
-		
-		$("ul#xdev-filter > li").click(function(){
-			filterKey = this.textContent;
-			sendFilterOptions();
-		});
 		
 		$("#includeChkBx").click(function(){
 			filterActive = $(this).is(":checked");
 			sendFilterOptions();
+		});
+		
+		/* Search */
+		$("#searchBtn").click(function(){
+			sendFilterOptions();
+		});
+		
+		/* Clear */
+		$("#clearBtn").click(function(){
+			$("#opFirstName").val("");
+			$("#opSurname").val("");
+			sendFilterOptions();
+		});
+		
+		/*
+		 * Button events
+		 */
+		 
+		/* Create */
+		$("#createBtn").click(function(){
+			window.location.href = "inputContact.action";
 		});
 	});
 </script>
@@ -47,22 +66,9 @@
 	
 	<!-- Search options -->
 	<div class="xdev-sub">
-		<s:textfield id="opFirstName" label="Frist Name" />
-		<s:textfield id="opSurname" label="Surname" />
+		<s:textfield id="opFirstName" label="First Name" value=""/>
+		<s:textfield id="opSurname" label="Surname" value=""/>
 	</div>
-	
-	<!-- Filter -->
-	<ul id="xdev-filter">
-		<li>All</li>
-		<li>0-9</li>
-		<li>A B C D E</li>
-		<li>F G H I J</li>
-		<li>K L M N</li>
-		<li>O P Q R</li>
-		<li>S T U V</li>
-		<li>W X Y Z</li>
-	</ul>
-	<div class="clear"></div>
 	
 	<!-- Top buttons -->
 	<div class="xdev-sub">
@@ -90,17 +96,13 @@
 	<s:url id="listURL" action="listContact.action"/>
 	<sjg:grid
 		id="gridtable"
-		caption="Contact List"
-		dataType="json"
-		href="%{listURL}"
-		pager="true"
-		gridModel="listModel"
-		rowList="10,15,20"
-		rowNum="5"
+        dataType="json"
+        href="%{listURL}"
+        gridModel="listModel"
+        autowidth="true"
+        pager="true"
+        rowNum="10"
 		rownumbers="true"
-		navigator="false"
-		navigatorSearch="true"
-		autowidth="true"
 	>
 		<sjg:gridColumn name="contactId" index="contactId" title="ID" hidden="true"/>
 		<sjg:gridColumn name="name" index="name" title="Contact Name" sortable="true" 
