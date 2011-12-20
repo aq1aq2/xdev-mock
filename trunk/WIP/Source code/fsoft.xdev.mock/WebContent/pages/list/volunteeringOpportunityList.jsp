@@ -17,6 +17,34 @@ $.subscribe('rowselect', function(event, data) {
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){
+	/* Filter click event */
+	var filterKey = "";
+	var filterActive = false;
+	
+	function sendFilterOptions() {
+		query = "filterKey="+filterKey;
+		query += '&';
+		query += "filterActive="+filterActive;
+		$.getJSON("listVolunteeringOpportunity.action?" + query,
+			function(data) {
+				$('#gridtable').trigger('reloadGrid');
+		});
+	}
+	
+	$("ul#xdev-filter > li").click(function(){
+		filterKey = this.textContent;
+		sendFilterOptions();
+	});
+	
+	$("#includeChkBx").click(function(){
+		filterActive = $(this).is(":checked");
+		sendFilterOptions();
+	});
+});
+</script>
+
 
 <!-- body -->
 
