@@ -2,10 +2,12 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import fsoft.xdev.mock.dao.IReferenceDataDao;
 import fsoft.xdev.mock.models.ReferenceData;
+import fsoft.xdev.mock.models.ReferenceDataList;
 
 public class ReferenceDataDao extends HibernateDaoSupport implements IReferenceDataDao {
 
@@ -34,21 +36,24 @@ public class ReferenceDataDao extends HibernateDaoSupport implements IReferenceD
 	}
 
 	@Override
-	public List<ReferenceData> findAll() {
+	public int count(String filterKey, Boolean filterActive) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List findRange(int from, int to, String filterKey,
+			Boolean filterActive) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-//	@Override
-//	public List<ReferenceData> findRange(int from, int to) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
 	@Override
-	public int count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	public List<ReferenceDataList> getContactType() {
+		String criteria = "select new fsoft.xdev.mock.models.ReferenceDataList(c.referenceDataId , c.value) from ReferenceData c inner join c.referenceType b with b.refTypeName ='Contact Type' ";
+		Query query = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createQuery(criteria);		
+		return query.list();
+	}	
 
 }
