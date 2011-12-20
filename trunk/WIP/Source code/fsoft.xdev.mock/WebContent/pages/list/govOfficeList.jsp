@@ -21,7 +21,7 @@
 			query += "filterActive="+filterActive;
 			$.getJSON("listGovOfficeRegion.action?" + query,
 				function(data) {
-					$('#gridtable').trigger('reloadGrid');
+					$('#gridtable').trigger('reloadGrid',[{page:1}]);
 			});
 		}
 		
@@ -48,7 +48,7 @@
 	        gridModel="listModel"
 	        autowidth="true"
 	        pager="true"
-	        rowNum="3"
+	        rowNum="15"
        		rownumbers="true"
 	        
 	    >
