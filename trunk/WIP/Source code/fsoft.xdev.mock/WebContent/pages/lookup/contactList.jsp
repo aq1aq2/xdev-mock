@@ -67,6 +67,15 @@
 		        $(":input[name*='gridSelectedRow']").val(contactId);
 	        }
 		);
+		$.subscribe("onRowDblClick", 
+			function(event, data) {
+		        // Get status of the record
+		        var grid = event.originalEvent.grid;
+		        var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
+		        var contactId = grid.jqGrid('getCell', selectedRowId, 'contactId');
+		        $(":input[name*='gridSelectedRow']").val(contactId);
+	        }
+		);
 	});
 </script>
 
@@ -117,6 +126,7 @@
         rowNum="10"
 		rownumbers="true"
 		onSelectRowTopics="onRowSelected"
+		onDblClickRowTopics="onRowDblClick"
 	>
 		<sjg:gridColumn name="contactId" index="contactId" title="ID" hidden="true"/>
 		<sjg:gridColumn name="name" index="name" title="Contact Name" sortable="true" 

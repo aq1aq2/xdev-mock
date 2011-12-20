@@ -32,6 +32,13 @@
       <rtexprvalue>false</rtexprvalue>
     </attribute>
     
+    <attribute>
+      <description><![CDATA[Set the html disabled attribute on rendered html element]]></description>
+      <name>disabled</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    
     <dynamic-attributes>true</dynamic-attributes>
 </tag>
 
