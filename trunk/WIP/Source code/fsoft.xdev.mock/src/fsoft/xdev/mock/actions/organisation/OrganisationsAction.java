@@ -13,11 +13,79 @@ public class OrganisationsAction extends ActionSupport{
 	/**
 	 * 
 	 */
+	private static final long serialVersionUID = 1L;
 	private Organisation organisation;
 	private IOrganisationDao organisationDao;
 	private List<Organisation> listModel = new ArrayList<Organisation>();
 
-	private static final long serialVersionUID = 1L;
+	private String filterKey;
+	private boolean filterActive;
+	
+	// get how many rows we want to have into the grid - rowNum attribute in the
+	// grid
+	private Integer rows = 0;
+
+	// Get the requested page. By default grid sets this to 1.
+	private Integer page = 0;
+
+	// sorting order - asc or desc
+	private String sord;
+
+	// get index row - i.e. user click to sort.
+	private String sidx;
+
+	// Your Total Pages
+	private Integer total = 0;
+
+	// All Record
+	private Integer records = 0;
+	
+	public OrganisationsAction() {
+		XDebugger.show("Constructor: Create Organisation Action");
+		organisation = new Organisation();
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public String list() {
+		XDebugger.show("OrganisationAction said: list method");
+		// listModel = trustRegionDao.findAll();
+		int to = (rows * page);
+		int from = to - rows;
+
+		// Count Rows (select count(*) from trust Region)
+		records = organisationDao.count(filterKey, filterActive);
+
+		// Your logic to search and select the required data.
+		listModel = organisationDao.findRange(from, to, filterKey, filterActive);
+
+		// calculate the total pages for the query
+		total = (int) Math.ceil((double) records / (double) rows);
+
+		// Print list model
+		XDebugger.show("Size of list model: " + listModel.size());
+		return "list";
+	}
+	
+	public String save() {
+		XDebugger.show("OrganisationAction said: add method");
+		organisationDao.add(organisation);
+		return "save";
+	}
+	
+	public String search() {
+		return "not supported";
+	}
+	
+	public String detail() {
+		return "not supported";
+	}
+	
+	public String update() {
+		XDebugger.show("Organisation said: update method");
+		organisationDao.edit(organisation);
+		return "update";
+	}
 	
 	public Integer getRows() {
 		return rows;
@@ -66,25 +134,6 @@ public class OrganisationsAction extends ActionSupport{
 	public void setRecords(Integer records) {
 		this.records = records;
 	}
-
-	// get how many rows we want to have into the grid - rowNum attribute in the
-	// grid
-	private Integer rows = 0;
-
-	// Get the requested page. By default grid sets this to 1.
-	private Integer page = 0;
-
-	// sorting order - asc or desc
-	private String sord;
-
-	// get index row - i.e. user click to sort.
-	private String sidx;
-
-	// Your Total Pages
-	private Integer total = 0;
-
-	// All Record
-	private Integer records = 0;
 	
 	public Organisation getOrganisation() {
 		return organisation;
@@ -106,38 +155,23 @@ public class OrganisationsAction extends ActionSupport{
 	public void setListModel(List<Organisation> listModel) {
 		this.listModel = listModel;
 	}
-
 	
-	
-	public OrganisationsAction() {
-		XDebugger.show("Constructor: Create Organisation Action");
+	public String getFilterKey() {
+		return filterKey;
 	}
-	
-	public String list() {
-		XDebugger.show("OrganisationAction said: list method");
-		// listModel = trustRegionDao.findAll();
-		int to = (rows * page);
-		int from = to - rows;
 
-		// Count Rows (select count(*) from trust Region)
-		records = organisationDao.count();
 
-		// Your logic to search and select the required data.
-		listModel = organisationDao.findRange(from, to);
-
-		// calculate the total pages for the query
-		total = (int) Math.ceil((double) records / (double) rows);
-
-		// Print list model
-		XDebugger.show("Size of list model: " + listModel.size());
-		XDebugger.show("Contact name: ");
-		//XDebugger.show("Supporting material list: " + listModel.get(0).getSupportingMaterials().iterator().next().getSupportingMaterialId());
-		return "list";
+	public void setFilterKey(String filterKey) {
+		this.filterKey = filterKey;
 	}
-	
-	public String add() {
-		XDebugger.show("OrganisationAction said: add method");
-		organisationDao.add(organisation);
-		return "add";
+
+
+	public boolean isFilterActive() {
+		return filterActive;
+	}
+
+
+	public void setFilterActive(boolean filterActive) {
+		this.filterActive = filterActive;
 	}
 }

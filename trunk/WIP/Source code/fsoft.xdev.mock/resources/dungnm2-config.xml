@@ -8,19 +8,19 @@
 		<action name="*Organisation" method="{1}" class="organisationAction">
     		<result name="list" type="json"></result>
 <!-- 			<result name="list">Test.jsp</result> -->
-    		<result name="add" type="json"></result>
+    		<result name="save" type="json"></result>
     	</action>
     	<action name="*Directorate" method="{1}" class="directorateAction">
     		<result name="list" type="json"></result>
-    		<result name="add" type="json"></result>
+    		<result name="save" type="json"></result>
     	</action>
     	<action name="*SupportingMaterial" method="{1}" class="supportingMaterialAction">
     		<result name="list" type="json"></result>
-    		<result name="add" type="json"></result>
+    		<result name="save" type="json"></result>
     	</action>
     	<action name="*Department" method="{1}" class="departmentAction">
     		<result name="list" type="json"></result>
-    		<result name="add" type="json"></result>
+    		<result name="save" type="json"></result>
     	</action>
 	</package>
 </struts>

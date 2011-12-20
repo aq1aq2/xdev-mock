@@ -17,54 +17,118 @@ public class OrganisationDao extends HibernateDaoSupport
 	
 	@Override
 	public boolean add(Organisation entity) {
-		//getHibernateTemplate().initialize(entity);
-		getHibernateTemplate().save(entity);
-		return true;
+		try{
+			getHibernateTemplate().save(entity);
+			return true;
+		}catch(Exception ex){
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean edit(Organisation entity) {
-		//getHibernateTemplate().initialize(entity);
-		getHibernateTemplate().update(entity);
-		return true;
+		try{
+			getHibernateTemplate().update(entity);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean remove(Organisation entity) {
-		//getHibernateTemplate().initialize(entity);
-		getHibernateTemplate().delete(entity);
-		return true;
+		try{
+			getHibernateTemplate().delete(entity);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public Organisation find(Organisation entity) {
-		//getHibernateTemplate().initialize(entity);
 		return (Organisation) getHibernateTemplate().get(Organisation.class,
 				entity.getOrganisationId());
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	@Override
-	public List<Organisation> findAll() {
-		return getHibernateTemplate().find("from Organisation");
+	public List findRange(int from, int to, String filterKey,
+			Boolean filterActive) {
+		String criteria = "select new fsoft.xdev.mock.models.OrganisationList(c.organisationId, c.name, " +
+				"c.addr1, c.postCode, (b.firstName + ' ' + b.surName), c.status) from Organisation c left join c.contact b where";
+		if(filterActive == null || filterActive == false) {
+			criteria = criteria + " (c.status = true)";
+		}
+		else{
+			criteria = criteria + " (1 = 1)";
+		}
+		
+		System.out.println("From page: " + from);
+		
+		if ("0-9".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[1-9]%')";
+		} else if ("A B C D E".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[a-e]%') ";
+		} else if ("F G H I J".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[f-j]%')";
+		} else if ("K L M N".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[k-n]%' )";
+		} else if ("O P Q R".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[o-r]%') ";
+		} else if ("S T U V".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[s-v]%')";
+		} else if ("W X Y Z".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[w-z]%') ";
+		}
+		
+		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(criteria);
+		query.setFirstResult(from);
+		query.setMaxResults(to - from);
+		return query.list();
 	}
-
-//	@SuppressWarnings("unchecked")
-//	@Override
-//	public List<Organisation> findRange(int from, int to) {
-//		Query query = getHibernateTemplate().getSessionFactory()
-//				.getCurrentSession().createQuery("from Organisation");
-//		query.setFirstResult(from);
-//		query.setMaxResults(to - from);
-//		List<Organisation> listOrganisation = query.list();
-//		//getHibernateTemplate().initialize(listOrganisation);
-//		return listOrganisation;
-//	}
-
+	
 	@Override
-	public int count() {
-		return DataAccessUtils.intResult(getHibernateTemplate().find(
-				"select count(*) from Organisation"));
+	public int count(String filterKey, Boolean filterActive) {
+		String criteria = "select count(*) from Organisation c where";
+		if (filterActive == null || filterActive == false) {
+			criteria = criteria + " (c.status = true) ";
+		} else {
+			criteria = criteria + " (1 = 1) ";
+		}
+		if ("0-9".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[1-9]%')";
+		} else if ("A B C D E".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[a-e]%') ";
+		} else if ("F G H I J".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[f-j]%')";
+		} else if ("K L M N".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[k-n]%' )";
+		} else if ("O P Q R".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[o-r]%') ";
+		} else if ("S T U V".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[s-v]%')";
+		} else if ("W X Y Z".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[w-z]%') ";
+		}
+		return DataAccessUtils.intResult(getHibernateTemplate().find(criteria));
 	}
 
 }
