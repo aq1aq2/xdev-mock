@@ -20,8 +20,8 @@ $(document).ready(function(){
 	}
 	
 	function active() {
-		query="status=true";
-		$.getJSON("updateOrganisation.action?" + query, 
+		query="organisation.Status=true";
+		$.get("updateOrganisation.action?" + query, 
 			function(data){
 				$("#gridTable").trigger("reloadGrid", [{page:1}]);
 			}
@@ -51,8 +51,9 @@ $(document).ready(function(){
         var status = grid.jqGrid('getCell', selectedRowId, 'status');
         alert(status);
         
-        if(status == false) {
+        if(status == 'No') {
         	// Active this org
+        	alert('vo day');
         	active();
         	// Reload grid
         	$("#gridTable").trigger("reloadGrid");

@@ -9,6 +9,7 @@
     		<result name="list" type="json"></result>
 <!-- 			<result name="list">Test.jsp</result> -->
     		<result name="save" type="json"></result>
+    		<result name="update" type="json"></result>
     	</action>
     	<action name="*Directorate" method="{1}" class="directorateAction">
     		<result name="list" type="json"></result>
