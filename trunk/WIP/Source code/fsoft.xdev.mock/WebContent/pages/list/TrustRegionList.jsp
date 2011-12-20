@@ -46,7 +46,7 @@
 	        gridModel="listModel"
 	        autowidth="true"
 	        pager="true"
-	        rowNum="1"
+	        rowNum="15"
        		rownumbers="true"
 	        
 	    >

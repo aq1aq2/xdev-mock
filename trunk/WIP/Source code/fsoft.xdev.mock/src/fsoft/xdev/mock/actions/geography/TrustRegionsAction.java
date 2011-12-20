@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import fsoft.xdev.mock.dao.ICountryDao;
 import fsoft.xdev.mock.dao.ITrustRegionDao;
 import fsoft.xdev.mock.models.Country;
+import fsoft.xdev.mock.models.CountryList;
 import fsoft.xdev.mock.models.TrustRegion;
 
 public class TrustRegionsAction extends ActionSupport {
@@ -18,7 +19,7 @@ public class TrustRegionsAction extends ActionSupport {
 	private TrustRegion trustRegion;
 	private ITrustRegionDao trustRegionDao;
 	private List listModel;
-	private List<Country> listCountry = new ArrayList<Country>();
+	private List<CountryList> listCountry = new ArrayList<CountryList>();
 	private ICountryDao countryDao;
 	private String filterKey;
 	private Boolean filterActive;
@@ -46,26 +47,6 @@ public class TrustRegionsAction extends ActionSupport {
 		trustRegion = new TrustRegion();
 	}
 
-	// list all trust region
-	public String list() {
-
-		int to = (rows * page);
-		int from = to - rows;
-
-		// Count Rows (select count(*) from trust Region)
-		records = trustRegionDao.count(filterKey, filterActive);
-		listModel = trustRegionDao.findRange(from, to, filterKey, filterActive);
-		// calculate the total pages for the query
-		total = (int) Math.ceil((double) records / (double) rows);
-		return "list";
-	}
-
-	// save trust region into database
-	public String save() {
-		trustRegionDao.add(trustRegion);
-		return "add";
-	}
-
 	public TrustRegion getTrustRegion() {
 		return trustRegion;
 	}
@@ -82,11 +63,11 @@ public class TrustRegionsAction extends ActionSupport {
 		this.listModel = listModel;
 	}
 
-	public List<Country> getListCountry() {
+	public List<CountryList> getListCountry() {
 		return listCountry;
 	}
 
-	public void setListCountry(List<Country> listCountry) {
+	public void setListCountry(List<CountryList> listCountry) {
 		this.listCountry = listCountry;
 	}
 
@@ -162,12 +143,30 @@ public class TrustRegionsAction extends ActionSupport {
 		this.countryDao = countryDao;
 	}
 
+	// list all trust region
+	public String list() {
+		int to = (rows * page);
+		int from = to - rows;
+
+		// Count Rows (select count(*) from trust Region)
+		records = trustRegionDao.count(filterKey, filterActive);
+		listModel = trustRegionDao.findRange(from, to, filterKey, filterActive);
+		// calculate the total pages for the query
+		total = (int) Math.ceil((double) records / (double) rows);
+		return "list";
+	}
+
+	// save trust region into database
+	public String save() {
+		trustRegionDao.add(trustRegion);
+		return "add";
+	}
 	// find trust region by ID
 	public String detail() {
 		System.out.println(" vao day nha" + trustRegion.getTrustRegionId());
 		trustRegion = trustRegionDao.find(trustRegion);
 
-		// listCountry = countryDao.findAll();
+		 listCountry = countryDao.findAll();
 		return "detail";
 	}
 

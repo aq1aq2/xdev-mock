@@ -8,7 +8,6 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import fsoft.xdev.mock.dao.ITrustRegionDao;
 import fsoft.xdev.mock.models.TrustRegion;
-import fsoft.xdev.mock.models.TrustRegionList;
 
 public class TrustRegionDao extends HibernateDaoSupport implements
 		ITrustRegionDao {
