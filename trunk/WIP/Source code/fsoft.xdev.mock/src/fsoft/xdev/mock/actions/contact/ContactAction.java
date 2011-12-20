@@ -5,17 +5,20 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.IContactDao;
+import fsoft.xdev.mock.dao.IReferenceDataDao;
+import fsoft.xdev.mock.dao.imp.ReferenceDataDao;
 import fsoft.xdev.mock.models.Contact;
 import fsoft.xdev.mock.models.ContactList;
+import fsoft.xdev.mock.models.ReferenceDataList;
 
 public class ContactAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	
 	private Contact contact;
 	private IContactDao contactDao;
-	
+	private IReferenceDataDao referenceDataDao;
 	private List listModel;
-	
+	private List<ReferenceDataList> referenceDataList;
 	private String filterFirstName = ""; // Filter by first name
 	private String filterSurname = ""; // Filter by surname
 	private boolean filterActive; // Filter by active
@@ -30,6 +33,8 @@ public class ContactAction extends ActionSupport {
 	private String sidx;
 	// Your Total Pages
 	private Integer total = 0;
+	
+
 	// All Record
 	private Integer records = 0;
 
@@ -56,12 +61,21 @@ public class ContactAction extends ActionSupport {
 		return "list";
 	}
 
+	public List<ReferenceDataList> getReferenceDataList() {
+		return referenceDataList;
+	}
+
+	public void setReferenceDataList(List<ReferenceDataList> referenceDataList) {
+		this.referenceDataList = referenceDataList;
+	}
+
 	/**
 	 * Contact Input page
 	 * @return action returns Contact Input page
 	 */
 	public String input() {
-		System.out.println("Action: Contact Input");
+		System.out.println("Action: Contact Input");		
+		referenceDataList = referenceDataDao.getContactType();
 		return "input";
 	}
 	
@@ -174,6 +188,9 @@ public class ContactAction extends ActionSupport {
 
 	public void setRecords(Integer records) {
 		this.records = records;
+	}
+	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {
+		this.referenceDataDao = referenceDataDao;
 	}
 
 }

@@ -36,8 +36,8 @@
 		 */
 		
 		/* Manager lookup event */
-		$("#managerName_lookupBtn").click(function(){
-			
+		$("#contact.managerId_lookupBtn").click(function(){
+			alert("asdas");
 			$("#listDialogContent").load("../lookup/contactList.jsp",
 				function(response){ // Function execute after load complete
 					/* Dialog None button */
@@ -92,7 +92,7 @@
 			<s:textfield name="contact.homePhone" label="ST Home Phone" />
 			<s:textfield name="contact.emailAddress" label="Email Address" />
 			<xdev:textLookup name="contact.managerId" label="Manager ID" disabled="true"/>
-			<s:select name="contact.referenceDataByContactType.referenceDataId" label="Contact Type" list="{}" required="true"/>
+			<s:select name="contact.referenceDataByContactType.referenceDataId" listKey ="referenceDataId" listValue="type" key ="referenceDataId" label="Contact Type" list="referenceDataList" required="true"/>
 			<s:select name="bestContactMethod" label="Best Contact Method" list="{}" />
 		</s:form>
 	</div>
