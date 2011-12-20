@@ -8,7 +8,6 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import fsoft.xdev.mock.dao.ITrustDistrictDao;
 import fsoft.xdev.mock.models.TrustDistrict;
-import fsoft.xdev.mock.models.TrustRegion;
 
 public class TrustDistrictDao extends HibernateDaoSupport implements ITrustDistrictDao{
 
@@ -50,15 +49,78 @@ public class TrustDistrictDao extends HibernateDaoSupport implements ITrustDistr
 
 	@Override
 	public int count(String filterKey, Boolean filterActive) {
-		// TODO Auto-generated method stub
-		return 0;
+		String criteria = "select count(*) from TrustDistrict c where";
+
+		if (filterActive == null || filterActive == false) {
+			criteria = criteria + " (c.status = true) ";
+		} else {
+			criteria = criteria + " (1 = 1) ";
+		}
+		if ("0-9".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[0-9]%')";
+		} else if ("A B C D E".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[a-e]%') ";
+		} else if ("F G H I J".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[f-j]%')";
+		} else if ("K L M N".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[k-n]%' )";
+		} else if ("O P Q R".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[o-r]%') ";
+		} else if ("S T U V".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[s-v]%')";
+		} else if ("W X Y Z".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[w-z]%') ";
+		}
+		return DataAccessUtils.intResult(getHibernateTemplate().find(criteria));
+
 	}
 
 	@Override
 	public List findRange(int from, int to, String filterKey,
 			Boolean filterActive) {
-		// TODO Auto-generated method stub
-		return null;
+		String criteria = "select new fsoft.xdev.mock.models.TrustDistrictList(c.trustDistrictId , c.name ,c.description,b.name,c.status) from TrustDistrict c left join c.trustRegion b where";
+
+		if (filterActive == null || filterActive == false) {
+			criteria = criteria + " (c.status = true) ";
+		} else {
+			criteria = criteria + " (1 = 1) ";
+		}
+		if ("0-9".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[0-9]%')";
+		} else if ("A B C D E".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[a-e]%') ";
+		} else if ("F G H I J".equals(filterKey)) {
+			criteria = criteria
+					+ " and (c.name like '[f-j]%')";
+		} else if ("K L M N".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[k-n]%' )";
+		} else if ("O P Q R".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[o-r]%') ";
+		} else if ("S T U V".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[s-v]%')";
+		} else if ("W X Y Z".equals(filterKey)) {
+			criteria = criteria
+					+ " and  (c.name like '[w-z]%') ";
+		}
+		
+
+		Query query = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createQuery(criteria);
+		query.setFirstResult(from);
+		query.setMaxResults(to - from);
+		return query.list();	
 	}
 
 	

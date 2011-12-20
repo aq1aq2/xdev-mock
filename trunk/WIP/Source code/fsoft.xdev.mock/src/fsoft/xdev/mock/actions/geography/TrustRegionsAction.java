@@ -9,7 +9,6 @@ import fsoft.xdev.mock.dao.ICountryDao;
 import fsoft.xdev.mock.dao.ITrustRegionDao;
 import fsoft.xdev.mock.models.Country;
 import fsoft.xdev.mock.models.TrustRegion;
-import fsoft.xdev.mock.models.TrustRegionList;
 
 public class TrustRegionsAction extends ActionSupport {
 	/**
@@ -18,11 +17,12 @@ public class TrustRegionsAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private TrustRegion trustRegion;
 	private ITrustRegionDao trustRegionDao;
-	private List listModel ;
+	private List listModel;
 	private List<Country> listCountry = new ArrayList<Country>();
 	private ICountryDao countryDao;
 	private String filterKey;
-	private boolean filterActive;
+	private Boolean filterActive;
+
 	// get how many rows we want to have into the grid - rowNum attribute in the
 	// grid
 	private Integer rows = 0;
@@ -48,24 +48,15 @@ public class TrustRegionsAction extends ActionSupport {
 
 	// list all trust region
 	public String list() {
-		// listModel = trustRegionDao.findAll();
 
 		int to = (rows * page);
 		int from = to - rows;
 
 		// Count Rows (select count(*) from trust Region)
-		records = trustRegionDao.count( filterKey, filterActive);
-
-		// Your logic to search and select the required data.
+		records = trustRegionDao.count(filterKey, filterActive);
 		listModel = trustRegionDao.findRange(from, to, filterKey, filterActive);
-
 		// calculate the total pages for the query
 		total = (int) Math.ceil((double) records / (double) rows);
-
-//		listCountry = countryDao.findAll();
-		
-		System.out.println("du lieu tu action: " + listModel.size());
-		
 		return "list";
 	}
 
@@ -83,11 +74,11 @@ public class TrustRegionsAction extends ActionSupport {
 		this.trustRegion = trustRegion;
 	}
 
-	public List  getListModel() {
+	public List getListModel() {
 		return listModel;
 	}
 
-	public void setListModel(List  listModel) {
+	public void setListModel(List listModel) {
 		this.listModel = listModel;
 	}
 
@@ -107,11 +98,11 @@ public class TrustRegionsAction extends ActionSupport {
 		this.filterKey = filterKey;
 	}
 
-	public boolean getFilterActive() {
+	public Boolean getFilterActive() {
 		return filterActive;
 	}
 
-	public void setFilterActive(boolean filterActive) {
+	public void setFilterActive(Boolean filterActive) {
 		this.filterActive = filterActive;
 	}
 
@@ -171,18 +162,12 @@ public class TrustRegionsAction extends ActionSupport {
 		this.countryDao = countryDao;
 	}
 
-	// search trust regions
-	public String search() throws Exception {
-//		listModel = trustRegionDao.search(key);
-		return "list";
-	}
-
 	// find trust region by ID
 	public String detail() {
 		System.out.println(" vao day nha" + trustRegion.getTrustRegionId());
 		trustRegion = trustRegionDao.find(trustRegion);
 
-//		listCountry = countryDao.findAll();
+		// listCountry = countryDao.findAll();
 		return "detail";
 	}
 
