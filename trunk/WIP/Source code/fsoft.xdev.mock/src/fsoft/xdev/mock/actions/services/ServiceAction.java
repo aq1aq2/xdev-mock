@@ -20,6 +20,8 @@ public class ServiceAction extends ActionSupport{
 	private IServiceDao servicesDao;
 	private List<ServiceList> listService = new ArrayList<ServiceList>();
 	
+	private String filterKey;
+	private boolean filterActive;
 	/**
 	 * parameters for paging
 	 */
@@ -53,10 +55,10 @@ public class ServiceAction extends ActionSupport{
 		int from = to-rows;
 		
 		//Count Rows (select count(*) from GovtOfficeRegion)
-		records = servicesDao.count();
+		records = servicesDao.count(filterKey, filterActive);
 		
 		//Your logic to search and select the required data.
-		listService = servicesDao.findRange(from, to);
+		listService = servicesDao.findRange(from, to, filterKey, filterActive);
 		
 		//calculate the total pages for the query
 		total = (int)Math.ceil((double)records/(double)rows);
@@ -159,8 +161,27 @@ public class ServiceAction extends ActionSupport{
 	public void setRecords(Integer records) {
 		this.records = records;
 	}
-	
 
+
+	public String getFilterKey() {
+		return filterKey;
+	}
+
+
+	public void setFilterKey(String filterKey) {
+		this.filterKey = filterKey;
+	}
+
+
+	public boolean isFilterActive() {
+		return filterActive;
+	}
+
+
+	public void setFilterActive(boolean filterActive) {
+		this.filterActive = filterActive;
+	}
+	
 }
 
 
