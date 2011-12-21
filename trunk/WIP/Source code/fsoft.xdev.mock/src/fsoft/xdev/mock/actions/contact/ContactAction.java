@@ -18,7 +18,8 @@ public class ContactAction extends ActionSupport {
 	private IContactDao contactDao;
 	private IReferenceDataDao referenceDataDao;
 	private List listModel;
-	private List<ReferenceDataList> referenceDataList;
+	private List<ReferenceDataList> listContactType;
+	private List<ReferenceDataList> listBestContactMethod;
 	private String filterFirstName = ""; // Filter by first name
 	private String filterSurname = ""; // Filter by surname
 	private boolean filterActive; // Filter by active
@@ -45,7 +46,7 @@ public class ContactAction extends ActionSupport {
 	
 	/**
 	 * List all Contacts
-	 * @return action returns listModel
+	 * @return action returns listModel (JSON)
 	 */
 	public String list() {
 		int to = (rows * page);
@@ -61,21 +62,14 @@ public class ContactAction extends ActionSupport {
 		return "list";
 	}
 
-	public List<ReferenceDataList> getReferenceDataList() {
-		return referenceDataList;
-	}
-
-	public void setReferenceDataList(List<ReferenceDataList> referenceDataList) {
-		this.referenceDataList = referenceDataList;
-	}
-
 	/**
 	 * Contact Input page
-	 * @return action returns Contact Input page
+	 * @return action returns Contact Input JSP page
 	 */
 	public String input() {
 		System.out.println("Action: Contact Input");		
-		referenceDataList = referenceDataDao.getContactType();
+		listContactType = referenceDataDao.getContactType();
+		listBestContactMethod = referenceDataDao.getBestContactMethod();
 		return "input";
 	}
 	
@@ -88,26 +82,6 @@ public class ContactAction extends ActionSupport {
 		System.out.println("Contact name: " + contact.getFirstName());
 		contactDao.add(contact);
 		return "save";
-	}
-	
-	public void setContactDao(IContactDao contactsDao) {
-		this.contactDao = contactsDao;
-	}
-
-	public Contact getContact() {
-		return contact;
-	}
-
-	public void setContact(Contact contact) {
-		this.contact = contact;
-	}
-
-	public List getListModel() {
-		return listModel;
-	}
-
-	public void setListModel(List listModel) {
-		this.listModel = listModel;
 	}
 	
 	/* 
@@ -189,8 +163,49 @@ public class ContactAction extends ActionSupport {
 	public void setRecords(Integer records) {
 		this.records = records;
 	}
+	
+	/*
+	 * Getters and Setter
+	 */
+	
+	public void setContactDao(IContactDao contactsDao) {
+		this.contactDao = contactsDao;
+	}
+
+	public Contact getContact() {
+		return contact;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
+	public List getListModel() {
+		return listModel;
+	}
+
+	public void setListModel(List listModel) {
+		this.listModel = listModel;
+	}
+	
 	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {
 		this.referenceDataDao = referenceDataDao;
 	}
 
+	public List<ReferenceDataList> getListContactType() {
+		return listContactType;
+	}
+
+	public void setListContactType(List<ReferenceDataList> listContactType) {
+		this.listContactType = listContactType;
+	}
+
+	public List<ReferenceDataList> getListBestContactMethod() {
+		return listBestContactMethod;
+	}
+
+	public void setListBestContactMethod(
+			List<ReferenceDataList> listBestContactMethod) {
+		this.listBestContactMethod = listBestContactMethod;
+	}
 }
