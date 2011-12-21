@@ -23,7 +23,8 @@ public class TrustRegionsAction extends ActionSupport {
 	private ICountryDao countryDao;
 	private String filterKey;
 	private Boolean filterActive;
-
+	private Boolean add;	
+	
 	// get how many rows we want to have into the grid - rowNum attribute in the
 	// grid
 	private Integer rows = 0;
@@ -41,11 +42,7 @@ public class TrustRegionsAction extends ActionSupport {
 	private Integer total = 0;
 
 	// All Record
-	private Integer records = 0;
-
-	public TrustRegionsAction() {
-		trustRegion = new TrustRegion();
-	}
+	private Integer records = 0;	
 
 	public TrustRegion getTrustRegion() {
 		return trustRegion;
@@ -143,6 +140,13 @@ public class TrustRegionsAction extends ActionSupport {
 		this.countryDao = countryDao;
 	}
 
+	public Boolean getAdd() {
+		return add;
+	}
+
+	public void setAdd(Boolean add) {
+		this.add = add;
+	}
 	// list all trust region
 	public String list() {
 		int to = (rows * page);
@@ -157,20 +161,22 @@ public class TrustRegionsAction extends ActionSupport {
 	}
 
 	// save trust region into database
-	public String save() {
-		System.out.println("name moi" + trustRegion.getName());
+	public String save() {		
 		trustRegionDao.add(trustRegion);
 		return "save";
 	}
 
+	public String execute(){	
+		trustRegion = new TrustRegion();
+		listCountry = countryDao.findAll();	
+		add = true;
+		return "input";
+	}
 	// find trust region by ID
 	public String detail() {
-		trustRegion = trustRegionDao.find(trustRegion);
-		System.out.println("trustRegionName: " + trustRegion.getName());
-		
+		trustRegion = trustRegionDao.find(trustRegion);		
 		listCountry = countryDao.findAll();
-		
-		System.out.println("list country: " + listCountry.size());
-		return "detail";
+		add = false;
+		return "input";
 	}
 }

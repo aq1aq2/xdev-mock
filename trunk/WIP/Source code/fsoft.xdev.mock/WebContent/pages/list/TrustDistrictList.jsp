@@ -39,24 +39,21 @@
 
 
 <!-- body -->	
-		
-		<s:url id="listTrustDistrict" action="listTrustDistrict.action"></s:url>
-		<sjg:grid
-	        id="gridtable"
-	        dataType="json"
-	        href="%{listTrustDistrict}"
-	        gridModel="listModel"
-	        autowidth="true"
-	        pager="true"
-	        rowNum="15"
-       		rownumbers="true"
-	        
-	    >
-	    	<sjg:gridColumn name="trustDistrictId" index="trustDistrictId" title="ID" hidden="true"/>
-	        <sjg:gridColumn name="name" index="name" title="Name" sortable="true" formatter="formatLink"/>
-	        <sjg:gridColumn name="description" index="description" title="Descripstion" sortable="false"/>
-	        <sjg:gridColumn name="trustRegionName" index="trustRegionName" title="Region Name" sortable="true"/>
-	        <sjg:gridColumn name="status" index="status" title="IsActived" sortable="true"/>	        
-	    </sjg:grid>    
-  
+<s:url id="listTrustDistrict" action="listTrustDistrict.action"></s:url>
+<sjg:grid
+	id="gridtable"
+	dataType="json"
+	href="%{listTrustDistrict}"
+	gridModel="listModel"
+	width="929"
+	pager="true"
+	rowNum="15"
+	rownumbers="true"
+>
+	<sjg:gridColumn name="trustDistrictId" index="trustDistrictId" title="ID" hidden="true"/>
+	<sjg:gridColumn name="name" index="name" title="Name" sortable="true" formatter="formatLink"/>
+	<sjg:gridColumn name="description" index="description" title="Descripstion" sortable="false"/>
+	<sjg:gridColumn name="trustRegionName" index="trustRegionName" title="Region Name" sortable="true"/>
+	<sjg:gridColumn name="status" index="status" title="IsActived" sortable="true"/>	        
+</sjg:grid>    
 

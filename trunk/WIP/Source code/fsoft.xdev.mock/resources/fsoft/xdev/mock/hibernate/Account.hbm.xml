@@ -6,7 +6,7 @@
     <class name="fsoft.xdev.mock.models.Account" table="Account" schema="dbo" catalog="XDevMock">
         <id name="accountId" type="int">
             <column name="AccountID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="userName" type="string">
             <column name="UserName" length="50" />
