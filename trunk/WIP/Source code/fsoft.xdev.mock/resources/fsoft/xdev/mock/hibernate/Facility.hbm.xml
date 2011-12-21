@@ -6,7 +6,7 @@
     <class name="fsoft.xdev.mock.models.Facility" table="Facility" schema="dbo" catalog="XDevMock">
         <id name="facilityId" type="int">
             <column name="FacilityID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="referenceDataByFacilityType" class="fsoft.xdev.mock.models.ReferenceData" fetch="select">
             <column name="FacilityType" />

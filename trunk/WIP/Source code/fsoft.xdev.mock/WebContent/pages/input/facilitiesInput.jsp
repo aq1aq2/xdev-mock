@@ -5,7 +5,7 @@
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 <title> Premise Input</title>
 
-<s:textfield name="facilities.facilityId" value="%{facilities.facilityId}"></s:textfield>
+<s:textfield name="facility.facilityId" value="%{facility.facilityId}"></s:textfield>
 
 <script type="text/javascript">
 <!--
@@ -32,26 +32,26 @@
 		
 		
 		// select event
-		$("#FacilityType").change(function(){
-				alert('vao day khong');
-				if ($(this).val() == 'Room'){
+// 		$("#FacilityType").change(function(){
+				//alert('vao day khong');
+// 				if ($(this).val().type == 'Room'){
 					
-					alert($(this).val());
-					$("#roomCapacity").attr("disabled", "true");
-					$("#roomSize").attr("disabled", "true");
-					$("#roomEquipmentNotes").attr("disabled", "true");
-					$("#roomConnectivity").attr("disabled", "true");
-					$("#equipmentAvailable").attr("disabled", "true");
+					//alert($(this).val());
+// 					$("#roomCapacity").attr("disabled", "true");
+// 					$("#roomSize").attr("disabled", "true");
+// 					$("#roomEquipmentNotes").attr("disabled", "true");
+// 					$("#roomConnectivity").attr("disabled", "true");
+// 					$("#equipmentAvailable").attr("disabled", "true");
 					
-				}
-				else if($(this).val() == 'Internet Access') {
+// 				}
+// 				else if($(this).val().type == 'Internet Access') {
 					
-					$("#connectivityType").attr("disabled", "false");
-				}
-				else {
-					$("#connectivityType").removeAttr("disabled");
-				}
-	});
+// 					$("#connectivityType").attr("disabled", "false");
+// 				}
+// 				else {
+// 					$("#connectivityType").removeAttr("disabled");
+// 				}
+// 	});
 		
 		
 		/* Back event */
@@ -133,7 +133,7 @@
 	<div>
 	<s:form cssClass="xdev-form" name="facilitiesForm">
 			<s:select id="FacilityType" name="facility.referenceDataByFacilityType.referenceDataId" list="listFacilitiesType" label="Facility Type" listKey ="referenceDataId" listValue="type" key ="referenceDataId" required="true"></s:select>
-			<xdev:textLookup name="facility.contactByContactId.contactId" id="leadContact" label="Lead Contact" disabled="true"/>
+			<xdev:textLookup name="facility.contactByContactId.contactId" id="leadContact" label="Lead Contact" />
 			
 			<!-- 
 			<s:textfield name="contacts.firstName" label="Lead Contact"></s:textfield>
