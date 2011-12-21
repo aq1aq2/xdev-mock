@@ -21,7 +21,7 @@
  */
 -->
 
-<div class="checkbox-list">
+<div class="xdev-checkbox-list">
 
 <#assign itemCount = 0/>
 <#if parameters.list??>
