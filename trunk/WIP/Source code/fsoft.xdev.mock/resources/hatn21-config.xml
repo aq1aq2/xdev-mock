@@ -7,7 +7,7 @@
     <package name="hatn21" extends="struts-default,json-default">     	
     	<action name="*TrustRegion" method ="{1}" class="trustRegionAction">
     		<result name="list" type="json"></result> 
-    		<result name="add" ></result>  
+    		<result name="add" >/pages/list/TrustRegionList.jsp</result>  
     		<result name="detail">/pages/input/TrustRegionInput.jsp</result>    		     		
     	</action> 
     				

@@ -15,7 +15,7 @@ public class TrustRegionDao extends HibernateDaoSupport implements
 	@Override
 	public boolean add(TrustRegion entity) {
 		try {
-			getHibernateTemplate().save(entity);
+			getHibernateTemplate().saveOrUpdate(entity);
 			return true;
 		} catch (Exception ex) {
 			return false;
@@ -83,9 +83,8 @@ public class TrustRegionDao extends HibernateDaoSupport implements
 			criteria = criteria
 					+ " and  (c.name like '[w-z]%') ";
 		}
-		
 
-		System.out.println(criteria );
+		
 		Query query = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createQuery(criteria);
 		query.setFirstResult(from);
