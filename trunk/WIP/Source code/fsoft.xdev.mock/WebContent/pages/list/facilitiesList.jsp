@@ -13,6 +13,11 @@
 <script type="text/javascript">
 $.subscribe('rowselect', function(event, data) {
         alert('Selected Row : ' + event.originalEvent.id);
+        // Get status of the record
+        var grid = event.originalEvent.grid;
+        var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
+        var facilityId = grid.jqGrid('getCell', selectedRowId, 'facilityId');
+        $(":input[name*='gridSelectedRow']").val(facilityId);
         window.location.href = "detailFacilities.action";
        	
 });
@@ -69,7 +74,7 @@ $(document).ready(function(){
 	        navigator="true"
 	        onSelectRowTopics="rowselect"
 	        >	        
-			<sjg:gridColumn name="facility.facilityId" index="facilityId" title="ID" hidden="true"/>
+			<sjg:gridColumn name="facilityId" index="facilityId" title="ID" hidden="true"/>
 	        <sjg:gridColumn name="facilityType" index="facilityType" title="Facility Type" sortable="false"/>
 	        <sjg:gridColumn name="description" index="description" title="Description" sortable="false"/>
 	        <sjg:gridColumn name="contactName" index="contactName" title="Lead Contacts" sortable="false"/>
