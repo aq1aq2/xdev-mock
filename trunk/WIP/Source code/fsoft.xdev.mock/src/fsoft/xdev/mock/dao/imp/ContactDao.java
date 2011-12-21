@@ -11,6 +11,13 @@ import fsoft.xdev.mock.models.Contact;
 
 public class ContactDao extends HibernateDaoSupport implements IContactDao{
 
+
+	@Override
+	public boolean addOrUpdate(Object entity) {
+		getHibernateTemplate().saveOrUpdate(entity);
+		return false;
+	}
+	
 	@Override
 	public boolean add(Contact entity) {
 		getHibernateTemplate().save(entity);
@@ -31,8 +38,7 @@ public class ContactDao extends HibernateDaoSupport implements IContactDao{
 
 	@Override
 	public Contact find(Contact entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Contact)getHibernateTemplate().get(Contact.class, entity.getContactId());
 	}
 
 	@Override
