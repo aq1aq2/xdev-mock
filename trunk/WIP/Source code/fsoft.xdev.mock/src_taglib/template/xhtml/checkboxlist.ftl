@@ -21,6 +21,8 @@
  */
 -->
 
+<#include "/${parameters.templateDir}/${parameters.theme}/controlheader.ftl" />
+
 <div class="xdev-checkbox-list">
 
 <#assign itemCount = 0/>
@@ -66,3 +68,5 @@
 </#if>
  /> 
  </div>
+ 
+ <#include "/${parameters.templateDir}/xhtml/controlfooter.ftl" />

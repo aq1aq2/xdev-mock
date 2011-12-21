@@ -94,7 +94,6 @@
 			<xdev:textLookup name="contact.managerId" id="managerId" label="Manager ID" disabled="true"/>
 			<s:select name="contact.referenceDataByContactType.referenceDataId" label="Contact Type" list="listContactType" listKey ="referenceDataId" listValue="type" key ="referenceDataId" required="true"/>
 			<s:select name="contact.referenceDataByBestContactMethod.referenceDataId" label="Best Contact Method" list="listBestContactMethod" listKey ="referenceDataId" listValue="type" key ="referenceDataId" />
-			<s:checkboxlist list="{'asdas':true, 'asdasd':false, 'qwe':true, 'qweqwe':false}"></s:checkboxlist>
 		</s:form>
 	</div>
 	
