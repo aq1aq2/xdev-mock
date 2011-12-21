@@ -3,8 +3,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
 	<bean id="serviceAction" class="fsoft.xdev.mock.actions.services.ServiceAction">
 		<property name="servicesDao" ref="servicesDao"/>
+		<property name="referenceDataDao" ref="referenceDataDao"></property>
 	</bean>
 	
 	<bean id="servicesDao" parent="txProxyTemplate">
@@ -14,4 +16,13 @@
 			</bean>
 		</property>
 	</bean>
+	
+	<bean id="referenceDataDao" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="fsoft.xdev.mock.dao.imp.ReferenceDataDao">
+				<property name="sessionFactory" ref="sessionFactory"></property>
+			</bean>
+		</property>
+	</bean>  
+	
 </beans>

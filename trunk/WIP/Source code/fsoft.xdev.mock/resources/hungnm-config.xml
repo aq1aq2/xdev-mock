@@ -7,10 +7,13 @@
 	<package name="hungnm" extends="json-default">
 		<action name="*Service" method="{1}" class="serviceAction">
 			<result name="list" type="json"></result>
+			<result name="detailService">/pages/input/serviceInput.jsp</result>
 		</action>
 		
 		<action name="*Programme" method="{1}" class="programmeAction">
 			<result name="list" type="json"></result>
+			<result name="save" type="json"></result>
+			
 		</action>
 	</package>
 </struts>

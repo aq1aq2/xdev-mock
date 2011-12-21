@@ -6,6 +6,13 @@
 
 <title>Service</title>
 
+<script type="text/javascript">
+$.subscribe('rowselect', function(event, data) {
+        alert('Selected Row : ' + event.originalEvent.id);
+       	
+});
+</script>
+
 <script>
 	$(document).ready(function(){
 		/* Filter click event */
@@ -33,6 +40,10 @@
 			filterActive = $(this).is(":checked");
 			sendFilterOptions();
 		});
+		//click button Create
+		$("#createBtn").click(function(){
+			window.location.href = "detailService.action";
+		});
 	});
 </script>
 
@@ -46,9 +57,10 @@
         gridModel="listService"
         autowidth="true"
         rowNum="3"
-    		rownumbers="true"
+    	rownumbers="true"
         pager="true"
-      		navigator="true"
+      	navigator="true"
+      	onSelectRowTopics="rowselect"
     >
         <sjg:gridColumn name="name" index="name" title="Service Name" sortable="true"/>
         <sjg:gridColumn name="descriptionDelivery" index="descriptionDelivery" title="Description" sortable="false"/>

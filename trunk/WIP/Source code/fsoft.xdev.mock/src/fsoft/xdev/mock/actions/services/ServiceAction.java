@@ -5,7 +5,9 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import fsoft.xdev.mock.dao.IReferenceDataDao;
 import fsoft.xdev.mock.dao.IServiceDao;
+import fsoft.xdev.mock.models.ReferenceDataList;
 import fsoft.xdev.mock.models.Service;
 import fsoft.xdev.mock.models.ServiceList;
 
@@ -18,7 +20,11 @@ public class ServiceAction extends ActionSupport{
 
 	private Service service;
 	private IServiceDao servicesDao;
+	private IReferenceDataDao referenceDataDao;
 	private List<ServiceList> listService = new ArrayList<ServiceList>();
+	
+	List<ReferenceDataList> listServiceType = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listSubType = new ArrayList<ReferenceDataList>();
 	
 	private String filterKey;
 	private boolean filterActive;
@@ -67,6 +73,20 @@ public class ServiceAction extends ActionSupport{
 		return "list";
 	}
 	
+	public String detail(){
+		
+		listServiceType = referenceDataDao.getServiceType();
+		listSubType = referenceDataDao.getSubType();
+		
+		for (ReferenceDataList refer : listServiceType) {
+			System.out.println(refer.getType());
+		}
+		
+		for (ReferenceDataList refer : listSubType) {
+			System.out.println(refer.getType());
+		}
+		return "detailService";
+	}
 	
 	public String save(){
 		System.out.println("Ten cua service ta dinh them vao la: "+service.getName());
@@ -180,6 +200,26 @@ public class ServiceAction extends ActionSupport{
 
 	public void setFilterActive(boolean filterActive) {
 		this.filterActive = filterActive;
+	}
+
+	public List<ReferenceDataList> getListServiceType() {
+		return listServiceType;
+	}
+
+	public void setListServiceType(List<ReferenceDataList> listServiceType) {
+		this.listServiceType = listServiceType;
+	}
+
+	public List<ReferenceDataList> getListSubType() {
+		return listSubType;
+	}
+
+	public void setListSubType(List<ReferenceDataList> listSubType) {
+		this.listSubType = listSubType;
+	}
+
+	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {
+		this.referenceDataDao = referenceDataDao;
 	}
 	
 }
