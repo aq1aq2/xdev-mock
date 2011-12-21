@@ -158,20 +158,19 @@ public class TrustRegionsAction extends ActionSupport {
 
 	// save trust region into database
 	public String save() {
+		System.out.println("name moi" + trustRegion.getName());
 		trustRegionDao.add(trustRegion);
-		return "add";
+		return "save";
 	}
+
 	// find trust region by ID
 	public String detail() {
-		System.out.println(" vao day nha" + trustRegion.getTrustRegionId());
 		trustRegion = trustRegionDao.find(trustRegion);
-
-		 listCountry = countryDao.findAll();
+		System.out.println("trustRegionName: " + trustRegion.getName());
+		
+		listCountry = countryDao.findAll();
+		
+		System.out.println("list country: " + listCountry.size());
 		return "detail";
-	}
-
-	public String update() {
-		trustRegionDao.edit(trustRegion);
-		return "update";
 	}
 }
