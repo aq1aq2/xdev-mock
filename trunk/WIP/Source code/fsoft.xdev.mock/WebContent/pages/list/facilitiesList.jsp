@@ -13,6 +13,7 @@
 <script type="text/javascript">
 $.subscribe('rowselect', function(event, data) {
         alert('Selected Row : ' + event.originalEvent.id);
+        window.location.href = "detailFacilities.action";
        	
 });
 </script>
@@ -68,10 +69,11 @@ $(document).ready(function(){
 	        navigator="true"
 	        onSelectRowTopics="rowselect"
 	        >	        
-			<sjg:gridColumn name="facilityId" index="facilityId" title="ID" hidden="true"/>
+			<sjg:gridColumn name="facility.facilityId" index="facilityId" title="ID" hidden="true"/>
 	        <sjg:gridColumn name="facilityType" index="facilityType" title="Facility Type" sortable="false"/>
 	        <sjg:gridColumn name="description" index="description" title="Description" sortable="false"/>
 	        <sjg:gridColumn name="contactName" index="contactName" title="Lead Contacts" sortable="false"/>
 	        <sjg:gridColumn name="status" index="status" title="Is Active" sortable="false"/>
 	    </sjg:grid>
+	    
 	</s:form>

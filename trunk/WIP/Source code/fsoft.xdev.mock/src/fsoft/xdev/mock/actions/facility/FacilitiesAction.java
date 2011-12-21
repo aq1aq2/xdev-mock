@@ -66,6 +66,17 @@ public class FacilitiesAction extends ActionSupport {
 	  public String save(){
 			System.out.println("vao day");
 			facility.setStatus(false);
+			System.out.println("vao tiep nao");
+			System.out.println(facility.getFacilityId());
+			System.out.println( "ID for Failitytype: "+facility.getReferenceDataByFacilityType().getReferenceDataId());
+			System.out.println( "Description: "+facility.getFacilityDescription());
+			System.out.println("id for Connect "+facility.getReferenceDataByConnectivityType().getReferenceDataId());
+			System.out.println( "note for room: "+facility.getRoomEquipmentNotes());
+			System.out.println(facility.getWirelessAccessInfomation());
+			System.out.println(facility.getRoomCapacity());
+			System.out.println(facility.getRoomConnectivity());
+			System.out.println( "Id OF CONTACT: "+facility.getContactByContactId().getContactId());
+			
 			facilitiesDao.add(facility);
 			System.out.println("one facility is added");
 			return "add";
