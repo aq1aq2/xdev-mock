@@ -132,7 +132,7 @@ public class TrustDistrictsAction extends ActionSupport {
 	 * 
 	 * @return action returns listTrustDistrict
 	 */
-	public String list() {
+	public String list() {		
 		int to = (rows * page);
 		int from = to - rows;
 
@@ -149,11 +149,9 @@ public class TrustDistrictsAction extends ActionSupport {
 		return "list";
 	}
 
-	public String save() {
-		System.out.println("vao day");
+	public String save() {		
 		trustDistrict.setStatus(false);
-		trustDistrictDao.add(trustDistrict);
-		System.out.println("One trust districs is added");
+		trustDistrictDao.add(trustDistrict);		
 		return "add";
 	}
 

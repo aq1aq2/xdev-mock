@@ -9,7 +9,7 @@ import fsoft.xdev.mock.dao.ICountryDao;
 import fsoft.xdev.mock.models.Country;
 import fsoft.xdev.mock.models.CountryList;
 
-public class CountryDao extends HibernateDaoSupport implements ICountryDao{
+public class CountryDao extends HibernateDaoSupport implements ICountryDao {
 
 	@Override
 	public boolean add(Country entity) {
@@ -41,18 +41,19 @@ public class CountryDao extends HibernateDaoSupport implements ICountryDao{
 		return 0;
 	}
 
-
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<CountryList> findAll() {	
-	
-		System.out.println("vao day roi");
-		Query query = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createQuery("select new fsoft.xdev.mock.models.CountryList(c.countryId , c.name) from Country c");	
-		
-		List<CountryList> list =query.list();
-		System.out.println("list from dao: " + list);
-		return 	list;
+	public List<CountryList> findAll() {
+
+		System.out.println("vao day");
+		Query query = getHibernateTemplate()
+				.getSessionFactory()
+				.getCurrentSession()
+				.createQuery(
+						"select new fsoft.xdev.mock.models.CountryList(c.countryId , c.name) from Country c");
+
+		System.out.println("vao cuoi");
+		return query.list();
 
 	}
 
@@ -62,7 +63,5 @@ public class CountryDao extends HibernateDaoSupport implements ICountryDao{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 }

@@ -6,7 +6,7 @@
     <class name="fsoft.xdev.mock.models.TrustRegion" table="TrustRegion" schema="dbo" catalog="XDevMock">
         <id name="trustRegionId" type="int">
             <column name="TrustRegionID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="country" class="fsoft.xdev.mock.models.Country" fetch="select">
             <column name="CountryID" />

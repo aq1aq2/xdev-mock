@@ -23,16 +23,7 @@ public class TrustRegion implements java.io.Serializable {
 	public TrustRegion(int trustRegionId) {
 		this.trustRegionId = trustRegionId;
 	}
-	
-//	cho nay them vaos
-	public TrustRegion(int trustRegionId, String name,
-			String description, Boolean status) {
-		this.trustRegionId = trustRegionId;
-		this.name = name;
-		this.description = description;
-		this.status = status;	
-	}
-//**************************
+
 	public TrustRegion(int trustRegionId, Country country, String name,
 			String description, Boolean status,
 			Set<TrustDistrict> trustDistricts) {

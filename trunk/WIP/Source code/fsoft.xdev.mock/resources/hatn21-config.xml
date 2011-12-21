@@ -6,9 +6,11 @@
     <!-- Configuration Information Created by HaTN21 -->
     <package name="hatn21" extends="struts-default,json-default">     	
     	<action name="*TrustRegion" method ="{1}" class="trustRegionAction">
-    		<result name="list" type="json"></result> 
-    		<result name="add" >/pages/list/TrustRegionList.jsp</result>  
-    		<result name="detail">/pages/input/TrustRegionInput.jsp</result>    		     		
+    		<result name="list" type="json">
+    			<param name="excludeProperties">trustRegion,listCountry</param>
+    		</result> 
+    		<result name="save" >/pages/list/TrustRegionList.jsp</result>  
+    		<result name="input">/pages/input/TrustRegionInput.jsp</result>    		    	   		     		
     	</action> 
     				
     	<action name="*TrustDistrict" method ="{1}" class="trustDistrictAction">
