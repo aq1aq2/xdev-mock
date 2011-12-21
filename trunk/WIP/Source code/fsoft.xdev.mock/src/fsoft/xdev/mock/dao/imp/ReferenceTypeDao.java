@@ -34,21 +34,16 @@ public class ReferenceTypeDao extends HibernateDaoSupport implements IReferenceT
 	}
 
 	@Override
-	public List<ReferenceType> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-//	@Override
-//	public List<ReferenceType> findRange(int from, int to) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	@Override
-	public int count() {
+	public int count(String filterKey, Boolean filterActive) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List findRange(int from, int to, String filterKey,
+			Boolean filterActive) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
