@@ -52,7 +52,15 @@ public class ReferenceDataDao extends HibernateDaoSupport implements IReferenceD
 	public List<ReferenceDataList> getContactType() {
 		String criteria = "select new fsoft.xdev.mock.models.ReferenceDataList(c.referenceDataId , c.value) from ReferenceData c inner join c.referenceType b with b.refTypeName ='Contact Type' ";
 		Query query = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createQuery(criteria);		
+				.getCurrentSession().createQuery(criteria);
+		return query.list();
+	}
+
+	@Override
+	public List<ReferenceDataList> getBestContactMethod() {
+		String criteria = "select new fsoft.xdev.mock.models.ReferenceDataList(c.referenceDataId , c.value) from ReferenceData c inner join c.referenceType b with b.refTypeName ='Best Contact Method' ";
+		Query query = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createQuery(criteria);
 		return query.list();
 	}	
 

@@ -13,7 +13,7 @@ public class ContactDao extends HibernateDaoSupport implements IContactDao{
 
 	@Override
 	public boolean add(Contact entity) {
-		// TODO Auto-generated method stub
+		getHibernateTemplate().save(entity);
 		return false;
 	}
 

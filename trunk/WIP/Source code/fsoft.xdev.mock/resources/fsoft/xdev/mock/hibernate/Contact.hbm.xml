@@ -7,7 +7,7 @@
   schema="dbo" table="Contact">
   <id name="contactId" type="int">
    <column name="ContactID"/>
-   <generator class="assigned"/>
+   <generator class="identity"/>
   </id>
   <many-to-one class="fsoft.xdev.mock.models.ReferenceData"
    fetch="select" name="referenceDataByBestContactMethod">
