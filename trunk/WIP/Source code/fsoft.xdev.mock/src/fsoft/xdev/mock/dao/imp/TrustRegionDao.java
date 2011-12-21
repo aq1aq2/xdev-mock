@@ -15,7 +15,7 @@ public class TrustRegionDao extends HibernateDaoSupport implements
 	@Override
 	public boolean add(TrustRegion entity) {
 		try {
-			getHibernateTemplate().saveOrUpdate(entity);
+			getHibernateTemplate().save(entity);
 			return true;
 		} catch (Exception ex) {
 			return false;

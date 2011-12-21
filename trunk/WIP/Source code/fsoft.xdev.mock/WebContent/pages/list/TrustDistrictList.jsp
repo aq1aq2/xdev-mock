@@ -2,12 +2,7 @@
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 
 <title>Trust Region</title>
-<script type="text/javascript">
-        function formatLink(cellvalue, options, rowObject) {
-                return "<a href='detailTrustDistrict.action?trustDistrict.trustDistrictId="+rowObject['trustDistrictId']+"'>" + cellvalue + "</a>";
-        }   
-       
-</script>
+
 
 <script>
 	$(document).ready(function(){
@@ -51,7 +46,7 @@
 	rownumbers="true"
 >
 	<sjg:gridColumn name="trustDistrictId" index="trustDistrictId" title="ID" hidden="true"/>
-	<sjg:gridColumn name="name" index="name" title="Name" sortable="true" formatter="formatLink"/>
+	<sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
 	<sjg:gridColumn name="description" index="description" title="Descripstion" sortable="false"/>
 	<sjg:gridColumn name="trustRegionName" index="trustRegionName" title="Region Name" sortable="true"/>
 	<sjg:gridColumn name="status" index="status" title="IsActived" sortable="true"/>	        
