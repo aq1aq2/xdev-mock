@@ -28,7 +28,7 @@
 					<s:select list="{'Contact','Punding'}" name="listSubType" label="Syb Type"></s:select>
 					<s:textfield name="deptCode" id="deptCode" label="Dept Code"> </s:textfield>
 					<s:textfield label="Lead Contact" name="leadContact" readonly="true"></s:textfield>
-					<s:select list="{'sadf','adfdasf'}" name="serviceAttendance" label="Service Attendance"></s:select>
+<%-- 					<s:select list="{'sadf','adfdasf'}" name="serviceAttendance" label="Service Attendance"></s:select> --%>
 		<%-- 			<sj:datepicker id="date1" label="Service Started Expected" name="serviceStartedExpected" displayFormat="dd/mm/yy"></sj:datepicker> --%>
 					<sj:datepicker id="date1" label="Service Started Expected" name="serviceStartedExpected" displayFormat="dd/mm/yy"></sj:datepicker>
 					<sj:datepicker id="date2" label="Service Start Date" name="serviceStartDate" displayFormat="dd/mm/yy"></sj:datepicker>
@@ -44,7 +44,7 @@
 					<s:textfield id="serviceContractCode" name="serviceContractCode" label="Service Contract Code"></s:textfield>
 					<s:textfield id="serviceContractValue" name="serviceContractValue" label="Service Contract Value"></s:textfield>
 					<sj:submit id="contractStagedPayment" name="contractStagedPayment" label="ContractStagedPayment" button="true"></sj:submit>
-					<s:select list="{'dsafsda','asdfsda'}" id="referralProcessMethod" name="referralProcessMethod" label="Referral Process/Method"></s:select>
+<%-- 					<s:select list="{'dsafsda','asdfsda'}" id="referralProcessMethod" name="referralProcessMethod" label="Referral Process/Method"></s:select> --%>
 					<sj:submit id="serviceTimeLimited" name="serviceTimeLimited" label="Service Time Limited" value=""></sj:submit>
 					<sj:spinner name="spinner4" id="spinner4" min="5" max="50" step="1" value="25" size="5" label="Years"/>
 					<sj:spinner name="spinner5" id="spinner5" min="0" max="12" step="1" value="6" size="5" label="Month"/>				
