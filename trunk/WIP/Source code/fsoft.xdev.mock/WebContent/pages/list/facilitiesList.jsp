@@ -42,6 +42,12 @@ $(document).ready(function(){
 		filterActive = $(this).is(":checked");
 		sendFilterOptions();
 	});
+	// click create button
+	
+	$("#createBtn").click(function(){
+		window.location.href = "detailFacilities.action";
+	});
+	
 });
 
 </script>

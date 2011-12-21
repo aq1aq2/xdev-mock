@@ -24,13 +24,107 @@
 				$("#roomEquipmentNotes").attr("disabled", "true");
 			}
 			else {
+				
 				// alert("enable textarea");
 				$("#roomEquipmentNotes").removeAttr("disabled");
 			}
 		});
 		
 		
+		// select event
+		$("#FacilityType").change(function(){
+				alert('vao day khong');
+				if ($(this).val() == 'Room'){
+					
+					alert($(this).val());
+					$("#roomCapacity").attr("disabled", "true");
+					$("#roomSize").attr("disabled", "true");
+					$("#roomEquipmentNotes").attr("disabled", "true");
+					$("#roomConnectivity").attr("disabled", "true");
+					$("#equipmentAvailable").attr("disabled", "true");
+					
+				}
+				else if($(this).val() == 'Internet Access') {
+					
+					$("#connectivityType").attr("disabled", "false");
+				}
+				else {
+					$("#connectivityType").removeAttr("disabled");
+				}
 	});
+		
+		
+		/* Back event */
+		$("#backBtn").click(function(){
+			window.history.back();
+		});
+		
+		/* Save event */
+		$("#saveBtn").click(function(){
+			var query = "";
+			var forms = $("form");
+			$.each(forms, function(){
+				// Read id of each form in xForms
+				// this implicit an element in the array
+				// Searialize data in each form
+				var str = $(this).serialize();
+				// Concat query string. MUST ADD & symbol !
+				query = query + str + "&";
+			});			
+			query = query.substring(0, query.length-1);
+			// Get json
+			$.getJSON("saveFacilities.action?" + query,
+				function(data) {
+					// Do nothing
+				}
+			);
+		});
+		
+		
+		/*
+		 * Dialog events
+		 */
+		
+		/* Lead contact lookup event */
+		$("#leadContact_lookupBtn").click(function(){
+			$("#listDialogContent").load("../lookup/contactList.jsp",
+				function(response){ // Function execute after load complete
+					/* Dialog None button */
+					$("#noneBtn").click(function(){
+						//$(":input[name*='contact.managerId']").val("");
+						
+						$("#leadContact").val("");
+						$( "#listDialog" ).dialog( "close" );
+						
+						// Clear dialog content to ensure no confict with other lookup
+						$("#listDialogContent").empty();
+					});
+					/* Dialog Close button */
+					$("#closeBtn").click(function(){
+						$( "#listDialog" ).dialog( "close" );
+						
+						// Clear dialog content to ensure no confict with other lookup
+						$("#listDialogContent").empty();
+					});
+					/* Dialog Select button */
+					$("#selectBtn").click(function(){
+						var leadContactId = $(":input[name*='gridSelectedRow']").val();
+						//$(":input[name*='contact.managerId']").val(managerId);
+							$("#leadContact").val(leadContactId);
+						$( "#listDialog" ).dialog( "close" );
+						
+						// Clear dialog content to ensure no confict with other lookup
+						$("#listDialogContent").empty();
+					});
+				}
+			);
+			
+			$( "#listDialog" ).dialog( "open" );
+		});
+		
+
+	});
+
 
 //-->
 
@@ -38,14 +132,32 @@
 <!-- body -->
 	<div>
 	<s:form cssClass="xdev-form" name="facilitiesForm">
-			<s:select list="{}" label="Facility Type"></s:select>
+			<s:select id="FacilityType" name="facility.referenceDataByFacilityType.referenceDataId" list="listFacilitiesType" label="Facility Type" listKey ="referenceDataId" listValue="type" key ="referenceDataId" required="true"></s:select>
+			<xdev:textLookup name="facility.contactByContactId.contactId" id="leadContact" label="Lead Contact" disabled="true"/>
+			
+			<!-- 
 			<s:textfield name="contacts.firstName" label="Lead Contact"></s:textfield>
-			<s:textarea name="facilityDescription" label="Facility Description" cols="12" rows="3"></s:textarea>
-			<s:textfield name="roomCapacity" label="Room Capacity"></s:textfield>
-			<s:checkbox  id="equipmentAvailable" name="equipmentAvailable" label="Equipment Available"></s:checkbox>
-			<s:textfield name="roomSize" label="Room Size"></s:textfield>
-			<s:textarea id="roomEquipmentNotes" name="roomEquipmentNotes" label="Room & Equipment Notes" ></s:textarea>
-			<s:checkbox name="roomConnectivity" label="Room Connectivity" checked="true"></s:checkbox>
-			<s:textarea name="wirelessAccessInfomation" label="Wireless Access Infomation" ></s:textarea>
+			 -->
+			<s:textarea name="facility.facilityDescription" label="Facility Description" cols="12" rows="3"></s:textarea>
+			<s:textfield id="roomCapacity" name="facility.roomCapacity" label="Room Capacity"></s:textfield>
+			<s:checkbox  id="equipmentAvailable" name="facility.equipmentAvailable" label="Equipment Available" labelposition="left"></s:checkbox>
+			<s:textfield id="roomSize" name="facility.roomSize" label="Room Size"></s:textfield>
+			<s:textarea id="roomEquipmentNotes" name="facility.roomEquipmentNotes" label="Room & Equipment Notes" ></s:textarea>
+			<s:checkbox id="roomConnectivity" name="facility.roomConnectivity" label="Room Connectivity" checked="true" labelposition="left"></s:checkbox>
+			<s:select id="connectivityType" name="facility.referenceDataByConnectivityType.referenceDataId" list="listConnectivityType" label="Connectivity Type" listKey="referenceDataId" key="referenceDataId" listValue="type"></s:select>
+			<s:textarea name="facility.wirelessAccessInfomation" label="Wireless Access Infomation" ></s:textarea>
 	</s:form>
 	</div>
+	
+<!-- Lookup Dialog -->
+<sj:dialog 
+   	id="listDialog" 
+   	autoOpen="false" 
+   	modal="true" 
+   	title="Contact List"
+   	width="965"
+   	height="650"
+>
+	<div id="listDialogContent"></div>
+</sj:dialog>
+	
