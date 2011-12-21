@@ -6,8 +6,10 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.IFacilityDao;
+import fsoft.xdev.mock.dao.IReferenceDataDao;
 import fsoft.xdev.mock.models.Facility;
 import fsoft.xdev.mock.models.FacilityList;
+import fsoft.xdev.mock.models.ReferenceDataList;
 
 public class FacilitiesAction extends ActionSupport {
 	/**
@@ -16,7 +18,11 @@ public class FacilitiesAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private Facility facility;
 	private IFacilityDao facilitiesDao;
+	private IReferenceDataDao referenceDataDao;
 	List<FacilityList> listFacilities = new ArrayList<FacilityList>();
+	
+	List<ReferenceDataList> listFacilitiesType = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listConnectivityType = new ArrayList<ReferenceDataList>();
 	private String filterKey;
 	private boolean filterActive;
 	
@@ -66,9 +72,23 @@ public class FacilitiesAction extends ActionSupport {
 		}
 	  
 	  public String detail(){
+		  
+		  listFacilitiesType = referenceDataDao.getFacilityType();
+		  listConnectivityType = referenceDataDao.getConnectivityType();
+		  for (ReferenceDataList c:listFacilitiesType){
+			  System.out.println(c.getType());
+		  }
+		  for (ReferenceDataList d:listConnectivityType){
+			  System.out.println(d.getType());
+		  }
 		  return "detail";
 	  }
 	  
+
+	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {
+		this.referenceDataDao = referenceDataDao;
+	}
+
 	public Facility getFacility() {
 		return facility;
 	}
@@ -153,5 +173,22 @@ public class FacilitiesAction extends ActionSupport {
 	public void setFilterActive(boolean filterActive) {
 		this.filterActive = filterActive;
 	}
+
+	public List<ReferenceDataList> getListFacilitiesType() {
+		return listFacilitiesType;
+	}
+
+	public void setListFacilitiesType(List<ReferenceDataList> listFacilitiesType) {
+		this.listFacilitiesType = listFacilitiesType;
+	}
+
+	public List<ReferenceDataList> getListConnectivityType() {
+		return listConnectivityType;
+	}
+
+	public void setListConnectivityType(List<ReferenceDataList> listConnectivityType) {
+		this.listConnectivityType = listConnectivityType;
+	}
+	
 	  
 }
