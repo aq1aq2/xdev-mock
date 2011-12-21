@@ -25,7 +25,8 @@
 					<s:checkbox label="Service Active" name="serviceActive" id="serviceActive" labelposition="left"></s:checkbox>
 					<s:textarea label="Service Short Description" name="serviceShortDescripstion" id="serviceShortDescripstion" required="true"></s:textarea>
 					<s:textarea name="serviceFullDescription" id="serviceFullDescription" label="Service Full Description"></s:textarea>
-					<s:select list="{'Contact','Punding'}" name="listSubType" label="Syb Type"></s:select>
+					
+					<s:select list="listSubType" name="service.referenceDataByServiceSubType.referenceDataId" label="Sub Type" listValue="type" listKey ="referenceDataId" key ="referenceDataId" required="true"></s:select>
 					<s:textfield name="deptCode" id="deptCode" label="Dept Code"> </s:textfield>
 					<s:textfield label="Lead Contact" name="leadContact" readonly="true"></s:textfield>
 <%-- 					<s:select list="{'sadf','adfdasf'}" name="serviceAttendance" label="Service Attendance"></s:select> --%>
@@ -39,7 +40,7 @@
 					
 					
 					
-					<s:select list="{'asdfasdf','asdfsd'}" label="Service Type" name="listServiceType" id="listServiceType"></s:select>
+					<s:select list="listServiceType" label="Service Type" name="service.referenceDataByServiceType.referenceDataId" id="listServiceType" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:select>
 					<s:textfield id="serviceDescriptionDelivery" name="serviceDe"></s:textfield>
 					<s:textfield id="serviceContractCode" name="serviceContractCode" label="Service Contract Code"></s:textfield>
 					<s:textfield id="serviceContractValue" name="serviceContractValue" label="Service Contract Value"></s:textfield>
