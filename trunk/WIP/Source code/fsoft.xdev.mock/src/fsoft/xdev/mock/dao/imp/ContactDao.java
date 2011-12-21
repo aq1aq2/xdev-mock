@@ -14,8 +14,12 @@ public class ContactDao extends HibernateDaoSupport implements IContactDao{
 
 	@Override
 	public boolean addOrUpdate(Object entity) {
-		getHibernateTemplate().saveOrUpdate(entity);
-		return false;
+		try {
+			getHibernateTemplate().saveOrUpdate(entity);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 	
 	@Override
