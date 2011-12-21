@@ -20,6 +20,9 @@
  * under the License.
  */
 -->
+
+<div class="checkbox-list">
+
 <#assign itemCount = 0/>
 <#if parameters.list??>
  
@@ -62,3 +65,4 @@
  disabled="disabled"<#rt/>
 </#if>
  /> 
+ </div>

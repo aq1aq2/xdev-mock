@@ -120,7 +120,7 @@ h1.xdev-section-title {
 	color: green;
 }
 
-div.scroll {
+div.checkbox-list {
 	height: 100px;
 	width: 250px;
 	overflow-y:scroll;
