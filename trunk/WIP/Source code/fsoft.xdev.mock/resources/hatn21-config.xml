@@ -9,7 +9,8 @@
     		<result name="list" type="json">
     			<param name="excludeProperties">trustRegion,listCountry</param>
     		</result> 
-    		<result name="save" >/pages/list/TrustRegionList.jsp</result>  
+    		<result name="add" >/pages/list/TrustRegionList.jsp</result>
+    		<result name="update" >/pages/list/TrustRegionList.jsp</result>  
     		<result name="input">/pages/input/TrustRegionInput.jsp</result>    		    	   		     		
     	</action> 
     				

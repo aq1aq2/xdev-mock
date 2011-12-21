@@ -23,7 +23,7 @@ public class TrustRegionsAction extends ActionSupport {
 	private ICountryDao countryDao;
 	private String filterKey;
 	private Boolean filterActive;
-	private Boolean add;	
+	private Boolean mode;	
 	
 	// get how many rows we want to have into the grid - rowNum attribute in the
 	// grid
@@ -140,12 +140,12 @@ public class TrustRegionsAction extends ActionSupport {
 		this.countryDao = countryDao;
 	}
 
-	public Boolean getAdd() {
-		return add;
+	public Boolean getMode() {
+		return mode;
 	}
 
-	public void setAdd(Boolean add) {
-		this.add = add;
+	public void setMode(Boolean mode) {
+		this.mode = mode;
 	}
 	// list all trust region
 	public String list() {
@@ -161,22 +161,29 @@ public class TrustRegionsAction extends ActionSupport {
 	}
 
 	// save trust region into database
-	public String save() {		
+	public String add() {		
+		trustRegion.setStatus(false);
 		trustRegionDao.add(trustRegion);
-		return "save";
+		return "add";
 	}
 
+	public String edit() {		
+		System.out.println("from action" + trustRegion.getName());
+		System.out.println("from action" + trustRegion.getDescription());
+		trustRegionDao.edit(trustRegion);
+		return "edit";
+	}
 	public String execute(){	
 		trustRegion = new TrustRegion();
 		listCountry = countryDao.findAll();	
-		add = true;
+		mode = true;
 		return "input";
 	}
 	// find trust region by ID
 	public String detail() {
 		trustRegion = trustRegionDao.find(trustRegion);		
 		listCountry = countryDao.findAll();
-		add = false;
+		mode = false;
 		return "input";
 	}
 }

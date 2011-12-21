@@ -9,6 +9,8 @@
 <script>
 	$(document).ready(function(){		
 		/* Save event */
+		var mode = $('#mode').val();
+		
 		$("#saveBtn").click(function(){
 			var query = "";
 			var forms = $("form");
@@ -20,14 +22,24 @@
 				// Concat query string. MUST ADD & symbol !
 				query = query + str + "&";
 			});			
-			query = query.substring(0, query.length-1);
-			alert(query);
-			// Get json
-			$.getJSON("saveTrustRegion.action?" + query,
-				function(data) {
-					// Do nothing
-				}
-			);
+			query = query.substring(0, query.length-1);			
+			// Get json		
+			// if update
+			if(mode == 'true'){				
+				$.getJSON("addTrustRegion.action?" + query,
+					function(data) {
+						// Do nothing
+					}
+				);
+			}
+			else {
+				alert("update ne");
+				$.getJSON("editTrustRegion.action?" + query,
+						function(data) {
+							// Do nothing
+						}
+					);
+			}
 		});	
 		$("#backBtn").click(function(){
 			window.history.back();
@@ -42,8 +54,10 @@
 	<sj:tab id="tab2" target="listTrustDistrict" label="Trust District"/>
 	
 		<div id="details1" >
-			<s:form cssClass="xdev-form" id="trustRegion">			
+			<s:form cssClass="xdev-form" id="trustRegion">
+				<s:hidden id="mode" name ="mode"/>			
 				<s:hidden name ="trustRegion.trustRegionId"/>
+				<s:hidden name ="trustRegion.status"/>
 				<s:select  name="trustRegion.country.countryId" list ="listCountry" label="Nation/Country " required="true" listKey="countryId" listValue="countryName" key ="countryId"></s:select>				
 				<s:textfield name ="trustRegion.name" label="Trust Region Name" required="true"></s:textfield>
 				<s:textarea name="trustRegion.description" label="Description"></s:textarea>		
