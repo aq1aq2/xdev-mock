@@ -9,7 +9,9 @@
     	<action name="*Contact" method="{1}" class="contactAction">
     		<result name="success" ></result>
     		
-    		<result name="list" type="json"></result>
+    		<result name="list" type="json">
+    			<param name="excludeProperties">contact,listContactType,listBestContactMethod</param>
+    		</result>
     		<result name="input">/pages/input/contactInput.jsp</result>
     		<result name="save" type="json"></result> 
     	</action>

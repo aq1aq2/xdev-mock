@@ -26,7 +26,8 @@
 			// Get json
 			$.getJSON("saveContact.action?" + query,
 				function(data) {
-					// Do nothing
+					alert("Save successful");
+					alert(data);
 				}
 			);
 		});
