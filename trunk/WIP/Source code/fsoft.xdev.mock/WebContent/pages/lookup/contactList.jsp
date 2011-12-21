@@ -7,7 +7,7 @@
 
 <script>
 	$(document).ready(function(){
-		/* 
+		/* -------------------
 		 * Filter click events 
 		 */
 		var filterFirstName = "";
@@ -46,7 +46,7 @@
 			sendFilterOptions();
 		});
 		
-		/*
+		/* -------------
 		 * Button events
 		 */
 		 
@@ -55,19 +55,16 @@
 			window.location.href = "inputContact.action";
 		});
 		
-		/*
+		/* Edit */
+		$("#editBtn").click(function(){
+			var contactId = $(":input[name*='gridSelectedRow']").val();
+	        window.location.href = "inputContact.action?selectedContactId=" + contactId;
+		});
+		
+		/* -----------
 		 * Grid events
 		 */
 		$.subscribe("onRowSelected", 
-			function(event, data) {
-		        // Get status of the record
-		        var grid = event.originalEvent.grid;
-		        var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
-		        var contactId = grid.jqGrid('getCell', selectedRowId, 'contactId');
-		        $(":input[name*='gridSelectedRow']").val(contactId);
-	        }
-		);
-		$.subscribe("onRowDblClick", 
 			function(event, data) {
 		        // Get status of the record
 		        var grid = event.originalEvent.grid;
@@ -147,6 +144,10 @@
 		<sj:a id="selectBtn" 
 			button="true"
 		>Select</sj:a>
+		
+		<sj:a id="editBtn" 
+			button="true"
+		>Edit</sj:a>
 		
 		<sj:a id="closeBtn" 
 			button="true" 

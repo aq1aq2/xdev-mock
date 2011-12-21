@@ -14,12 +14,16 @@ import fsoft.xdev.mock.models.ReferenceDataList;
 public class ContactAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	
-	private Contact contact;
 	private IContactDao contactDao;
 	private IReferenceDataDao referenceDataDao;
-	private List listModel;
+	
+	private Contact contact; // For detail / amend contact
+	private List listModel;  // For list contact
+	private int selectedContactId=-1; // For amend selected contact
+	
 	private List<ReferenceDataList> listContactType;
 	private List<ReferenceDataList> listBestContactMethod;
+	
 	private String filterFirstName = ""; // Filter by first name
 	private String filterSurname = ""; // Filter by surname
 	private boolean filterActive; // Filter by active
@@ -67,7 +71,14 @@ public class ContactAction extends ActionSupport {
 	 * @return action returns Contact Input JSP page
 	 */
 	public String input() {
-		System.out.println("Action: Contact Input");		
+		System.out.println("Action: Contact Input");
+		
+		/* Select contact to amend */
+		if (selectedContactId > -1) {
+			contact = contactDao.find(new Contact(selectedContactId));
+			selectedContactId = -1; //Reset selectedContactId
+		}
+		
 		listContactType = referenceDataDao.getContactType();
 		listBestContactMethod = referenceDataDao.getBestContactMethod();
 		return "input";
@@ -80,7 +91,7 @@ public class ContactAction extends ActionSupport {
 	public String save() {
 		System.out.println("Action: save contact");
 		System.out.println("Contact name: " + contact.getFirstName());
-		contactDao.add(contact);
+		contactDao.addOrUpdate(contact);
 		return "save";
 	}
 	
@@ -188,6 +199,14 @@ public class ContactAction extends ActionSupport {
 		this.listModel = listModel;
 	}
 	
+	public int getSelectedContactId() {
+		return selectedContactId;
+	}
+
+	public void setSelectedContactId(int selectedContactId) {
+		this.selectedContactId = selectedContactId;
+	}
+
 	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {
 		this.referenceDataDao = referenceDataDao;
 	}
