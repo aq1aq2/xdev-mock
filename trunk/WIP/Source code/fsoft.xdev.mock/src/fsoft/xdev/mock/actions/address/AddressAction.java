@@ -10,7 +10,7 @@ public class AddressAction extends ActionSupport {
 	
 	private IAddressDao addressDao;
 	
-	private List listModel;  // For list contact
+	private List listModel;  // For list addresses
 	
 	private String filterPostcode = ""; // Filter by postcode
 	private String filterStreet = ""; // Filter by street
