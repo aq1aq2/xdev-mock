@@ -136,5 +136,10 @@ public class GovOfficeRegionsAction extends ActionSupport {
 		return "list";
 	
 	}
+	public String detail(){
+		System.out.println("ID "+ govOfficeRegion.getGovOfficeRegionId());
+		govOfficeRegion = govOfficeRegionDao.find(govOfficeRegion);
+		return "input";
+	}
 
 }

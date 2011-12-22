@@ -26,13 +26,15 @@
 			sendFilterOptions();
 		});
 		
-		$("#includeChkBx").click(function(){
-			filterActive = $(this).is(":checked");
-			sendFilterOptions();
-		});
+		
 		
 		$("#createBtn").click(function(){			
 			window.location.href="executeTrustRegion.action";
+		});
+		$("#includeChkBx").click(function(){
+			// Test
+			filterActive = $(this).is(":checked");		
+			sendFilterOptions();
 		});
 		
 		$.subscribe("rowSelect", function(event, data) {	       

@@ -9,19 +9,26 @@
     		<result name="list" type="json">
     			<param name="excludeProperties">trustRegion,listCountry</param>
     		</result> 
-    		<result name="add" >/pages/list/TrustRegionList.jsp</result>
+    		<result name="add" ></result>
     		<result name="update" >/pages/list/TrustRegionList.jsp</result>  
     		<result name="input">/pages/input/TrustRegionInput.jsp</result>    		    	   		     		
     	</action> 
     				
-    	<action name="*TrustDistrict" method ="{1}" class="trustDistrictAction">
-    		<result name="list" type="json"></result> 
-    		<result name="add"></result>
-    		<result name="detail">/pages/input/TrustDistrictInput.jsp</result>       		 		
+    	<action name="*TrustDistrict" method ="{1}" class="trustDistrictAction">    		
+    		<result name="list" type="json">
+    			<param name="excludeProperties">trustDistrict</param>
+    		</result>     		  
+    		<result name="add" ></result>
+    		<result name="update" >/pages/input/TrustDistrictInput.jsp</result>  
+    		<result name="input">/pages/input/TrustDistrictInput.jsp</result>      		 		
     	</action>
     			  	   		             	
     	<action name="*GovOfficeRegion" method ="{1}" class="govOfficeRegionAction">
-    		<result name="list" type="json"></result>     		
+    		<result name="list" type="json">
+    			<param name="excludeProperties">govOfficeRegion</param>
+    		</result> 
+    		<result name="input">/pages/input/govOfficeInput.jsp</result> 
+    		    		
     	</action> 
     	
     	<action name="*BusinessType" method ="{1}" class="fsoft.xdev.mock.actions.test.businesslookup.TestBusinessTypeAction">

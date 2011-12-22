@@ -25,10 +25,28 @@
 			sendFilterOptions();
 		});
 		
+		
+		$("#createBtn").click(function(){			
+			window.location.href="executeTrustDistrict.action";
+		});
+		
+		$.subscribe("rowSelect", function(event, data) {	       
+	        // Get id of the record
+	        var grid = event.originalEvent.grid;
+	        var selectedRowId = grid.jqGrid('getGridParam', 'selrow'); 
+	        var id = grid.jqGrid('getCell', selectedRowId, 'trustDistrictId');
+	        // call detail action 
+	        query="trustDistrict.trustDistrictId="+id;
+	        window.location.href = "detailTrustDistrict.action?" + query;
+	        
+		});
 		$("#includeChkBx").click(function(){
-			filterActive = $(this).is(":checked");
+			// Test
+			filterActive = $(this).is(":checked");		
 			sendFilterOptions();
 		});
+
+		
 	});
 </script>
 
@@ -44,6 +62,7 @@
 	pager="true"
 	rowNum="15"
 	rownumbers="true"
+	onSelectRowTopics="rowSelect"
 >
 	<sjg:gridColumn name="trustDistrictId" index="trustDistrictId" title="ID" hidden="true"/>
 	<sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
