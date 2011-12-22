@@ -54,12 +54,14 @@ $(document).ready(function(){
 		//formate datepicker
 		//var date = $("#startDate").val();
 		var date = $("#startDate").datepicker('getDate');
-		alert(date);
+		//alert(date);
 		//var date = ($("#startDate").datepicker({dateFormat: 'yy-mm-dd'})).val();
 		//$("#startDate").datepicker({dateFormat: 'yy-mm-dd'});
-		//$("#startDate").datepicker("option","dateFormat",'yy-mm-dd');
+		//$("#startDate").datepicker("option","dateFormat",$(this).val());
 		//var startDate =$("#startDate").datepicker("option","dateFormat");
-		var startDate = $("#startDate").val($("#startDate").formatDate('yy-mm-dd',date));
+		//var startDate = $("#startDate").val($("#startDate").formatDate('yy-mm-dd',date));
+		$("#startDate").datepicker("option","dateFormat",$(this).val())
+		var startDate = $("#startDate").val();
 		alert(startDate);
 		
 		$("#startDate").datepicker({dateFormat: 'yy-mm-dd'});
