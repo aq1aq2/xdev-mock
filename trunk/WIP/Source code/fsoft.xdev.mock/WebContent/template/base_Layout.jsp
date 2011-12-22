@@ -11,7 +11,6 @@
 		<title><dec:title default="Welcome" /></title>
 		<link rel="stylesheet" href="../../css/xdev.css" type="text/css" media="all" />
         <sj:head jqueryui="true" jquerytheme="smoothness"/>
-        <script src="../../js/xScript.js"></script>
 </head>
 
 <body style="margin-top: 0; margin-bottom: 0; padding: 0">

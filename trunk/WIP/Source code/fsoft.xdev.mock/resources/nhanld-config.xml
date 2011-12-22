@@ -6,6 +6,16 @@
     <!-- Configuration Information Created by NhanLD -->
     <package name="nhanld" extends="struts-default,json-default">
     
+    	<action name="*Nav" method="{1}" class="fsoft.xdev.mock.actions.NavigateAction">
+    		<result name="home">/pages/Home.jsp</result>
+    		<result name="org">/pages/list/organisationList.jsp</result>
+    		<result name="service">/pages/list/serviceList.jsp</result>
+    		<result name="programme">/pages/list/programmeList.jsp</result>
+    		<result name="region">/pages/list/TrustRegionList.jsp</result>
+    		<result name="gov">/pages/list/govOfficeList.jsp</result>
+    		<result name="premise">/pages/list/premiseList.jsp</result>
+    	</action>
+    	 
     	<action name="*Login" method="{1}" class="loginAction">
     		<result name="in">/pages/Home.jsp</result>
     		<result name="out">/pages/Login.jsp</result>
