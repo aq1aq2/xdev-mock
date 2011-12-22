@@ -26,7 +26,7 @@ public interface BaseDao<E> {
      * @param entity
      * @return
      */
-    boolean remove(E entity);
+	boolean remove(E entity);
 
     /**
      * Find one entity 

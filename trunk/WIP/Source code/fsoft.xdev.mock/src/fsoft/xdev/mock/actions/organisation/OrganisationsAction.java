@@ -84,6 +84,7 @@ public class OrganisationsAction extends ActionSupport{
 	public String update() {
 		XDebugger.show("Organisation said: update method");
 		XDebugger.show("Status: " + organisation.getStatus());
+		XDebugger.show("Have Id ???: " + organisation.getOrganisationId());
 		XDebugger.show("Name: " + organisation.getName());
 		organisationDao.edit(organisation);
 		return "update";

@@ -3,7 +3,8 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Dec 16, 2011 11:06:43 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="fsoft.xdev.mock.models.Organisation" table="Organisation" schema="dbo" catalog="XDevMock">
+    <class name="fsoft.xdev.mock.models.Organisation" table="Organisation" schema="dbo" catalog="XDevMock"
+    			dynamic-update="false" >
         <id name="organisationId" type="int">
             <column name="OrganisationID" />
             <generator class="identity" />
