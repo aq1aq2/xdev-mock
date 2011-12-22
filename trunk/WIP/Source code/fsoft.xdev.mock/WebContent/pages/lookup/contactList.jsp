@@ -123,7 +123,6 @@
         rowNum="10"
 		rownumbers="true"
 		onSelectRowTopics="onRowSelected"
-		onDblClickRowTopics="onRowDblClick"
 	>
 		<sjg:gridColumn name="contactId" index="contactId" title="ID" hidden="true"/>
 		<sjg:gridColumn name="name" index="name" title="Contact Name" sortable="true" 
