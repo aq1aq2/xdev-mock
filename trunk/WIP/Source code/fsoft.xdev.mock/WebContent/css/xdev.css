@@ -14,6 +14,17 @@ div.xdev-sign {
 	text-align: center;
 }
 
+div.xdev-account {
+	padding: 5px 5px 10px 10px;
+	background: url(../images/xmock_stretch_green.gif) repeat-x;
+	font: 15px bold Verdana, Arial, Helvetica, sans-serif;
+	color: white;
+}
+div.xdev-account > a {
+	margin-left: 10px;
+	color: green;
+}
+
 /*************************************/
 /************** Menu *****************/
 /*************************************/
