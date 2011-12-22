@@ -52,7 +52,7 @@ $(document).ready(function(){
         query += '&';
         query += "mode =" + facilityId;
         window.location.href = "detailFacilities.action?" + query;
-});
+    });
 	
 });
 

@@ -15,7 +15,7 @@ public class FacilityDao extends HibernateDaoSupport implements IFacilityDao{
 	@Override
 	public boolean add(Facility entity) {
 		try {
-			getHibernateTemplate().save(entity);
+			getHibernateTemplate().saveOrUpdate(entity);
 			return true;
 		} catch (Exception e) {
 			return false;

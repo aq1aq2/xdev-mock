@@ -3,7 +3,7 @@
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
-<title> Premise Input</title>
+<title> Facility Input</title>
 
 
 <script type="text/javascript">
@@ -71,12 +71,8 @@
 				query = query + str + "&";
 			});			
 			query = query.substring(0, query.length-1);
-			// Get json
-			$.getJSON("saveFacilities.action?" + query,
-				function(data) {
-					// Do nothing
-				}
-			);
+			//send action save
+			window.location.href = "saveFacilities.action?" + query;
 		});
 		
 		
@@ -131,8 +127,10 @@
 <!-- body -->
 	<div>
 	<s:form cssClass="xdev-form" name="facilitiesForm" id="facility">
-			
+			<!--  
 			<s:textfield name="facility.facilityId" label="FacilityID"></s:textfield>
+			-->
+			<s:hidden name="facility.facilityId"></s:hidden>
 			<s:select id="FacilityType" name="facility.referenceDataByFacilityType.referenceDataId" list="listFacilitiesType" label="Facility Type" listKey ="referenceDataId" listValue="type" key ="referenceDataId" required="true"></s:select>
 			<xdev:textLookup name="facility.contactByContactId.contactId" id="leadContact" label="Lead Contact" />
 			
@@ -158,7 +156,7 @@
    	title="Contact List"
    	width="965"
    	height="650"
->
+>          
 	<div id="listDialogContent"></div>
 </sj:dialog>
 	

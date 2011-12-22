@@ -7,6 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import fsoft.xdev.mock.dao.IPremiseDao;
 import fsoft.xdev.mock.models.Premise;
 import fsoft.xdev.mock.models.PremiseList;
+import fsoft.xdev.mock.models.ReferenceDataList;
 
 public class PremiseAction extends ActionSupport {
 	/**
@@ -16,8 +17,10 @@ public class PremiseAction extends ActionSupport {
 	private IPremiseDao premiseDao;
 	private Premise premise;
 	private List<PremiseList> listPremises = new ArrayList<PremiseList>();
+	private List<ReferenceDataList> listLocationType = new ArrayList<ReferenceDataList>();
 	private String filterKey;
 	private boolean filterActive;
+	private int mode = -1;
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
 	  private Integer             rows             = 0;
@@ -57,6 +60,19 @@ public class PremiseAction extends ActionSupport {
 		premiseDao.add(premise);
 		System.out.println("one premise is added");
 		return "add";
+	}
+	
+	public String detail(){
+		// check save or update premise
+		if (mode > -1){
+			premise = premiseDao.find(premise);
+			setMode(-1);
+		}	else {
+			premise = null;
+		}
+		
+		
+		return "detail";
 	}
 
 	public void setPremiseDao(IPremiseDao premiseDao) {
@@ -142,6 +158,21 @@ public class PremiseAction extends ActionSupport {
 	public void setFilterActive(boolean filterActive) {
 		this.filterActive = filterActive;
 	}
-	
 
+	public int getMode() {
+		return mode;
+	}
+
+	public void setMode(int mode) {
+		this.mode = mode;
+	}
+
+	public List<ReferenceDataList> getListLocationType() {
+		return listLocationType;
+	}
+
+	public void setListLocationType(List<ReferenceDataList> listLocationType) {
+		this.listLocationType = listLocationType;
+	}
+	
 }

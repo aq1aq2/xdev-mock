@@ -29,6 +29,27 @@ $(document).ready(function(){
 		filterActive = $(this).is(":checked");
 		sendFilterOptions();
 	});
+	// click the create button
+	
+	$("#createBtn").click(function(){
+		window.location.href = "detailPremises.action?mode = -1";
+	});
+	
+	
+	$.subscribe('rowselect', function(event, data) {
+        alert('Selected Row : ' + event.originalEvent.id);
+        // Get id of the record
+        var grid = event.originalEvent.grid;
+        var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
+        var premiseId = grid.jqGrid('getCell', selectedRowId, 'premiseId');
+
+        //call detail action
+        query = "premise.premiseId=" + premiseId;
+        query += '&';
+        query += "mode =" + premiseId;
+        window.location.href = "detailPremises.action?" + query;
+    });
+	
 });
 </script>
 <!-- body -->
@@ -44,6 +65,7 @@ $(document).ready(function(){
 	        rowNum="3"
 	        rownumbers="true"
 	        navigator="true"
+	        onSelectRowTopics="rowselect"
 	        >
 			<sjg:gridColumn name="premiseId" index="premiseId" title="ID" hidden="true"/>
 			<sjg:gridColumn name="name" index="name" title="Premise Name" sortable="true"/>
