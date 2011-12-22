@@ -22,5 +22,11 @@
     		</result>
     	</action>
     	
+    	<action name="*Address" method="{1}" class="addressAction">
+    		<result name="list" type="json">
+    			<param name="excludeProperties">addressDao</param>
+    		</result>
+    	</action>
+    	
    	</package>
 </struts>

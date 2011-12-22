@@ -1,19 +1,20 @@
-package fsoft.xdev.mock.actions.typeofbusiness;
+package fsoft.xdev.mock.actions.address;
 
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import fsoft.xdev.mock.dao.ITypeOfBusinessDao;
+import fsoft.xdev.mock.dao.IAddressDao;
 
-public class TypeOfBusinessAction extends ActionSupport {
+public class AddressAction extends ActionSupport {
 	
-	private ITypeOfBusinessDao typeOfBusinessDao;
+	private IAddressDao addressDao;
 	
 	private List listModel;  // For list contact
 	
-	private String filterBusinessName = ""; // Filter by business name
-	private String filterSicCode = ""; // Filter by SIC code
+	private String filterPostcode = ""; // Filter by postcode
+	private String filterStreet = ""; // Filter by street
+	private String filterTown = ""; // Filter by town
 	
 	private Integer rows = 0;
 	private Integer page = 0;
@@ -27,74 +28,123 @@ public class TypeOfBusinessAction extends ActionSupport {
 		int to = (rows * page);
 		int from = to - rows;
 
-		records = typeOfBusinessDao.count(filterBusinessName, filterSicCode);
-		listModel = typeOfBusinessDao.search(from, to, filterBusinessName, filterSicCode);
+		records = addressDao.count(filterPostcode, filterStreet, filterTown);
+		listModel = addressDao.search(from, to, filterPostcode, filterStreet, filterTown);
 		total = (int) Math.ceil((double) records / (double) rows);
 		
 		return "list";
 	}
-	
+
+
 	/*
 	 * Getters and Setters
 	 */
 	
-	public ITypeOfBusinessDao getTypeOfBusinessDao() {
-		return typeOfBusinessDao;
+	public IAddressDao getAddressDao() {
+		return addressDao;
 	}
-	public void setTypeOfBusinessDao(ITypeOfBusinessDao typeOfBusinessDao) {
-		this.typeOfBusinessDao = typeOfBusinessDao;
+
+
+	public void setAddressDao(IAddressDao addressDao) {
+		this.addressDao = addressDao;
 	}
+
+
 	public List getListModel() {
 		return listModel;
 	}
+
+
 	public void setListModel(List listModel) {
 		this.listModel = listModel;
 	}
-	public String getFilterBusinessName() {
-		return filterBusinessName;
+
+
+	public String getFilterPostcode() {
+		return filterPostcode;
 	}
-	public void setFilterBusinessName(String filterBusinessName) {
-		this.filterBusinessName = filterBusinessName;
+
+
+	public void setFilterPostcode(String filterPostcode) {
+		this.filterPostcode = filterPostcode;
 	}
-	public String getFilterSicCode() {
-		return filterSicCode;
+
+
+	public String getFilterStreet() {
+		return filterStreet;
 	}
-	public void setFilterSicCode(String filterSicCode) {
-		this.filterSicCode = filterSicCode;
+
+
+	public void setFilterStreet(String filterStreet) {
+		this.filterStreet = filterStreet;
 	}
+
+
+	public String getFilterTown() {
+		return filterTown;
+	}
+
+
+	public void setFilterTown(String filterTown) {
+		this.filterTown = filterTown;
+	}
+
+
 	public Integer getRows() {
 		return rows;
 	}
+
+
 	public void setRows(Integer rows) {
 		this.rows = rows;
 	}
+
+
 	public Integer getPage() {
 		return page;
 	}
+
+
 	public void setPage(Integer page) {
 		this.page = page;
 	}
+
+
 	public String getSord() {
 		return sord;
 	}
+
+
 	public void setSord(String sord) {
 		this.sord = sord;
 	}
+
+
 	public String getSidx() {
 		return sidx;
 	}
+
+
 	public void setSidx(String sidx) {
 		this.sidx = sidx;
 	}
+
+
 	public Integer getTotal() {
 		return total;
 	}
+
+
 	public void setTotal(Integer total) {
 		this.total = total;
 	}
+
+
 	public Integer getRecords() {
 		return records;
 	}
+
+
 	public void setRecords(Integer records) {
 		this.records = records;
 	}
