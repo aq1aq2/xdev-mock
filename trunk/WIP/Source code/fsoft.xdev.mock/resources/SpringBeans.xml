@@ -9,6 +9,8 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="config/spring/TransactionManager.xml"/>
 
 	<!-- Beans Declaration -->
+	<import resource="fsoft/xdev/mock/spring/LoginBean.xml"/>
+	
 	<import resource="fsoft/xdev/mock/spring/ContactBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/AddressBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/TypeOfBusinessBean.xml"/>

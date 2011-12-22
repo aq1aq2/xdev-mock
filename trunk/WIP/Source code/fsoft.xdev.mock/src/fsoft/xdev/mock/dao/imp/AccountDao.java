@@ -2,6 +2,7 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import fsoft.xdev.mock.dao.IAccountDao;
@@ -45,7 +46,24 @@ public class AccountDao extends HibernateDaoSupport implements IAccountDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
+	@Override
+	public boolean isAccountExist(String userName, String password) {
+		
+		if ((userName==null) || (password==null)) return false;
+		
+		userName = userName.trim();
+		password = password.trim();
+		
+		String criteria = "select count(*) from Account a where" +
+				" (a.userName like '" + userName + "')" +
+				" and (a.password like '" + password + "')";
+			
+		int count = DataAccessUtils.intResult(getHibernateTemplate().find(criteria));
+		if (count>0) 
+			return true;
+		
+		return false;
+	}
 
 }
