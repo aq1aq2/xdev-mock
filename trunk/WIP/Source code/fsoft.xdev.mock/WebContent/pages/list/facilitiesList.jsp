@@ -11,24 +11,10 @@
 </script>
 
 <script type="text/javascript">
-$.subscribe('rowselect', function(event, data) {
-        alert('Selected Row : ' + event.originalEvent.id);
-        // Get status of the record
-        var grid = event.originalEvent.grid;
-        var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
-        var facilityId = grid.jqGrid('getCell', selectedRowId, 'facilityId');
-        $(":input[name*='gridSelectedRow']").val(facilityId);
-        window.location.href = "detailFacilities.action";
-       	
-});
-</script>
-
-<script type="text/javascript">
 $(document).ready(function(){
 	/* Filter click event */
 	var filterKey = "";
 	var filterActive = false;
-	
 	function sendFilterOptions() {
 		query = "filterKey="+filterKey;
 		query += '&';
@@ -51,8 +37,22 @@ $(document).ready(function(){
 	// click create button
 	
 	$("#createBtn").click(function(){
-		window.location.href = "detailFacilities.action";
+		window.location.href = "detailFacilities.action?mode = -1";
 	});
+	
+	$.subscribe('rowselect', function(event, data) {
+        alert('Selected Row : ' + event.originalEvent.id);
+        // Get id of the record
+        var grid = event.originalEvent.grid;
+        var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
+        var facilityId = grid.jqGrid('getCell', selectedRowId, 'facilityId');
+
+        //call detail action
+        query = "facility.facilityId=" + facilityId;
+        query += '&';
+        query += "mode =" + facilityId;
+        window.location.href = "detailFacilities.action?" + query;
+});
 	
 });
 
@@ -82,3 +82,4 @@ $(document).ready(function(){
 	    </sjg:grid>
 	    
 	</s:form>
+	

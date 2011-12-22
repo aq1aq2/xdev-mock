@@ -5,7 +5,6 @@
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 <title> Premise Input</title>
 
-<s:textfield name="facility.facilityId" value="%{facility.facilityId}"></s:textfield>
 
 <script type="text/javascript">
 <!--
@@ -131,7 +130,9 @@
 </script>
 <!-- body -->
 	<div>
-	<s:form cssClass="xdev-form" name="facilitiesForm">
+	<s:form cssClass="xdev-form" name="facilitiesForm" id="facility">
+			
+			<s:textfield name="facility.facilityId" label="FacilityID"></s:textfield>
 			<s:select id="FacilityType" name="facility.referenceDataByFacilityType.referenceDataId" list="listFacilitiesType" label="Facility Type" listKey ="referenceDataId" listValue="type" key ="referenceDataId" required="true"></s:select>
 			<xdev:textLookup name="facility.contactByContactId.contactId" id="leadContact" label="Lead Contact" />
 			

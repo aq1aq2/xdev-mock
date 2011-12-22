@@ -11,7 +11,9 @@
 			<result name="add" type="json"></result>
 		</action>
 		<action name="*Facilities" method="{1}" class="facilitiesAction">
-			<result name="list" type="json"></result>
+			<result name="list" type="json">
+				<param name="excludeProperties">facility,listFacilitiesType,listConnectivityType </param>
+			</result>
 			<result name="add" type="json">/pages/input/facilitiesInput.jsp</result>
 			<result name="detail">/pages/input/facilitiesInput.jsp</result>
 		</action>
