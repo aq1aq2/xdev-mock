@@ -36,26 +36,54 @@ public class SupportingMaterialDao extends HibernateDaoSupport
 				entity.getSupportingMaterialId());
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<SupportingMaterial> findAll() {
-		return getHibernateTemplate().find("from SupportingMaterial");
+	public int count(String filterKey, Boolean filterActive) {
+		String criteria = "select count(*) from SupportingMaterial a where";
+
+		if (filterActive == null || filterActive == false) {
+			criteria = criteria + " (c.status = true) ";
+		} else {
+			criteria = criteria + " (1 = 1) ";
+		}
+			
+		return DataAccessUtils.intResult(getHibernateTemplate().find(criteria));
 	}
 
-//	@SuppressWarnings("unchecked")
-//	@Override
-//	public List<SupportingMaterial> findRange(int from, int to) {
-//		Query query = getHibernateTemplate().getSessionFactory()
-//				.getCurrentSession().createQuery("from SupportingMaterial");
-//		query.setFirstResult(from);
-//		query.setMaxResults(to - from);
-//		return (List<SupportingMaterial>) query.list();
-//	}
-
 	@Override
-	public int count() {
-		return DataAccessUtils.intResult(getHibernateTemplate().find(
-				"select count(*) from SupportingMaterial"));
+	public List findRange(int from, int to, String filterKey,
+			Boolean filterActive) {
+		String criteria = 
+				"select new fsoft.xdev.mock.models.AddressList(" +
+						"a.addressId , a.name, a.postCode, b.name, c.name, d.name) " +
+				"from Address a " +
+				"left join a.town b " +
+				"left join b.county c " +
+				"left join c.country d " +
+				"where (1=1)";
+
+		postcode = postcode.trim();
+		street = street.trim();
+		town = town.trim();
+		
+		if (postcode != null )
+			if (!"".equals(postcode)) {
+				criteria = criteria
+						+ " and  (a.postCode like '" + postcode + "')";
+			}
+		if (town != null )
+			if (!"".equals(town)) {
+				criteria = criteria
+						+ " and  (b.name like '" + town + "')";
+			}
+		
+		System.out.println(criteria);
+
+		Query query = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createQuery(criteria);
+		query.setFirstResult(from);
+		query.setMaxResults(to - from);
+		
+		return query.list();
 	}
 
 }
