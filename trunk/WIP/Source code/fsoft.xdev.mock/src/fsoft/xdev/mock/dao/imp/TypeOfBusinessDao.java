@@ -50,7 +50,7 @@ public class TypeOfBusinessDao extends HibernateDaoSupport implements ITypeOfBus
 
 	@Override
 	public int count(String businesstName, String sicCode) {
-		String criteria = "select count(*) from TypeOfBusiness c where";
+		String criteria = "select count(*) from TypeOfBusiness c where (1=1)";
 
 		businesstName = businesstName.trim();
 		sicCode = sicCode.trim();
@@ -72,8 +72,8 @@ public class TypeOfBusinessDao extends HibernateDaoSupport implements ITypeOfBus
 	public List search(int from, int to, String businesstName, String sicCode) {
 		String criteria = 
 				"select new fsoft.xdev.mock.models.TypeOfBusinessList(c.typeOfBusinessId , c.name, c.sicCode) "
-				+ "from TypeOfBusiness c"
-				+ "where";
+				+ "from TypeOfBusiness c "
+				+ "where (1=1)";
 
 		businesstName = businesstName.trim();
 		sicCode = sicCode.trim();

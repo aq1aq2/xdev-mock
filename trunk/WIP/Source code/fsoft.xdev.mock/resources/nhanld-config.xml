@@ -17,7 +17,9 @@
     	</action>
     	
     	<action name="*TypeOfBusiness" method="{1}" class="typeOfBusinessAction">
-    		<result name="list" type="json"></result>
+    		<result name="list" type="json">
+    			<param name="excludeProperties">typeOfBusinessDao</param>
+    		</result>
     	</action>
     	
    	</package>
