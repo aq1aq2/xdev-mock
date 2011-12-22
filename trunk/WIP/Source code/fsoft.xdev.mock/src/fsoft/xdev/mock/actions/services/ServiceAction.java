@@ -1,6 +1,7 @@
 package fsoft.xdev.mock.actions.services;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -69,7 +70,7 @@ public class ServiceAction extends ActionSupport{
 	String listContactOutcome_Checked; 
 	String listContactObligation_Checked; 
 
-	
+	Date dateStart;
 	
 	private String filterKey;
 	private boolean filterActive;
@@ -169,8 +170,10 @@ public class ServiceAction extends ActionSupport{
 		System.out.println(service.getClientJourney());
 		System.out.println(service.getClientOutcome());
 		System.out.println(service.getClientSupportProcess());
+		System.out.println("ngay: " +service.getServiceStart());
 		servicesDao.add(service);
-		System.out.println("Da add thanh cong!");
+		System.out.println("Chay vao day!");
+		System.out.println(dateStart);
 //		System.out.println("checkbox checked: "+listServiceBenefitsCriterion_Checked);
 //		System.out.println("checkbox checked: "+listServiceBarriersCriterion_Checked);
 //		System.out.println("checkbox checked: "+listServiceEthnicityCriterion_Checked);
@@ -626,6 +629,13 @@ public class ServiceAction extends ActionSupport{
 		this.listContactObligation_Checked = listContactObligation_Checked;
 	}
 
+	public Date getDateStart() {
+		return dateStart;
+	}
+
+	public void setDateStart(Date dateStart) {
+		this.dateStart = dateStart;
+	}	
 }
 
 

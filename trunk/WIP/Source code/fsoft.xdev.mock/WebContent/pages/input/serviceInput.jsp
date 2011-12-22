@@ -100,7 +100,7 @@ $(document).ready(function(){
 <%-- 					<s:select list="{'sadf','adfdasf'}" name="serviceAttendance" label="Service Attendance"></s:select> --%>
 		<%-- 			<sj:datepicker id="date1" label="Service Started Expected" name="serviceStartedExpected" displayFormat="dd/mm/yy"></sj:datepicker> --%>
 					<sj:datepicker id="date1" label="Service Started Expected" name="service.serviceStartExpected" displayFormat="dd/mm/yy"></sj:datepicker>
-					<sj:datepicker id="date2" label="Service Start Date" name="service.serviceStart" displayFormat="dd/mm/yy"></sj:datepicker>
+					<sj:datepicker id="dateStartService" label="Service Start Date" name="dateStart" displayFormat="dd/mm/yy"></sj:datepicker>
 					<sj:datepicker id="date3" label="Service End Date" name="service.serviceEnd" displayFormat="dd/mm/yy"></sj:datepicker>
 					<sj:submit targets="formResult" name="service.serviceExtendable" label="Service Extenable" value="" button="true"></sj:submit>
 					<sj:spinner name="spinner2" id="spinner2" min="5" max="50" step="1" value="25" size="5" label="Years"/>
