@@ -25,6 +25,7 @@ public class FacilitiesAction extends ActionSupport {
 	List<ReferenceDataList> listConnectivityType = new ArrayList<ReferenceDataList>();
 	private String filterKey;
 	private boolean filterActive;
+	private int mode = -1;
 	
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
@@ -60,6 +61,7 @@ public class FacilitiesAction extends ActionSupport {
 		  System.out.println("facilities is listed");
 		  System.out.println(listFacilities.size());
 		  System.out.println("doan cuoi");
+		  //mode = -1;
 		  return "list";
 	  }
 	  
@@ -84,6 +86,12 @@ public class FacilitiesAction extends ActionSupport {
 	  
 	  public String detail(){
 		  
+		  // check insert or update
+		  if (mode > -1){
+			  facility = facilitiesDao.find(facility);
+			  setMode(-1);       
+			  }
+		  
 		  listFacilitiesType = referenceDataDao.getFacilityType();
 		  listConnectivityType = referenceDataDao.getConnectivityType();
 		  for (ReferenceDataList c:listFacilitiesType){
@@ -92,8 +100,10 @@ public class FacilitiesAction extends ActionSupport {
 		  for (ReferenceDataList d:listConnectivityType){
 			  System.out.println(d.getType());
 		  }
+		  
 		  return "detail";
 	  }
+	  
 	  
 
 	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {
@@ -200,6 +210,13 @@ public class FacilitiesAction extends ActionSupport {
 	public void setListConnectivityType(List<ReferenceDataList> listConnectivityType) {
 		this.listConnectivityType = listConnectivityType;
 	}
-	
-	  
+
+	public int getMode() {
+		return mode;
+	}
+
+	public void setMode(int mode) {
+		this.mode = mode;
+	}
+
 }
