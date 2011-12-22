@@ -29,12 +29,18 @@
     		</result> 
     		<result name="input">/pages/input/govOfficeInput.jsp</result> 
     		    		
-    	</action> 
+    	</action>     	
+    	  
     	
-    	<action name="*BusinessType" method ="{1}" class="fsoft.xdev.mock.actions.test.businesslookup.TestBusinessTypeAction">
-    		<result name="list" type="json"></result>     				
-    	</action>   
-    	
+    	<action name="*Team" method ="{1}" class="teamAction">    		
+    		<result name="list" type="json">
+    			<param name="excludeProperties">team</param>
+    		</result> 
+    		<result name="add" ></result>
+    		<result name="update" ></result>  
+    		<result name="input">/pages/input/teamInput.jsp</result>    		    	   		     		
+    			
+    	</action>  
     	
     	
     </package>
