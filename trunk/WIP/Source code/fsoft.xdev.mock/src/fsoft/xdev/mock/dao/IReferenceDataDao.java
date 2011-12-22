@@ -12,4 +12,5 @@ public interface IReferenceDataDao extends BaseDao<ReferenceData> {
 	List<ReferenceDataList> getConnectivityType();
 	List<ReferenceDataList> getServiceType();
 	List<ReferenceDataList> getSubType();
+	List<ReferenceDataList> getItem(String type);
 }

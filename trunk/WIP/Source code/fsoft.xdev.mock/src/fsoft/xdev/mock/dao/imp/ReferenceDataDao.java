@@ -92,11 +92,22 @@ public class ReferenceDataDao extends HibernateDaoSupport implements IReferenceD
 		return query.list();		
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<ReferenceDataList> getSubType() {
 		String criteria = "select new fsoft.xdev.mock.models.ReferenceDataList(c.referenceDataId, c.value) from ReferenceData c left join c.referenceType b where b.refTypeName = 'Sub Type'";
 		Query query = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createQuery(criteria);
 		return query.list();			
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ReferenceDataList> getItem(String type) {
+		// TODO Auto-generated method stub
+		String criteria = "select new fsoft.xdev.mock.models.ReferenceDataList(c.referenceDataId, c.value) from ReferenceData c left join c.referenceType b where b.refTypeName = '"+type+"'";
+		Query query = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createQuery(criteria);
+		return query.list();
 	}
 	
 }

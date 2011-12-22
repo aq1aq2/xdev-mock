@@ -22,9 +22,35 @@ public class ServiceAction extends ActionSupport{
 	private IServiceDao servicesDao;
 	private IReferenceDataDao referenceDataDao;
 	private List<ServiceList> listService = new ArrayList<ServiceList>();
-	
+
 	List<ReferenceDataList> listServiceType = new ArrayList<ReferenceDataList>();
 	List<ReferenceDataList> listSubType = new ArrayList<ReferenceDataList>();
+	
+	//seventeen listcheckbox
+	List<ReferenceDataList>	listServiceBenefitsCriterion = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList>	listServiceBarriersCriterion = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList>	listServiceEthnicityCriterion = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listServiceDisabilityCriterion = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listServicePersonalCircumstancesCriterion = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listOtherServiceParticipationCriterion = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listClientSupportProcess = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listIntervention = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listClientJourney = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listOtherServices = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listSupportCentres = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listClientOutcome = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listTargetClient = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listAccreditations = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listReferralSources = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listProgramme = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listContactOutcome = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listContactObligation = new ArrayList<ReferenceDataList>();
+	List<ReferenceDataList> listParticipation = new ArrayList<ReferenceDataList>();
+	
+	//list all Checkbox is checked
+	
+	public int[] listChecked = new int[20];
+	
 	
 	private String filterKey;
 	private boolean filterActive;
@@ -78,6 +104,26 @@ public class ServiceAction extends ActionSupport{
 		listServiceType = referenceDataDao.getServiceType();
 		listSubType = referenceDataDao.getSubType();
 		
+		listServiceBenefitsCriterion = referenceDataDao.getItem("Service Benefits Criterion");
+		listServiceBarriersCriterion = referenceDataDao.getItem("Service Barriers Criterion");
+		listServiceEthnicityCriterion = referenceDataDao.getItem("Service Ethnicity Criterion");
+		 listServiceDisabilityCriterion = referenceDataDao.getItem("Service Disability Criterion");
+		 listServicePersonalCircumstancesCriterion = referenceDataDao.getItem("Service Personal Circumstances Criterion");
+		 listOtherServiceParticipationCriterion = referenceDataDao.getItem("Other Service Participation Criterion");
+		 listClientSupportProcess = referenceDataDao.getItem("Client Support Process");
+		 listIntervention = referenceDataDao.getItem("Intervention");
+		 listClientJourney = referenceDataDao.getItem("Client Journey");
+		 listOtherServices = referenceDataDao.getItem("Other Services");
+		 listSupportCentres = referenceDataDao.getItem("Support Centres");
+		 listClientOutcome = referenceDataDao.getItem("Client Outcome");
+		 listTargetClient = referenceDataDao.getItem("Target Client");
+		 listAccreditations = referenceDataDao.getItem("Accreditations");
+		 listReferralSources = referenceDataDao.getItem("Referral Sources");
+		 listProgramme = referenceDataDao.getItem("Programme");
+		 listContactOutcome = referenceDataDao.getItem("Contact Outcome");
+		 listContactObligation = referenceDataDao.getItem("Contact Obligation");
+		 listParticipation = referenceDataDao.getItem("Participation");
+		
 		for (ReferenceDataList refer : listServiceType) {
 			System.out.println(refer.getType());
 		}
@@ -85,6 +131,14 @@ public class ServiceAction extends ActionSupport{
 		for (ReferenceDataList refer : listSubType) {
 			System.out.println(refer.getType());
 		}
+		
+		for(ReferenceDataList refer : listServiceBenefitsCriterion){
+			System.out.println( "Type: "+ refer.getType());
+			System.out.println("ID: " + refer.getReferenceDataId());
+			
+		}
+		
+		
 		return "detailService";
 	}
 	
@@ -221,6 +275,176 @@ public class ServiceAction extends ActionSupport{
 	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {
 		this.referenceDataDao = referenceDataDao;
 	}
+
+	public int[] getListChecked() {
+		return listChecked;
+	}
+
+	public void setListChecked(int[] listChecked) {
+		this.listChecked = listChecked;
+	}
+
+	public List<ReferenceDataList> getListServiceBenefitsCriterion() {
+		return listServiceBenefitsCriterion;
+	}
+
+	public void setListServiceBenefitsCriterion(
+			List<ReferenceDataList> listServiceBenefitsCriterion) {
+		this.listServiceBenefitsCriterion = listServiceBenefitsCriterion;
+	}
+
+	public List<ReferenceDataList> getListServiceBarriersCriterion() {
+		return listServiceBarriersCriterion;
+	}
+
+	public void setListServiceBarriersCriterion(
+			List<ReferenceDataList> listServiceBarriersCriterion) {
+		this.listServiceBarriersCriterion = listServiceBarriersCriterion;
+	}
+
+	public List<ReferenceDataList> getListServiceEthnicityCriterion() {
+		return listServiceEthnicityCriterion;
+	}
+
+	public void setListServiceEthnicityCriterion(
+			List<ReferenceDataList> listServiceEthnicityCriterion) {
+		this.listServiceEthnicityCriterion = listServiceEthnicityCriterion;
+	}
+
+	public List<ReferenceDataList> getListServiceDisabilityCriterion() {
+		return listServiceDisabilityCriterion;
+	}
+
+	public void setListServiceDisabilityCriterion(
+			List<ReferenceDataList> listServiceDisabilityCriterion) {
+		this.listServiceDisabilityCriterion = listServiceDisabilityCriterion;
+	}
+
+	public List<ReferenceDataList> getListServicePersonalCircumstancesCriterion() {
+		return listServicePersonalCircumstancesCriterion;
+	}
+
+	public void setListServicePersonalCircumstancesCriterion(
+			List<ReferenceDataList> listServicePersonalCircumstancesCriterion) {
+		this.listServicePersonalCircumstancesCriterion = listServicePersonalCircumstancesCriterion;
+	}
+
+	public List<ReferenceDataList> getListOtherServiceParticipationCriterion() {
+		return listOtherServiceParticipationCriterion;
+	}
+
+	public void setListOtherServiceParticipationCriterion(
+			List<ReferenceDataList> listOtherServiceParticipationCriterion) {
+		this.listOtherServiceParticipationCriterion = listOtherServiceParticipationCriterion;
+	}
+
+	public List<ReferenceDataList> getListClientSupportProcess() {
+		return listClientSupportProcess;
+	}
+
+	public void setListClientSupportProcess(
+			List<ReferenceDataList> listClientSupportProcess) {
+		this.listClientSupportProcess = listClientSupportProcess;
+	}
+
+	public List<ReferenceDataList> getListIntervention() {
+		return listIntervention;
+	}
+
+	public void setListIntervention(List<ReferenceDataList> listIntervention) {
+		this.listIntervention = listIntervention;
+	}
+
+	public List<ReferenceDataList> getListClientJourney() {
+		return listClientJourney;
+	}
+
+	public void setListClientJourney(List<ReferenceDataList> listClientJourney) {
+		this.listClientJourney = listClientJourney;
+	}
+
+	public List<ReferenceDataList> getListOtherServices() {
+		return listOtherServices;
+	}
+
+	public void setListOtherServices(List<ReferenceDataList> listOtherServices) {
+		this.listOtherServices = listOtherServices;
+	}
+
+	public List<ReferenceDataList> getListSupportCentres() {
+		return listSupportCentres;
+	}
+
+	public void setListSupportCentres(List<ReferenceDataList> listSupportCentres) {
+		this.listSupportCentres = listSupportCentres;
+	}
+
+	public List<ReferenceDataList> getListClientOutcome() {
+		return listClientOutcome;
+	}
+
+	public void setListClientOutcome(List<ReferenceDataList> listClientOutcome) {
+		this.listClientOutcome = listClientOutcome;
+	}
+
+	public List<ReferenceDataList> getListTargetClient() {
+		return listTargetClient;
+	}
+
+	public void setListTargetClient(List<ReferenceDataList> listTargetClient) {
+		this.listTargetClient = listTargetClient;
+	}
+
+	public List<ReferenceDataList> getListAccreditations() {
+		return listAccreditations;
+	}
+
+	public void setListAccreditations(List<ReferenceDataList> listAccreditations) {
+		this.listAccreditations = listAccreditations;
+	}
+
+	public List<ReferenceDataList> getListReferralSources() {
+		return listReferralSources;
+	}
+
+	public void setListReferralSources(List<ReferenceDataList> listReferralSources) {
+		this.listReferralSources = listReferralSources;
+	}
+
+	public List<ReferenceDataList> getListProgramme() {
+		return listProgramme;
+	}
+
+	public void setListProgramme(List<ReferenceDataList> listProgramme) {
+		this.listProgramme = listProgramme;
+	}
+
+	public List<ReferenceDataList> getListContactOutcome() {
+		return listContactOutcome;
+	}
+
+	public void setListContactOutcome(List<ReferenceDataList> listContactOutcome) {
+		this.listContactOutcome = listContactOutcome;
+	}
+
+	public List<ReferenceDataList> getListContactObligation() {
+		return listContactObligation;
+	}
+
+	public void setListContactObligation(
+			List<ReferenceDataList> listContactObligation) {
+		this.listContactObligation = listContactObligation;
+	}
+
+	public List<ReferenceDataList> getListParticipation() {
+		return listParticipation;
+	}
+
+	public void setListParticipation(List<ReferenceDataList> listParticipation) {
+		this.listParticipation = listParticipation;
+	}	
+	
+	
 	
 }
 
