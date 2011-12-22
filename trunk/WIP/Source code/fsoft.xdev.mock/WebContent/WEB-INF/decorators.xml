@@ -9,6 +9,10 @@
 		<pattern>/pages/input/*</pattern>
 	</decorator>
 	
+	<decorator name="embed" page="/template/base_LayoutEmbed.jsp">
+		<pattern>/pages/embed/*</pattern>
+	</decorator>
+	
 <!-- Not use sitemesh for popup  
 	<decorator name="lookup" page="/template/base_LayoutLookup.jsp">
 		<pattern>/pages/lookup/*</pattern>
