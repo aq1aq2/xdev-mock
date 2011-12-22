@@ -49,7 +49,26 @@ public class ServiceAction extends ActionSupport{
 	
 	//list all Checkbox is checked
 	
-	public int[] listChecked = new int[20];
+	
+	String listServiceBenefitsCriterion_Checked;
+	String listServiceBarriersCriterion_Checked; 
+	String listServiceEthnicityCriterion_Checked; 
+	String listServiceDisabilityCriterion_Checked;
+	String listServicePersonalCircumstancesCriterion_Checked;
+	String listOtherServiceParticipationCriterion_Checked; 
+	String listClientSupportProcess_Checked; 
+	String listIntervention_Checked; 
+	String listClientJourney_Checked; 
+	String listOtherServices_Checked; 
+	String listSupportCentres_Checked;
+	String listClientOutcome_Checked; 
+	String listTargetClient_Checked; 
+	String listAccreditations_Checked; 
+	String listReferralSources_Checked; 
+ 
+	String listContactOutcome_Checked; 
+	String listContactObligation_Checked; 
+
 	
 	
 	private String filterKey;
@@ -144,7 +163,33 @@ public class ServiceAction extends ActionSupport{
 	
 	public String save(){
 		System.out.println("Ten cua service ta dinh them vao la: "+service.getName());
+		System.out.println("mot: "+service.getClientDescription());
+		System.out.println(service.getAccreditation());
+		System.out.println(service.getContractObligation());
+		System.out.println(service.getClientJourney());
+		System.out.println(service.getClientOutcome());
+		System.out.println(service.getClientSupportProcess());
 		servicesDao.add(service);
+		System.out.println("Da add thanh cong!");
+//		System.out.println("checkbox checked: "+listServiceBenefitsCriterion_Checked);
+//		System.out.println("checkbox checked: "+listServiceBarriersCriterion_Checked);
+//		System.out.println("checkbox checked: "+listServiceEthnicityCriterion_Checked);
+//		System.out.println("checkbox checked: "+listServiceDisabilityCriterion_Checked);
+//		System.out.println("checkbox checked: "+listServicePersonalCircumstancesCriterion_Checked);
+//		System.out.println("checkbox checked: "+listOtherServiceParticipationCriterion_Checked);
+//		System.out.println("checkbox checked: "+listClientSupportProcess_Checked);
+//		System.out.println("checkbox checked: "+listIntervention_Checked);
+//		System.out.println("checkbox checked: "+listClientJourney_Checked);
+//		System.out.println("checkbox checked: "+listOtherServices_Checked);
+//		System.out.println("checkbox checked: "+listSupportCentres_Checked);
+//		System.out.println("checkbox checked: "+listClientOutcome_Checked);
+//		System.out.println("checkbox checked: "+listTargetClient_Checked);
+//		System.out.println("checkbox checked: "+listAccreditations_Checked);
+//		System.out.println("checkbox checked: "+listReferralSources_Checked);
+//		System.out.println("checkbox checked: "+listContactOutcome_Checked);
+//		System.out.println("checkbox checked: "+listContactObligation_Checked);
+		
+		
 		return "save";
 	}
 
@@ -276,13 +321,6 @@ public class ServiceAction extends ActionSupport{
 		this.referenceDataDao = referenceDataDao;
 	}
 
-	public int[] getListChecked() {
-		return listChecked;
-	}
-
-	public void setListChecked(int[] listChecked) {
-		this.listChecked = listChecked;
-	}
 
 	public List<ReferenceDataList> getListServiceBenefitsCriterion() {
 		return listServiceBenefitsCriterion;
@@ -442,10 +480,152 @@ public class ServiceAction extends ActionSupport{
 
 	public void setListParticipation(List<ReferenceDataList> listParticipation) {
 		this.listParticipation = listParticipation;
-	}	
-	
-	
-	
+	}
+
+	public String getListServiceBenefitsCriterion_Checked() {
+		return listServiceBenefitsCriterion_Checked;
+	}
+
+	public void setListServiceBenefitsCriterion_Checked(
+			String listServiceBenefitsCriterion_Checked) {
+		this.listServiceBenefitsCriterion_Checked = listServiceBenefitsCriterion_Checked;
+	}
+
+	public String getListServiceBarriersCriterion_Checked() {
+		return listServiceBarriersCriterion_Checked;
+	}
+
+	public void setListServiceBarriersCriterion_Checked(
+			String listServiceBarriersCriterion_Checked) {
+		this.listServiceBarriersCriterion_Checked = listServiceBarriersCriterion_Checked;
+	}
+
+	public String getListServiceEthnicityCriterion_Checked() {
+		return listServiceEthnicityCriterion_Checked;
+	}
+
+	public void setListServiceEthnicityCriterion_Checked(
+			String listServiceEthnicityCriterion_Checked) {
+		this.listServiceEthnicityCriterion_Checked = listServiceEthnicityCriterion_Checked;
+	}
+
+	public String getListServiceDisabilityCriterion_Checked() {
+		return listServiceDisabilityCriterion_Checked;
+	}
+
+	public void setListServiceDisabilityCriterion_Checked(
+			String listServiceDisabilityCriterion_Checked) {
+		this.listServiceDisabilityCriterion_Checked = listServiceDisabilityCriterion_Checked;
+	}
+
+	public String getListServicePersonalCircumstancesCriterion_Checked() {
+		return listServicePersonalCircumstancesCriterion_Checked;
+	}
+
+	public void setListServicePersonalCircumstancesCriterion_Checked(
+			String listServicePersonalCircumstancesCriterion_Checked) {
+		this.listServicePersonalCircumstancesCriterion_Checked = listServicePersonalCircumstancesCriterion_Checked;
+	}
+
+	public String getListOtherServiceParticipationCriterion_Checked() {
+		return listOtherServiceParticipationCriterion_Checked;
+	}
+
+	public void setListOtherServiceParticipationCriterion_Checked(
+			String listOtherServiceParticipationCriterion_Checked) {
+		this.listOtherServiceParticipationCriterion_Checked = listOtherServiceParticipationCriterion_Checked;
+	}
+
+	public String getListClientSupportProcess_Checked() {
+		return listClientSupportProcess_Checked;
+	}
+
+	public void setListClientSupportProcess_Checked(
+			String listClientSupportProcess_Checked) {
+		this.listClientSupportProcess_Checked = listClientSupportProcess_Checked;
+	}
+
+	public String getListIntervention_Checked() {
+		return listIntervention_Checked;
+	}
+
+	public void setListIntervention_Checked(String listIntervention_Checked) {
+		this.listIntervention_Checked = listIntervention_Checked;
+	}
+
+	public String getListClientJourney_Checked() {
+		return listClientJourney_Checked;
+	}
+
+	public void setListClientJourney_Checked(String listClientJourney_Checked) {
+		this.listClientJourney_Checked = listClientJourney_Checked;
+	}
+
+	public String getListOtherServices_Checked() {
+		return listOtherServices_Checked;
+	}
+
+	public void setListOtherServices_Checked(String listOtherServices_Checked) {
+		this.listOtherServices_Checked = listOtherServices_Checked;
+	}
+
+	public String getListSupportCentres_Checked() {
+		return listSupportCentres_Checked;
+	}
+
+	public void setListSupportCentres_Checked(String listSupportCentres_Checked) {
+		this.listSupportCentres_Checked = listSupportCentres_Checked;
+	}
+
+	public String getListClientOutcome_Checked() {
+		return listClientOutcome_Checked;
+	}
+
+	public void setListClientOutcome_Checked(String listClientOutcome_Checked) {
+		this.listClientOutcome_Checked = listClientOutcome_Checked;
+	}
+
+	public String getListTargetClient_Checked() {
+		return listTargetClient_Checked;
+	}
+
+	public void setListTargetClient_Checked(String listTargetClient_Checked) {
+		this.listTargetClient_Checked = listTargetClient_Checked;
+	}
+
+	public String getListAccreditations_Checked() {
+		return listAccreditations_Checked;
+	}
+
+	public void setListAccreditations_Checked(String listAccreditations_Checked) {
+		this.listAccreditations_Checked = listAccreditations_Checked;
+	}
+
+	public String getListReferralSources_Checked() {
+		return listReferralSources_Checked;
+	}
+
+	public void setListReferralSources_Checked(String listReferralSources_Checked) {
+		this.listReferralSources_Checked = listReferralSources_Checked;
+	}
+
+	public String getListContactOutcome_Checked() {
+		return listContactOutcome_Checked;
+	}
+
+	public void setListContactOutcome_Checked(String listContactOutcome_Checked) {
+		this.listContactOutcome_Checked = listContactOutcome_Checked;
+	}
+
+	public String getListContactObligation_Checked() {
+		return listContactObligation_Checked;
+	}
+
+	public void setListContactObligation_Checked(
+			String listContactObligation_Checked) {
+		this.listContactObligation_Checked = listContactObligation_Checked;
+	}
+
 }
 
 
