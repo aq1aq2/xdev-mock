@@ -8,6 +8,7 @@
 		<action name="*Service" method="{1}" class="serviceAction">
 			<result name="list" type="json"></result>
 			<result name="detailService">/pages/input/serviceInput.jsp</result>
+			<result name="save"></result>
 		</action>
 		
 		<action name="*Programme" method="{1}" class="programmeAction">
