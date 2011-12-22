@@ -20,8 +20,11 @@
 		</action>
 		
 		<action name="*VolunteeringOpportunity" method="{1}" class="volunteerAction">
-			<result name="list" type="json"></result>
-			<result name="add" type="json"></result>
+			<result name="list" type="json">
+				<param name="excludeProperties">volunteer</param>
+			</result>
+			<result name="add">/pages/list/volunteeringOpportunityList.jsp</result>
+			<result name="detail">/pages/input/volunteerInput.jsp</result>
 		</action>
 		
 		<action name="view"  class="facilitiesAction" method="list">
