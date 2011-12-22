@@ -56,12 +56,12 @@
 		<div id="details2" class="xdev-window-body-sub">
 			<table>
 				<s:form cssClass="xdev-form">
-					<s:checkboxlist label="Service Benefits Criterion" name="q" list="{'Hungasfjasdopfjoasdjfasdfasdfdsaf','Nguyenasdfasdfasdfdsa','Manh','dsafasdfdsaljflasdjflsdajflsdfsd xbfsdgfsdgsdfg fsdgfdsgvfsdgfds sdfgsdfg'}"></s:checkboxlist>
-					<s:checkboxlist label="Service Disability Criterion" name="q" list="{'Hungasfjasdopfjoasdjfasdfasdfdsaf','Nguyenasdfasdfasdfdsa','Manh','dsafasdfdsaljflasdjflsdajflsdfsd xbfsdgfsdgsdfg fsdgfdsgvfsdgfds sdfgsdfg'}"></s:checkboxlist>
-					<s:checkboxlist label="Service Barriers Criterion" name="q" list="{'Hungasfjasdopfjoasdjfasdfasdfdsaf','Nguyenasdfasdfasdfdsa','Manh','dsafasdfdsaljflasdjflsdajflsdfsd xbfsdgfsdgsdfg fsdgfdsgvfsdgfds sdfgsdfg'}"></s:checkboxlist>
-					<s:checkboxlist label="Service Personal Circumstances Criterion" name="q" list="{'Hungasfjasdopfjoasdjfasdfasdfdsaf','Nguyenasdfasdfasdfdsa','Manh','dsafasdfdsaljflasdjflsdajflsdfsd xbfsdgfsdgsdfg fsdgfdsgvfsdgfds sdfgsdfg'}"></s:checkboxlist>
-					<s:checkboxlist label="Service Ethnicity Criterion" name="q" list="{'Hungasfjasdopfjoasdjfasdfasdfdsaf','Nguyenasdfasdfasdfdsa','Manh','dsafasdfdsaljflasdjflsdajflsdfsd xbfsdgfsdgsdfg fsdgfdsgvfsdgfds sdfgsdfg'}"></s:checkboxlist>
-					<s:checkboxlist label="Other Service Participation Criterion" name="q" list="{'Hungasfjasdopfjoasdjfasdfasdfdsaf','Nguyenasdfasdfasdfdsa','Manh','dsafasdfdsaljflasdjflsdajflsdfsd xbfsdgfsdgsdfg fsdgfdsgvfsdgfds sdfgsdfg'}"></s:checkboxlist>
+					<s:checkboxlist label="Service Benefits Criterion" name ="listChecked" list="listServiceBenefitsCriterion" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
+<%-- 					<s:checkboxlist label="Service Disability Criterion" name="q" list="{'Hungasfjasdopfjoasdjfasdfasdfdsaf','Nguyenasdfasdfasdfdsa','Manh','dsafasdfdsaljflasdjflsdajflsdfsd xbfsdgfsdgsdfg fsdgfdsgvfsdgfds sdfgsdfg'}"></s:checkboxlist> --%>
+<%-- 					<s:checkboxlist label="Service Barriers Criterion" name="q" list="{'Hungasfjasdopfjoasdjfasdfasdfdsaf','Nguyenasdfasdfasdfdsa','Manh','dsafasdfdsaljflasdjflsdajflsdfsd xbfsdgfsdgsdfg fsdgfdsgvfsdgfds sdfgsdfg'}"></s:checkboxlist> --%>
+<%-- 					<s:checkboxlist label="Service Personal Circumstances Criterion" name="q" list="{'Hungasfjasdopfjoasdjfasdfasdfdsaf','Nguyenasdfasdfasdfdsa','Manh','dsafasdfdsaljflasdjflsdajflsdfsd xbfsdgfsdgsdfg fsdgfdsgvfsdgfds sdfgsdfg'}"></s:checkboxlist> --%>
+<%-- 					<s:checkboxlist label="Service Ethnicity Criterion" name="q" list="{'Hungasfjasdopfjoasdjfasdfasdfdsaf','Nguyenasdfasdfasdfdsa','Manh','dsafasdfdsaljflasdjflsdajflsdfsd xbfsdgfsdgsdfg fsdgfdsgvfsdgfds sdfgsdfg'}"></s:checkboxlist> --%>
+<%-- 					<s:checkboxlist label="Other Service Participation Criterion" name="q" list="{'Hungasfjasdopfjoasdjfasdfasdfdsaf','Nguyenasdfasdfasdfdsa','Manh','dsafasdfdsaljflasdjflsdajflsdfsd xbfsdgfsdgsdfg fsdgfdsgvfsdgfds sdfgsdfg'}"></s:checkboxlist> --%>
 				</s:form>
 			</table>
 		</div>
