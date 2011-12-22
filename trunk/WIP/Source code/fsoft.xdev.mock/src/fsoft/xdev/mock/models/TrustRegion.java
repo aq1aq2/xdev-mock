@@ -36,6 +36,12 @@ public class TrustRegion implements java.io.Serializable {
 	}
 	
 	
+	public TrustRegion(int trustRegionId, String name) {
+		super();
+		this.trustRegionId = trustRegionId;
+		this.name = name;
+	}
+
 	public int getTrustRegionId() {
 		return this.trustRegionId;
 	}

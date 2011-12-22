@@ -1,16 +1,14 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 
-<title>Trust Region</title>
-<script type="text/javascript">
-        function formatLink(cellvalue, options, rowObject) {
-                return "<a href='detailGovOfficeRegion.action?govOfficeRegion.govOfficeRegionId="+rowObject['govOfficeRegionId']+"'>" + cellvalue + "</a>";
-        }   
-       
-</script>
+<title>Government Office Region</title>
 
+<content tags ="">Government Office Region List</content>
 <script>
 	$(document).ready(function(){
+		/* hide button create */
+		$('#createBtn').hide();
+		
 		/* Filter click event */
 		var filterKey = "";
 		var filterActive = false;
@@ -28,12 +26,23 @@
 		$("ul#xdev-filter > li").click(function(){
 			filterKey = this.textContent;
 			sendFilterOptions();
+		});		
+		$.subscribe("rowSelect", function(event, data) {	       
+	        // Get id of the record
+	        var grid = event.originalEvent.grid;
+	        var selectedRowId = grid.jqGrid('getGridParam', 'selrow'); 
+	        var id = grid.jqGrid('getCell', selectedRowId, 'govOfficeRegionId');
+	        // call detail action 
+	        query="govOfficeRegion.govOfficeRegionId="+id;
+	        window.location.href = "detailGovOfficeRegion.action?" + query;
+	        
 		});
-		
 		$("#includeChkBx").click(function(){
-			filterActive = $(this).is(":checked");
+			// Test
+			filterActive = $(this).is(":checked");			
 			sendFilterOptions();
 		});
+
 	});
 </script>
 
@@ -50,10 +59,11 @@
 	        pager="true"
 	        rowNum="15"
        		rownumbers="true"
+       		onSelectRowTopics="rowSelect"
 	        
 	    >
 	    	<sjg:gridColumn name="govOfficeRegionId" index="govOfficeRegionId" title="ID" hidden="true"/>
-	        <sjg:gridColumn name="name" index="name" title="Name" sortable="true" formatter="formatLink"/>
+	        <sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
 	        <sjg:gridColumn name="description" index="description" title="Descripstion" sortable="false"/>
 	        <sjg:gridColumn name="countyName" index="countryName" title="County" sortable="true"/>
 	        <sjg:gridColumn name="status" index="status" title="IsActived" sortable="true"/>	        

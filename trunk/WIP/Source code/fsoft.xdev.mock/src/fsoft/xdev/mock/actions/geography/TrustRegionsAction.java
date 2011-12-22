@@ -168,8 +168,6 @@ public class TrustRegionsAction extends ActionSupport {
 	}
 
 	public String edit() {		
-		System.out.println("from action" + trustRegion.getName());
-		System.out.println("from action" + trustRegion.getDescription());
 		trustRegionDao.edit(trustRegion);
 		return "edit";
 	}

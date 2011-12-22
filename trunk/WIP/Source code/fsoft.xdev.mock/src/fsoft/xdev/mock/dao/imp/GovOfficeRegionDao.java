@@ -36,8 +36,7 @@ public class GovOfficeRegionDao extends HibernateDaoSupport implements IGovOffic
 
 	@Override
 	public GovOfficeRegion find(GovOfficeRegion entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return getHibernateTemplate().get(GovOfficeRegion.class, entity.getGovOfficeRegionId());
 	}
 
 	@Override

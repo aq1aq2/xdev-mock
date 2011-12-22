@@ -8,7 +8,7 @@
             <column name="GovOfficeRegionID" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="county" class="fsoft.xdev.mock.models.County" fetch="select">
+        <many-to-one name="county" class="fsoft.xdev.mock.models.County" fetch="select" lazy="false">
             <column name="CountyID" />
         </many-to-one>
         <property name="name" type="string">

@@ -6,6 +6,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import fsoft.xdev.mock.dao.ITrustDistrictDao;
 import fsoft.xdev.mock.dao.ITrustRegionDao;
 import fsoft.xdev.mock.models.TrustDistrict;
+import fsoft.xdev.mock.models.TrustRegion;
 
 public class TrustDistrictsAction extends ActionSupport {
 
@@ -19,6 +20,7 @@ public class TrustDistrictsAction extends ActionSupport {
 	private List listModel;
 	private String filterKey;
 	private boolean filterActive;
+	private Boolean mode;
 
 	// get how many rows we want to have into the grid - rowNum attribute in the
 	// grid
@@ -29,6 +31,14 @@ public class TrustDistrictsAction extends ActionSupport {
 
 	// sorting order - asc or desc
 	private String sord;
+
+	public Boolean getMode() {
+		return mode;
+	}
+
+	public void setMode(Boolean mode) {
+		this.mode = mode;
+	}
 
 	// get index row - i.e. user click to sort.
 	private String sidx;
@@ -132,7 +142,7 @@ public class TrustDistrictsAction extends ActionSupport {
 	 * 
 	 * @return action returns listTrustDistrict
 	 */
-	public String list() {		
+	public String list() {
 		int to = (rows * page);
 		int from = to - rows;
 
@@ -149,15 +159,30 @@ public class TrustDistrictsAction extends ActionSupport {
 		return "list";
 	}
 
-	public String save() {		
+	public String add() {
 		trustDistrict.setStatus(false);
-		trustDistrictDao.add(trustDistrict);		
+		trustDistrictDao.add(trustDistrict);
 		return "add";
 	}
 
 	// find trust district by ID
-		public String detail() {			
-			trustDistrict = trustDistrictDao.find(trustDistrict);
-			return "detail";
-		}
+	public String detail() {
+		trustDistrict = trustDistrictDao.find(trustDistrict);		
+		mode = false;
+		return "input";
+	}
+
+	public String edit() {		
+		System.out.println("ID: " + trustDistrict.getTrustDistrictId());
+		System.out.println("name: " + trustDistrict.getName());
+		System.out.println("status: " + trustDistrict.getStatus());
+		System.out.println("region: " + trustDistrict.getTrustRegion().getTrustRegionId());
+		trustDistrictDao.edit(trustDistrict);
+		return "edit";
+	}
+	public String execute() {
+		trustDistrict = new TrustDistrict();
+		mode = true;
+		return "input";
+	}
 }
