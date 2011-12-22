@@ -36,3 +36,8 @@ function display (category) {
 
 <div id="space" class="hide">&nbsp;</div>
 <div class="clear"></div>
+
+<!-- Account information -->
+<label>${sessionScope.userName}</label>
+<a href="outLogin.action">Logout</a>
+

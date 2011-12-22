@@ -6,6 +6,9 @@ package fsoft.xdev.mock.utilities;
  * @author dungnm2
  */
 public class XConstants {
+	public static final String USER_NAME = "userName";
+	public static final String PASSWORD = "password";
+	
 	public static final String LIST_TOKEN = "list";
 	public static final String ADD_TOKEN = "add";
 	// Build token for official template

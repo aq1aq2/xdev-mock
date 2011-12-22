@@ -6,6 +6,13 @@
     <!-- Configuration Information Created by NhanLD -->
     <package name="nhanld" extends="struts-default,json-default">
     
+    	<action name="*Login" method="{1}" class="loginAction">
+    		<result name="in">/pages/Home.jsp</result>
+    		<result name="out">/pages/Login.jsp</result>
+    		<result name="input">/pages/Login.jsp</result>
+    		<result name="wrong">/pages/Login.jsp</result>
+    	</action>
+    
     	<action name="*Contact" method="{1}" class="contactAction">
     		<result name="success" ></result>
     		
