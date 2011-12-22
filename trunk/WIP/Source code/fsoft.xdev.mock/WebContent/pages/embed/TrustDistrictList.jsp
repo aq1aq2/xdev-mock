@@ -27,7 +27,7 @@
 		
 		
 		$("#createBtn").click(function(){			
-			window.location.href="executeTrustDistrict.action";
+			window.location.href="inputTrustDistrict.action";
 		});
 		
 		$.subscribe("rowSelect", function(event, data) {	       

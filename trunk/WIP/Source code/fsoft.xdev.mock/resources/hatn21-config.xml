@@ -14,7 +14,8 @@
     		<result name="input">/pages/input/TrustRegionInput.jsp</result>    		    	   		     		
     	</action> 
     				
-    	<action name="*TrustDistrict" method ="{1}" class="trustDistrictAction">    		
+    	<action name="*TrustDistrict" method ="{1}" class="trustDistrictAction">
+    		<result name="success">/pages/embed/TrustDistrictList.jsp</result>   		
     		<result name="list" type="json">
     			<param name="excludeProperties">trustDistrict</param>
     		</result>     		  

@@ -8,7 +8,7 @@
 
 <script>
 	$(document).ready(function(){
-		$("#listTrustDistrict").load("../embed/TrustDistrictList.jsp",
+		$("#listTrustDistrict").load("TrustDistrict.action",
 					function(response){}
 				);
 		

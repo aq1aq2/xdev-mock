@@ -136,6 +136,10 @@ public class TrustDistrictsAction extends ActionSupport {
 	public void setRecords(Integer records) {
 		this.records = records;
 	}
+	
+	public String execute() {
+		return SUCCESS;
+	}
 
 	/**
 	 * List all Trust Distric
@@ -180,7 +184,7 @@ public class TrustDistrictsAction extends ActionSupport {
 		trustDistrictDao.edit(trustDistrict);
 		return "edit";
 	}
-	public String execute() {
+	public String input() {
 		trustDistrict = new TrustDistrict();
 		mode = true;
 		return "input";
