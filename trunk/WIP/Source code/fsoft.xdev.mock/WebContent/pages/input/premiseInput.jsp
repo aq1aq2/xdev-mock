@@ -17,22 +17,22 @@
 		<table>
 			
 			<s:form cssClass="xdev-form">
-				<s:textfield name="locationName" label="Location Name" required="true"></s:textfield>
-				<s:checkbox name="primaryLocation" label="Primary Location" labelposition="left"></s:checkbox>
+				<s:textfield name="premise.locationName" label="Location Name" required="true"></s:textfield>
+				<s:checkbox name="premise.primaryLocation" label="Primary Location" labelposition="left"></s:checkbox>
 		
-				<s:textfield name="knownAs" label="Known As"></s:textfield>
-				<s:checkbox name="locationManaged" label="Location Managed" labelposition="left"></s:checkbox>
+				<s:textfield name="premise.knownAs" label="Known As"></s:textfield>
+				<s:checkbox name="premise.locationManaged" label="Location Managed" labelposition="left"></s:checkbox>
 				
 				<!-- link to Organisation -->
-				<xdev:textLookup name="locationOrganisation" label="Location Organisation"/>
-				<s:textfield name="locationOrganisation" label="Location Organisation" readonly="true"></s:textfield>
+				<xdev:textLookup id="locationOrganisation" name="premise.organisation.name" label="Location Organisation"/>
+				<s:checkbox id="locationManaged" name="premise.locationManaged" label="Location Managed" labelposition="left"></s:checkbox>
 				
-				<s:checkbox name="stnetworkConectivity" label="ST Network Connectivity" labelposition="left"></s:checkbox>
-				<s:select list="{'PendingActive','Active','Pending Closure','Closed'}" label="Location Status" required="true"></s:select>
+				<s:checkbox name="premise.stnetworkConectivity" label="ST Network Connectivity" labelposition="left"></s:checkbox>
+				<s:select name="premise.locationStatus" list="{'PendingActive','Active','Pending Closure','Closed'}" label="Location Status" required="true"></s:select>
 				
-			    <sj:datepicker name="locationStatusDate" displayFormat="dd/mm/yy" label="Location Status Date"></sj:datepicker>
+			    <sj:datepicker name="premise.locationStatusDate" displayFormat="dd/mm/yy" label="Location Status Date"></sj:datepicker>
 			  
-			 	<s:checkboxlist name="locationType" list="{'Enterprise','Support Center', 'Project','Venue', 'Hotel','JCP Offices'}" required="true" label="Location Type"></s:checkboxlist>
+			 	<s:checkboxlist name="premise.locationType" list="listLocationType" required="true" label="Location Type" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
 	
 				<s:textfield name="addressLine1" label="Address Line 1" ></s:textfield>
 				<s:textfield name="addressLine2" label="Address Line 2"></s:textfield>	

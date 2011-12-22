@@ -91,6 +91,9 @@ public class FacilitiesAction extends ActionSupport {
 			  facility = facilitiesDao.find(facility);
 			  setMode(-1);       
 			  }
+		  else {
+			  facility = null;
+		  }
 		  
 		  listFacilitiesType = referenceDataDao.getFacilityType();
 		  listConnectivityType = referenceDataDao.getConnectivityType();
