@@ -6,18 +6,18 @@
     <class name="fsoft.xdev.mock.models.Team" table="Team" schema="dbo" catalog="XDevMock">
         <id name="teamId" type="int">
             <column name="TeamID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
-        <many-to-one name="department" class="fsoft.xdev.mock.models.Department" fetch="select">
+        <many-to-one name="department" class="fsoft.xdev.mock.models.Department" fetch="select" lazy="false">
             <column name="DepartmentID" />
         </many-to-one>
-        <many-to-one name="contact" class="fsoft.xdev.mock.models.Contact" fetch="select">
+        <many-to-one name="contact" class="fsoft.xdev.mock.models.Contact" fetch="select" lazy="false">
             <column name="ContactID" />
         </many-to-one>
-        <many-to-one name="typeOfBusiness" class="fsoft.xdev.mock.models.TypeOfBusiness" fetch="select">
+        <many-to-one name="typeOfBusiness" class="fsoft.xdev.mock.models.TypeOfBusiness" fetch="select" lazy="false">
             <column name="TypeOfBusinessID" />
         </many-to-one>
-        <many-to-one name="county" class="fsoft.xdev.mock.models.County" fetch="select">
+        <many-to-one name="county" class="fsoft.xdev.mock.models.County" fetch="select" lazy="false">
             <column name="CountyID" />
         </many-to-one>
         <property name="name" type="string">

@@ -44,15 +44,12 @@ public class CountryDao extends HibernateDaoSupport implements ICountryDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<CountryList> findAll() {
-
-		System.out.println("vao day");
 		Query query = getHibernateTemplate()
 				.getSessionFactory()
 				.getCurrentSession()
 				.createQuery(
 						"select new fsoft.xdev.mock.models.CountryList(c.countryId , c.name) from Country c");
 
-		System.out.println("vao cuoi");
 		return query.list();
 
 	}

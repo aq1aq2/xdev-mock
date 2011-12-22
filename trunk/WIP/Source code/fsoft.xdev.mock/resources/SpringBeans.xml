@@ -27,7 +27,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="fsoft/xdev/mock/spring/VolunteerBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/PremiseBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/ProgrammeBean.xml"/>
-	
+	<import resource="fsoft/xdev/mock/spring/TeamBean.xml"/>
 <!-- 	
 <import resource="fsoft/xdev/mock/spring/CountryBean.xml"/>
 		
@@ -49,7 +49,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="fsoft/xdev/mock/spring/ReferenceDataBean.xml"/>
 	
 	<import resource="fsoft/xdev/mock/spring/ServiceBean.xml"/>
-	<import resource="fsoft/xdev/mock/spring/TeamBean.xml"/>
+	
 	<import resource="fsoft/xdev/mock/spring/TownBean.xml"/>
 		
 	<import resource="fsoft/xdev/mock/spring/AccountBean.xml"/>

@@ -27,6 +27,13 @@ public class County implements java.io.Serializable {
 		this.countyId = countyId;
 	}
 
+	
+	public County(int countyId, String name) {
+		super();
+		this.countyId = countyId;
+		this.name = name;
+	}
+
 	public County(int countyId, Country country, String name,
 			Set<GovOfficeRegion> govOfficeRegions,
 			Set<Directorate> directorates, Set<Organisation> organisations,

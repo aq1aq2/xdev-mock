@@ -1,1 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+	<bean id="teamAction" class="fsoft.xdev.mock.actions.team.TeamAction">
+		<property name="teamDao" ref="teamDao" />	
+		<property name="countyDao" ref="countyDao" />	
+	</bean>
+
+	<bean id="teamDao" parent="txProxyTemplate">		
+		<property name="target">
+    		<bean class="fsoft.xdev.mock.dao.imp.TeamDao">
+        		<property name="sessionFactory" ref="sessionFactory" />
+        	</bean>
+        </property>
+	</bean>   
+	<bean id="countyDao" parent="txProxyTemplate">		
+		<property name="target">
+    		<bean class="fsoft.xdev.mock.dao.imp.CountyDao">
+        		<property name="sessionFactory" ref="sessionFactory" />
+        	</bean>
+        </property>
+	</bean>   
+	
+</beans>
