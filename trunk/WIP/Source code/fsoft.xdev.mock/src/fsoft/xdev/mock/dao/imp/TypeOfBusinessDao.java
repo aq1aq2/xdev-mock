@@ -2,6 +2,8 @@ package fsoft.xdev.mock.dao.imp;
 
 import java.util.List;
 
+import org.hibernate.Query;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import fsoft.xdev.mock.dao.ITypeOfBusinessDao;
@@ -46,6 +48,54 @@ public class TypeOfBusinessDao extends HibernateDaoSupport implements ITypeOfBus
 		return null;
 	}
 
-	
+	@Override
+	public int count(String businesstName, String sicCode) {
+		String criteria = "select count(*) from TypeOfBusiness c where";
+
+		businesstName = businesstName.trim();
+		sicCode = sicCode.trim();
+		if (businesstName != null )
+			if (!"".equals(businesstName)) {
+				criteria = criteria
+						+ " and  (c.name like '" + businesstName + "')";
+			}
+		if (sicCode != null )
+			if (!"".equals(sicCode)) {
+				criteria = criteria
+						+ " and  (c.sicCode like '" + sicCode + "')";
+			}
+			
+		return DataAccessUtils.intResult(getHibernateTemplate().find(criteria));
+	}
+
+	@Override
+	public List search(int from, int to, String businesstName, String sicCode) {
+		String criteria = 
+				"select new fsoft.xdev.mock.models.TypeOfBusinessList(c.typeOfBusinessId , c.name, c.sicCode) "
+				+ "from TypeOfBusiness c"
+				+ "where";
+
+		businesstName = businesstName.trim();
+		sicCode = sicCode.trim();
+		if (businesstName != null )
+			if (!"".equals(businesstName)) {
+				criteria = criteria
+						+ " and  (c.name like '" + businesstName + "')";
+			}
+		if (sicCode != null )
+			if (!"".equals(sicCode)) {
+				criteria = criteria
+						+ " and  (c.sicCode like '" + sicCode + "')";
+			}
+		
+		System.out.println(criteria);
+
+		Query query = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createQuery(criteria);
+		query.setFirstResult(from);
+		query.setMaxResults(to - from);
+		
+		return query.list();
+	}
 
 }

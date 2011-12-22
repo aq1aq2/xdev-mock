@@ -6,6 +6,6 @@ import fsoft.xdev.mock.models.Contact;
 
 public interface IContactDao extends BaseDao<Contact> {
 	public boolean addOrUpdate(Object entity);
-	public int count(String firstName,	String surname,	Boolean filterActive);
+	public int count(String firstName, String surname,	Boolean filterActive);
 	public List search(int from, int to, String firstName, String surname, Boolean filterActive);
 }

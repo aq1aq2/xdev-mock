@@ -28,19 +28,11 @@ public class ContactAction extends ActionSupport {
 	private String filterSurname = ""; // Filter by surname
 	private boolean filterActive; // Filter by active
 	
-	// get how many rows we want to have into the grid - rowNum attribute in the grid
 	private Integer rows = 0;
-	// Get the requested page. By default grid sets this to 1.
 	private Integer page = 0;
-	// sorting order - asc or desc
 	private String sord;
-	// get index row - i.e. user click to sort.
 	private String sidx;
-	// Your Total Pages
 	private Integer total = 0;
-	
-
-	// All Record
 	private Integer records = 0;
 
 	

@@ -15,5 +15,10 @@
     		<result name="input">/pages/input/contactInput.jsp</result>
     		<result name="save" type="json"></result> 
     	</action>
+    	
+    	<action name="*TypeOfBusiness" method="{1}" class="typeOfBusinessAction">
+    		<result name="list" type="json"></result>
+    	</action>
+    	
    	</package>
 </struts>
