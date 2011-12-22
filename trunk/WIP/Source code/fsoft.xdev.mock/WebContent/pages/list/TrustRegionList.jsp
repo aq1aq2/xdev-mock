@@ -3,6 +3,7 @@
 
 <title>Trust Region</title>
 
+<content tag="sectionTitle">Trust Region List</content>
 
 <script>
 	$(document).ready(function(){
@@ -48,24 +49,23 @@
 </script>
 <!-- body -->	
 		
-		<s:url id="listTrustRegion" action="listTrustRegion.action"></s:url>
-		<sjg:grid
-	        id="gridtable"
-	        dataType="json"
-	        href="%{listTrustRegion}"
-	        gridModel="listModel"
-	        autowidth="true"
-	        pager="true"
-	        rowNum="15"
-       		rownumbers="true"
-       		onSelectRowTopics="rowSelect"
-	        
-	    >
-	    	<sjg:gridColumn name="trustRegionId" index="trustRegionId" title="ID" hidden="true"/>
-	        <sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
-	        <sjg:gridColumn name="description" index="description" title="Descripstion" sortable="false"/>
-	        <sjg:gridColumn name="countryName" index="countryName" title="Nation/country" sortable="true"/>
-	        <sjg:gridColumn name="status" index="status" title="IsActived" sortable="true" formatter="checkbox"/>	        
-	    </sjg:grid>    
+<s:url id="listTrustRegion" action="listTrustRegion.action"></s:url>
+<sjg:grid
+	id="gridtable"
+	dataType="json"
+	href="%{listTrustRegion}"
+	gridModel="listModel"
+	autowidth="true"
+	pager="true"
+	rowNum="15"
+	rownumbers="true"
+	onSelectRowTopics="rowSelect"
+>
+	<sjg:gridColumn name="trustRegionId" index="trustRegionId" title="ID" hidden="true"/>
+	<sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
+	<sjg:gridColumn name="description" index="description" title="Descripstion" sortable="false"/>
+	<sjg:gridColumn name="countryName" index="countryName" title="Nation/country" sortable="true"/>
+	<sjg:gridColumn name="status" index="status" title="IsActived" sortable="true" formatter="checkbox"/>	        
+</sjg:grid>    
   
 

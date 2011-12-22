@@ -7,7 +7,11 @@
 <content tag="sectionTitle">Trust Region Detail</content>
 
 <script>
-	$(document).ready(function(){		
+	$(document).ready(function(){
+		$("#listTrustDistrict").load("../embed/TrustDistrictList.jsp",
+					function(response){}
+				);
+		
 		/* Save event */
 		var mode = $('#mode').val();
 		
@@ -65,7 +69,7 @@
 		</div>
 	
 		<div id="listTrustDistrict">		    
-		    <%@ include file="/pages/list/TrustDistrictList.jsp" %>
+		    
 		     
 		</div>
 </sj:tabbedpanel>
