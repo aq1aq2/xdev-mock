@@ -6,7 +6,7 @@
 
 
 	<bean id="typeOfBusinessAction" class="fsoft.xdev.mock.actions.typeofbusiness.TypeOfBusinessAction">
-		<property name="contactDao" ref="contactDao" />
+		<property name="typeOfBusinessDao" ref="typeOfBusinessDao" />
 	</bean>
 
 	<bean id="typeOfBusinessDao" parent="txProxyTemplate">		

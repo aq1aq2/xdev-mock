@@ -22,7 +22,6 @@ public class TypeOfBusinessList implements java.io.Serializable {
 	}
 
 	public TypeOfBusinessList(int typeOfBusinessId, String name, String sicCode) {
-		super();
 		this.typeOfBusinessId = typeOfBusinessId;
 		this.name = name;
 		this.sicCode = sicCode;
