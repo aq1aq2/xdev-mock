@@ -7,7 +7,9 @@
     <package name="dungnm2" extends="json-default">    				
 		<action name="*Organisation" method="{1}" class="organisationAction">
     		<result name="list" type="json"></result>
-<!-- 			<result name="list">Test.jsp</result> -->
+    	<!--
+ 			<result name="list">Test.jsp</result> 
+ 		-->
     		<result name="save" type="json"></result>
     		<result name="update" type="json"></result>
     	</action>
@@ -16,7 +18,9 @@
     		<result name="save" type="json"></result>
     	</action>
     	<action name="*SupportingMaterial" method="{1}" class="supportingMaterialAction">
-    		<result name="list" type="json"></result>
+    		<result name="list" type="json">
+    			<param name="excludeProperties">materialDao</param>
+    		</result>
     		<result name="save" type="json"></result>
     	</action>
     	<action name="*Department" method="{1}" class="departmentAction">

@@ -10,7 +10,7 @@ public class TypeOfBusinessAction extends ActionSupport {
 	
 	private ITypeOfBusinessDao typeOfBusinessDao;
 	
-	private List listModel;  // For list contact
+	private List listModel;  // For list type of business
 	
 	private String filterBusinessName = ""; // Filter by business name
 	private String filterSicCode = ""; // Filter by SIC code

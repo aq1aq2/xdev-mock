@@ -25,6 +25,7 @@ public class SupportingMaterialList {
 		this.addedDate = addedDate;
 	}
 	
+	
 	public int getSupportingMaterialId() {
 		return supportingMaterialId;
 	}

@@ -41,7 +41,7 @@ public class SupportingMaterialDao extends HibernateDaoSupport
 		String criteria = "select count(*) from SupportingMaterial a where";
 
 		if (filterActive == null || filterActive == false) {
-			criteria = criteria + " (c.status = true) ";
+			criteria = criteria + " (a.status = true) ";
 		} else {
 			criteria = criteria + " (1 = 1) ";
 		}
@@ -53,30 +53,17 @@ public class SupportingMaterialDao extends HibernateDaoSupport
 	public List findRange(int from, int to, String filterKey,
 			Boolean filterActive) {
 		String criteria = 
-				"select new fsoft.xdev.mock.models.AddressList(" +
-						"a.addressId , a.name, a.postCode, b.name, c.name, d.name) " +
-				"from Address a " +
-				"left join a.town b " +
-				"left join b.county c " +
-				"left join c.country d " +
-				"where (1=1)";
+				"select new fsoft.xdev.mock.models.SupportingMaterialList(" +
+						"a.supportingMaterialId , a.url, a.description, a.type, b.userName, a.addedDate) " +
+				"from SupportingMaterial a " +
+				"left join a.account b " +
+				"where";
 
-		postcode = postcode.trim();
-		street = street.trim();
-		town = town.trim();
-		
-		if (postcode != null )
-			if (!"".equals(postcode)) {
-				criteria = criteria
-						+ " and  (a.postCode like '" + postcode + "')";
-			}
-		if (town != null )
-			if (!"".equals(town)) {
-				criteria = criteria
-						+ " and  (b.name like '" + town + "')";
-			}
-		
-		System.out.println(criteria);
+		if (filterActive == null || filterActive == false) {
+			criteria = criteria + " (a.status = true) ";
+		} else {
+			criteria = criteria + " (1 = 1) ";
+		}
 
 		Query query = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createQuery(criteria);

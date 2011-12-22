@@ -6,10 +6,10 @@
 
 			  
 	<bean id="supportingMaterialAction" class="fsoft.xdev.mock.actions.material.SupportingMaterialsAction">
-		<property name="supportingMaterialsDao" ref="supportingMaterialsDao" />
+		<property name="materialDao" ref="materialDao" />
 	</bean>
 
-	<bean id="supportingMaterialsDao" parent="txProxyTemplate">		
+	<bean id="materialDao" parent="txProxyTemplate">		
 		<property name="target">
     		<bean class="fsoft.xdev.mock.dao.imp.SupportingMaterialDao">
         		<property name="sessionFactory" ref="sessionFactory" />
