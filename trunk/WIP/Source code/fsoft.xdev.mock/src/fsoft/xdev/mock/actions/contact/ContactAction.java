@@ -69,6 +69,8 @@ public class ContactAction extends ActionSupport {
 		if (selectedContactId > -1) {
 			contact = contactDao.find(new Contact(selectedContactId));
 			selectedContactId = -1; //Reset selectedContactId
+		} else {
+			contact = null;
 		}
 		
 		listContactType = referenceDataDao.getContactType();
