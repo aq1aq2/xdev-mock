@@ -7,7 +7,7 @@
 
 
 <script type="text/javascript">
-<!--
+//<!--
 	
 	$(document).ready(function(){
 // 		if (document.facilitiesForm.equipmentAvailable.checked ==true){

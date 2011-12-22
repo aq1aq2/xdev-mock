@@ -1,5 +1,7 @@
 package fsoft.xdev.mock.actions.volunteering;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class VolunteeringAction extends ActionSupport {
 	private List<VolunteerList> listVolunteer = new ArrayList<VolunteerList>();
 	private String filterKey;
 	private boolean filterActive;
+	private int mode = -1;
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
 	  private Integer             rows             = 0;
@@ -58,6 +61,15 @@ public class VolunteeringAction extends ActionSupport {
 	  }
 	  
 	  public String detail(){
+		  
+		  // check save or update volunteer
+		  
+		 if (mode > -1){
+			 volunteer = volunteerDao.find(volunteer);
+			 setMode(-1);
+		 } else {
+			 volunteer = null;
+		 }
 		  return "detail";
 	  }
 
@@ -145,5 +157,13 @@ public class VolunteeringAction extends ActionSupport {
 	public void setFilterActive(boolean filterActive) {
 		this.filterActive = filterActive;
 	}
-	  
+
+	public int getMode() {
+		return mode;
+	}
+
+	public void setMode(int mode) {
+		this.mode = mode;
+	}
+	
 }

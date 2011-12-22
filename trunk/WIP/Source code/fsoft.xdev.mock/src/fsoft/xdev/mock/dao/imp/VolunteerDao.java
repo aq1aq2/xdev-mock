@@ -15,7 +15,7 @@ public class VolunteerDao extends HibernateDaoSupport implements IVolunteerDao{
 	@Override
 	public boolean add(Volunteer entity) {
 		try{
-			getHibernateTemplate().save(entity);
+			getHibernateTemplate().saveOrUpdate(entity);
 			return true;
 		} catch (Exception e) {
 			return false;

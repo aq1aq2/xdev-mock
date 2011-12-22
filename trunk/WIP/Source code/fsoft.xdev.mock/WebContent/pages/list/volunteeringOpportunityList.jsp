@@ -11,13 +11,6 @@
 </script>
 
 <script type="text/javascript">
-$.subscribe('rowselect', function(event, data) {
-        alert('Selected Row : ' + event.originalEvent.id);
-       	
-});
-</script>
-
-<script type="text/javascript">
 $(document).ready(function(){
 	/* Filter click event */
 	var filterKey = "";
@@ -42,6 +35,30 @@ $(document).ready(function(){
 		filterActive = $(this).is(":checked");
 		sendFilterOptions();
 	});
+	
+// click create button
+	
+	$("#createBtn").click(function(){
+		window.location.href = "detailVolunteeringOpportunity?mode = -1";
+	});
+	
+	// click a row in grid
+	$.subscribe('rowselect', function(event, data) {
+        alert('Selected Row : ' + event.originalEvent.id);
+        
+        // Get id of the record
+        var grid = event.originalEvent.grid;
+        var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
+        var volunteerId = grid.jqGrid('getCell', selectedRowId, 'volunteerId');
+
+        //call detail action
+        query = "volunteer.volunteerId=" + volunteerId;
+        query += '&';
+        query += "mode =" + volunteerId;
+        window.location.href = "detailVolunteeringOpportunity.action?" + query;
+       	
+	});
+	
 });
 </script>
 
