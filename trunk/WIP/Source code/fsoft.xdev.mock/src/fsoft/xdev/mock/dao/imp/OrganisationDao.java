@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fsoft.xdev.mock.dao.IOrganisationDao;
 import fsoft.xdev.mock.models.Organisation;
+import fsoft.xdev.mock.utilities.XDebugger;
 
 @Transactional
 public class OrganisationDao extends HibernateDaoSupport 
@@ -18,6 +19,9 @@ public class OrganisationDao extends HibernateDaoSupport
 	@Override
 	public boolean add(Organisation entity) {
 		try{
+			if(getHibernateTemplate() == null) {
+				XDebugger.show("null hibernate template when adding");
+			}
 			getHibernateTemplate().save(entity);
 			return true;
 		}catch(Exception ex){
@@ -29,6 +33,15 @@ public class OrganisationDao extends HibernateDaoSupport
 	@Override
 	public boolean edit(Organisation entity) {
 		try{
+			// Get new data
+			boolean status = entity.getStatus();
+			// Get original organisation based id
+			String criteria = "from Organisation where organisationId = " + entity.getOrganisationId();
+			// Copy all original data
+			entity = DataAccessUtils.objectResult(getHibernateTemplate().find(criteria), Organisation.class);
+			// enter new data
+			entity.setStatus(status);
+			// official update
 			getHibernateTemplate().update(entity);
 			return true;
 		}catch(Exception ex) {
@@ -37,6 +50,7 @@ public class OrganisationDao extends HibernateDaoSupport
 		}
 	}
 
+	// Unused temporarily !
 	@Override
 	public boolean remove(Organisation entity) {
 		try{
@@ -48,6 +62,7 @@ public class OrganisationDao extends HibernateDaoSupport
 		}
 	}
 
+	// Unused temprarily
 	@Override
 	public Organisation find(Organisation entity) {
 		return (Organisation) getHibernateTemplate().get(Organisation.class,

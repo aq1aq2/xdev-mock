@@ -112,10 +112,10 @@ public class DirectoratesAction {
 		int from = to - rows;
 
 		// Count Rows (select count(*) from trust Region)
-		records = directoratesDao.count();
-
-		// Your logic to search and select the required data.
-		listModel = directoratesDao.findRange(from, to);
+//		records = directoratesDao.count();
+//
+//		// Your logic to search and select the required data.
+//		listModel = directoratesDao.findRange(from, to);
 
 		// calculate the total pages for the query
 		total = (int) Math.ceil((double) records / (double) rows);
