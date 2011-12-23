@@ -33,8 +33,8 @@
     </attribute>
     
     <attribute>
-      <description><![CDATA[Set the html disabled attribute on rendered html element]]></description>
-      <name>disabled</name>
+      <description><![CDATA[Whether the input is readonly]]></description>
+      <name>readonly</name>
       <required>false</required>
       <rtexprvalue>false</rtexprvalue>
     </attribute>

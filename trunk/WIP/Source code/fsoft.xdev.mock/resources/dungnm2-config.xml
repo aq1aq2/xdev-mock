@@ -19,8 +19,9 @@
     	</action>
     	<action name="*SupportingMaterial" method="{1}" class="supportingMaterialAction">
     		<result name="list" type="json">
-    			<param name="excludeProperties">materialDao</param>
+    			<param name="excludeProperties">entityDao,entity</param>
     		</result>
+    		<result name="input">/pages/input/supportingMaterialInput.jsp</result>
     		<result name="save" type="json"></result>
     	</action>
     	<action name="*Department" method="{1}" class="departmentAction">

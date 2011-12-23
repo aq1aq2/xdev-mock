@@ -91,7 +91,7 @@
 			<s:textfield name="contact.mobilePhone" label="Mobile Phone" />
 			<s:textfield name="contact.homePhone" label="ST Home Phone" />
 			<s:textfield name="contact.emailAddress" label="Email Address" />
-			<xdev:textLookup name="contact.managerId" id="managerId" label="Manager ID" disabled="false"/>
+			<xdev:textLookup name="contact.managerId" id="managerId" label="Manager ID" readonly="true" />
 			<s:select name="contact.referenceDataByContactType.referenceDataId" label="Contact Type" list="listContactType" listKey ="referenceDataId" listValue="type" key ="referenceDataId" required="true"/>
 			<s:select name="contact.referenceDataByBestContactMethod.referenceDataId" label="Best Contact Method" list="listBestContactMethod" listKey ="referenceDataId" listValue="type" key ="referenceDataId" />
 		</s:form>

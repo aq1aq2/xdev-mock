@@ -5,41 +5,64 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.ISupportingMaterialDao;
+import fsoft.xdev.mock.models.SupportingMaterial;
 
 public class SupportingMaterialsAction extends ActionSupport{
-	
-	private ISupportingMaterialDao materialDao;
-	
+
+	private ISupportingMaterialDao entityDao;
+
 	private List listModel;  // For list materials
-	
+	private SupportingMaterial entity; // For create or amend material
+	private int selectedId = -1; // For amend selected material
+
 	private boolean filterActive; // Filter by active
-	
+
 	private Integer rows = 0;
 	private Integer page = 0;
 	private String sord;
 	private String sidx;
 	private Integer total = 0;
 	private Integer records = 0;
-	
-	
+
+
+	/**
+	 * List all SupportingMaterial
+	 * @return listModel (JSON)
+	 */
 	public String list() {
 		int to = (rows * page);
 		int from = to - rows;
 
-		records = materialDao.count(null, filterActive);
-		listModel = materialDao.findRange(from, to, null, filterActive);
+		records = entityDao.count(null, filterActive);
+		listModel = entityDao.findRange(from, to, null, filterActive);
 		total = (int) Math.ceil((double) records / (double) rows);
-		
+
 		return "list";
 	}
 
+	/**
+	 * SupportingMaterial Input page
+	 * @return action returns SupportingMaterial Input JSP page
+	 */
+	public String input() {
+		/* Select material to amend */
+		if (selectedId > -1) {
+			entity = entityDao.find(new SupportingMaterial(selectedId));
+			selectedId = -1; //Reset selectedId
+		} else {
+			entity = null;
+		}
 
-	public ISupportingMaterialDao getMaterialDao() {
-		return materialDao;
+		return "input";
 	}
 
-	public void setMaterialDao(ISupportingMaterialDao materialDao) {
-		this.materialDao = materialDao;
+
+	public ISupportingMaterialDao getEntityDao() {
+		return entityDao;
+	}
+
+	public void setEntityDao(ISupportingMaterialDao entityDao) {
+		this.entityDao = entityDao;
 	}
 
 	public List getListModel() {
@@ -51,6 +74,21 @@ public class SupportingMaterialsAction extends ActionSupport{
 		this.listModel = listModel;
 	}
 
+	public SupportingMaterial getEntity() {
+		return entity;
+	}
+
+	public void setEntity(SupportingMaterial entity) {
+		this.entity = entity;
+	}
+
+	public int getSelectedId() {
+		return selectedId;
+	}
+
+	public void setSelectedId(int selectedId) {
+		this.selectedId = selectedId;
+	}
 
 	public boolean isFilterActive() {
 		return filterActive;
