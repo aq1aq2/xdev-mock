@@ -42,4 +42,11 @@
     <dynamic-attributes>true</dynamic-attributes>
 </tag>
 
+<tag>
+	<description><![CDATA[XHead tag to include xdev.css.]]></description>
+	<name>xhead</name>
+	<tag-class>fsoft.xdev.mock.taglib.views.jsp.ui.XHeadTag</tag-class>
+	<body-content>empty</body-content>
+</tag>
+
 </taglib>
