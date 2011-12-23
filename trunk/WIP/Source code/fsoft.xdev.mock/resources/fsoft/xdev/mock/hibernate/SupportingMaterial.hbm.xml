@@ -6,7 +6,7 @@
     <class name="fsoft.xdev.mock.models.SupportingMaterial" table="SupportingMaterial" schema="dbo" catalog="XDevMock">
         <id name="supportingMaterialId" type="int">
             <column name="SupportingMaterialID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="account" class="fsoft.xdev.mock.models.Account" fetch="select" lazy="false">
             <column name="AccountID" />

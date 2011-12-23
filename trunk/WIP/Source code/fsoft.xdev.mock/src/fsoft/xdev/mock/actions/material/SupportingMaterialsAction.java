@@ -55,6 +55,20 @@ public class SupportingMaterialsAction extends ActionSupport{
 
 		return "input";
 	}
+	
+	/**
+	 * Save material
+	 * @return
+	 */
+	public String save() {
+		System.out.println(entity.getSupportingMaterialId());
+		System.out.println(entity.getUrl());
+		if (entity.getAccount().getAccountId() == 0) {
+			entity.setAccount(null);
+		}
+		entityDao.addOrUpdate(entity);
+		return "save";
+	}
 
 
 	public ISupportingMaterialDao getEntityDao() {

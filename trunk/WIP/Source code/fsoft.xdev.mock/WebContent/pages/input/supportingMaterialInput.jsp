@@ -30,10 +30,9 @@
 			});			
 			query = query.substring(0, query.length-1);
 			// Get json
-			$.getJSON("saveContact.action?" + query,
+			$.getJSON("saveSupportingMaterial.action?" + query,
 				function(data) {
 					alert("Save successful");
-					alert(data);
 				}
 			);
 		});
