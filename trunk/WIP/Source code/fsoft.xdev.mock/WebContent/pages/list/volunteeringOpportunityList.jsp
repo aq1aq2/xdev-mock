@@ -5,9 +5,9 @@
 <title>Facilities</title>
 
 <script type="text/javascript">
-        function formatLink(cellvalue, options, rowObject) {
-                return "<a href='detailFacilities.action?facilities.facilityId="+rowObject['facilityId']+"'>" + cellvalue + "</a>";
-        }        
+//         function formatLink(cellvalue, options, rowObject) {
+//                 return "<a href='detailFacilities.action?facilities.facilityId="+rowObject['facilityId']+"'>" + cellvalue + "</a>";
+//         }        
 </script>
 
 <script type="text/javascript">
@@ -80,7 +80,7 @@ $(document).ready(function(){
 	        onSelectRowTopics="rowselect"
 	        >	        
 			<sjg:gridColumn name="volunteerId" index="volunteerId" title="ID" hidden="true"/>
-	        <sjg:gridColumn name="contactName" index="contactName" title="Contacts" sortable="true" formatter="formatLink"/>
+	        <sjg:gridColumn name="contactName" index="contactName" title="Contacts" sortable="true"/>
 	        <sjg:gridColumn name="volunteerPurpose" index="volunteerPurpose" title="Purpose" sortable="false"/>
 	        <sjg:gridColumn name="startDate" index="startDate" title="Start Date" sortable="false"/>
 	        <sjg:gridColumn name="endDate" index="endDate" title="End Date" sortable="false"/>

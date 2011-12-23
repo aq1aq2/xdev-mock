@@ -3,7 +3,17 @@
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 <title> Volunteer Input</title>
-<<script type="text/javascript">
+
+<script type="text/javascript">
+// function to change date format
+function formatDate(k){
+	var dateTimeSplit = k.val().split('/');
+	var result = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
+	k.val(result);
+}
+</script>
+
+<script type="text/javascript">
 	
 $(document).ready(function(){
 
@@ -51,29 +61,15 @@ $(document).ready(function(){
 		
 		query = query.substring(0, query.length-1);
 		
-		//formate datepicker
-		//var date = $("#startDate").val();
-		var date = $("#startDate").datepicker('getDate');
-		//alert(date);
-		//var date = ($("#startDate").datepicker({dateFormat: 'yy-mm-dd'})).val();
-		//$("#startDate").datepicker({dateFormat: 'yy-mm-dd'});
-		//$("#startDate").datepicker("option","dateFormat",$(this).val());
-		//var startDate =$("#startDate").datepicker("option","dateFormat");
-		//var startDate = $("#startDate").val($("#startDate").formatDate('yy-mm-dd',date));
-		$("#startDate").datepicker("option","dateFormat",$(this).val())
-		var startDate = $("#startDate").val();
-		alert(startDate);
+		//change formatdate to suit with sql database
 		
-		$("#startDate").datepicker({dateFormat: 'yy-mm-dd'});
-		//$("#endDate").datepicker({dateFormat: 'yy-mm-dd'});
-		var startDate = $("#startDate").datepicker("option","dateFormat",date);
-		//var endDate = $("#endDate").datepicker("option","dateFormat");
-		query += '&';
-		query += "volunteer.startDate = " + startDate;
-		query += '&';
-		query += "volunteer.endDate = " + endDate;
-		
-		
+		//start Date
+		var dateTimeSplit = $("#startDate").val().split('/');
+		var startDate = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
+		$("#startDate").val(startDate);
+		dateTimeSplit =  $("#endDate").val().split('/');
+		var endDate = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
+		$("#endDate").val(endDate);
 		//send action save
 		window.location.href = "saveVolunteeringOpportunity.action?" + query;
 	});

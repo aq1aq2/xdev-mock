@@ -4,13 +4,27 @@
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 <title> test Input</title>
 
+<<script type="text/javascript">
+<!--
+
+//-->
+	function formatDate(k){
+		var dateTimeSplit = k.val().split('/');
+		var result = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
+		k.val(result);
+	}
+
+</script>
+
 <script type="text/javascript">
 $(document).ready(function(){
 	
 	$("#testScript").click(function(){
-	var dateTimeSplit = $("#startDate").val().split('/');
-	var startDate = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
-	alert(startDate);
+// 	var dateTimeSplit = $("#startDate").val().split('/');
+// 	var startDate = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
+// 	alert(startDate);
+	formatDate($("#startDate"));
+	alert();
 	});
 });
 </script>
