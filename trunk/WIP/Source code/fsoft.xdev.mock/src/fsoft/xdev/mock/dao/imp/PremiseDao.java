@@ -147,6 +147,7 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao{
 										+ type + "'";
 		Query query = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createQuery(criteria);
+		
 		return query.list();
 	}
 	
