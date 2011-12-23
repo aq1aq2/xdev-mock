@@ -18,6 +18,7 @@
     		<result name="save" type="json"></result>
     	</action>
     	<action name="*SupportingMaterial" method="{1}" class="supportingMaterialAction">
+    		<result name="success">/pages/embed/supportingMaterialList.jsp</result>
     		<result name="list" type="json">
     			<param name="excludeProperties">entityDao,entity</param>
     		</result>
