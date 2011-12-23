@@ -6,7 +6,9 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.IOrganisationDao;
+import fsoft.xdev.mock.dao.IReferenceDataDao;
 import fsoft.xdev.mock.models.Organisation;
+import fsoft.xdev.mock.models.ReferenceDataList;
 import fsoft.xdev.mock.utilities.XDebugger;
 
 public class OrganisationsAction extends ActionSupport{
@@ -16,8 +18,18 @@ public class OrganisationsAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	private Organisation organisation;
 	private IOrganisationDao organisationDao;
+	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {
+		this.referenceDataDao = referenceDataDao;
+	}
+
+	private IReferenceDataDao referenceDataDao;
+	
+	private String mode = null;
+	
 	private List<Organisation> listModel = new ArrayList<Organisation>();
 
+	private List<ReferenceDataList> listOrgSpecicalism = new ArrayList<ReferenceDataList>();
+	
 	private String filterKey;
 	private boolean filterActive;
 	
@@ -44,7 +56,6 @@ public class OrganisationsAction extends ActionSupport{
 		XDebugger.show("Constructor: Create Organisation Action");
 		organisation = new Organisation();
 	}
-	
 	
 	@SuppressWarnings("unchecked")
 	public String list() {
@@ -78,17 +89,35 @@ public class OrganisationsAction extends ActionSupport{
 	}
 	
 	public String detail() {
-		return "not supported";
+		System.out.println("Mode = " + mode);
+		if("add".equals(mode)) {
+			organisation = new Organisation();
+			listOrgSpecicalism = referenceDataDao.getItem("Organisation Speciacalism");
+			XDebugger.show("Size of list = " + String.valueOf(listOrgSpecicalism.size()));
+		}
+		else if("amend".equals(mode)) {
+			organisation = organisationDao.find(organisation);
+			XDebugger.show("Id of org: " + organisation.getOrganisationId());
+		}
+		return "input";
 	}
 	
 	public String update() {
 		XDebugger.show("Organisation said: update method");
 		XDebugger.show("Status: " + organisation.getStatus());
-		XDebugger.show("Have Id ???: " + organisation.getOrganisationId());
-		XDebugger.show("Name: " + organisation.getName());
+		XDebugger.show("Have Id: " + organisation.getOrganisationId());
 		organisationDao.edit(organisation);
 		return "update";
 	}
+	
+	public String getMode() {
+		return mode;
+	}
+
+	public void setMode(String mode) {
+		this.mode = mode;
+	}
+
 	
 	public Integer getRows() {
 		return rows;
@@ -176,5 +205,13 @@ public class OrganisationsAction extends ActionSupport{
 
 	public void setFilterActive(boolean filterActive) {
 		this.filterActive = filterActive;
+	}
+	
+	public List<ReferenceDataList> getListOrgSpecicalism() {
+		return listOrgSpecicalism;
+	}
+
+	public void setListOrgSpecicalism(List<ReferenceDataList> listOrgSpecicalism) {
+		this.listOrgSpecicalism = listOrgSpecicalism;
 	}
 }

@@ -30,7 +30,8 @@ $(document).ready(function(){
 	$("#createBtn").click(function(){
 		// Open two tab
 		// Call file organisationInput.jsp
-		var url = "../input/organisationInput.jsp?mode=add";    
+		alert("create new");
+		var url = "detailOrganisation.action?mode=add";    
 		$(location).attr('href',url);
 	});
 	
@@ -51,8 +52,8 @@ $(document).ready(function(){
         	$("#confirm_dialog").dialog("open");
         }else{
             // Open details with 5 tabs
-//     		var url = "../input/organisationInput.jsp?mode=amend";    
-//     		$(location).attr('href',url);
+    		var url = "detailOrganisation.action?mode=amend&organisation.organisationId=" + organisationId;    
+    		$(location).attr('href',url);
         }
      
 	});
@@ -63,7 +64,6 @@ $(document).ready(function(){
 		alert(filterActive);
 		sendFilterOptions();
 	});
-
 });
 
 // MUST place function used by dialog outside document.ready !!!

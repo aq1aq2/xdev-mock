@@ -2,7 +2,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
-
 <script>
 
 $(document).ready(function(){
@@ -22,42 +21,51 @@ $(document).ready(function(){
 		alert("click save button in organisation input");
 	});
 	
-	// Read param in incoming request
-	function getUrlVars()
-	{
-	    var vars = [];
-	    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-	    for(var i = 0; i < hashes.length; i++)
-	    {
-	        hash = hashes[i].split('=');
-	        vars.push(hash[0]);
-	        vars[hash[0]] = hash[1];
-	    }
-	    return vars;
+	//Read param in incoming request
+// 	function getUrlVars()
+// 	{
+// 	    var vars = [];
+// 	    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+// 	    for(var i = 0; i < hashes.length; i++)
+// 	    {
+// 	        hash = hashes[i].split('=');
+// 	        vars.push(hash[0]);
+// 	        vars[hash[0]] = hash[1];
+// 	    }
+// 	    return vars;
+// 	}
+
+	function checkMode(){
+	
+		var mode = "${mode}";
+		alert(mode);
+		if(mode == 'amend') {
+			// Test
+			alert("amend");
+			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2]);
+			// Load data from action
+		}
+		else if(mode == 'add') {
+			// Test
+			//alert("add");
+			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2,3,4,5]);
+		}
+	 	else {
+			alert("default tab");
+		}
 	}
 	
-	function x(){
-		$("#myOrganisationDetailstabs").tabs("select", 3);
-	}
-	
-	var mode = getUrlVars()["mode"];
-
-	if(mode == 'amend') {
-		// Test
-		alert("amend");
-		//$("#myOrganisationDetailstabs").disabledTabs("{[2]}"); 
-	}
-	if(mode == 'add') {
-		// Test
-		alert("add");
-		$("#myOrganisationDetailstabs").tabs("disable", 2);
-	}
-	else {
-		alert("default tab");
-	    //x();
-	}
-
+	// MUST use ready event for tabby because of tabby is so heavy !
+	$("#myOrganisationDetailstabs").ready(function(){
+		checkMode();
+		alert(" XXX: "+ $("#orgId").val());
+		
+		$("#tab5").load("SupportingMaterial.action", function(){
+			
+		});
+	});
 });
+
 
 </script>
 
@@ -80,12 +88,14 @@ $(document).ready(function(){
     <sj:tab id="details5" target="tab5" label="Details5"/>
     <sj:tab id="bu" target="bu" label="BU/Directorates"/>
     
+    <s:hidden name="organisation.organisationId" id="orgId" />
+    
     <div id="tab1">
     	<s:form cssClass="xdev-form">
 			<s:textfield name="organisationName" label="Organisation Name" required="true"/>
-			<s:checkbox name="preferredOrganisation" label="Preferred Organisation" />
+			<s:checkbox name="preferredOrganisation" label="Preferred Organisation" labelposition="left" />
 			<s:textarea name="OrganisationDesc" label="Organisation Short Description" required="true"/>
-			<s:checkbox id="expressionOfInterest" name="expressionOfInterest" label="Expression Of Interest" />
+			<s:checkbox id="expressionOfInterest" name="expressionOfInterest" label="Expression Of Interest" labelposition="left" />
 			<xdev:textLookup name="leadContact" label="Lead Contact" />
 			<xdev:textLookup name="typeOfBusiness" label="Type of business" />
 			<s:textfield name="addr1" label="Address Line 1" />
@@ -107,16 +117,14 @@ $(document).ready(function(){
     </div>
     
     <div id="tab2">
-		<s:form cssClass="xdev-form">
-			This tab is comming soon !
+		<s:form cssClass="xdev-form" action="detailOrganisation">
 			<s:checkboxlist 
 				label="Which of the following are states of India"
-	            name="states"
-	            list="#{'01':'January',
-	            		'02':'February',
-	            		'03':'March',
-	            		'04':'April',
-	            		'05':'May'}"
+				labelposition="left"
+	            name="organisation.listOrgSpecicalism"
+	            list="listOrgSpecicalism"
+	            listKey="referenceDataId"
+	            listValue="type"
             />
 <!-- 			Organisation Specialism -->
 <!-- 			Service Personal Circumstances Capabilities -->
@@ -147,4 +155,5 @@ $(document).ready(function(){
 <!-- 		Load directorateList into the tab -->
     </div>
     
-</sj:tabbedpanel>  
+</sj:tabbedpanel> 
+ 

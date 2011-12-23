@@ -8,7 +8,8 @@
 
 <script>
 	$(document).ready(function(){
-		alert("${orgId}");
+		alert("${sessionScope.organisation.organisationId}");
+		
 		$("#xdev-filter").empty(); // Material list don't have filter keys.
 		/* -------------------
 		 * Filter click events 
@@ -57,7 +58,7 @@
 </script>
 
 <s:form>
-	<s:url id="listURL" action="listSupportingMaterial.action?filterOrgId=%{#orgId}"></s:url>
+	<s:url id="listURL" action="listSupportingMaterial.action?filterOrgId=%{#organisation.organisationId}"></s:url>
 	<sjg:grid
 	   	id="gridtable"
 	  	dataType="json"
