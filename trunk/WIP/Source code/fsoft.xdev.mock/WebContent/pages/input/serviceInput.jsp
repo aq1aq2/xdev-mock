@@ -4,7 +4,22 @@
 
 <script>
 $(document).ready(function(){
-	
+	$("#subType").change(function () {
+		var selected = $("#subType option:selected").text();
+		if(selected == "mot mot mot"){
+			alert(selected);
+			$("#serviceDetailTab").tabs("enable", 3);
+			$("#serviceDetailTab").tabs("select", 3);
+		}else if(selected == "hai hai hai"){
+			$("#serviceDetailTab").tabs("enable", 4);
+			$("#serviceDetailTab").tabs("select", 4);
+		}else{
+			;
+		}
+		//alert("Changed!");
+	});
+
+
 	/* Back event */
 	$("#backBtn").click(function(){
 		window.history.back();
@@ -79,43 +94,52 @@ $(document).ready(function(){
 <content tag="sectionTitle">Service Input</content>
 
 <!-- Table Panel -->
-<sj:tabbedpanel id="tabs">
+<sj:tabbedpanel id="serviceDetailTab">
 		<sj:tab id="tab1" target="details1" label="Details 1"/>
-		<sj:tab id="tab1" target="details2" label="Details 2"/>
-		<sj:tab id="tab1" target="details3" label="Details 3"/>
-		<sj:tab id="tab1" target="contact" label="Contact"/>
-		<sj:tab id="tab1" target="funding" label="funding"/>
+		<sj:tab id="tab2" target="details2" label="Details 2"/>
+		<sj:tab id="tab3" target="details3" label="Details 3"/>
+		<sj:tab id="tab4" target="contact" label="Contact"/>
+		<sj:tab id="tab5" target="funding" label="funding"/>
 		
 		<div id="details1" class="xdev-window-body-sub">
 			<table>
 				<s:form cssClass="xdev-form">
 					<s:textfield label="Service Name " required="true" name="service.name"></s:textfield>
 					<s:checkbox label="Service Active" name="service.status" id="serviceActive" labelposition="left"></s:checkbox>
+					
+					
 					<s:textarea label="Service Short Description" name="service.shortDescripstion" id="serviceShortDescripstion" required="true"></s:textarea>
 					<s:textarea name="serviceFullDescription" id="service.fullDescription" label="Service Full Description"></s:textarea>
 					
-					<s:select list="listSubType" name="service.referenceDataByServiceSubType.referenceDataId" label="Sub Type" listValue="type" listKey ="referenceDataId" key ="referenceDataId" required="true"></s:select>
-<%-- 					<s:textfield name="deptCode" id="deptCode" label="Dept Code"> </s:textfield> --%>
+					<s:select id="subType" list="listSubType" name="service.referenceDataByServiceSubType.referenceDataId" label="Sub Type" listValue="type" listKey ="referenceDataId" key ="referenceDataId" required="true"></s:select>
+	 				<s:textfield name="deptCode" id="deptCode" label="Dept Code"> </s:textfield>
+	 				
 					<s:textfield label="Lead Contact" name="leadContact" readonly="true"></s:textfield>
-<%-- 					<s:select list="{'sadf','adfdasf'}" name="serviceAttendance" label="Service Attendance"></s:select> --%>
+					<s:select list="listServiceType" label="Service Type" name="service.referenceDataByServiceType.referenceDataId" id="listServiceType" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:select>
+					
+					<s:textarea label="Client Description"></s:textarea>
+					<s:textfield id="serviceDescriptionDelivery" name="service.descriptionDelivery"></s:textfield>
+					
+ 					<s:select list="{'sadf','adfdasf'}" name="serviceAttendance" label="Service Attendance"></s:select>
+ 					<s:textfield id="serviceContractCode" name="service.serviceContractCode" label="Service Contract Code"></s:textfield>
+ 					 
 		<%-- 			<sj:datepicker id="date1" label="Service Started Expected" name="serviceStartedExpected" displayFormat="dd/mm/yy"></sj:datepicker> --%>
 					<sj:datepicker id="date1" label="Service Started Expected" name="service.serviceStartExpected" displayFormat="dd/mm/yy"></sj:datepicker>
-					<sj:datepicker id="dateStartService" label="Service Start Date" name="dateStart" displayFormat="dd/mm/yy"></sj:datepicker>
-					<sj:datepicker id="date3" label="Service End Date" name="service.serviceEnd" displayFormat="dd/mm/yy"></sj:datepicker>
-					<sj:submit targets="formResult" name="service.serviceExtendable" label="Service Extenable" value="" button="true"></sj:submit>
-					<sj:spinner name="spinner2" id="spinner2" min="5" max="50" step="1" value="25" size="5" label="Years"/>
-					<sj:spinner name="spinner3" id="spinner3" min="0" max="12" step="1" value="6" size="5" label="Month"/>
-					
-					
-					
-					<s:select list="listServiceType" label="Service Type" name="service.referenceDataByServiceType.referenceDataId" id="listServiceType" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:select>
-					<s:textfield id="serviceDescriptionDelivery" name="service.descriptionDelivery"></s:textfield>
-					<s:textfield id="serviceContractCode" name="service.serviceContractCode" label="Service Contract Code"></s:textfield>
 					<s:textfield id="serviceContractValue" name=".service.serviceContactValue" label="Service Contract Value"></s:textfield>
-					<sj:submit id="contractStagedPayment" name="service.contractStagedPayment" label="ContractStagedPayment" button="true"></sj:submit>
-<%-- 					<s:select list="{'dsafsda','asdfsda'}" id="referralProcessMethod" name="referralProcessMethod" label="Referral Process/Method"></s:select> --%>
-					<sj:submit id="serviceTimeLimited" name="service.serviceTimeLimited" label="Service Time Limited" value=""></sj:submit>
+					
+					<sj:datepicker id="dateStartService" label="Service Start Date" name="dateStart" displayFormat="dd/mm/yy"></sj:datepicker>
+					<s:checkbox id="contractStagedPayment" name="service.contractStagedPayment" label="ContractStagedPayment"></s:checkbox>
+							
+					<sj:datepicker id="date3" label="Service End Date" name="service.serviceEnd" displayFormat="dd/mm/yy"></sj:datepicker>
+					<s:select list="{'dsafsda','asdfsda'}" id="referralProcessMethod" name="referralProcessMethod" label="Referral Process/Method"></s:select> 
+					
+					<s:checkbox targets="formResult" name="service.serviceExtendable" label="Service Extenable"></s:checkbox>
+					<s:checkbox id="serviceTimeLimited" name="service.serviceTimeLimited" label="Service Time Limited" ></s:checkbox>
+					
+					<sj:spinner name="spinner2" id="spinner2" min="5" max="50" step="1" value="25" size="5" label="Years"/>
 					<sj:spinner name="spinner4" id="spinner4" min="5" max="50" step="1" value="25" size="5" label="Years"/>
+					
+					<sj:spinner name="spinner3" id="spinner3" min="0" max="12" step="1" value="6" size="5" label="Month"/>
 					<sj:spinner name="spinner5" id="spinner5" min="0" max="12" step="1" value="6" size="5" label="Month"/>				
 				</s:form>
 			</table>

@@ -190,27 +190,28 @@ public class ServiceAction extends ActionSupport{
 		System.out.println("Service Disanblity Criterion: "+service.getSerDisCrit());
 		System.out.println("Service Personal Circumstance Criterion: "+service.getSerPerCirCrit());
 		System.out.println("Other Service Participation Criterion: "+service.getSerOrtherCrit());
-		System.out.println("Client Support Proces: "+service);
-		System.out.println("Intervention: "+service);
-		System.out.println("Client Journey: "+service);
-		System.out.println("Other Services: "+service);
-		System.out.println("Support Centres: "+service);
-		System.out.println("Client Outcome: "+service);
-		System.out.println("Target Client: "+service);
-		System.out.println("Accreditations: "+service);
-		System.out.println("Referral Sources: "+service);
-		System.out.println("Programme: "+service);
-		System.out.println("Contact Outcome: "+service);
-		System.out.println("Participation: "+service);
-		System.out.println("Contact Obligation: "+service);
-		System.out.println("Participation: "+service);
-		System.out.println(""+service);
-		System.out.println(""+service);
-		System.out.println(""+service);
-		System.out.println(""+service);
+		System.out.println("Client Support Proces: "+service.getClientSupportProcess());
+		System.out.println("Intervention: "+service.getIntervention());
+		System.out.println("Client Journey: "+service.getClientJourney());
+		System.out.println("Other Services: "+service.getOtherService());
+//		System.out.println("Support Centres: "+service.);
+//		System.out.println("Client Outcome: "+service);
+//		System.out.println("Target Client: "+service);
+//		System.out.println("Accreditations: "+service);
+//		System.out.println("Referral Sources: "+service);
+//		System.out.println("Programme: "+service);
+//		System.out.println("Contact Outcome: "+service);
+//		System.out.println("Participation: "+service);
+//		System.out.println("Contact Obligation: "+service);
+//		System.out.println("Participation: "+service);
 		
-		System.out.println("Serivce ");
-		
+//		System.out.println(""+service);
+//		System.out.println(""+service);
+//		System.out.println(""+service);
+//		System.out.println(""+service);
+//		
+//		System.out.println("Serivce ");
+//		
 		
 		
 		servicesDao.add(service);
