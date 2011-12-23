@@ -7,6 +7,7 @@
 			  
 	<bean id="organisationAction" class="fsoft.xdev.mock.actions.organisation.OrganisationsAction">
 		<property name="organisationDao" ref="organisationDao" />
+		<property name="referenceDataDao" ref="referenceDataDao" />
 	</bean>
 
 	<bean id="organisationDao" parent="txProxyTemplate">		
@@ -16,5 +17,13 @@
         	</bean>
         </property>
 	</bean>    
+
+	<bean id="referenceDataDao" parent="txProxyTemplate">
+		<property name="target">
+			<bean class="fsoft.xdev.mock.dao.imp.ReferenceDataDao">
+				<property name="sessionFactory" ref="sessionFactory"></property>
+			</bean>
+		</property>
+	</bean> 
 
 </beans>

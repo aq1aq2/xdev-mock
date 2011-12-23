@@ -35,9 +35,9 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 
 	
-
+<import resource="fsoft/xdev/mock/spring/ReferenceDataBean.xml"/>
 	
-
+		<import resource="fsoft/xdev/mock/spring/ReferenceType.xml"/>
 		
 	<import resource="fsoft/xdev/mock/spring/DepartmentBean.xml"/>
 	<import resource="fsoft/xdev/mock/spring/DirectorateBean.xml"/>

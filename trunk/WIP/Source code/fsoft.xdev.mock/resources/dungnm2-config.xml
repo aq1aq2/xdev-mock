@@ -4,12 +4,13 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
     <!-- Configuration Information Created by DungNM2 -->
-    <package name="dungnm2" extends="json-default">    				
+    <package name="dungnm2" extends="struts-default,json-default">    				
 		<action name="*Organisation" method="{1}" class="organisationAction">
     		<result name="list" type="json"></result>
     	<!--
  			<result name="list">Test.jsp</result> 
  		-->
+ 			<result name="input">/pages/input/organisationInput.jsp</result>
     		<result name="save" type="json"></result>
     		<result name="update" type="json"></result>
     	</action>
