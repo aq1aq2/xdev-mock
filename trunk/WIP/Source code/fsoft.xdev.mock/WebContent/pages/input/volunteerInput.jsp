@@ -64,12 +64,18 @@ $(document).ready(function(){
 		//change formatdate to suit with sql database
 		
 		//start Date
-		var dateTimeSplit = $("#startDate").val().split('/');
-		var startDate = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
-		$("#startDate").val(startDate);
-		dateTimeSplit =  $("#endDate").val().split('/');
-		var endDate = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
-		$("#endDate").val(endDate);
+		
+// 		var dateTimeSplit = $("#startDate").val().split('/');
+// 		var startDate = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
+// 		$("#startDate").val(startDate);
+// 		dateTimeSplit =  $("#endDate").val().split('/');
+// 		var endDate = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
+// 		$("#endDate").val(endDate);
+
+		formatDate($("#startDate"));
+		
+		formatDate($("#endDate"));
+		
 		//send action save
 		window.location.href = "saveVolunteeringOpportunity.action?" + query;
 	});
