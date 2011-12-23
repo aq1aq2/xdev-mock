@@ -139,5 +139,17 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao{
 //	public List<Service> listServiceAlready(){
 //		
 //	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Premise> listPremisebyLocationType(String type) {
+		String criteria = "from Premise c left join c.referenceData a left join c.referenceData.referenceType b where b.refTypeName = 'Location Type' and a.value = '"
+										+ type + "'";
+		Query query = getHibernateTemplate().getSessionFactory()
+				.getCurrentSession().createQuery(criteria);
+		return query.list();
+	}
+	
+	
 	
 }
