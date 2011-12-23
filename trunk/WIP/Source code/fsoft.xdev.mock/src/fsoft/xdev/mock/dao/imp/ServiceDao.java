@@ -15,6 +15,7 @@ public class ServiceDao extends HibernateDaoSupport implements IServiceDao{
 	@Override
 	public boolean add(Service entity) {
 		// TODO Auto-generated method stub
+		getHibernateTemplate().save(entity);
 		return false;
 	}
 
