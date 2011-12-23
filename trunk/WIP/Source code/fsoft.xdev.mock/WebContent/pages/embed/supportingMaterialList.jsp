@@ -12,10 +12,12 @@
 		/* -------------------
 		 * Filter click events 
 		 */
+		var filterOrgId = $('#orgId').val();
 		var filterActive = false;
 		
 		function sendFilterOptions() {
 			query = "filterActive="+filterActive;
+			query += "&filterOrgId="+filterOrgId;
 			$.getJSON("listSupportingMaterial.action?" + query,
 				function(data) {
 					$('#gridtable').trigger('reloadGrid', [{page:1}]);
@@ -54,7 +56,7 @@
 </script>
 
 <s:form>
-	<s:url id="listURL" action="listSupportingMaterial.action"></s:url>
+	<s:url id="listURL" action="listSupportingMaterial.action?filterOrgId=%{#orgId}"></s:url>
 	<sjg:grid
 	   	id="gridtable"
 	  	dataType="json"
