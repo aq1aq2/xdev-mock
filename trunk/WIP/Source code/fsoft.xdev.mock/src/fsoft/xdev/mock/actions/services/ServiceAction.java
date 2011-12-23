@@ -164,15 +164,57 @@ public class ServiceAction extends ActionSupport{
 	
 	public String save(){
 		System.out.println("Ten cua service ta dinh them vao la: "+service.getName());
-		System.out.println("mot: "+service.getClientDescription());
-		System.out.println(service.getAccreditation());
-		System.out.println(service.getContractObligation());
-		System.out.println(service.getClientJourney());
-		System.out.println(service.getClientOutcome());
-		System.out.println(service.getClientSupportProcess());
-		System.out.println("ngay: " +service.getServiceStart());
-		servicesDao.add(service);
+		System.out.println();
 		System.out.println("Chay vao day!");
+		
+		System.out.println("Service name: "+service.getName());
+		System.out.println("Service Short Description: "+service.getShortDescription());
+		System.out.println("Sub typ: "+service.getReferenceDataByServiceSubType().getValue());
+		System.out.println("Client Description: "+service.getClientDescription());
+		System.out.println("Service Attendance: "+service.getServiceAttendace());
+		System.out.println("Service Start Expected: "+service.getServiceStartExpected());
+		System.out.println("Service Start Date: "+service.getServiceStart());
+		System.out.println("Service End Date: "+service.getServiceEnd());
+		System.out.println("Service Extendable: "+service.getServiceExtendable());
+		System.out.println("Service Active: "+service.getStatus());
+		System.out.println("Service Full Description: "+service.getFullDescription());
+		System.out.println("Service Dept Code: "+service.getReferenceDataByServiceType().getValue());
+		System.out.println("Service Description Delivery: "+service.getDescriptionDelivery());
+		System.out.println("Service Contact Code: "+service.getServiceContractCode());
+		System.out.println("Service Contact Value:"+service.getServiceContactValue());
+		System.out.println("Service Staged Payment: ");
+		System.out.println("Service Time Limited: "+service.getServiceTimeLimited());
+		System.out.println("Service Benefits Criterion: "+service.getSerBenCrit());
+		System.out.println("Service Barries Criterion: "+service.getSerBarCrit());
+		System.out.println("Service Ethnicity Criterion: "+service.getSerEthCrit());
+		System.out.println("Service Disanblity Criterion: "+service.getSerDisCrit());
+		System.out.println("Service Personal Circumstance Criterion: "+service.getSerPerCirCrit());
+		System.out.println("Other Service Participation Criterion: "+service.getSerOrtherCrit());
+		System.out.println("Client Support Proces: "+service);
+		System.out.println("Intervention: "+service);
+		System.out.println("Client Journey: "+service);
+		System.out.println("Other Services: "+service);
+		System.out.println("Support Centres: "+service);
+		System.out.println("Client Outcome: "+service);
+		System.out.println("Target Client: "+service);
+		System.out.println("Accreditations: "+service);
+		System.out.println("Referral Sources: "+service);
+		System.out.println("Programme: "+service);
+		System.out.println("Contact Outcome: "+service);
+		System.out.println("Participation: "+service);
+		System.out.println("Contact Obligation: "+service);
+		System.out.println("Participation: "+service);
+		System.out.println(""+service);
+		System.out.println(""+service);
+		System.out.println(""+service);
+		System.out.println(""+service);
+		
+		System.out.println("Serivce ");
+		
+		
+		
+		servicesDao.add(service);
+
 		System.out.println(dateStart);
 //		System.out.println("checkbox checked: "+listServiceBenefitsCriterion_Checked);
 //		System.out.println("checkbox checked: "+listServiceBarriersCriterion_Checked);
