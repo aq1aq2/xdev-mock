@@ -13,6 +13,16 @@ public class SupportingMaterialDao extends HibernateDaoSupport
 			implements ISupportingMaterialDao{
 
 	@Override
+	public boolean addOrUpdate(Object entity) {
+		try {
+			getHibernateTemplate().saveOrUpdate(entity);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	@Override
 	public boolean add(SupportingMaterial entity) {
 		getHibernateTemplate().save(entity);
 		return true;
@@ -72,5 +82,4 @@ public class SupportingMaterialDao extends HibernateDaoSupport
 		
 		return query.list();
 	}
-
 }

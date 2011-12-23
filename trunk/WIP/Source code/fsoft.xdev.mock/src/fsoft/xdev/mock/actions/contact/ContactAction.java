@@ -84,6 +84,7 @@ public class ContactAction extends ActionSupport {
 	 */
 	public String save() {
 		System.out.println("Action: save contact");
+		System.out.println(contact.getContactId());
 		System.out.println("Contact name: " + contact.getFirstName());
 		contactDao.addOrUpdate(contact);
 		return "save";
