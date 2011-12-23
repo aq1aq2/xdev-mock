@@ -154,7 +154,7 @@ public class TeamAction {
 		return "edit";
 	}
 
-	public String execute() {
+	public String input() {
 		team = new Team();
 		listCounty= countyDao.findAll();
 		mode = true;
@@ -167,5 +167,11 @@ public class TeamAction {
 		listCounty= countyDao.findAll();
 		mode = false;
 		return "input";
+	}
+	public String active(){
+		team = teamDao.find(team);
+		team.setStatus(true);
+		teamDao.edit(team);
+		return "list";
 	}
 }
