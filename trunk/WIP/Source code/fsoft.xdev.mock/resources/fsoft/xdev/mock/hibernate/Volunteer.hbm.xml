@@ -6,7 +6,7 @@
     <class name="fsoft.xdev.mock.models.Volunteer" table="Volunteer" schema="dbo" catalog="XDevMock">
         <id name="volunteerId" type="int">
             <column name="VolunteerID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="contact" class="fsoft.xdev.mock.models.Contact" fetch="select">
             <column name="ContactID" />
