@@ -8,6 +8,7 @@
 
 <script>
 	$(document).ready(function(){
+		alert("$orgId");
 		$("#xdev-filter").empty(); // Material list don't have filter keys.
 		/* -------------------
 		 * Filter click events 
