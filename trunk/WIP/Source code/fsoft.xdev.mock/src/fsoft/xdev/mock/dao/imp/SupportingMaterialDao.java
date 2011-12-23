@@ -67,6 +67,7 @@ public class SupportingMaterialDao extends HibernateDaoSupport
 						"a.supportingMaterialId , a.url, a.description, a.type, b.userName, a.addedDate) " +
 				"from SupportingMaterial a " +
 				"left join a.account b " +
+				"left join a.organisation c " +
 				"where";
 
 		if (filterActive == null || filterActive == false) {
@@ -74,6 +75,13 @@ public class SupportingMaterialDao extends HibernateDaoSupport
 		} else {
 			criteria = criteria + " (1 = 1) ";
 		}
+		
+		filterKey = filterKey.trim();
+		if (filterKey != null )
+			if (!"".equals(filterKey)) {
+				criteria = criteria
+						+ " and  (c.organisationId like '" + filterKey + "')";
+			}
 
 		Query query = getHibernateTemplate().getSessionFactory()
 				.getCurrentSession().createQuery(criteria);
