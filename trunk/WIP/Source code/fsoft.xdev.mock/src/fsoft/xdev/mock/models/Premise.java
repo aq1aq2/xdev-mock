@@ -9,6 +9,10 @@ import java.util.Date;
  */
 public class Premise implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int premiseId;
 	private Country country;
 	private Organisation organisation;

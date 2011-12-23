@@ -8,9 +8,9 @@
 	<sj:tabbedpanel id="tabs">
 		
 		<sj:tab id="tab1" target="details1" label="Details 1"/>
-		<sj:tab id="tab1" target="details2" label="Details 2"/>
-		<sj:tab id="tab1" target="details3" label="Details 3"/>
-		<sj:tab id="tab1" target="details4" label="Details 4"/>
+		<sj:tab id="tab2" target="details2" label="Details 2"/>
+		<sj:tab id="tab3" target="details3" label="Details 3"/>
+		<sj:tab id="tab4" target="details4" label="Details 4"/>
 		
 		
 		<div id="details1" class="xdev-window-body-sub">
@@ -34,26 +34,25 @@
 			  
 			 	<s:checkboxlist name="premise.locationType" list="listLocationType" required="true" label="Location Type" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
 	
-				<s:textfield name="addressLine1" label="Address Line 1" ></s:textfield>
-				<s:textfield name="addressLine2" label="Address Line 2"></s:textfield>	
+				<s:textfield name="premise.addressLine1" label="Address Line 1" ></s:textfield>
+				<s:textfield name="premise.addressLine2" label="Address Line 2"></s:textfield>	
 				
-				<s:textfield name="locationDescription" label="Location Description"></s:textfield>
+				<s:textfield name="premise.locationDescription" label="Location Description"></s:textfield>
 				
-				<xdev:textLookup name="postcode" label="Post Code"/>
-				<s:textfield name="postcode" label="Post Code"></s:textfield>
+				<xdev:textLookup id="postcode" name="premise.postcode" label="Post Code"/>
 				
-				<s:textfield name="phoneNumber" label="Phone Number" required="true"></s:textfield>
-				<s:textfield name="faxNumber" label="General Fax Number"></s:textfield>
+				<s:textfield name="premise.phoneNumber" label="Phone Number" required="true"></s:textfield>
+				<s:textfield name="premise.faxNumber" label="General Fax Number"></s:textfield>
 			
 				<s:select list="{'Viet Nam', 'USA'}" label="Nation/Country"></s:select>
 			
-				<s:textfield name="cityTown" label="City Town"></s:textfield>
+				<s:textfield name="premise.cityTown" label="City Town"></s:textfield>
 			
-				<s:textfield name="county" label="County"></s:textfield>
-				<s:checkbox name="isNewShop" label="Is New Shop?" labelposition="left"></s:checkbox>
+				<s:textfield name="premise.county" label="County"></s:textfield>
+				<s:checkbox name="premise.isNewShop" label="Is New Shop?" labelposition="left"></s:checkbox>
 				
-				<sj:datepicker name="shopFlagDate" displayFormat="dd/mm/yy" label="Shop Flag Date"></sj:datepicker>
-				<s:checkbox name="specialistShop" label="Specialist Shop" labelposition="left"></s:checkbox>
+				<sj:datepicker name="premise.shopFlagDate" displayFormat="dd/mm/yy" label="Shop Flag Date"></sj:datepicker>
+				<s:checkbox name="premise.specialistShop" label="Specialist Shop" labelposition="left"></s:checkbox>
 				
 				<s:label name="locationOpeningTime" onclick="loationOpeningTime" value="Location Opening Time"></s:label>
 		
@@ -66,27 +65,21 @@
 			
 			<s:form cssClass="xdev-form">
 				
-				<s:checkboxlist name="accreditations" list="{'Two Ticks','Investors In People', 'ISO 9001','ISO 14001', 'ISO 27001'}" label="Accriditations" ></s:checkboxlist>
+				<s:checkboxlist name="premise.accreditations" list="listAccreditations" label="Accriditations" listValue="type" listKey="referenceDataId" key="referenceDataId"/>
 				
-				<s:checkboxlist name="jcpOffices" list="{'',''}" label="JCP Offices" labelposition="left" ></s:checkboxlist>
+				<s:checkboxlist name="premise.jcpoffices" list="{'',''}" label="JCP Offices" labelposition="left" />
 				
-				<s:checkbox name="cateringFacilities" label="Catering Facilities" labelposition="left"></s:checkbox>
 				
-				<s:textfield name="cateringContact" label="Catering Contact" readonly="true"></s:textfield>
+				<xdev:textLookup name="premise.contactId" id="cateringContact" label="Catering Contact" />
 				
-				<s:label name="lookupCatering" onclick="Lookup" value="Lookups"></s:label>
+				<s:checkboxlist name="premise.localDemographicIssue" list="listLocalDemographicIssue" label="Local Demographic Issue" listValue="type" listKey="referenceDataId" key="referenceDataId" ></s:checkboxlist>
 				
-				<s:checkboxlist name="localDemographicIssue" list="{'High Un-employment','Rural'}" label="Local Demographic Issue" ></s:checkboxlist>
+				<s:select name="premise.referenceData.referenceDataId" list="listCateringType" label="Catering Type" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:select>
 				
-				<s:select name="cateringType" list="{'',''}" label="Catering Type"></s:select>
+				<s:select name="premise.isnetwork" list="listNetwork" label="IS/Network" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:select>
 				
-				<s:select name="IS/Network" list="{'Open','Wip','Closed'}" label="IS/Network"></s:select>
-				
-				<s:checkbox name="clientITFacilities" label="Client IT Facilities"></s:checkbox>
-				<s:textarea name="clientITFacilitiesDetail" label="Client IT Facilities Detail" cols="5" rows="4"></s:textarea>
-				
-				<s:checkbox name="roomAvailability" label="Room Availability"></s:checkbox>
-				<s:checkbox name="volunteeringOpportunities" label="Volunteering Opportunities"></s:checkbox>
+				<s:checkbox name="premise.roomAvailability" label="Room Availability" labelposition="left"></s:checkbox>
+				<s:checkbox name="premise.volunteeringOpportunities" label="Volunteering Opportunities" labelposition="left"></s:checkbox>
 				
 			</s:form>
 		

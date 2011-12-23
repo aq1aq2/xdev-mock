@@ -7,7 +7,9 @@
 	<!-- Configuration Information Created by DungNM2 -->
 	<package name="phongtv" extends="json-default">
 		<action name="*Premises" method="{1}" class="premisesAction">
-			<result name="list" type="json"></result>
+			<result name="list" type="json">
+				<param name="excludeProperties">listLocationType,premise</param>
+			</result>
 			<result name="add">/pages/list/premiseList.jsp</result>
 			<result name="detail">/pages/input/premiseInput.jsp</result>
 		</action>

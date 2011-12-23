@@ -13,4 +13,5 @@ public interface IReferenceDataDao extends BaseDao<ReferenceData> {
 	List<ReferenceDataList> getServiceType();
 	List<ReferenceDataList> getSubType();
 	List<ReferenceDataList> getItem(String type);
+	//List<ReferenceDataList> getLocationType();
 }

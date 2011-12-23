@@ -72,9 +72,9 @@ $(document).ready(function(){
 // 		var endDate = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
 // 		$("#endDate").val(endDate);
 
-		formatDate($("#startDate"));
+// 		formatDate($("#startDate"));
 		
-		formatDate($("#endDate"));
+// 		formatDate($("#endDate"));
 		
 		//send action save
 		window.location.href = "saveVolunteeringOpportunity.action?" + query;
@@ -110,7 +110,7 @@ $(document).ready(function(){
 				$("#selectBtn").click(function(){
 					var volunteerContact = $(":input[name*='gridSelectedRow']").val();
 					//$(":input[name*='contact.managerId']").val(managerId);
-						$("#volunteerContact").val(volunteerContact);
+					$("#volunteerContact").val(volunteerContact);
 					$( "#listDialog" ).dialog( "close" );
 					
 					// Clear dialog content to ensure no confict with other lookup
