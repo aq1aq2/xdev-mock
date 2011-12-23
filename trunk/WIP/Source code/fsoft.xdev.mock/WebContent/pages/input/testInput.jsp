@@ -4,7 +4,7 @@
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 <title> test Input</title>
 
-<<script type="text/javascript">
+<script type="text/javascript">
 <!--
 
 //-->
@@ -23,8 +23,11 @@ $(document).ready(function(){
 // 	var dateTimeSplit = $("#startDate").val().split('/');
 // 	var startDate = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
 // 	alert(startDate);
-	formatDate($("#startDate"));
-	alert();
+// 	formatDate($("#startDate"));
+// 	alert($("#startDate").val());
+	 var date = $("#startDate").datepicker("getDate");
+	 alert(date);
+	
 	});
 });
 </script>

@@ -53,6 +53,13 @@
 // 	});
 		
 		
+	// facilityType select change event
+		$("#FacilityType").change(function(){
+			alert($("#FacilityType option:selected").text());
+			alert($("#FacilityType option:selected").val());
+		});
+		
+		
 		/* Back event */
 		$("#backBtn").click(function(){
 			window.history.back();
