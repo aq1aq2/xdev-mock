@@ -8,7 +8,7 @@
             <column name="SupportingMaterialID" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="account" class="fsoft.xdev.mock.models.Account" fetch="select">
+        <many-to-one name="account" class="fsoft.xdev.mock.models.Account" fetch="select" lazy="false">
             <column name="AccountID" />
         </many-to-one>
         <many-to-one name="organisation" class="fsoft.xdev.mock.models.Organisation" fetch="select">

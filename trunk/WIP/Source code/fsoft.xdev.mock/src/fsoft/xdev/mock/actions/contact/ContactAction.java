@@ -17,9 +17,9 @@ public class ContactAction extends ActionSupport {
 	private IContactDao contactDao;
 	private IReferenceDataDao referenceDataDao;
 	
-	private Contact contact; // For detail / amend contact
 	private List listModel;  // For list contact
-	private int selectedContactId=-1; // For amend selected contact
+	private Contact contact; // For create or amend contact
+	private int selectedContactId = -1; // For amend selected contact
 	
 	private List<ReferenceDataList> listContactType;
 	private List<ReferenceDataList> listBestContactMethod;

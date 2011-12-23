@@ -33,13 +33,7 @@
 		 
 		/* Create */
 		$("#createBtn").click(function(){
-			window.location.href = "inputContact.action";
-		});
-		
-		/* Edit */
-		$("#editBtn").click(function(){
-			var contactId = $(":input[name*='gridSelectedRow']").val();
-	        window.location.href = "inputContact.action?selectedContactId=" + contactId;
+			window.location.href = "inputSupportingMaterial.action";
 		});
 		
 		/* -----------
@@ -51,7 +45,9 @@
 		        var grid = event.originalEvent.grid;
 		        var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
 		        var selectedId = grid.jqGrid('getCell', selectedRowId, 'supportingMaterialId');
-		        $(":input[name*='gridSelectedRow']").val(selectedId);
+		        
+		        // Jump to Edit page
+		        window.location.href = "inputSupportingMaterial.action?selectedId=" + selectedId;
 	        }
 		);
 	});
