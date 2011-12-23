@@ -15,6 +15,7 @@ public class SupportingMaterialsAction extends ActionSupport{
 	private SupportingMaterial entity; // For create or amend material
 	private int selectedId = -1; // For amend selected material
 
+	private String filterOrgId="";
 	private boolean filterActive; // Filter by active
 
 	private Integer rows = 0;
@@ -42,7 +43,7 @@ public class SupportingMaterialsAction extends ActionSupport{
 		int from = to - rows;
 
 		records = entityDao.count(null, filterActive);
-		listModel = entityDao.findRange(from, to, null, filterActive);
+		listModel = entityDao.findRange(from, to, filterOrgId, filterActive);
 		total = (int) Math.ceil((double) records / (double) rows);
 
 		return "list";
@@ -110,6 +111,14 @@ public class SupportingMaterialsAction extends ActionSupport{
 
 	public void setSelectedId(int selectedId) {
 		this.selectedId = selectedId;
+	}
+
+	public String getFilterOrgId() {
+		return filterOrgId;
+	}
+
+	public void setFilterOrgId(String filterOrgId) {
+		this.filterOrgId = filterOrgId;
 	}
 
 	public boolean isFilterActive() {
