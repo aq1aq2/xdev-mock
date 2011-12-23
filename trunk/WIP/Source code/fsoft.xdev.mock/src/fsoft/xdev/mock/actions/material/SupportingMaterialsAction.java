@@ -24,6 +24,14 @@ public class SupportingMaterialsAction extends ActionSupport{
 	private Integer total = 0;
 	private Integer records = 0;
 
+	
+	/**
+	 * Return list JSP page
+	 */
+	
+	public String execute() {
+		return SUCCESS;
+	}
 
 	/**
 	 * List all SupportingMaterial
