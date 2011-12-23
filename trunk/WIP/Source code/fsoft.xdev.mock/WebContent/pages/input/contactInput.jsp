@@ -37,7 +37,7 @@
 		
 		/* Manager lookup event */
 		$("#managerId_lookupBtn").click(function(){
-			$("#listDialogContent").load("../lookup/contactList.jsp",
+			$("#listDialogContent").load("Contact.action",
 				function(response){ // Function execute after load complete
 					/* Dialog None button */
 					$("#noneBtn").click(function(){
