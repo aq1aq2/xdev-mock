@@ -36,8 +36,7 @@
 					}
 				);
 			}
-			else {
-				alert("update ne");
+			else {				
 				$.getJSON("editTrustRegion.action?" + query,
 						function(data) {
 							// Do nothing
@@ -50,10 +49,18 @@
 			
 		});	
 		
+		$("#trustRegionTabs").ready(function(){
+			if (mode == 'true')
+			{
+				$("#trustRegionTabs").tabs("disable",1);
+				
+			}
+		});
+		
 	});
 </script>
 <!-- Tabbed Panel -->
-<sj:tabbedpanel id="tabs">	
+<sj:tabbedpanel id="trustRegionTabs" selectedTab="0" >	
 	<sj:tab id="tab1" target="details1" label="Details 1"/>
 	<sj:tab id="tab2" target="listTrustDistrict" label="Trust District"/>
 	

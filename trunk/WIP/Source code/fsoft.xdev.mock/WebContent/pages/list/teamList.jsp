@@ -1,16 +1,17 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
-
+<%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <title>Trust Region</title>
 
 <content tag="sectionTitle">Team List</content>
 
 <script>
+
+	var id ="N/A";	
 	$(document).ready(function(){
 		/* Filter click event */
 		var filterKey = "";
-		var filterActive = false;
-		
+		var filterActive = false;	
 		function sendFilterOptions() {
 			query = "filterKey="+filterKey;
 			query += '&';
@@ -29,7 +30,7 @@
 		
 		
 		$("#createBtn").click(function(){			
-			window.location.href="executeTeam.action";
+			window.location.href="inputTeam.action";
 		});
 		$("#includeChkBx").click(function(){
 			// Test
@@ -41,13 +42,41 @@
 	        // Get id of the record
 	        var grid = event.originalEvent.grid;
 	        var selectedRowId = grid.jqGrid('getGridParam', 'selrow'); 
-	        var id = grid.jqGrid('getCell', selectedRowId, 'teamId');
-	        // call detail action 
-	        query="team.teamId="+id;
-	        window.location.href = "detailTeam.action?" + query;
+	       	id = grid.jqGrid('getCell', selectedRowId, 'teamId');
+	       	var status = grid.jqGrid('getCell', selectedRowId, 'status');
+	       	alert(status);
+	        if(status == 'No'){	        	
+	        	$("#confirm_dialog").dialog("open");
+	        	
+	        }
+	        else{
+	        	query="team.teamId="+id;
+		        window.location.href = "detailTeam.action?" + query;	
+	        }		        
 	        
 		});
 	});
+	
+		function chooseOkButton() {		
+			alert("ok");
+			active();		
+			$("#confirm_dialog").dialog("close");
+		}
+		
+		function chooseCancelButton() {	
+			alert("cancel");
+			$("#confirm_dialog").dialog("close");
+		}
+	
+		function active() {
+			alert("Id= " + id);
+			query="team.teamId=" + id;		
+			$.get("activeTeam.action?" + query, 
+				function(data){
+					$("#gridtable").trigger("reloadGrid", [{page:1}]);
+				}
+			);
+		}	
 </script>
 <!-- body -->	
 		
@@ -71,4 +100,15 @@
 	<sjg:gridColumn name="status" index="status" title="IsActived" sortable="true" formatter="checkbox"/>	        
 </sjg:grid>    
   
-
+  <sj:dialog id="confirm_dialog"
+		  buttons="{
+                'OK':function() { chooseOkButton(); },
+                'Cancel':function() { chooseCancelButton(); }
+                }"
+		   autoOpen="false"
+		   modal="true"
+		   title="Confirm..."
+>
+	Do you want to make this trust team active ?
+</sj:dialog>
+  

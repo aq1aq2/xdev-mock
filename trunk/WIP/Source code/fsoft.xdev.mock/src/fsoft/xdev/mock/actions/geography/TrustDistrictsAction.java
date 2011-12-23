@@ -176,11 +176,7 @@ public class TrustDistrictsAction extends ActionSupport {
 		return "input";
 	}
 
-	public String edit() {		
-		System.out.println("ID: " + trustDistrict.getTrustDistrictId());
-		System.out.println("name: " + trustDistrict.getName());
-		System.out.println("status: " + trustDistrict.getStatus());
-		System.out.println("region: " + trustDistrict.getTrustRegion().getTrustRegionId());
+	public String edit() {	
 		trustDistrictDao.edit(trustDistrict);
 		return "edit";
 	}
@@ -188,5 +184,12 @@ public class TrustDistrictsAction extends ActionSupport {
 		trustDistrict = new TrustDistrict();
 		mode = true;
 		return "input";
+	}
+	public String active(){
+		System.out.println("vao day: " + trustDistrict.getTrustDistrictId());
+		trustDistrict = trustDistrictDao.find(trustDistrict);
+		trustDistrict.setStatus(true);
+		trustDistrictDao.edit(trustDistrict);
+		return "list";
 	}
 }

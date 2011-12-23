@@ -184,4 +184,12 @@ public class TrustRegionsAction extends ActionSupport {
 		mode = false;
 		return "input";
 	}
+	
+	//update status
+	public String active(){
+		trustRegion = trustRegionDao.find(trustRegion);	
+		trustRegion.setStatus(true);
+		trustRegionDao.edit(trustRegion);	
+		return "list";
+	}
 }
