@@ -14,8 +14,14 @@ import fsoft.xdev.mock.taglib.components.TextLookup;
 public class TextLookupTag extends AbstractUITag {
 
 	private static final long serialVersionUID = 5577089764622677517L;
-
+	private boolean readonly = false;
 	public Component getBean(ValueStack stack, HttpServletRequest req, HttpServletResponse res) {
         return new TextLookup(stack, req, res);
     }
+	public boolean getReadonly() {
+		return readonly;
+	}
+	public void setReadonly(boolean readonly) {
+		this.readonly = readonly;
+	}
 }
