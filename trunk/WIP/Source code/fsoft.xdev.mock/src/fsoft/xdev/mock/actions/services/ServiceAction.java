@@ -240,6 +240,19 @@ public class ServiceAction extends ActionSupport{
 	}
 
 	/**
+	 * update status for Service
+	 *
+	 */
+	
+	public String active(){
+		service = servicesDao.find(service);
+		System.out.println("ServiceId: "+service.getServiceId());
+		service.setStatus(true);
+		servicesDao.edit(service);	
+		return "list";
+	}
+	
+	/**
 	 * setter method
 	 */
 
