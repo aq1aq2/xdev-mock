@@ -4,7 +4,10 @@
 <title>Supporting Material List</title>
 
 <!-- Section Title -->
+<!--  
 <content tag="sectionTitle">Supporting Material List</content>
+-->
+
 
 <script>
 	$(document).ready(function(){
@@ -67,7 +70,7 @@
 	  	dataType="json"
 	  	href="%{listURL}"
 	    gridModel="listModel"
-	    autowidth="true"
+	    width="929"
 	    pager="true"
 	    rowNum="15"
        	rownumbers="true"
