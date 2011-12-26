@@ -6,14 +6,9 @@
 
 <title>Service</title>
 
-<script type="text/javascript">
-$.subscribe('rowselect', function(event, data) {
-        alert('Selected Row : ' + event.originalEvent.id);
-       	
-});
-</script>
-
 <script>
+
+	var id ="N/A";
 	$(document).ready(function(){
 		/* Filter click event */
 		var filterKey = "";
@@ -44,7 +39,45 @@ $.subscribe('rowselect', function(event, data) {
 		$("#createBtn").click(function(){
 			window.location.href = "detailService.action";
 		});
+		
+		
+		$.subscribe("rowselect", function(event, data) {  
+	        
+	        var grid = event.originalEvent.grid;
+	        var selectedRowId = grid.jqGrid('getGridParam', 'selrow'); 
+	        id = grid.jqGrid('getCell', selectedRowId, 'serviceId');
+	        var status = grid.jqGrid('getCell', selectedRowId, 'status');	        
+	        if(status =='No'){	        	
+	        	$("#confirm_dialog").dialog("open");
+	        }
+	        else{	        	 
+		        query="service.serviceId="+id;
+		        window.location.href = "detailService.action?" + query;
+	        }		        
+	        
+		});	
+		
 	});
+	
+	function chooseOkButton(){
+		active();
+		$("#confirm_dialog").dialog("close");
+	}
+	
+	function chooseCancelButton(){
+		$("#confirm_dialog").dialog("close");
+	}
+	
+	function active() {
+		alert("ID: " + id);
+		query="service.serviceId=" + id;		
+		$.get("activeService.action?" + query, 
+			function(data){
+			alert("co vay day khong");
+				$("#gridtable").trigger("reloadGrid", [{page:1}]);
+			}
+		);
+	}
 </script>
 
 <div class="xdev-window-body">
@@ -62,11 +95,24 @@ $.subscribe('rowselect', function(event, data) {
       	navigator="true"
       	onSelectRowTopics="rowselect"
     >
+    	<sjg:gridColumn name="serviceId" index="serviceId" title="ID" hidden="true"></sjg:gridColumn>
         <sjg:gridColumn name="name" index="name" title="Service Name" sortable="true"/>
         <sjg:gridColumn name="descriptionDelivery" index="descriptionDelivery" title="Description" sortable="false"/>
         <sjg:gridColumn name="serviceType" index="serviceType" title="Service Type" sortable="false"/>
         <sjg:gridColumn name="contact" index="contact" title="Contact"></sjg:gridColumn>
-        <sjg:gridColumn name="status" index="status" title="IsActived" sortable="false"/>
+        <sjg:gridColumn name="status" index="status" title="IsActived" sortable="false" formatter="checkbox"/>
     </sjg:grid>
     </s:form>
+    
+  <sj:dialog id="confirm_dialog"
+		  buttons="{
+                'OK':function() { chooseOkButton(); },
+                'Cancel':function() { chooseCancelButton(); }
+                }"
+		   autoOpen="false"
+		   modal="true"
+		   title="Confirm..."
+	>
+    Do you want to make this Service active ?
+    </sj:dialog>
 </div>

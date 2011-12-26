@@ -3,6 +3,7 @@ package fsoft.xdev.mock.dao.imp;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -22,19 +23,37 @@ public class ServiceDao extends HibernateDaoSupport implements IServiceDao{
 	@Override
 	public boolean edit(Service entity) {
 		// TODO Auto-generated method stub
-		return false;
+		boolean editSuccess = false;
+		try {
+			getHibernateTemplate().update(entity);
+			editSuccess = true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Edit is not successful, in edit of ServiceDao!");
+			editSuccess = false;
+			e.printStackTrace();
+		}
+		return editSuccess;
 	}
 
 	@Override
 	public boolean remove(Service entity) {
 		// TODO Auto-generated method stub
-		return false;
+		try {
+			getHibernateTemplate().delete(entity);
+			return true;
+		} catch (DataAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		
 	}
 
 	@Override
 	public Service find(Service entity) {
 		// TODO Auto-generated method stub
-		return null;
+		return getHibernateTemplate().get(Service.class, entity.getServiceId());
 	}
 
 	
