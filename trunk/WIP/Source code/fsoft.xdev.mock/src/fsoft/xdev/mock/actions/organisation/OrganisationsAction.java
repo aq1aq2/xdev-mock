@@ -89,7 +89,8 @@ public class OrganisationsAction extends ActionSupport{
 	}
 	
 	public String detail() {
-		System.out.println("Mode = " + mode);
+		// Check mode before
+		XDebugger.show("Mode = " + mode);
 		if("add".equals(mode)) {
 			organisation = new Organisation();
 			listOrgSpecicalism = referenceDataDao.getItem("Organisation Speciacalism");

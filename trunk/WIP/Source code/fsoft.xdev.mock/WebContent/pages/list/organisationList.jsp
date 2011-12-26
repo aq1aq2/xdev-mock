@@ -30,7 +30,7 @@ $(document).ready(function(){
 	$("#createBtn").click(function(){
 		// Open two tab
 		// Call file organisationInput.jsp
-		alert("create new");
+		// alert("create new");
 		var url = "detailOrganisation.action?mode=add";    
 		$(location).attr('href',url);
 	});
@@ -45,13 +45,13 @@ $(document).ready(function(){
         var status = grid.jqGrid('getCell', selectedRowId, 'status');
         organisationId = grid.jqGrid('getCell', selectedRowId, 'organisationId');
         // Test before
-        alert(status + " & " + organisationId);
+        // alert(status + " & " + organisationId);
         
         if(status == 'No') {
             // Show a popoup dialog
         	$("#confirm_dialog").dialog("open");
         }else{
-            // Open details with 5 tabs
+            // Send to action organisationId and mode
     		var url = "detailOrganisation.action?mode=amend&organisation.organisationId=" + organisationId;    
     		$(location).attr('href',url);
         }
@@ -68,7 +68,7 @@ $(document).ready(function(){
 
 // MUST place function used by dialog outside document.ready !!!
 function chooseOkButton() {
-	alert("Choose ok option dialog");
+	// alert("Choose ok option dialog");
 	// Active this org
 	active();
 	// Reload grid
@@ -78,7 +78,7 @@ function chooseOkButton() {
 
 // MUST place function used by dialog outside document.ready !!!
 function chooseCancelButton() {
-	alert("Choose cancel option dialog");
+	// alert("Choose cancel option dialog");
 	$("#confirm_dialog").dialog("close");
 }
 

@@ -38,10 +38,10 @@ $(document).ready(function(){
 	function checkMode(){
 	
 		var mode = "${mode}";
-		alert(mode);
+		// alert(mode);
 		if(mode == 'amend') {
 			// Test
-			alert("amend");
+			// alert("amend");
 			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2]);
 			// Load data from action
 		}
@@ -51,16 +51,17 @@ $(document).ready(function(){
 			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2,3,4,5]);
 		}
 	 	else {
-			alert("default tab");
+			// alert("default tab");
 		}
 	}
 	
 	// MUST use ready event for tabby because of tabby is so heavy !
 	$("#myOrganisationDetailstabs").ready(function(){
 		checkMode();
-		alert(" XXX: "+ $("#orgId").val());
+		//alert(" organisationId received from server: "+ $("#orgId").val());
 		
-		$("#tab5").load("SupportingMaterial.action", function(){
+		// Load data into tab 5 and send filterOrgId now !
+		$("#tab5").load("SupportingMaterial.action?filterOrgId=" + $("#orgId").val(), function(){
 			
 		});
 	});
@@ -118,17 +119,25 @@ $(document).ready(function(){
     
     <div id="tab2">
 		<s:form cssClass="xdev-form" action="detailOrganisation">
+			<!-- 			Organisation Specialism -->
 			<s:checkboxlist 
-				label="Which of the following are states of India"
+				label="Organisation Specicalism"
 				labelposition="left"
 	            name="organisation.listOrgSpecicalism"
 	            list="listOrgSpecicalism"
 	            listKey="referenceDataId"
 	            listValue="type"
             />
-<!-- 			Organisation Specialism -->
 <!-- 			Service Personal Circumstances Capabilities -->
 <!-- 			Service Disabilities Capabilities -->
+<%-- 			<s:checkboxlist  --%>
+<%-- 				label="Service Disabilities Capabilities" --%>
+<%-- 				labelposition="left" --%>
+<%-- 	            name="organisation.listServDisCapabilities" --%>
+<%-- 	            list="listServDisCapabilities" --%>
+<%-- 	            listKey="referenceDataId" --%>
+<%-- 	            listValue="type" --%>
+<%--             /> --%>
 <!-- 			Service Ethnicity Capabilities -->
 <!-- 			Service Barries Capabilities -->
 <!-- 			Accreditation -->
