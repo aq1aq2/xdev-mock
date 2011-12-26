@@ -10,5 +10,7 @@ public interface IPremiseDao extends BaseDao<Premise> {
 	//List<Service> listServiceAlready();
 	//void remove(Service service);
 	//List<Premise> listPremisebyLocationType(String type);
+	List<Premise> listPremiseByLocationType(String value);
+	
 	
 }

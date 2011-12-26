@@ -34,7 +34,7 @@ $(document).ready(function(){
 	// click the create button
 	
 	$("#createBtn").click(function(){
-		window.location.href = "detailPremises.action?mode = -1";
+		window.location.href = "detailPremises.action?mode=-1";
 	});
 	
 	
