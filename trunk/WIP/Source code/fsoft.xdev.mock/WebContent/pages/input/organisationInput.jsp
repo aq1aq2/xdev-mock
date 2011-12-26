@@ -12,9 +12,7 @@ $(document).ready(function(){
 	});
 	
 	$("#backBtn").click(function(){
-		alert('back to organisation list');
-		var url = "../list/organisationList.jsp";
-		$(location).attr('href', url);
+		window.history.back();
 	});
 	
 	$("#saveBtn").click(function(){
