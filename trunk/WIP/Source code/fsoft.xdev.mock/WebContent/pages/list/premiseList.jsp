@@ -5,6 +5,8 @@
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
 <title>Premise</title>
 <script type="text/javascript">
+
+var premiseId = "N/A";
 $(document).ready(function(){
 	/* Filter click event */
 	var filterKey = "";
@@ -41,16 +43,45 @@ $(document).ready(function(){
         // Get id of the record
         var grid = event.originalEvent.grid;
         var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
-        var premiseId = grid.jqGrid('getCell', selectedRowId, 'premiseId');
-
-        //call detail action
+        premiseId = grid.jqGrid('getCell', selectedRowId, 'premiseId');
+        var status = grid.jqGrid('getCell', selectedRowId, 'status');
+		
+        if (status == 'No'){
+        	//show dialog
+        	$("#confirm_dialog").dialog("open");
+        }
+        else {
         query = "premise.premiseId=" + premiseId;
         query += '&';
         query += "mode =" + premiseId;
+        //call detail action
         window.location.href = "detailPremises.action?" + query;
+        }
     });
 	
 });
+
+	function chooseOkButton() {		
+	
+		active();		
+		$("#confirm_dialog").dialog("close");
+	}
+
+	function chooseCancelButton() {			
+		$("#confirm_dialog").dialog("close");
+	}
+
+	function active() {
+		query="premise.premiseId=" + premiseId;	
+		query += '&';
+    	query += "mode =" + premiseId;
+		$.get("activePremises.action?" + query, 
+		function(data){
+			alert("123");
+			$('#gridtable').trigger('reloadGrid',[{page:1}]);
+		}
+	);
+}
 </script>
 <!-- body -->
 	<s:form>
@@ -72,6 +103,19 @@ $(document).ready(function(){
 	        <sjg:gridColumn name="locationName" index="locationName" title="Location Name" sortable="true"/>
 	        <sjg:gridColumn name="addressLine1" index="addressLine1" title="Address Line1" sortable="false"/>
 	        <sjg:gridColumn name="postcode" index="postcode" title="Post Code" sortable="false"/>
-	        <sjg:gridColumn name="status" index="status" title="Is Active" sortable="false"/>
+	        <sjg:gridColumn name="status" index="status" title="Is Active" sortable="false" formatter="checkbox"/>
 	    </sjg:grid>
 	</s:form>
+	
+	<!-- active one non active- Premises -->
+	<sj:dialog id="confirm_dialog"
+		  buttons="{
+                'OK':function() { chooseOkButton(); },
+                'Cancel':function() { chooseCancelButton(); }
+                }"
+		   autoOpen="false"
+		   modal="true"
+		   title="Confirm..."
+>
+	Do you want to make this Premise active ?
+</sj:dialog>

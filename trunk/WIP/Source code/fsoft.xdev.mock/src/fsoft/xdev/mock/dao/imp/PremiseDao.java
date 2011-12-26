@@ -9,14 +9,13 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import fsoft.xdev.mock.dao.IPremiseDao;
 import fsoft.xdev.mock.models.Premise;
 import fsoft.xdev.mock.models.PremiseList;
-import fsoft.xdev.mock.models.Service;
 
 public class PremiseDao extends HibernateDaoSupport implements IPremiseDao{
 	
 	@Override
 	public boolean add(Premise entity) {
 		try {
-			getHibernateTemplate().save(entity);
+			getHibernateTemplate().saveOrUpdate(entity);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -140,16 +139,16 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao{
 //		
 //	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Premise> listPremisebyLocationType(String type) {
-		String criteria = "from Premise c left join c.referenceData a left join c.referenceData.referenceType b where b.refTypeName = 'Location Type' and a.value = '"
-										+ type + "'";
-		Query query = getHibernateTemplate().getSessionFactory()
-				.getCurrentSession().createQuery(criteria);
-		
-		return query.list();
-	}
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public List<Premise> listPremisebyLocationType(String type) {
+//		String criteria = "select c from Premise c left join c.referenceData a left join c.referenceData.referenceType b where b.refTypeName = 'Location Type' and a.value = '"
+//										+ type + "'";
+//		Query query = getHibernateTemplate().getSessionFactory()
+//				.getCurrentSession().createQuery(criteria);
+//		
+//		return query.list();
+//	}
 	
 	
 	

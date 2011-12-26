@@ -72,6 +72,20 @@ public class VolunteeringAction extends ActionSupport {
 		 }
 		  return "detail";
 	  }
+	  
+	  public String active(){
+		  if (mode > -1){
+				 volunteer = volunteerDao.find(volunteer);
+				 setMode(-1);
+		  } else {
+			   volunteer = null;
+		  }
+		  
+		  volunteer.setStatus(true);
+		  volunteerDao.add(volunteer);
+		  
+		  return "active";
+	  }
 
 
 	public Volunteer getVolunteer() {

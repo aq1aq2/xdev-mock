@@ -107,6 +107,19 @@ public class FacilitiesAction extends ActionSupport {
 		  return "detail";
 	  }
 	  
+	  public String active(){
+		  if (mode > -1){
+			  facility = facilitiesDao.find(facility);
+			  setMode(-1);       
+			  }
+		  else {
+			  facility = null;
+		  }
+		  facility.setStatus(true);
+		  facilitiesDao.add(facility);
+		  return "active";
+	  }
+	  
 	  
 
 	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {

@@ -67,7 +67,7 @@
 				
 				<s:checkboxlist name="premise.accreditations" list="listAccreditations" label="Accriditations" listValue="type" listKey="referenceDataId" key="referenceDataId"/>
 				
-				<s:checkboxlist name="premise.jcpoffices" list="{'',''}" label="JCP Offices" labelposition="left" />
+				<s:checkboxlist name="premise.jcpoffices" list="{'',''}" label="JCP Offices" labelposition="left" listValue="name" />
 				
 				
 				<xdev:textLookup name="premise.contactId" id="cateringContact" label="Catering Contact" />

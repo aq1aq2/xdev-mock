@@ -8,10 +8,11 @@
 	<package name="phongtv" extends="json-default">
 		<action name="*Premises" method="{1}" class="premisesAction">
 			<result name="list" type="json">
-				<param name="excludeProperties">listLocationType,premise</param>
+				<param name="excludeProperties">listLocationType,premise</param> 
 			</result>
 			<result name="add">/pages/list/premiseList.jsp</result>
 			<result name="detail">/pages/input/premiseInput.jsp</result>
+			<result name="active">/pages/list/premiseList.jsp</result>
 		</action>
 		<action name="*Facilities" method="{1}" class="facilitiesAction">
 			<result name="list" type="json">
@@ -19,6 +20,7 @@
 			</result>
 			<result name="add">/pages/list/facilitiesList.jsp</result>
 			<result name="detail">/pages/input/facilitiesInput.jsp</result>
+			<result name="active">/pages/list/facilitiesList.jsp</result>
 		</action>
 		
 		<action name="*VolunteeringOpportunity" method="{1}" class="volunteerAction">
@@ -27,6 +29,7 @@
 			</result>
 			<result name="add">/pages/list/volunteeringOpportunityList.jsp</result>
 			<result name="detail">/pages/input/volunteerInput.jsp</result>
+			<result name="active">/pages/list/volunteeringOpportunityList.jsp</result>
 		</action>
 		
 		<action name="view"  class="facilitiesAction" method="list">
