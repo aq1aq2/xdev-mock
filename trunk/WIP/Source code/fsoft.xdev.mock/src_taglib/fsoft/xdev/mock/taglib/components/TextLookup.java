@@ -18,6 +18,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 public class TextLookup extends TextField {
 
     public static final String TEMPLATE = "textlookup";
+    private boolean readonly = false;
     public static final String COMPONENT_NAME = TextLookup.class.getName();
     
     protected String lookupType; // Dialog type ?????
@@ -34,4 +35,13 @@ public class TextLookup extends TextField {
 		this.lookupType = lookuptype;
 	}
 
+	public boolean getReadonly() {
+		return readonly;
+	}
+
+	public void setReadonly(boolean readonly) {
+		this.readonly = readonly;
+	}
+
+    
 }

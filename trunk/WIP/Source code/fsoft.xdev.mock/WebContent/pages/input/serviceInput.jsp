@@ -6,11 +6,11 @@
 $(document).ready(function(){
 	$("#subType").change(function () {
 		var selected = $("#subType option:selected").text();
-		if(selected == "mot mot mot"){
+		if(selected == "Contract"){
 			alert(selected);
 			$("#serviceDetailTab").tabs("enable", 3);
 			$("#serviceDetailTab").tabs("select", 3);
-		}else if(selected == "hai hai hai"){
+		}else if(selected == "punding"){
 			$("#serviceDetailTab").tabs("enable", 4);
 			$("#serviceDetailTab").tabs("select", 4);
 		}else{
@@ -52,7 +52,7 @@ $(document).ready(function(){
 	 */
 	
 	/* Manager lookup event */
-	$("#managerId_lookupBtn").click(function(){
+	$("#leadContactId_lookupBtn").click(function(){
 		$("#listDialogContent").load("../lookup/contactList.jsp",
 			function(response){ // Function execute after load complete
 				/* Dialog None button */
@@ -98,7 +98,7 @@ $(document).ready(function(){
 		<sj:tab id="tab1" target="details1" label="Details 1"/>
 		<sj:tab id="tab2" target="details2" label="Details 2"/>
 		<sj:tab id="tab3" target="details3" label="Details 3"/>
-		<sj:tab id="tab4" target="contact" label="Contact"/>
+		<sj:tab id="tab4" target="contact" label="Contract"/>
 		<sj:tab id="tab5" target="funding" label="funding"/>
 		
 		<div id="details1" class="xdev-window-body-sub">
@@ -114,7 +114,7 @@ $(document).ready(function(){
 					<s:select id="subType" list="listSubType" name="service.referenceDataByServiceSubType.referenceDataId" label="Sub Type" listValue="type" listKey ="referenceDataId" key ="referenceDataId" required="true"></s:select>
 	 				<s:textfield name="deptCode" id="deptCode" label="Dept Code"> </s:textfield>
 	 				
-					<s:textfield label="Lead Contact" name="leadContact" readonly="true"></s:textfield>
+					<xdev:textLookup label="Lead Contact" name="contact.managerId" id="leadContactId" readonly="true"/>
 					<s:select list="listServiceType" label="Service Type" name="service.referenceDataByServiceType.referenceDataId" id="listServiceType" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:select>
 					
 					<s:textarea label="Client Description"></s:textarea>
@@ -213,3 +213,15 @@ $(document).ready(function(){
 			</table>
 		</div>	
 </sj:tabbedpanel>
+
+<!-- Contact Lookup Dialog -->
+<sj:dialog 
+   	id="listDialog" 
+   	autoOpen="false" 
+   	modal="true" 
+   	title="Contact List"
+   	width="965"
+   	height="650"
+>
+	<div id="listDialogContent"></div>
+</sj:dialog>
