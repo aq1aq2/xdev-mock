@@ -109,5 +109,35 @@ public class ReferenceDataDao extends HibernateDaoSupport implements IReferenceD
 				.getCurrentSession().createQuery(criteria);
 		return query.list();
 	}
+
+	@Override
+	public List<ReferenceData> getReferenceDataByValue(String value) {
+		// TODO Auto-generated method stub
+		return getHibernateTemplate().find("from ReferenceData c where c.value like '" + value + "'");
+	}
+
+//	@Override
+//	public ReferenceData getReferenceDataByValue(String value) {
+//		return (ReferenceData) getHibernateTemplate().find("select c from ReferenceData c where c.value like '" + value + "'");
+//	}
+
+	
+	
+	
+	
+
+//	@SuppressWarnings("unchecked")
+//	@Override
+//	public List<ReferenceDataList> getLocationTypeByName(String name) {
+//		// TODO Auto-generated method stub
+//		String criteria = "select new fsoft.xdev.mock.models.ReferenceDataList(c.referenceDataId, c.value) from ReferenceData c left join c.referenceType b where b.refTypeName = 'Location Type' and c.value ='"
+//							+ name + "'" ;
+//		Query query = getHibernateTemplate().getSessionFactory()
+//				.getCurrentSession().createQuery(criteria);
+//		return query.list();
+//	}
+	
+	
+	
 	
 }

@@ -84,7 +84,10 @@ public class PremiseAction extends ActionSupport {
 		listLocalDemographicIssue = referenceDataDao.getItem("Local Demographic Issue");
 		//listNetwork = referenceDataDao.getItem("Network");
 		listNetwork = referenceDataDao.getItem("Network");
-		//listPremiseJcpOffice = premiseDao.listPremisebyLocationType("JCP Offices");
+		System.out.println("Premise Dao: ");
+		System.out.println(premiseDao);
+		listPremiseJcpOffice = premiseDao.listPremiseByLocationType("JCP Offices");
+		System.out.println(listPremiseJcpOffice.size());
 		for(ReferenceDataList s: listNetwork){
 			System.out.println(s.getType());
 		}

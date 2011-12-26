@@ -68,6 +68,13 @@ public class Premise implements java.io.Serializable {
 		this.premiseId = premiseId;
 	}
 
+	
+	public Premise(int premiseId, String name) {
+		super();
+		this.premiseId = premiseId;
+		this.name = name;
+	}
+
 	public Premise(int premiseId, Country country, Organisation organisation,
 			ReferenceData referenceData, String name, String locationName,
 			String knownAs, Boolean primaryLocation, Boolean locationManaged,
