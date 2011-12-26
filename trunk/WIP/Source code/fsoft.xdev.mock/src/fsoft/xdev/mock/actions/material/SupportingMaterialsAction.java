@@ -6,6 +6,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.ISupportingMaterialDao;
 import fsoft.xdev.mock.models.SupportingMaterial;
+import fsoft.xdev.mock.utilities.XDebugger;
 
 public class SupportingMaterialsAction extends ActionSupport{
 
@@ -31,6 +32,7 @@ public class SupportingMaterialsAction extends ActionSupport{
 	 */
 	
 	public String execute() {
+		XDebugger.show("----Filter Org Id = " + filterOrgId);
 		return SUCCESS;
 	}
 
@@ -39,11 +41,17 @@ public class SupportingMaterialsAction extends ActionSupport{
 	 * @return listModel (JSON)
 	 */
 	public String list() {
+		
+		XDebugger.show("----Check: Filter Org Id = " + filterOrgId);
+		
 		int to = (rows * page);
 		int from = to - rows;
 
 		records = entityDao.count(null, filterActive);
 		listModel = entityDao.findRange(from, to, filterOrgId, filterActive);
+		
+		XDebugger.show("List size of supporting material: " + listModel.size());
+		
 		total = (int) Math.ceil((double) records / (double) rows);
 
 		return "list";

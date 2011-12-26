@@ -8,7 +8,7 @@
 
 <script>
 	$(document).ready(function(){
-		alert("${sessionScope.organisation.organisationId}");
+		alert("supporting material can read id from organisation: " + $("#orgId").val());
 		
 		$("#xdev-filter").empty(); // Material list don't have filter keys.
 		/* -------------------
@@ -55,10 +55,13 @@
 	        }
 		);
 	});
+	
 </script>
 
 <s:form>
-	<s:url id="listURL" action="listSupportingMaterial.action?filterOrgId=%{#organisation.organisationId}"></s:url>
+	<!-- No need to pass filterOrgId because it is still in SupportingMaterialAction  -->
+	<s:url id="listURL" value="listSupportingMaterial.action">
+	</s:url>
 	<sjg:grid
 	   	id="gridtable"
 	  	dataType="json"
