@@ -30,34 +30,34 @@
 		});
 		
 		
-		// select event
-// 		$("#FacilityType").change(function(){
-				//alert('vao day khong');
-// 				if ($(this).val().type == 'Room'){
+		//select event
+		$("#FacilityType").change(function(){
+				alert('vao day khong');
+				if ($("#FacilityType option:selected").text() == 'Room'){
 					
-					//alert($(this).val());
-// 					$("#roomCapacity").attr("disabled", "true");
-// 					$("#roomSize").attr("disabled", "true");
-// 					$("#roomEquipmentNotes").attr("disabled", "true");
-// 					$("#roomConnectivity").attr("disabled", "true");
-// 					$("#equipmentAvailable").attr("disabled", "true");
+					alert($(this).val());
+					$("#roomCapacity").attr("disabled", "true");
+					$("#roomSize").attr("disabled", "true");
+					$("#roomEquipmentNotes").attr("disabled", "true");
+					$("#roomConnectivity").attr("disabled", "true");
+					$("#equipmentAvailable").attr("disabled", "true");
 					
-// 				}
-// 				else if($(this).val().type == 'Internet Access') {
+				}
+				else if($("#FacilityType option:selected").text() == 'Internet Access') {
 					
-// 					$("#connectivityType").attr("disabled", "false");
-// 				}
-// 				else {
-// 					$("#connectivityType").removeAttr("disabled");
-// 				}
-// 	});
+					$("#connectivityType").attr("disabled", "false");
+				}
+				else {
+					$("#connectivityType").removeAttr("disabled");
+				}
+	});
 		
 		
 	// facilityType select change event
-		$("#FacilityType").change(function(){
-			alert($("#FacilityType option:selected").text());
-			alert($("#FacilityType option:selected").val());
-		});
+// 		$("#FacilityType").change(function(){
+// 			alert($("#FacilityType option:selected").text());
+// 			alert($("#FacilityType option:selected").val());
+// 		});
 		
 		
 		/* Back event */

@@ -24,6 +24,7 @@ public class PremiseAction extends ActionSupport {
 	private List<ReferenceDataList> listLocalDemographicIssue = new ArrayList<ReferenceDataList>();
 	private List<ReferenceDataList> listCateringType = new ArrayList<ReferenceDataList>();
 	private List<ReferenceDataList> listNetwork = new ArrayList<ReferenceDataList>();
+	private List<Premise> listPremiseJcpOffice = new ArrayList<Premise>();
 	private String filterKey;
 	private boolean filterActive;
 	private int mode = -1;
@@ -83,10 +84,23 @@ public class PremiseAction extends ActionSupport {
 		listLocalDemographicIssue = referenceDataDao.getItem("Local Demographic Issue");
 		//listNetwork = referenceDataDao.getItem("Network");
 		listNetwork = referenceDataDao.getItem("Network");
+		//listPremiseJcpOffice = premiseDao.listPremisebyLocationType("JCP Offices");
 		for(ReferenceDataList s: listNetwork){
 			System.out.println(s.getType());
 		}
 		return "detail";
+	}
+	
+	public String active(){
+		if (mode > -1){
+			premise = premiseDao.find(premise);
+			setMode(-1);
+		} else {
+			premise = null;
+		}
+		premise.setStatus(true);
+		premiseDao.add(premise);
+		return "list";
 	}
 
 	public void setPremiseDao(IPremiseDao premiseDao) {
@@ -224,6 +238,14 @@ public class PremiseAction extends ActionSupport {
 
 	public void setListNetwork(List<ReferenceDataList> listNetwork) {
 		this.listNetwork = listNetwork;
+	}
+
+	public List<Premise> getListPremiseJcpOffice() {
+		return listPremiseJcpOffice;
+	}
+
+	public void setListPremiseJcpOffice(List<Premise> listPremiseJcpOffice) {
+		this.listPremiseJcpOffice = listPremiseJcpOffice;
 	}
 	
 }

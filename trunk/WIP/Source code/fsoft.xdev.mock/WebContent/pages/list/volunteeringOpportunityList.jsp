@@ -11,6 +11,8 @@
 </script>
 
 <script type="text/javascript">
+
+var volunteerId = "N/A";
 $(document).ready(function(){
 	/* Filter click event */
 	var filterKey = "";
@@ -49,17 +51,46 @@ $(document).ready(function(){
         // Get id of the record
         var grid = event.originalEvent.grid;
         var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
-        var volunteerId = grid.jqGrid('getCell', selectedRowId, 'volunteerId');
-
-        //call detail action
+        volunteerId = grid.jqGrid('getCell', selectedRowId, 'volunteerId');
+        var status = grid.jqGrid('getCell', selectedRowId, 'status');
+        
+		if (status == 'No'){
+			//show dialog
+			$("#confirm_dialog").dialog("open");
+		}
+		else {
         query = "volunteer.volunteerId=" + volunteerId;
         query += '&';
         query += "mode =" + volunteerId;
+        
+      //call detail action
         window.location.href = "detailVolunteeringOpportunity.action?" + query;
+		}
        	
 	});
 	
 });
+
+	function chooseOkButton() {		
+	
+		active();		
+		$("#confirm_dialog").dialog("close");
+	}
+
+	function chooseCancelButton() {			
+		$("#confirm_dialog").dialog("close");
+	}
+
+	function active() {
+		query="volunteer.volunteerId=" + volunteerId;	
+		query += '&';
+    	query += "mode =" + volunteerId;
+		$.get("activeVolunteeringOpportunity.action?" + query, 
+			function(data){
+			$("#gridtable").trigger("reloadGrid", [{page:1}]);
+		}
+	);
+  }
 </script>
 
 
@@ -84,6 +115,19 @@ $(document).ready(function(){
 	        <sjg:gridColumn name="volunteerPurpose" index="volunteerPurpose" title="Purpose" sortable="false"/>
 	        <sjg:gridColumn name="startDate" index="startDate" title="Start Date" sortable="false"/>
 	        <sjg:gridColumn name="endDate" index="endDate" title="End Date" sortable="false"/>
-	        <sjg:gridColumn name="status" index="status" title="Is Active" sortable="false"/>
+	        <sjg:gridColumn name="status" index="status" title="Is Active" sortable="false" formatter="checkbox"/>
 	    </sjg:grid>
 	</s:form>
+	
+	<!-- active one non active- Volunteering -->
+	<sj:dialog id="confirm_dialog"
+		  buttons="{
+                'OK':function() { chooseOkButton(); },
+                'Cancel':function() { chooseCancelButton(); }
+                }"
+		   autoOpen="false"
+		   modal="true"
+		   title="Confirm..."
+>
+	Do you want to make this Volunteer active ?
+</sj:dialog>
