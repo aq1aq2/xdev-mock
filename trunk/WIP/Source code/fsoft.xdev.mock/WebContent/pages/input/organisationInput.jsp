@@ -16,7 +16,7 @@ $(document).ready(function(){
 	});
 	
 	$("#saveBtn").click(function(){
-		alert("click save button in organisation input");
+
 	});
 	
 	//Read param in incoming request
@@ -36,16 +36,10 @@ $(document).ready(function(){
 	function checkMode(){
 	
 		var mode = "${mode}";
-		// alert(mode);
 		if(mode == 'amend') {
-			// Test
-			// alert("amend");
 			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2]);
-			// Load data from action
 		}
 		else if(mode == 'add') {
-			// Test
-			//alert("add");
 			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2,3,4,5]);
 		}
 	 	else {
@@ -56,8 +50,6 @@ $(document).ready(function(){
 	// MUST use ready event for tabby because of tabby is so heavy !
 	$("#myOrganisationDetailstabs").ready(function(){
 		checkMode();
-		//alert(" organisationId received from server: "+ $("#orgId").val());
-		
 		// Load data into tab 5 and send filterOrgId now !
 		$("#tab5").load("SupportingMaterial.action?filterOrgId=" + $("#orgId").val(), function(){
 			

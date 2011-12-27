@@ -1,6 +1,5 @@
 package fsoft.xdev.mock.dao;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -9,9 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import fsoft.xdev.mock.dao.imp.OrganisationDao;
 import fsoft.xdev.mock.dao.imp.PremiseDao;
-import fsoft.xdev.mock.models.Organisation;
 import fsoft.xdev.mock.models.Premise;
 
 public class PremiseDaoTest {
