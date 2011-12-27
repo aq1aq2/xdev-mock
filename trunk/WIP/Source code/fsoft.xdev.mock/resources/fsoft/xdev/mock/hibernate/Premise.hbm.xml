@@ -6,7 +6,7 @@
     <class name="fsoft.xdev.mock.models.Premise" table="Premise" schema="dbo" catalog="XDevMock">
         <id name="premiseId" type="int">
             <column name="PremiseID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="country" class="fsoft.xdev.mock.models.Country" fetch="select">
             <column name="CountryID" />

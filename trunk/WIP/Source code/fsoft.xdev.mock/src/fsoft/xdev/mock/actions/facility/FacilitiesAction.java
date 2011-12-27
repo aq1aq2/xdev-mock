@@ -120,6 +120,9 @@ public class FacilitiesAction extends ActionSupport {
 		  return "active";
 	  }
 	  
+	  public String execute(){
+		  return SUCCESS;
+	  }
 	  
 
 	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {
