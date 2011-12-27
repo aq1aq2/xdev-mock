@@ -79,7 +79,13 @@
 		);
 	}
 </script>
-
+<div class="xdev-wrapper">
+<div class="xdev-sub">
+			<sj:a id="copyBtn" 
+				button="true" 
+			>Copy</sj:a>
+			</div>
+</div>
 <div class="xdev-window-body">
 	<s:form>
 	<s:url id="listService" action="listService.action"></s:url>
