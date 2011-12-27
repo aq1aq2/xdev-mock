@@ -124,7 +124,43 @@
 			$( "#listDialog" ).dialog( "open" );
 		});
 		
-
+		
+		//check the range of roomsize is 0-999
+		
+		 $("#roomSize").change(function() {
+			 var data = $("#roomSize").val();
+			 //get the length of data
+			 var len = data.length;
+			 var c=0;
+			 var roomsize=0;
+			 var flag=0;
+			 for(var i=0;i<len;i++)
+			    {
+			      c=data.charAt(i).charCodeAt(0);
+			      //check the input is numeric number
+			      if(c <48 || c >57)
+			      {
+			       flag=1;
+				   alert("the roomsize must be numeric number");
+				   $("#roomSize").val("");
+			        break;
+			      }
+			      else
+			      {
+			    	 //don't do anything
+			      }
+			    }
+			 
+			 if(flag ==0){
+				 roomsize = parseInt(data);
+				 if(roomsize <0 || roomsize >999){
+					 alert("the range must be in 0 to 999");
+					 $("#roomSize").val("");
+				 }
+ 			 }
+			 
+		 });
+		
 	});
 
 
