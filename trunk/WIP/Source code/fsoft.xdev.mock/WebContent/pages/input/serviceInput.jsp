@@ -53,11 +53,11 @@ $(document).ready(function(){
 	
 	/* Manager lookup event */
 	$("#leadContactId_lookupBtn").click(function(){
-		$("#listDialogContent").load("../lookup/contactList.jsp",
+		$("#listDialogContent").load("Contact.action",
 			function(response){ // Function execute after load complete
 				/* Dialog None button */
 				$("#noneBtn").click(function(){
-					$(":input[name*='contact.managerId']").val("");
+					$(":input[name*='service.contact.contactId']").val("");
 					$( "#listDialog" ).dialog( "close" );
 					
 					// Clear dialog content to ensure no confict with other lookup
@@ -73,7 +73,7 @@ $(document).ready(function(){
 				/* Dialog Select button */
 				$("#selectBtn").click(function(){
 					var managerId = $(":input[name*='gridSelectedRow']").val();
-					$(":input[name*='contact.managerId']").val(managerId);
+					$(":input[name*='service.contact.contactId']").val(managerId);
 					$( "#listDialog" ).dialog( "close" );
 					
 					// Clear dialog content to ensure no confict with other lookup
@@ -108,30 +108,30 @@ $(document).ready(function(){
 					<s:checkbox label="Service Active" name="service.status" id="serviceActive" labelposition="left"></s:checkbox>
 					
 					
-					<s:textarea label="Service Short Description" name="service.shortDescripstion" id="serviceShortDescripstion" required="true"></s:textarea>
-					<s:textarea name="serviceFullDescription" id="service.fullDescription" label="Service Full Description"></s:textarea>
+					<s:textarea label="Service Short Description" name="service.shortDescription" id="serviceShortDescripstion" required="true"></s:textarea>
+					<s:textarea id="serviceFullDescription" name="service.fullDescription" label="Service Full Description"></s:textarea>
 					
 					<s:select id="subType" list="listSubType" name="service.referenceDataByServiceSubType.referenceDataId" label="Sub Type" listValue="type" listKey ="referenceDataId" key ="referenceDataId" required="true"></s:select>
 	 				<s:textfield name="deptCode" id="deptCode" label="Dept Code"> </s:textfield>
 	 				
-					<xdev:textLookup label="Lead Contact" name="contact.managerId" id="leadContactId" readonly="true"/>
+					<xdev:textLookup label="Lead Contact" name="service.contact.contactId" id="leadContactId" readonly="true"/>
 					<s:select list="listServiceType" label="Service Type" name="service.referenceDataByServiceType.referenceDataId" id="listServiceType" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:select>
 					
-					<s:textarea label="Client Description"></s:textarea>
-					<s:textfield id="serviceDescriptionDelivery" name="service.descriptionDelivery"></s:textfield>
+					<s:textarea label="Client Description" name="service.clientDescription"></s:textarea>
+					<s:textfield label="Description Delivery" id="serviceDescriptionDelivery" name="service.descriptionDelivery"></s:textfield>
 					
- 					<s:select list="{'sadf','adfdasf'}" name="serviceAttendance" label="Service Attendance"></s:select>
+ 					<s:select list="{'khong dung truong nay'}" name="serviceAttendance" label="Service Attendance"></s:select>
  					<s:textfield id="serviceContractCode" name="service.serviceContractCode" label="Service Contract Code"></s:textfield>
  					 
 		<%-- 			<sj:datepicker id="date1" label="Service Started Expected" name="serviceStartedExpected" displayFormat="dd/mm/yy"></sj:datepicker> --%>
 					<sj:datepicker id="date1" label="Service Started Expected" name="service.serviceStartExpected" displayFormat="dd/mm/yy"></sj:datepicker>
-					<s:textfield id="serviceContractValue" name=".service.serviceContactValue" label="Service Contract Value"></s:textfield>
+					<s:textfield id="serviceContractValue" name="service.serviceContactValue" label="Service Contract Value"></s:textfield>
 					
-					<sj:datepicker id="dateStartService" label="Service Start Date" name="dateStart" displayFormat="dd/mm/yy"></sj:datepicker>
+					<sj:datepicker id="dateStartService" label="Service Start Date" name="service.serviceStart" displayFormat="dd/mm/yy"></sj:datepicker>
 					<s:checkbox id="contractStagedPayment" name="service.contractStagedPayment" label="ContractStagedPayment"></s:checkbox>
 							
 					<sj:datepicker id="date3" label="Service End Date" name="service.serviceEnd" displayFormat="dd/mm/yy"></sj:datepicker>
-					<s:select list="{'dsafsda','asdfsda'}" id="referralProcessMethod" name="referralProcessMethod" label="Referral Process/Method"></s:select> 
+					<s:select list="{'khong dung truong nay'}" id="referralProcessMethod" name="referralProcessMethod" label="Referral Process/Method"></s:select> 
 					
 					<s:checkbox targets="formResult" name="service.serviceExtendable" label="Service Extenable"></s:checkbox>
 					<s:checkbox id="serviceTimeLimited" name="service.serviceTimeLimited" label="Service Time Limited" ></s:checkbox>
@@ -181,7 +181,7 @@ $(document).ready(function(){
 				<s:form cssClass="xdev-form">
 					<s:checkboxlist label="Contact Outcome" name="q" list="listContactOutcome" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
 					<s:checkboxlist label="Contact Obligation" name="q" list="listContactObligation" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
-					<s:select label="Participation" list="listParticipation"></s:select>
+					<s:select label="Participation" list="{'Mandatory','Voluntary','Both'}"></s:select>
 				</s:form>
 			</table>
 		</div>	

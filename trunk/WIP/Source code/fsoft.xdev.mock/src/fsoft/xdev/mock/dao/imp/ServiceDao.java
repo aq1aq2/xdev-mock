@@ -16,8 +16,15 @@ public class ServiceDao extends HibernateDaoSupport implements IServiceDao{
 	@Override
 	public boolean add(Service entity) {
 		// TODO Auto-generated method stub
+		try{
+		System.out.println(entity.getServiceContactValue());
 		getHibernateTemplate().save(entity);
-		return false;
+		return true;
+		}catch(Exception e){		
+			System.out.println(e.getMessage());
+			return false;
+		}
+		
 	}
 
 	@Override

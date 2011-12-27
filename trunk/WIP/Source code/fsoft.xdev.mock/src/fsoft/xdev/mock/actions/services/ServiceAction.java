@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import fsoft.xdev.mock.dao.IReferenceDataDao;
 import fsoft.xdev.mock.dao.IServiceDao;
+import fsoft.xdev.mock.models.Contact;
 import fsoft.xdev.mock.models.ReferenceDataList;
 import fsoft.xdev.mock.models.Service;
 import fsoft.xdev.mock.models.ServiceList;
@@ -211,9 +212,13 @@ public class ServiceAction extends ActionSupport{
 //		System.out.println(""+service);
 //		
 //		System.out.println("Serivce ");
+//	
+		
+//		Contact contact = new Contact();
+//		contact.setContactId(12);
 //		
-		
-		
+//		service.setContact(contact);
+//		
 		servicesDao.add(service);
 
 		System.out.println(dateStart);
