@@ -26,12 +26,12 @@
 		
 		$("ul#xdev-filter > li").click(function(){
 			filterKey = this.textContent;
-			alert(filterKey);
+			//alert(filterKey);
 			sendFilterOptions();
 		});
 		
 		$("#includeChkBx").click(function(){
-			alert("vao day");
+			///alert("vao day");
 			filterActive = $(this).is(":checked");
 			sendFilterOptions();
 		});
@@ -73,7 +73,7 @@
 		query="service.serviceId=" + id;		
 		$.get("activeService.action?" + query, 
 			function(data){
-			alert("co vay day khong");
+			//alert("co vay day khong");
 				$("#gridtable").trigger("reloadGrid", [{page:1}]);
 			}
 		);

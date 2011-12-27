@@ -7,7 +7,7 @@ $(document).ready(function(){
 	$("#subType").change(function () {
 		var selected = $("#subType option:selected").text();
 		if(selected == "Contract"){
-			alert(selected);
+			//alert(selected);
 			$("#serviceDetailTab").tabs("enable", 3);
 			$("#serviceDetailTab").tabs("select", 3);
 		}else if(selected == "punding"){
