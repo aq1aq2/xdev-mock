@@ -11,7 +11,6 @@
 
 <script>
 	$(document).ready(function(){
-		alert("supporting material can read id from organisation: " + $("#orgId").val());
 		
 		$("#xdev-filter").empty(); // Material list don't have filter keys.
 		/* -------------------
