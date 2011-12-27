@@ -23,30 +23,22 @@ $(document).ready(function(){
 	
 	$("ul#xdev-filter > li").click(function(){
 		filterKey = this.textContent;
-		alert(filterKey);
 		sendFilterOptions();
 	});
 	
 	$("#createBtn").click(function(){
 		// Open two tab
 		// Call file organisationInput.jsp
-		// alert("create new");
 		var url = "detailOrganisation.action?mode=add";    
 		$(location).attr('href',url);
 	});
 	
 	$.subscribe("rowSelect", function(event, data) {
-        // Test
-		//alert("Selected Row: " + event.originalEvent.id);
-        
         // Get status of the record
         var grid = event.originalEvent.grid;
         var selectedRowId = grid.jqGrid('getGridParam', 'selrow'); 
         var status = grid.jqGrid('getCell', selectedRowId, 'status');
         organisationId = grid.jqGrid('getCell', selectedRowId, 'organisationId');
-        // Test before
-        // alert(status + " & " + organisationId);
-        
         if(status == 'No') {
             // Show a popoup dialog
         	$("#confirm_dialog").dialog("open");
@@ -61,14 +53,12 @@ $(document).ready(function(){
 	$("#includeChkBx").click(function(){
 		// Test
 		filterActive = $(this).is(":checked");
-		alert(filterActive);
 		sendFilterOptions();
 	});
 });
 
 // MUST place function used by dialog outside document.ready !!!
 function chooseOkButton() {
-	// alert("Choose ok option dialog");
 	// Active this org
 	active();
 	// Reload grid
@@ -78,7 +68,6 @@ function chooseOkButton() {
 
 // MUST place function used by dialog outside document.ready !!!
 function chooseCancelButton() {
-	// alert("Choose cancel option dialog");
 	$("#confirm_dialog").dialog("close");
 }
 
