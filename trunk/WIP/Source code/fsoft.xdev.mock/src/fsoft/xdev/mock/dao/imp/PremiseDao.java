@@ -159,21 +159,20 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao {
 		// String.format("%{0}%", compare));
 		// return query.list();
 
-//		Query query = getHibernateTemplate()
-//				.getSessionFactory()
-//				.getCurrentSession()
-//				.createQuery(
-//						"select new fsoft.xdev.mock.models.ReferenceDataList(b.referenceDataId, b.value)  from ReferenceData b inner join b.referenceType c with c.refTypeName ='Location Type' where b.value like 'JCP Offices'");
-//		List<ReferenceDataList> listRefer = query.list();
-		//test
-		
 		Query query = getHibernateTemplate()
 				.getSessionFactory()
 				.getCurrentSession()
 				.createQuery(
-						"from ReferenceData b inner join b.referenceType c with c.refTypeName ='Location Type' where b.value like 'JCP Offices'");
-		//List<ReferenceData> listRefer = query.list();
-		List<ReferenceData> listRefer = query.list();
+						"select new fsoft.xdev.mock.models.ReferenceDataList(b.referenceDataId, b.value)  from ReferenceData b inner join b.referenceType c with c.refTypeName ='Location Type' where b.value like '" + value +"'");
+		List<ReferenceDataList> listRefer = query.list();
+		//test
+		
+//		Query query = getHibernateTemplate()
+//				.getSessionFactory()
+//				.getCurrentSession()
+//				.createQuery(
+//						"from ReferenceData b inner join b.referenceType c with c.refTypeName ='Location Type' where b.value like 'JCP Offices'");
+//		List<ReferenceData> listRefer = query.list();
 		
 		System.out.println(listRefer.size());
 		int referenceDataId = listRefer.get(0).getReferenceDataId();
@@ -186,7 +185,7 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao {
 				+ "' or a.locationType like '%, "
 				+ referenceDataId
 				+ ",%' or a.locationType like '"
-				+ referenceDataId + ", %'";
+				+ referenceDataId + ", %'" + "and a.status = 'true'";
 		System.out.println(criteria);
 		query = getHibernateTemplate()
 				.getSessionFactory()

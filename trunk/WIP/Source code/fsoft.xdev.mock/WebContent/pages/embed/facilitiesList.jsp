@@ -1,22 +1,27 @@
-
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
-<title>Premise</title>
-<script type="text/javascript">
+<title>Facilities</title>
 
-var premiseId = "N/A";
+<script type="text/javascript">
+        function formatLink(cellvalue, options, rowObject) {
+                return "<a href='detailFacilities.action?facilities.facilityId="+rowObject['facilityId']+"'>" + cellvalue + "</a>";
+        }        
+</script>
+
+<script type="text/javascript">
+var facilityId = "N/A";
+
 $(document).ready(function(){
 	/* Filter click event */
 	var filterKey = "";
 	var filterActive = false;
-	
 	function sendFilterOptions() {
 		query = "filterKey="+filterKey;
 		query += '&';
 		query += "filterActive="+filterActive;
-		$.getJSON("listPremises.action?" + query,
+		$.getJSON("listFacilities.action?" + query,
 			function(data) {
 				$('#gridtable').trigger('reloadGrid',[{page:1}]);
 		});
@@ -31,35 +36,35 @@ $(document).ready(function(){
 		filterActive = $(this).is(":checked");
 		sendFilterOptions();
 	});
-	// click the create button
+	// click create button
 	
 	$("#createBtn").click(function(){
-		window.location.href = "detailPremises.action?mode=-1";
+		window.location.href = "detailFacilities.action?mode = -1";
 	});
-	
 	
 	$.subscribe('rowselect', function(event, data) {
         //alert('Selected Row : ' + event.originalEvent.id);
         // Get id of the record
         var grid = event.originalEvent.grid;
         var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
-        premiseId = grid.jqGrid('getCell', selectedRowId, 'premiseId');
+        facilityId = grid.jqGrid('getCell', selectedRowId, 'facilityId');
         var status = grid.jqGrid('getCell', selectedRowId, 'status');
-		
+		//alert("Status:" + status);
         if (status == 'No'){
         	//show dialog
         	$("#confirm_dialog").dialog("open");
         }
         else {
-        query = "premise.premiseId=" + premiseId;
+        query = "facility.facilityId=" + facilityId;
         query += '&';
-        query += "mode =" + premiseId;
+        query += "mode =" + facilityId;
         //call detail action
-        window.location.href = "detailPremises.action?" + query;
+        window.location.href = "detailFacilities.action?" + query;
         }
     });
 	
 });
+
 
 	function chooseOkButton() {		
 	
@@ -72,42 +77,44 @@ $(document).ready(function(){
 	}
 
 	function active() {
-		query="premise.premiseId=" + premiseId;	
+		query="facility.facilityId=" + facilityId;	
 		query += '&';
-    	query += "mode =" + premiseId;
-		$.get("activePremises.action?" + query, 
-		function(data){
-			//alert("123");
-			$('#gridtable').trigger('reloadGrid',[{page:1}]);
+        query += "mode =" + facilityId;
+		$.get("activeFacilities.action?" + query, 
+			function(data){
+			$("#gridtable").trigger("reloadGrid", [{page:1}]);
 		}
 	);
 }
+
 </script>
+
 <!-- body -->
-	<s:form>
-		<s:url id="premiseList" action="listPremises"></s:url>
-		<sjg:grid
+
+	<s:form name="facilities">
+		<s:url id="facilitiesList" action="listFacilities"></s:url>
+		<sjg:grid 
 	        id="gridtable"
 	        dataType="json"
-	        href="%{premiseList}"
-	        gridModel="listPremises"
-	        autowidth="true"
+	        href="%{facilitiesList}"
+	        gridModel="listFacilities"
+	        width="929"
 	        pager="true"
 	        rowNum="3"
 	        rownumbers="true"
 	        navigator="true"
 	        onSelectRowTopics="rowselect"
-	        >
-			<sjg:gridColumn name="premiseId" index="premiseId" title="ID" hidden="true"/>
-			<sjg:gridColumn name="name" index="name" title="Premise Name" sortable="true"/>
-	        <sjg:gridColumn name="locationName" index="locationName" title="Location Name" sortable="true"/>
-	        <sjg:gridColumn name="addressLine1" index="addressLine1" title="Address Line1" sortable="false"/>
-	        <sjg:gridColumn name="postcode" index="postcode" title="Post Code" sortable="false"/>
+	        >	        
+			<sjg:gridColumn name="facilityId" index="facilityId" title="ID" hidden="true"/>
+	        <sjg:gridColumn name="facilityType" index="facilityType" title="Facility Type" sortable="false"/>
+	        <sjg:gridColumn name="description" index="description" title="Description" sortable="false"/>
+	        <sjg:gridColumn name="contactName" index="contactName" title="Lead Contacts" sortable="false"/>
 	        <sjg:gridColumn name="status" index="status" title="Is Active" sortable="false" formatter="checkbox"/>
 	    </sjg:grid>
+	    
 	</s:form>
 	
-	<!-- active one non active- Premises -->
+	<!-- active one non active- facility -->
 	<sj:dialog id="confirm_dialog"
 		  buttons="{
                 'OK':function() { chooseOkButton(); },
@@ -117,5 +124,6 @@ $(document).ready(function(){
 		   modal="true"
 		   title="Confirm..."
 >
-	Do you want to make this Premise active ?
+	Do you want to make this facility active ?
 </sj:dialog>
+	

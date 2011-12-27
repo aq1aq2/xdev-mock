@@ -25,6 +25,8 @@ public class PremiseAction extends ActionSupport {
 	private List<ReferenceDataList> listCateringType = new ArrayList<ReferenceDataList>();
 	private List<ReferenceDataList> listNetwork = new ArrayList<ReferenceDataList>();
 	private List<Premise> listPremiseJcpOffice = new ArrayList<Premise>();
+	private List<Premise> listPremiseOutreachLocation = new ArrayList<Premise>();
+	private List<Premise> listPremiseHotel = new ArrayList<Premise>();
 	private String filterKey;
 	private boolean filterActive;
 	private int mode = -1;
@@ -73,7 +75,8 @@ public class PremiseAction extends ActionSupport {
 		// check save or update premise
 		if (mode > -1){
 			premise = premiseDao.find(premise);
-			setMode(-1);
+			//setMode(-1);
+			System.out.println("gia tri cua mode la: " + mode);
 		}	else {
 			premise = null;
 		}
@@ -87,10 +90,12 @@ public class PremiseAction extends ActionSupport {
 		System.out.println("Premise Dao: ");
 		System.out.println(premiseDao);
 		listPremiseJcpOffice = premiseDao.listPremiseByLocationType("JCP Offices");
-		System.out.println(listPremiseJcpOffice.size());
-		for(ReferenceDataList s: listNetwork){
-			System.out.println(s.getType());
-		}
+		listPremiseOutreachLocation = premiseDao.listPremiseByLocationType("Outreach Location");
+		listPremiseHotel = premiseDao.listPremiseByLocationType("Hotel");
+		System.out.println("size of listPremiseJcpOffice: " +  listPremiseJcpOffice.size());
+		System.out.println("size of listPremiseOutreachLocation: " + listPremiseOutreachLocation.size());
+		System.out.println("size of listPremiseOutreachLocation: " + listPremiseHotel.size());
+		
 		return "detail";
 	}
 	
@@ -249,6 +254,23 @@ public class PremiseAction extends ActionSupport {
 
 	public void setListPremiseJcpOffice(List<Premise> listPremiseJcpOffice) {
 		this.listPremiseJcpOffice = listPremiseJcpOffice;
+	}
+
+	public List<Premise> getListPremiseOutreachLocation() {
+		return listPremiseOutreachLocation;
+	}
+
+	public void setListPremiseOutreachLocation(
+			List<Premise> listPremiseOutreachLocation) {
+		this.listPremiseOutreachLocation = listPremiseOutreachLocation;
+	}
+
+	public List<Premise> getListPremiseHotel() {
+		return listPremiseHotel;
+	}
+
+	public void setListPremiseHotel(List<Premise> listPremiseHotel) {
+		this.listPremiseHotel = listPremiseHotel;
 	}
 	
 }
