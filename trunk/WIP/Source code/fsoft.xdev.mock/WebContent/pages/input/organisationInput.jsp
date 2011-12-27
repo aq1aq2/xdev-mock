@@ -16,7 +16,7 @@ $(document).ready(function(){
 	});
 	
 	$("#saveBtn").click(function(){
-
+		alert("Comming soon !");
 	});
 	
 	//Read param in incoming request
@@ -37,7 +37,7 @@ $(document).ready(function(){
 	
 		var mode = "${mode}";
 		if(mode == 'amend') {
-			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2]);
+			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2,3]);
 		}
 		else if(mode == 'add') {
 			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2,3,4,5]);
