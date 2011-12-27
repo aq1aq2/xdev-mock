@@ -90,14 +90,6 @@ $(document).ready(function(){
 		checkMode();
 	});
 	
-	
-	//check index of current tab
-	
-// 	$("#premiseTabs").bind("tabsselect", function(event, ui) {
-// 		  var selectedTab = $("#TabList").tabs().data("selected.tabs");
-// 		  alert(selectedTab);
-// 		});
-
 	/*
 	 * On Tab change
 	 */

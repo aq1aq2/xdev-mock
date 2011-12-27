@@ -31,15 +31,16 @@ $(document).ready(function(){
 		filterActive = $(this).is(":checked");
 		sendFilterOptions();
 	});
+	
 	// click the create button
 	
 	$("#createBtn").click(function(){
 		window.location.href = "detailPremises.action?mode=-1";
 	});
 	
-	
+	//rowselect event
 	$.subscribe('rowselect', function(event, data) {
-        //alert('Selected Row : ' + event.originalEvent.id);
+        
         // Get id of the record
         var grid = event.originalEvent.grid;
         var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
@@ -70,14 +71,13 @@ $(document).ready(function(){
 	function chooseCancelButton() {			
 		$("#confirm_dialog").dialog("close");
 	}
-
+	//active function to active one in-active Premise
 	function active() {
 		query="premise.premiseId=" + premiseId;	
 		query += '&';
     	query += "mode =" + premiseId;
 		$.get("activePremises.action?" + query, 
 		function(data){
-			//alert("123");
 			$('#gridtable').trigger('reloadGrid',[{page:1}]);
 		}
 	);
