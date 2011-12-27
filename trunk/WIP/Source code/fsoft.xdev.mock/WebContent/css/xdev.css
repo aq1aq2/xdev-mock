@@ -1,6 +1,9 @@
 @CHARSET "ISO-8859-1";
 
+html{height: 100%;}
+
 body {
+	height: 100%;
 	font: 10px normal Verdana, Arial, Helvetica, sans-serif;
 	margin-top: 0;
 	margin-bottom: 0;
@@ -25,6 +28,14 @@ div.xdev-account > a {
 	color: green;
 }
 
+img.xdev-logo {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    opacity:0.2;
+	filter:alpha(opacity=20); /* For IE8 and earlier */
+}
+
 /*************************************/
 /************** Login ****************/
 /*************************************/
@@ -40,7 +51,7 @@ div.xdev-account > a {
 .login input{color:#555;}
 
 input.button-primary{
-	text-decoration:none;font-size:12px!important;line-height:13px;padding:3px 8px;
+	text-decoration:none;font-size:20px!important;line-height:21px;padding:3px 8px;
 	cursor:pointer;border-width:1px;border-style:solid;
 	-webkit-border-radius:11px;border-radius:11px;-moz-box-sizing:content-box;
 	-webkit-box-sizing:content-box;box-sizing:content-box;
