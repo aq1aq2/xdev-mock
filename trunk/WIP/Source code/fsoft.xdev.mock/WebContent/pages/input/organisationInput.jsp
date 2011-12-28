@@ -18,20 +18,6 @@ $(document).ready(function(){
 	$("#saveBtn").click(function(){
 		alert("Comming soon !");
 	});
-	
-	//Read param in incoming request
-// 	function getUrlVars()
-// 	{
-// 	    var vars = [];
-// 	    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-// 	    for(var i = 0; i < hashes.length; i++)
-// 	    {
-// 	        hash = hashes[i].split('=');
-// 	        vars.push(hash[0]);
-// 	        vars[hash[0]] = hash[1];
-// 	    }
-// 	    return vars;
-// 	}
 
 	function checkMode(){
 	
@@ -42,22 +28,53 @@ $(document).ready(function(){
 		else if(mode == 'add') {
 			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2,3,4,5]);
 		}
-	 	else {
-			// alert("default tab");
-		}
 	}
 	
 	// MUST use ready event for tabby because of tabby is so heavy !
-	$("#myOrganisationDetailstabs").ready(function(){
-		checkMode();
-		// Load data into tab 5 and send filterOrgId now !
-		$("#tab5").load("SupportingMaterial.action?filterOrgId=" + $("#orgId").val(), function(){
-			
-		});
-	});
+// 	$("#myOrganisationDetailstabs").ready(function(){
+// 		checkMode();
+// 		/* Load data into tab 5 and send filterOrgId now ! */
+// 		$("#tab5").load("SupportingMaterial.action?filterOrgId=" + $("#orgId").val(), function(){});
+// 	});
+	
+	/*
+	 * Dialog events
+	 */
+	 
+	/* Lead contact lookup event */
+	$("#leadContact_lookupBtn").click(function(){
+		$("#listDialogContent").load("Contact.action",
+			function(response){ // Function execute after load complete
+				/* Dialog None button */
+				$("#noneBtn").click(function(){
+					$(":input[name*='leadContact']").val("");
+					$( "#listDialog" ).dialog( "close" );
+					
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+				});
+				/* Dialog Close button */
+				$("#closeBtn").click(function(){
+					$( "#listDialog" ).dialog( "close" );
+					
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+				});
+				/* Dialog Select button */
+				$("#selectBtn").click(function(){
+					var selectedId = $(":input[name*='gridSelectedRow']").val();
+					$(":input[name*='leadContact']").val(selectedId);
+					$( "#listDialog" ).dialog( "close" );
+					
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+				});
+			}
+		);
+		/* Open lookup dialog */
+		$( "#listDialog" ).dialog( "open" );
+	}); // End of leadContact_lookupBtn
 });
-
-
 </script>
 
 
@@ -87,7 +104,7 @@ $(document).ready(function(){
 			<s:checkbox name="preferredOrganisation" label="Preferred Organisation" labelposition="left" />
 			<s:textarea name="OrganisationDesc" label="Organisation Short Description" required="true"/>
 			<s:checkbox id="expressionOfInterest" name="expressionOfInterest" label="Expression Of Interest" labelposition="left" />
-			<xdev:textLookup name="leadContact" label="Lead Contact" />
+			<xdev:textLookup name="leadContact" id="leadContact" label="Lead Contact" />
 			<xdev:textLookup name="typeOfBusiness" label="Type of business" />
 			<s:textfield name="addr1" label="Address Line 1" />
 			<xdev:textLookup name="sicCode" label="SIC Code" />
@@ -108,30 +125,14 @@ $(document).ready(function(){
     </div>
     
     <div id="tab2">
-		<s:form cssClass="xdev-form" action="detailOrganisation">
-			<!-- 			Organisation Specialism -->
+		<s:form cssClass="xdev-form" >
 			<s:checkboxlist 
-				label="Organisation Specicalism"
-				labelposition="left"
-	            name="organisation.listOrgSpecicalism"
-	            list="listOrgSpecicalism"
+				label="Organisation Specicalism" 
+				name="organisation.listOrgSpecicalism"
+				list="listOrgSpecicalism"
 	            listKey="referenceDataId"
 	            listValue="type"
             />
-<!-- 			Service Personal Circumstances Capabilities -->
-<!-- 			Service Disabilities Capabilities -->
-<%-- 			<s:checkboxlist  --%>
-<%-- 				label="Service Disabilities Capabilities" --%>
-<%-- 				labelposition="left" --%>
-<%-- 	            name="organisation.listServDisCapabilities" --%>
-<%-- 	            list="listServDisCapabilities" --%>
-<%-- 	            listKey="referenceDataId" --%>
-<%-- 	            listValue="type" --%>
-<%--             /> --%>
-<!-- 			Service Ethnicity Capabilities -->
-<!-- 			Service Barries Capabilities -->
-<!-- 			Accreditation -->
-<!-- 			Service Benifits Capabilities 	 -->
 		</s:form>  
     </div>
     
@@ -142,17 +143,20 @@ $(document).ready(function(){
 		</s:form>  
     </div>
     
-    <div id="tab4">
-<!-- 		Load premises list into the tab -->
-    </div>
-    
-    <div id="tab5">
-<!-- 		Load supporting material list into the tab -->
-    </div>
-    
-    <div id="bu">
-<!-- 		Load directorateList into the tab -->
-    </div>
+    <div id="tab4"></div>
+    <div id="tab5"></div>
+    <div id="bu"></div>
     
 </sj:tabbedpanel> 
  
+<!-- Lookup Dialog -->
+<sj:dialog 
+   	id="listDialog" 
+   	autoOpen="false" 
+   	modal="true" 
+   	title="Contact List"
+   	width="965"
+   	height="650"
+>
+	<div id="listDialogContent"></div>
+</sj:dialog>

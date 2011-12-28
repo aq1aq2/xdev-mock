@@ -176,6 +176,7 @@ div.xdev-checkbox-list {
 
 .xdev-sub { margin: 5px; }
 
+.xdev-form { width: 100%; }
 .xdev-form tr {	width: 50%; float: left; }
 .xdev-form td {	float: left; width: 60%; }
 .xdev-form td > input, select {	width: 70%; }
