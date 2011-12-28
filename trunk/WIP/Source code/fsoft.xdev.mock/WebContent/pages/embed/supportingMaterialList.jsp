@@ -4,10 +4,7 @@
 <title>Supporting Material List</title>
 
 <!-- Section Title -->
-<!--  
 <content tag="sectionTitle">Supporting Material List</content>
--->
-
 
 <script>
 	$(document).ready(function(){
@@ -74,6 +71,7 @@
 	    rowNum="15"
        	rownumbers="true"
        	onSelectRowTopics="onRowSelected"
+       	caption=""
 	>
 		<sjg:gridColumn name="supportingMaterialId" index="supportingMaterialId" title="ID" hidden="true"/>
 		<sjg:gridColumn name="url" index="url" title="url" sortable="true"/>
