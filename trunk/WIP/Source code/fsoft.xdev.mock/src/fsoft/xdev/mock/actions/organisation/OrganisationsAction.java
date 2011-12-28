@@ -111,6 +111,12 @@ public class OrganisationsAction extends ActionSupport{
 		return "update";
 	}
 	
+	//for lookup
+	
+	public String execute(){
+		return SUCCESS;
+	}
+	
 	public String getMode() {
 		return mode;
 	}
