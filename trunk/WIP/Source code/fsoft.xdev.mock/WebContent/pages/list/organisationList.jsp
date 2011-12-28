@@ -97,7 +97,7 @@ function active() {
 	    gridModel="listModel"
 	    autowidth="true"
 	    pager="true"
-	    rowNum="2"
+	    rowNum="15"
        	rownumbers="true"
        	onSelectRowTopics="rowSelect"
 	>
