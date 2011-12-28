@@ -10,6 +10,7 @@
     	<!--
  			<result name="list">Test.jsp</result> 
  		-->
+ 			<result name="success">/pages/lookup/organisationLookup.jsp</result>
  			<result name="input">/pages/input/organisationInput.jsp</result>
     		<result name="save" type="json"></result>
     		<result name="update" type="json"></result>

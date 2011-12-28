@@ -35,6 +35,7 @@ $(document).ready(function(){
 		window.location.href = "savePremises.action?" + query;
 	});
 	
+	
 	/* Catering Contact lookup event */
 	$("#cateringContact_lookupBtn").click(function(){
 		$("#listDialogContent").load("Contact.action",
@@ -62,6 +63,44 @@ $(document).ready(function(){
 					var cateringContactId = $(":input[name*='gridSelectedRow']").val();
 					//$(":input[name*='contact.managerId']").val(managerId);
 						$("#cateringContact").val(cateringContactId);
+					$( "#listDialog" ).dialog( "close" );
+					
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+				});
+			}
+		);
+		
+		$( "#listDialog" ).dialog( "open" );
+	});
+	
+	// organisation lookup 
+	$("#locationOrganisation_lookupBtn").click(function(){
+		$("#listDialogContent").load("Organisation.action",
+			function(response){     // Function execute after load complete
+				
+			/* Dialog None button */
+				$("#noneBtn").click(function(){
+					//$(":input[name*='contact.managerId']").val("");
+					
+					$("#locationOrganisation").val("");
+					$( "#listDialog" ).dialog( "close" );
+					
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+				});
+				/* Dialog Close button */
+				$("#closeBtn").click(function(){
+					$( "#listDialog" ).dialog( "close" );
+					
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+				});
+				/* Dialog Select button */
+				$("#selectBtn").click(function(){
+					var organisationId = $(":input[name*='gridSelectedRow']").val();
+					//$(":input[name*='contact.managerId']").val(managerId);
+						$("#locationOrganisation").val(organisationId);
 					$( "#listDialog" ).dialog( "close" );
 					
 					// Clear dialog content to ensure no confict with other lookup
@@ -113,6 +152,12 @@ $(document).ready(function(){
 			);
 		}
 	});
+	
+	//check the value of checkbox list locationType
+	$("#locationTypeCheckboxList input:checked").click().each(function(){
+		alert("vao day nao");
+	});
+	
 });
 
 </script>
@@ -141,9 +186,9 @@ $(document).ready(function(){
 				<s:textfield name="premise.knownAs" label="Known As"></s:textfield>
 				
 				<!-- link to Organisation -->
-				<!--  
-				<xdev:textLookup id="locationOrganisation" name="premise.organisation.name" label="Location Organisation"/>
-				-->
+				  
+				<xdev:textLookup id="locationOrganisation" name="premise.organisation.organisationId" label="Location Organisation"/>
+				
 				<s:checkbox id="locationManaged" name="premise.locationManaged" label="Location Managed" labelposition="left"></s:checkbox>
 				
 				<s:checkbox name="premise.stnetworkConectivity" label="ST Network Connectivity" labelposition="left"></s:checkbox>
@@ -151,7 +196,7 @@ $(document).ready(function(){
 				
 			    <sj:datepicker name="premise.locationStatusDate" displayFormat="dd/mm/yy" label="Location Status Date"></sj:datepicker>
 			  
-			 	<s:checkboxlist name="premise.locationType" list="listLocationType" required="true" label="Location Type" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
+			 	<s:checkboxlist id="locationTypeCheckboxList" name="premise.locationType" list="listLocationType" required="true" label="Location Type" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
 	
 				<s:textfield name="premise.addressLine1" label="Address Line 1" ></s:textfield>
 				<s:textfield name="premise.addressLine2" label="Address Line 2"></s:textfield>	

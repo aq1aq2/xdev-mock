@@ -10,67 +10,26 @@
 		/* -------------------
 		 * Filter click events 
 		 */
-		var filterFirstName = "";
-		var filterSurname = "";
 		var filterActive = false;
 		
 		function sendFilterOptions() {
-			filterFirstName = $("#opFirstName").val();
-			filterSurname = $("#opSurname").val();
-			
-			query = "filterFirstName="+filterFirstName;
-			query += '&';
-			query += "filterSurname="+filterSurname;
-			query += '&';
-			query += "filterActive="+filterActive;
-			$.getJSON("listContact.action?" + query,
+			query = "filterActive="+filterActive;
+			$.getJSON("listOrganisation.action?" + query,
 				function(data) {
 					$('#gridtable').trigger('reloadGrid', [{page:1}]);
 			});
 		}
 		
-		$("#includeChkBx").click(function(){
-			filterActive = $(this).is(":checked");
-			sendFilterOptions();
-		});
-		
-		/* Search */
-		$("#searchBtn").click(function(){
-			sendFilterOptions();
-		});
-		
-		/* Clear */
-		$("#clearBtn").click(function(){
-			$("#opFirstName").val("");
-			$("#opSurname").val("");
-			sendFilterOptions();
-		});
-		
-		/* -------------
-		 * Button events
-		 */
-		 
-		/* Create */
-		$("#createBtn").click(function(){
-			window.location.href = "inputContact.action";
-		});
-		
-		/* Edit */
-		$("#editBtn").click(function(){
-			var contactId = $(":input[name*='gridSelectedRow']").val();
-	        window.location.href = "inputContact.action?selectedContactId=" + contactId;
-		});
-		
 		/* -----------
 		 * Grid events
 		 */
-		$.subscribe("onRowSelected", 
+		$.subscribe("rowSelect", 
 			function(event, data) {
 		        // Get status of the record
 		        var grid = event.originalEvent.grid;
 		        var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
-		        var contactId = grid.jqGrid('getCell', selectedRowId, 'contactId');
-		        $(":input[name*='gridSelectedRow']").val(contactId);
+		        var organisationId = grid.jqGrid('getCell', selectedRowId, 'organisationId');
+		        $(":input[name*='gridSelectedRow']").val(organisationId);
 	        }
 		);
 	});
@@ -80,14 +39,8 @@
 
 	<!-- Section title -->
 	<h1 class="xdev-section-title">
-		Contact List
+		Organisation List
 	</h1>
-	
-	<!-- Search options -->
-	<div class="xdev-sub">
-		<s:textfield id="opFirstName" label="First Name" value=""/>
-		<s:textfield id="opSurname" label="Surname" value=""/>
-	</div>
 	
 	<!-- Top buttons -->
 	<div class="xdev-sub">
@@ -95,16 +48,6 @@
 		<sj:a id="noneBtn" 
 			button="true" 
 		>None</sj:a>
-		
-		<sj:a id="clearBtn" 
-			button="true" 
-		>Clear</sj:a>
-		
-		<sj:a id="createBtn" 
-			button="true" 
-		>Create</sj:a>
-		
-		<s:checkbox name="includeChkBx" label="Include In-active" />
 	</div>
 	
 	<!-- Body -->

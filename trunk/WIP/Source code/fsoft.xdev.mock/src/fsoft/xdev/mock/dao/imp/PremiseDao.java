@@ -11,7 +11,6 @@ import fsoft.xdev.mock.dao.IPremiseDao;
 import fsoft.xdev.mock.dao.IReferenceDataDao;
 import fsoft.xdev.mock.models.Premise;
 import fsoft.xdev.mock.models.PremiseList;
-import fsoft.xdev.mock.models.ReferenceData;
 import fsoft.xdev.mock.models.ReferenceDataList;
 
 public class PremiseDao extends HibernateDaoSupport implements IPremiseDao {
@@ -207,7 +206,6 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao {
 	// + type + "'";
 	// Query query = getHibernateTemplate().getSessionFactory()
 	// .getCurrentSession().createQuery(criteria);
-	//
 	// return query.list();
 	// }
 

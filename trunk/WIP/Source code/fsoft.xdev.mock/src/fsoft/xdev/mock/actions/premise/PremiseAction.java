@@ -66,6 +66,7 @@ public class PremiseAction extends ActionSupport {
 	public String save(){
 		System.out.println("vao day");
 		premise.setStatus(false);
+		System.out.println(premise.getOrganisation().getOrganisationId());
 		premiseDao.add(premise);
 		System.out.println("one premise is added");
 		return "add";
