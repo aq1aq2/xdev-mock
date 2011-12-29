@@ -6,10 +6,9 @@
     <!-- Configuration Information Created by DungNM2 -->
     <package name="dungnm2" extends="struts-default,json-default">    				
 		<action name="*Organisation" method="{1}" class="organisationAction">
-    		<result name="list" type="json"></result>
-    	<!--
- 			<result name="list">Test.jsp</result> 
- 		-->
+    		<result name="list" type="json">
+    			<param name="excludeProperties">referenceDataDao,organisation,organisationDao</param>
+    		</result>
  			<result name="success">/pages/lookup/organisationLookup.jsp</result>
  			<result name="input">/pages/input/organisationInput.jsp</result>
     		<result name="save" type="json"></result>
