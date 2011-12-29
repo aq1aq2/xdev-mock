@@ -36,11 +36,11 @@ $(document).ready(function(){
 	 
 	$.subscribe('onTabChange', function(event, data) {
 		/* Check create or amend mode */
-		checkMode();
+		//checkMode();
 		/* Load properly page into tab */
 		var tab = event.originalEvent.ui.index+1;
 		if (tab==5) {
-			$("#tab5").load("SupportingMaterial.action?filterOrgId=" + $("#orgId").val(), function(){});
+			$("#tab5").load("SupportingMaterial.action?filterOrgId=" + $("#orgId").val(), function(response){});
 		}
 	});
 	
