@@ -16,30 +16,6 @@ function formatDate(k){
 <script type="text/javascript">
 	
 $(document).ready(function(){
-
-	
-	// select event
-//		$("#FacilityType").change(function(){
-			//alert('vao day khong');
-//				if ($(this).val().type == 'Room'){
-				
-				//alert($(this).val());
-//					$("#roomCapacity").attr("disabled", "true");
-//					$("#roomSize").attr("disabled", "true");
-//					$("#roomEquipmentNotes").attr("disabled", "true");
-//					$("#roomConnectivity").attr("disabled", "true");
-//					$("#equipmentAvailable").attr("disabled", "true");
-				
-//				}
-//				else if($(this).val().type == 'Internet Access') {
-				
-//					$("#connectivityType").attr("disabled", "false");
-//				}
-//				else {
-//					$("#connectivityType").removeAttr("disabled");
-//				}
-//	});
-	
 	
 	/* Back event */
 	$("#backBtn").click(function(){
@@ -60,18 +36,8 @@ $(document).ready(function(){
 		});			
 		
 		query = query.substring(0, query.length-1);
-		
-		//change formatdate to suit with sql database
-		
 		//start Date
 		
-// 		var dateTimeSplit = $("#startDate").val().split('/');
-// 		var startDate = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
-// 		$("#startDate").val(startDate);
-// 		dateTimeSplit =  $("#endDate").val().split('/');
-// 		var endDate = dateTimeSplit[2] + '/' + dateTimeSplit[1] + '/' + dateTimeSplit[0];
-// 		$("#endDate").val(endDate);
-
 // 		formatDate($("#startDate"));
 		
 // 		formatDate($("#endDate"));
@@ -122,6 +88,30 @@ $(document).ready(function(){
 		$( "#listDialog" ).dialog( "open" );
 	});
 	
+	$("#volunteerNo").change(function(){
+		var data = $("#volunteerNo").val();
+		 //get the length of data
+		 var len = data.length;
+		 var c=0;
+		 
+		 for(var i=0;i<len;i++)
+		    {
+		      c=data.charAt(i).charCodeAt(0);
+		      //check the input is numeric number
+		      if(c <48 || c >57)
+		      {
+			   alert("the volunteer number order must be numeric number");
+			   $("#volunteerNo").val("");
+		       break;
+		      }
+		      else
+		      {
+		    	 //don't do anything
+		      }
+		    }
+		 
+	});
+	
 
 });
 
@@ -137,7 +127,7 @@ $(document).ready(function(){
 			<s:textfield name="volunteer.details" label="Volunteer Opportunity Details"/>
 			<sj:datepicker id="startDate" name="volunteer.startDate" displayFormat="dd/mm/yy" label="Start Date"/>
 			<sj:datepicker id="endDate" name="volunteer.endDate" displayFormat="dd/mm/yy" label="End Date"/>
-			<s:textfield name="volunteer.volunteerNo" label="Volunteer Nos"></s:textfield>
+			<s:textfield id="volunteerNo" name="volunteer.volunteerNo" label="Volunteer Nos"></s:textfield>
 		</s:form>
 		
 	</div>

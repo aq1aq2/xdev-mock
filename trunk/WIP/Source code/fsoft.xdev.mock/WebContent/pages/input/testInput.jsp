@@ -25,10 +25,58 @@ $(document).ready(function(){
 // 	alert(startDate);
 // 	formatDate($("#startDate"));
 // 	alert($("#startDate").val());
-	 var date = $("#startDate").datepicker("getDate");
-	 alert(date);
-	
+	 //var date = $("#startDate").datepicker("getDate");
+	 var date = $("#startDate").val();
+	 //alert(date);
+	 var currentDate = new Date();
+	 //alert(currentDate);
+	 if(date > currentDate){
+		 alert("khong hop le");
+	 }
+	 else {
+		 alert( $("#startDate").val());
+	 }
 	});
+	
+	//onselect event of datepicker
+	
+// 	$("#startDate").blur(function(){
+// 		 var date = $("#startDate").datepicker("getDate");
+// 		alert(date);
+// 		 var currentDate = new Date();
+// 		alert(currentDate);
+// 		 if(date > currentDate){
+// 			 alert("khong hop le");
+// 			 $("#startDate").val("");
+// 		 }
+// 		 else {
+// 			 alert("hople");
+// 		 }
+// 	});
+	
+	$("#startDate").change(function(){
+		var date = $("#startDate").datepicker("getDate");
+		 //alert(date);
+		 var currentDate = new Date();
+		
+		 //alert(currentDate);
+		 if(date > currentDate){
+			 alert("khong hop le");
+			 $("#startDate").val("");
+		 }
+		 else {
+			 //alert( $("#startDate").val());
+			 var dayDiff = Math.ceil((currentDate - date) / (1000 * 60 * 60 * 24));
+			 alert(dayDiff);	 
+			 if(dayDiff <60){
+				 $("#testCheck").attr('checked','true');
+			 }
+			 else {
+				 $("#testCheck").removeAttr('checked');
+			 }
+		 }
+	});
+	
 });
 </script>
 
@@ -39,6 +87,7 @@ $(document).ready(function(){
 			<s:textfield name="facility.facilityId" label="FacilityID"></s:textfield>
 			-->
 			<sj:datepicker id="startDate" name="volunteer.startDate" displayFormat="dd/mm/yy" label="Start Date"/>
+			<s:checkbox id="testCheck" name="testCheck"></s:checkbox>
 			<s:submit id="testScript"></s:submit>
 	</s:form>
 	</div>
