@@ -273,5 +273,15 @@ public class PremiseAction extends ActionSupport {
 	public void setListPremiseHotel(List<Premise> listPremiseHotel) {
 		this.listPremiseHotel = listPremiseHotel;
 	}
+					
+	public int[] getDefaultLocation(){	
+		System.out.println("co vay day ko");
+			String a[] = premise.getLocationType().split(", ");
+			int[] b = new int[a.length];
+			for(int i = 0; i< a.length; i++){
+				b[i] = Integer.parseInt(a[i]);		
+			}
+		return b;
+	}
 	
 }

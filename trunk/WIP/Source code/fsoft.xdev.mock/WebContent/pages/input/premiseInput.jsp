@@ -158,6 +158,46 @@ $(document).ready(function(){
 		alert("vao day nao");
 	});
 	
+	//check is newshop
+	
+	$("#shopFlagDate").change(function(){
+		var date = $("#shopFlagDate").datepicker("getDate");
+		 //alert(date);
+		 var currentDate = new Date();
+		
+		 //alert(currentDate);
+		 if(date > currentDate){
+			 alert("the shopFlagDate must be less than current Date");
+			 $("#shopFlagDate").val("");
+		 }
+		 else {
+			 //get the day differ
+			 var dayDiff = Math.ceil((currentDate - date) / (1000 * 60 * 60 * 24));
+			 //alert(dayDiff);	 
+			 if(dayDiff <60){
+				 $("#isNewShop").attr('checked','true');
+			 }
+			 else {
+				 $("#isNewShop").removeAttr('checked');
+			 }
+		 }
+	});
+	
+	//check the Volunteering Oportunity checkBox
+	$("#volunteeringOpportunities").click(function(){
+		
+		if($("#volunteeringOpportunities").is(":checked") == true) {
+			$("#premiseTabs").tabs("enable",5);
+			
+		}
+		else {
+			$("#premiseTabs").tabs("disable",5);
+			
+			
+		}
+	
+	});
+	
 });
 
 </script>
@@ -195,8 +235,8 @@ $(document).ready(function(){
 				<s:select name="premise.locationStatus" list="{'PendingActive','Active','Pending Closure','Closed'}" label="Location Status" required="true"></s:select>
 				
 			    <sj:datepicker name="premise.locationStatusDate" displayFormat="dd/mm/yy" label="Location Status Date"></sj:datepicker>
-			  
-			 	<s:checkboxlist id="locationTypeCheckboxList" name="premise.locationType" list="listLocationType" required="true" label="Location Type" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
+			  																																																					 
+			 	<s:checkboxlist id="locationTypeCheckboxList" name="premise.locationType" list="listLocationType" required="true" label="Location Type" listValue="type" listKey="referenceDataId" key="referenceDataId" value ="defaultLocation"></s:checkboxlist>
 	
 				<s:textfield name="premise.addressLine1" label="Address Line 1" ></s:textfield>
 				<s:textfield name="premise.addressLine2" label="Address Line 2"></s:textfield>	
@@ -213,9 +253,9 @@ $(document).ready(function(){
 				<s:textfield name="premise.cityTown" label="City Town"></s:textfield>
 			
 				<s:textfield name="premise.county" label="County"></s:textfield>
-				<s:checkbox name="premise.isNewShop" label="Is New Shop?" labelposition="left"></s:checkbox>
+				<s:checkbox id="isNewShop" name="premise.isNewShop" label="Is New Shop?" labelposition="left"></s:checkbox>
 				
-				<sj:datepicker name="premise.shopFlagDate" displayFormat="dd/mm/yy" label="Shop Flag Date"></sj:datepicker>
+				<sj:datepicker id="shopFlagDate" name="premise.shopFlagDate" displayFormat="dd/mm/yy" label="Shop Flag Date"></sj:datepicker>
 				<s:checkbox name="premise.specialistShop" label="Specialist Shop" labelposition="left"></s:checkbox>
 		
 		</s:form>
