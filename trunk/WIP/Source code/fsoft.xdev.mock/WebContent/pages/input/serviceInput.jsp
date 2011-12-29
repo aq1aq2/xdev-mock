@@ -1,9 +1,70 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
+<<script type="text/javascript">
+<!--
 
+//-->
+// function getValue(str){
+// 	var strValue = str.val().split(', ');
+// 	return strValue;
+// }
+</script>
 <script>
 $(document).ready(function(){
+	
+	function test(types,str) {
+		//alert("${service.serBenCrit}");
+		//var types = "${service.serBenCrit}";
+		//var types = ""${"+str+"}"+""";
+// 		var types = $("#serBenCrit").val();
+		//alert(types);
+ 		//alert("${"+str+"}");
+		var strValue = types.split(", ");
+		for(var i = 0; i < strValue.length; i++){
+			var k = strValue[i];
+			alert(k);
+			namVar = "'"+str+"'";
+			$(":checkbox[name="+namVar+"][value="+k+"]").prop('checked', true)
+		}
+	}
+	test("${service.serBenCrit}","service.serBenCrit");
+	//test("${service.serDisCrit}","service.serDisCrit");
+// 	test("${service.serBarCrit}","service.serBarCrit");
+// 	test("${service.serPerCirCrit}","service.serPerCirCrit");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+// 	test("${}","");
+	
+	
+// 	$.subscribe('onTabChange', function(event, data) {
+// 		/* Load properly page into tab */
+// 		var tab = event.originalEvent.ui.index+1;
+// 		if (tab==2) {
+// 			alert($(":checkbox[name='service.serBenCrit'][value=10]").prop('checked', true));
+// 		}
+// 	});
+	
 	$("#subType").change(function () {
 		var selected = $("#subType option:selected").text();
 		if(selected == "Contract"){
@@ -94,7 +155,10 @@ $(document).ready(function(){
 <content tag="sectionTitle">Service Input</content>
 
 <!-- Table Panel -->
-<sj:tabbedpanel id="serviceDetailTab">
+<sj:tabbedpanel 
+	id="serviceDetailTab"
+	onChangeTopics="onTabChange"
+>
 		<sj:tab id="tab1" target="details1" label="Details 1"/>
 		<sj:tab id="tab2" target="details2" label="Details 2"/>
 		<sj:tab id="tab3" target="details3" label="Details 3"/>
@@ -148,7 +212,7 @@ $(document).ready(function(){
 		<div id="details2" class="xdev-window-body-sub">
 			<table>
 				<s:form cssClass="xdev-form">
-					<s:checkboxlist label="Service Benefits Criterion" name ="service.serBenCrit" list="listServiceBenefitsCriterion" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
+					<s:checkboxlist id="serBenCrit" label="Service Benefits Criterion" name ="service.serBenCrit" list="listServiceBenefitsCriterion" listValue="type" listKey="referenceDataId" key="referenceDataId" value="service.serBenCrit"></s:checkboxlist>
 					<s:checkboxlist label="Service Disability Criterion" name="service.serDisCrit" list="listServiceDisabilityCriterion" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
 					<s:checkboxlist label="Service Barriers Criterion" name="service.serBarCrit" list="listServiceBarriersCriterion" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
 					<s:checkboxlist label="Service Personal Circumstances Criterion" name="service.serPerCirCrit" list="listServicePersonalCircumstancesCriterion " listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
@@ -162,7 +226,7 @@ $(document).ready(function(){
 			<table>
 				<s:form cssClass="xdev-form">
 					
-					<s:checkboxlist label="Client Support Process" name="service.clientSupportProcess" list="listClientSupportProcess" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
+					<s:checkboxlist id="id_1" label="Client Support Process" name="service.clientSupportProcess" list="listClientSupportProcess" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
 					<s:checkboxlist label="Client Outcome" name="service.clientOutcome" list="listClientOutcome" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
 					<s:checkboxlist label="Intervention" name="service.intervention" list="listIntervention" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
 					<s:checkboxlist label="Target Client" name="service.targetClient" list="listTargetClient" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>

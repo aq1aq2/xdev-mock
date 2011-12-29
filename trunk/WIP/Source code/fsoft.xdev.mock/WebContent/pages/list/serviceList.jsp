@@ -52,7 +52,7 @@
 	        }
 	        else{	        	 
 		        query="service.serviceId="+id;
-		        window.location.href = "detailService.action?" + query;
+		        window.location.href = "updateService.action?" + query;
 	        }		        
 	        
 		});	
