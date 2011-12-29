@@ -34,12 +34,16 @@
     	</action>
     	
     	<action name="*TypeOfBusiness" method="{1}" class="typeOfBusinessAction">
+    		<result name="success" >/pages/lookup/typeOfBusinessLookup.jsp</result>
+    		
     		<result name="list" type="json">
     			<param name="excludeProperties">typeOfBusinessDao</param>
     		</result>
     	</action>
     	
     	<action name="*Address" method="{1}" class="addressAction">
+    		<result name="success" >/pages/lookup/addressLookup.jsp</result>
+    		
     		<result name="list" type="json">
     			<param name="excludeProperties">addressDao</param>
     		</result>
