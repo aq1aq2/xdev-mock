@@ -35,7 +35,9 @@ public class ContactAction extends ActionSupport {
 	private Integer total = 0;
 	private Integer records = 0;
 
-	
+	/**
+	 * Return Contact List page
+	 */
 	public String execute() {
 		return SUCCESS;
 	}

@@ -40,7 +40,7 @@ $(document).ready(function(){
 	/*
 	 * Dialog events
 	 */
-	 
+		
 	/* Lead contact lookup event */
 	$("#leadContact_lookupBtn").click(function(){
 		$("#listDialogContent").load("Contact.action",
@@ -48,6 +48,42 @@ $(document).ready(function(){
 				/* Dialog None button */
 				$("#noneBtn").click(function(){
 					$(":input[name*='leadContact']").val("");
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+					$( "#listDialog" ).dialog( "close" );
+				});
+				/* Dialog Close button */
+				$("#closeBtn").click(function(){
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+					$( "#listDialog" ).dialog( "close" );
+				});
+				/* Dialog Select button */
+				$("#selectBtn").click(function(){
+					var selectedId = $(":input[name*='gridSelectedRow']").val();
+					$(":input[name*='leadContact']").val(selectedId);
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+					$( "#listDialog" ).dialog( "close" );
+				});
+			}
+		);
+		/* Hide dialog close button */
+		$( "#listDialog" ).dialog({
+			closeOnEscape: false,
+			open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); }
+		});
+		/* Open lookup dialog */
+		$( "#listDialog" ).dialog( "open" );
+	}); // End of leadContact_lookupBtn
+	
+	/* TypeOfBusiness lookup event */
+	$("#typeOfBusiness_lookupBtn").click(function(){
+		$("#listDialogContent").load("TypeOfBusiness.action",
+			function(response){ // Function execute after load complete
+				/* Dialog None button */
+				$("#noneBtn").click(function(){
+					$(":input[name*='typeOfBusiness']").val("");
 					$( "#listDialog" ).dialog( "close" );
 					
 					// Clear dialog content to ensure no confict with other lookup
@@ -63,7 +99,7 @@ $(document).ready(function(){
 				/* Dialog Select button */
 				$("#selectBtn").click(function(){
 					var selectedId = $(":input[name*='gridSelectedRow']").val();
-					$(":input[name*='leadContact']").val(selectedId);
+					$(":input[name*='typeOfBusiness']").val(selectedId);
 					$( "#listDialog" ).dialog( "close" );
 					
 					// Clear dialog content to ensure no confict with other lookup
@@ -71,9 +107,92 @@ $(document).ready(function(){
 				});
 			}
 		);
+		/* Hide dialog close button */
+		$( "#listDialog" ).dialog({
+			closeOnEscape: false,
+			open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); }
+		});
 		/* Open lookup dialog */
 		$( "#listDialog" ).dialog( "open" );
-	}); // End of leadContact_lookupBtn
+	}); // End of typeOfBusiness_lookupBtn
+	
+	/* sicCode lookup event */
+	$("#sicCode_lookupBtn").click(function(){
+		$("#listDialogContent").load("TypeOfBusiness.action",
+			function(response){ // Function execute after load complete
+				/* Dialog None button */
+				$("#noneBtn").click(function(){
+					$(":input[name*='sicCode']").val("");
+					$( "#listDialog" ).dialog( "close" );
+					
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+				});
+				/* Dialog Close button */
+				$("#closeBtn").click(function(){
+					$( "#listDialog" ).dialog( "close" );
+					
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+				});
+				/* Dialog Select button */
+				$("#selectBtn").click(function(){
+					var selectedId = $(":input[name*='gridSelectedRow']").val();
+					$(":input[name*='sicCode']").val(selectedId);
+					$( "#listDialog" ).dialog( "close" );
+					
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+				});
+			}
+		);
+		/* Hide dialog close button */
+		$( "#listDialog" ).dialog({
+			closeOnEscape: false,
+			open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); }
+		});
+		/* Open lookup dialog */
+		$( "#listDialog" ).dialog( "open" );
+	}); // End of sicCode_lookupBtn
+	
+	/* sicCode lookup event */
+	$("#postCode_lookupBtn").click(function(){
+		$("#listDialogContent").load("Address.action",
+			function(response){ // Function execute after load complete
+				/* Dialog None button */
+				$("#noneBtn").click(function(){
+					$(":input[name*='postCode']").val("");
+					$( "#listDialog" ).dialog( "close" );
+					
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+				});
+				/* Dialog Close button */
+				$("#closeBtn").click(function(){
+					$( "#listDialog" ).dialog( "close" );
+					
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+				});
+				/* Dialog Select button */
+				$("#selectBtn").click(function(){
+					var selectedId = $(":input[name*='gridSelectedRow']").val();
+					$(":input[name*='postCode']").val(selectedId);
+					$( "#listDialog" ).dialog( "close" );
+					
+					// Clear dialog content to ensure no confict with other lookup
+					$("#listDialogContent").empty();
+				});
+			}
+		);
+		/* Hide dialog close button */
+		$( "#listDialog" ).dialog({
+			closeOnEscape: false,
+			open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); }
+		});
+		/* Open lookup dialog */
+		$( "#listDialog" ).dialog( "open" );
+	}); // End of postCode_lookupBtn
 });
 </script>
 
@@ -105,14 +224,14 @@ $(document).ready(function(){
 			<s:textarea name="OrganisationDesc" label="Organisation Short Description" required="true"/>
 			<s:checkbox id="expressionOfInterest" name="expressionOfInterest" label="Expression Of Interest" labelposition="left" />
 			<xdev:textLookup name="leadContact" id="leadContact" label="Lead Contact" />
-			<xdev:textLookup name="typeOfBusiness" label="Type of business" />
+			<xdev:textLookup name="typeOfBusiness" id="typeOfBusiness" label="Type of business" />
 			<s:textfield name="addr1" label="Address Line 1" />
-			<xdev:textLookup name="sicCode" label="SIC Code" />
+			<xdev:textLookup name="sicCode" id="sicCode" label="SIC Code" />
 			<s:textfield name="addr2" label="Address Line 2" />
 			<s:textarea name="organisationFullDesc" label="Organisation Full Description" />
 			<s:textfield name="addr3" label="Address Line 3" />
 			<s:textfield name="phoneNumber" label="Phone Number" required="true" />
-			<xdev:textLookup name="postCode" label="Post Code" required="true" />
+			<xdev:textLookup name="postCode" id="postCode" label="Post Code" required="true" />
 			<s:textfield name="fax" label="Fax" />
 			<s:textfield name="city_town" label="City/Town" />
 			<s:textfield name="email" label="Email" />
@@ -154,7 +273,6 @@ $(document).ready(function(){
    	id="listDialog" 
    	autoOpen="false" 
    	modal="true" 
-   	title="Contact List"
    	width="965"
    	height="650"
 >

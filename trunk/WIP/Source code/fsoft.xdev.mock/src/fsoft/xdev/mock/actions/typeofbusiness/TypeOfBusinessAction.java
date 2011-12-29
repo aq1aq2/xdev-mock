@@ -23,6 +23,17 @@ public class TypeOfBusinessAction extends ActionSupport {
 	private Integer records = 0;
 	
 	
+	/**
+	 * Return TypeOfBusiness List page
+	 */
+	public String execute() {
+		return SUCCESS;
+	}
+	
+	/**
+	 * List all TypeOfBusiness
+	 * @return action returns listModel (JSON)
+	 */
 	public String list() {
 		int to = (rows * page);
 		int from = to - rows;
