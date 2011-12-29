@@ -30,6 +30,20 @@ $(document).ready(function(){
 		}
 	}
 	
+	/*
+	 * On Tab change
+	 */
+	 
+	$.subscribe('onTabChange', function(event, data) {
+		/* Check create or amend mode */
+		checkMode();
+		/* Load properly page into tab */
+		var tab = event.originalEvent.ui.index+1;
+		if (tab==5) {
+			$("#tab5").load("SupportingMaterial.action?filterOrgId=" + $("#orgId").val(), function(){});
+		}
+	});
+	
 	// MUST use ready event for tabby because of tabby is so heavy !
 // 	$("#myOrganisationDetailstabs").ready(function(){
 // 		checkMode();
@@ -207,6 +221,7 @@ $(document).ready(function(){
 	selectedTab="0" 
 	cssClass="wwFormTable"
 	spinner="Please wait..."
+	onChangeTopics="onTabChange"
 >   
 	<sj:tab id="details1" target="tab1" label="Details1"/>
     <sj:tab id="details2" target="tab2" label="Details2"/>
