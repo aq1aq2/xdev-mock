@@ -16,6 +16,7 @@
 				</param>
 			</result>
 			<result name="detailService">/pages/input/serviceInput.jsp</result>
+			<result name="update">/pages/input/serviceInput.jsp</result>
 			<result name="save"></result>
 	
 		</action>

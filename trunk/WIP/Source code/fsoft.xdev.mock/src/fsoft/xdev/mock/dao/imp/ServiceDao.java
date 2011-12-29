@@ -60,14 +60,11 @@ public class ServiceDao extends HibernateDaoSupport implements IServiceDao{
 	@Override
 	public Service find(Service entity) {
 		// TODO Auto-generated method stub
-		return getHibernateTemplate().get(Service.class, entity.getServiceId());
+		return (Service)getHibernateTemplate().get(Service.class, entity.getServiceId());
 	}
 
 	
 
-
-
-	
 
 	@Override
 	public int count(String filterKey, Boolean filterActive) {

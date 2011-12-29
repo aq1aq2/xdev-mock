@@ -24,6 +24,8 @@ public class ServiceAction extends ActionSupport{
 	private IServiceDao servicesDao;
 	private IReferenceDataDao referenceDataDao;
 	private List<ServiceList> listService = new ArrayList<ServiceList>();
+	
+	private int[] intValue;
 
 	List<ReferenceDataList> listServiceType = new ArrayList<ReferenceDataList>();
 	List<ReferenceDataList> listSubType = new ArrayList<ReferenceDataList>();
@@ -244,6 +246,91 @@ public class ServiceAction extends ActionSupport{
 		return "save";
 	}
 
+	
+	/**
+	 * Update one service is selected on list service
+	 * @return
+	 */
+	
+	public String update(){
+		service = servicesDao.find(service);
+
+		listServiceBenefitsCriterion = referenceDataDao.getItem("Service Benefits Criterion");
+		listServiceBarriersCriterion = referenceDataDao.getItem("Service Barriers Criterion");
+		listServiceEthnicityCriterion = referenceDataDao.getItem("Service Ethnicity Criterion");
+		 listServiceDisabilityCriterion = referenceDataDao.getItem("Service Disability Criterion");
+		 listServicePersonalCircumstancesCriterion = referenceDataDao.getItem("Service Personal Circumstances Criterion");
+		 listOtherServiceParticipationCriterion = referenceDataDao.getItem("Other Service Participation Criterion");
+		 listClientSupportProcess = referenceDataDao.getItem("Client Support Process");
+		 listIntervention = referenceDataDao.getItem("Intervention");
+		 listClientJourney = referenceDataDao.getItem("Client Journey");
+		 listOtherServices = referenceDataDao.getItem("Other Services");
+		 listSupportCentres = referenceDataDao.getItem("Support Centres");
+		 listClientOutcome = referenceDataDao.getItem("Client Outcome");
+		 listTargetClient = referenceDataDao.getItem("Target Client");
+		 listAccreditations = referenceDataDao.getItem("Accreditations");
+		 listReferralSources = referenceDataDao.getItem("Referral Sources");
+		 listProgramme = referenceDataDao.getItem("Programme");
+		 listContactOutcome = referenceDataDao.getItem("Contact Outcome");
+		 listContactObligation = referenceDataDao.getItem("Contact Obligation");
+		 listParticipation = referenceDataDao.getItem("Participation");
+		 
+		System.out.println("Service ID: "+service.getSerBenCrit());
+		System.out.println("================================");
+		 
+//		 int k = listServiceBenefitsCriterion.size();
+//		 System.out.println("Reference Data Id:");
+//		 for (int i = 0; i < k; i++) {
+//			System.out.println(listServiceBenefitsCriterion.get(i).getReferenceDataId());
+//		}
+		  
+		 //String s = service.getSerBenCrit();
+//		 String s = "8, 9, 10, 11, 12, 13, 14, 15, 16, 17";
+//		 for(int i = 0; i < s.length();i++){
+//			 if(s.substring(i, i+3).equals(", ")){
+//				 System.out.println("chuoi con: "+s.substring(i, i+3));
+//			 }
+//		 }
+//		 String str = s.substring(0,1);
+//		 String str2 = s.substring(1, 3);
+//		 System.out.println("Chuoi con la: "+str+" nua la: "+str2);
+//		 System.out.println("Chuoi me: "+s);
+////		 for(int i = 1; i < s.length(); i++){
+////	
+////		 }
+		 System.out.println("Thuc hien o day:");
+//		 for(int i = 0; i < s.length() + 2; i++){
+//			 if(s.substring(i, i+3).equals(", ")){
+//				 for(int j = i; j < s.length() - i + 2; j++){
+//					 if(s.substring(j+1, j+4).equals(", ")){
+//						 String ss = s.substring(i+2, j+2);
+//						 System.out.println("Ket qua: "+ss);
+//					 }
+//				 }
+//			 }
+//		 }
+		
+		String s = service.getSerBenCrit();
+		//ArrayList<String> listString = new ArrayList<String>();
+		 String[] temp = s.split(", ");
+		for (int i = 0; i< temp.length; i++){
+		System.out.println(temp[i]);
+		}
+		 int[] intArray = new int[s.length()];
+		  
+		 for (int i = 0; i < s.length(); i++) {
+		 	intArray[i] = Character.digit(s.charAt(i), 10);
+		 }
+		 
+		 System.out.println("Gia tri mang intArray: ");
+		 for(int i = 0; i < s.length(); i++){
+			 System.out.println("phan tu thu "+i+" la: "+intArray[i]);
+		 }
+		 //System.out.println("Ket qua la:"+service.getSerBenCrit());
+		 System.out.println("Gia tri cua chuoi s: "+s);
+		 System.out.println("Ket qua list la:"+listServiceBenefitsCriterion.get(0));
+		return "update";
+	}
 	/**
 	 * update status for Service
 	 *
@@ -256,6 +343,7 @@ public class ServiceAction extends ActionSupport{
 		servicesDao.edit(service);	
 		return "list";
 	}
+	
 	
 	/**
 	 * setter method
