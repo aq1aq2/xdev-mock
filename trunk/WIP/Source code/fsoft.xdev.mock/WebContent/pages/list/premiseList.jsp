@@ -93,7 +93,7 @@ $(document).ready(function(){
 	        gridModel="listPremises"
 	        autowidth="true"
 	        pager="true"
-	        rowNum="3"
+	        rowNum="10"
 	        rownumbers="true"
 	        navigator="true"
 	        onSelectRowTopics="rowselect"

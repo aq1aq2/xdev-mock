@@ -57,17 +57,6 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao {
 
 	}
 
-	//
-	// @SuppressWarnings("unchecked")
-	// @Override
-	// public List<Premise> findRange(int from, int to) {
-	// Query query =
-	// getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("from Premise");
-	// query.setFirstResult(from);
-	// query.setMaxResults(to-from);
-	// return (List<Premise>)query.list();
-	// }
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<PremiseList> findRange(int from, int to, String filterKey,
@@ -138,25 +127,6 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Premise> listPremiseByLocationType(String value) {
-		// //referenceDataDao = new ReferenceDataDao();
-		// List<ReferenceData> listReferenceData = new
-		// ArrayList<ReferenceData>();
-		// System.out.println("vao day");
-		// //ReferenceDataDao referenceDataDao = new ReferenceDataDao();
-		// //ReferenceData referenceData =
-		// referenceDataDao1.getReferenceDataByValue(value);
-		// listReferenceData = referenceDataDao1.getReferenceDataByValue(value);
-		// ReferenceData referenceData = listReferenceData.get(0);
-		// System.out.println(referenceData.getReferenceDataId());
-		// int referenceDataId = referenceData.getReferenceDataId();
-		// String compare = " " + value;
-		// //String criteria = "from Premise c where "+ referenceDataId +
-		// "in (c.locationType)";
-		// String criteria = "from Premise c where c.locationType like:fn";
-		// Query query = getHibernateTemplate().getSessionFactory()
-		// .getCurrentSession().createQuery(criteria).setString("fn",
-		// String.format("%{0}%", compare));
-		// return query.list();
 
 		Query query = getHibernateTemplate()
 				.getSessionFactory()
@@ -197,16 +167,5 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao {
 	public void setReferenceDataDao1(IReferenceDataDao referenceDataDao1) {
 		this.referenceDataDao1 = referenceDataDao1;
 	}
-
-	// @SuppressWarnings("unchecked")
-	// @Override
-	// public List<Premise> listPremisebyLocationType(String type) {
-	// String criteria =
-	// "select c from Premise c left join c.referenceData a left join c.referenceData.referenceType b where b.refTypeName = 'Location Type' and a.value = '"
-	// + type + "'";
-	// Query query = getHibernateTemplate().getSessionFactory()
-	// .getCurrentSession().createQuery(criteria);
-	// return query.list();
-	// }
 
 }
