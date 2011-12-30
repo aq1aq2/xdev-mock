@@ -34,7 +34,7 @@ public class TypeOfBusinessAction extends ActionSupport {
 	 * List all TypeOfBusiness
 	 * @return action returns listModel (JSON)
 	 */
-	public String list() {
+	public String list() {		
 		int to = (rows * page);
 		int from = to - rows;
 

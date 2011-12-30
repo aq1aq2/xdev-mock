@@ -61,7 +61,7 @@ $(document).ready(function(){
 			function(response){ // Function execute after load complete
 				/* Dialog None button */
 				$("#noneBtn").click(function(){
-					$(":input[name*='leadContact']").val("");
+					$(":input[name*='organisation.contact.contactId']").val("");
 					// Clear dialog content to ensure no confict with other lookup
 					$("#listDialogContent").empty();
 					$( "#listDialog" ).dialog( "close" );
@@ -75,7 +75,7 @@ $(document).ready(function(){
 				/* Dialog Select button */
 				$("#selectBtn").click(function(){
 					var selectedId = $(":input[name*='gridSelectedRow']").val();
-					$(":input[name*='leadContact']").val(selectedId);
+					$(":input[name*='organisation.contact.contactId']").val(selectedId);
 					// Clear dialog content to ensure no confict with other lookup
 					$("#listDialogContent").empty();
 					$( "#listDialog" ).dialog( "close" );
@@ -97,7 +97,7 @@ $(document).ready(function(){
 			function(response){ // Function execute after load complete
 				/* Dialog None button */
 				$("#noneBtn").click(function(){
-					$(":input[name*='typeOfBusiness']").val("");
+					$(":input[name*='organisation.typeOfBusiness.typeOfBusinessId']").val("");
 					$( "#listDialog" ).dialog( "close" );
 					
 					// Clear dialog content to ensure no confict with other lookup
@@ -113,7 +113,8 @@ $(document).ready(function(){
 				/* Dialog Select button */
 				$("#selectBtn").click(function(){
 					var selectedId = $(":input[name*='gridSelectedRow']").val();
-					$(":input[name*='typeOfBusiness']").val(selectedId);
+					$(":input[name*='organisation.typeOfBusiness.typeOfBusinessId']").val(selectedId);
+					$(":input[name*='organisation.typeOfBusiness.sicCode']").val($(":input[name*='sicCode']").val());
 					$( "#listDialog" ).dialog( "close" );
 					
 					// Clear dialog content to ensure no confict with other lookup
@@ -130,44 +131,6 @@ $(document).ready(function(){
 		$( "#listDialog" ).dialog( "open" );
 	}); // End of typeOfBusiness_lookupBtn
 	
-	/* sicCode lookup event */
-	$("#sicCode_lookupBtn").click(function(){
-		$("#listDialogContent").load("TypeOfBusiness.action",
-			function(response){ // Function execute after load complete
-				/* Dialog None button */
-				$("#noneBtn").click(function(){
-					$(":input[name*='sicCode']").val("");
-					$( "#listDialog" ).dialog( "close" );
-					
-					// Clear dialog content to ensure no confict with other lookup
-					$("#listDialogContent").empty();
-				});
-				/* Dialog Close button */
-				$("#closeBtn").click(function(){
-					$( "#listDialog" ).dialog( "close" );
-					
-					// Clear dialog content to ensure no confict with other lookup
-					$("#listDialogContent").empty();
-				});
-				/* Dialog Select button */
-				$("#selectBtn").click(function(){
-					var selectedId = $(":input[name*='gridSelectedRow']").val();
-					$(":input[name*='sicCode']").val(selectedId);
-					$( "#listDialog" ).dialog( "close" );
-					
-					// Clear dialog content to ensure no confict with other lookup
-					$("#listDialogContent").empty();
-				});
-			}
-		);
-		/* Hide dialog close button */
-		$( "#listDialog" ).dialog({
-			closeOnEscape: false,
-			open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); }
-		});
-		/* Open lookup dialog */
-		$( "#listDialog" ).dialog( "open" );
-	}); // End of sicCode_lookupBtn
 	
 	/* sicCode lookup event */
 	$("#postCode_lookupBtn").click(function(){
@@ -234,27 +197,27 @@ $(document).ready(function(){
     
     <div id="tab1">
     	<s:form cssClass="xdev-form">
-			<s:textfield name="organisationName" label="Organisation Name" required="true"/>
-			<s:checkbox name="preferredOrganisation" label="Preferred Organisation" labelposition="left" />
-			<s:textarea name="OrganisationDesc" label="Organisation Short Description" required="true"/>
-			<s:checkbox id="expressionOfInterest" name="expressionOfInterest" label="Expression Of Interest" labelposition="left" />
-			<xdev:textLookup name="leadContact" id="leadContact" label="Lead Contact" />
-			<xdev:textLookup name="typeOfBusiness" id="typeOfBusiness" label="Type of business" />
-			<s:textfield name="addr1" label="Address Line 1" />
-			<xdev:textLookup name="sicCode" id="sicCode" label="SIC Code" />
-			<s:textfield name="addr2" label="Address Line 2" />
-			<s:textarea name="organisationFullDesc" label="Organisation Full Description" />
-			<s:textfield name="addr3" label="Address Line 3" />
-			<s:textfield name="phoneNumber" label="Phone Number" required="true" />
-			<xdev:textLookup name="postCode" id="postCode" label="Post Code" required="true" />
-			<s:textfield name="fax" label="Fax" />
-			<s:textfield name="city_town" label="City/Town" />
-			<s:textfield name="email" label="Email" />
-			<s:textfield name="county" label="County" />
-			<s:textfield name="webAddr" label="Web Address" />
-			<s:select name="nation_country" label="Nation/Country" list="{}" />
-			<s:textfield name="charityNumber" label="Charity Number" />
-			<s:textfield name="companyNumber" label="Company Number" />		
+			<s:textfield name="organisation.name" label="Organisation Name" required="true"/>
+			<s:checkbox name="organisation.preferredOrg" label="Preferred Organisation" labelposition="left" />
+			<s:textarea name="organisation.shortDesc" label="Organisation Short Description" required="true"/>
+			<s:checkbox id="organisation.expOfInterest" name="expressionOfInterest" label="Expression Of Interest" labelposition="left" />
+			<xdev:textLookup name="organisation.contact.contactId" id="leadContact" label="Lead Contact" />
+			<xdev:textLookup name="organisation.typeOfBusiness.typeOfBusinessId" id="typeOfBusiness" label="Type of business" />
+			<s:textfield name="organisation.addr1" label="Address Line 1" />			
+			<s:textfield name="organisation.typeOfBusiness.sicCode" label="SIC code" id="code" readonly="true"> </s:textfield>	
+			<s:textfield name="organisation.addr2" label="Address Line 2" />
+			<s:textarea name="organisation.fullDesc" label="Organisation Full Description" />
+			<s:textfield name="organisation.addr3" label="Address Line 3" />
+			<s:textfield name="organisation.phoneNumber" label="Phone Number" required="true" />
+			<xdev:textLookup name="organisation.postCode" id="postCode" label="Post Code" required="true" />
+			<s:textfield name="organisation.fax" label="Fax" />
+			<s:textfield name="organisation.city" label="City/Town" />
+			<s:textfield name="organisation.email" label="Email" />
+			<%--  <s:select name="organisation.county.countyId" label="County" /> --%>
+			<s:textfield name="organisation.webAddr" label="Web Address" />
+			
+			<s:textfield name="organisation.charityNumber" label="Charity Number" />
+			<s:textfield name="organisation.companyNumber" label="Company Number" />		
 		</s:form>
     </div>
     

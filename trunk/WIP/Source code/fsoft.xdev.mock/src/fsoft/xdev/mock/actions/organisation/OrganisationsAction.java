@@ -18,9 +18,6 @@ public class OrganisationsAction extends ActionSupport{
 	private static final long serialVersionUID = 1L;
 	private Organisation organisation;
 	private IOrganisationDao organisationDao;
-	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {
-		this.referenceDataDao = referenceDataDao;
-	}
 
 	private IReferenceDataDao referenceDataDao;
 	
@@ -72,14 +69,11 @@ public class OrganisationsAction extends ActionSupport{
 
 		// calculate the total pages for the query
 		total = (int) Math.ceil((double) records / (double) rows);
-
-		// Print list model
-		XDebugger.show("Size of list model: " + listModel.size());
+	
 		return "list";
 	}
 	
-	public String save() {
-		XDebugger.show("OrganisationAction said: add method");
+	public String save() {		
 		organisationDao.add(organisation);
 		return "save";
 	}
@@ -220,5 +214,9 @@ public class OrganisationsAction extends ActionSupport{
 
 	public void setListOrgSpecicalism(List<ReferenceDataList> listOrgSpecicalism) {
 		this.listOrgSpecicalism = listOrgSpecicalism;
+	}
+	
+	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {
+		this.referenceDataDao = referenceDataDao;
 	}
 }
