@@ -51,6 +51,7 @@ public class Organisation implements java.io.Serializable {
 	private Set<SupportingMaterial> supportingMaterials = new HashSet<SupportingMaterial>(
 			0);
 	private Set<Directorate> directorates = new HashSet<Directorate>(0);
+	private Set<Team> teams = new HashSet<Team>(0);
 
 	public Organisation() {
 	}
@@ -59,6 +60,7 @@ public class Organisation implements java.io.Serializable {
 		this.organisationId = organisationId;
 	}
 
+	
 	public Organisation(int organisationId, Contact contact,
 			TypeOfBusiness typeOfBusiness, TrustDistrict trustDistrict,
 			GovOfficeRegion govOfficeRegion, County county, String name,
@@ -71,7 +73,8 @@ public class Organisation implements java.io.Serializable {
 			String serviceEthCap, String accreditation, String eoiprogramme,
 			String eoiservice, String postCode, Boolean status, String role,
 			Set<Premise> premises, Set<SupportingMaterial> supportingMaterials,
-			Set<Directorate> directorates) {
+			Set<Directorate> directorates, Set<Team> teams) {
+		super();
 		this.organisationId = organisationId;
 		this.contact = contact;
 		this.typeOfBusiness = typeOfBusiness;
@@ -108,6 +111,7 @@ public class Organisation implements java.io.Serializable {
 		this.premises = premises;
 		this.supportingMaterials = supportingMaterials;
 		this.directorates = directorates;
+		this.teams = teams;
 	}
 
 	public int getOrganisationId() {
@@ -398,5 +402,14 @@ public class Organisation implements java.io.Serializable {
 	public void setDirectorates(Set<Directorate> directorates) {
 		this.directorates = directorates;
 	}
+
+	public Set<Team> getTeams() {
+		return teams;
+	}
+
+	public void setTeams(Set<Team> teams) {
+		this.teams = teams;
+	}
+	
 
 }

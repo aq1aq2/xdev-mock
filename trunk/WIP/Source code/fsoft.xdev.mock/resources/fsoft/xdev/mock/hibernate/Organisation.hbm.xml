@@ -123,5 +123,11 @@
             </key>
             <one-to-many class="fsoft.xdev.mock.models.Directorate" />
         </set>
+         <set name="teams" table="Team" inverse="true" fetch="select" lazy="extra">
+            <key>
+                <column name="OrganisationID" />
+            </key>
+            <one-to-many class="fsoft.xdev.mock.models.Team" />
+        </set>
     </class>
 </hibernate-mapping>

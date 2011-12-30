@@ -20,6 +20,9 @@
         <many-to-one name="county" class="fsoft.xdev.mock.models.County" fetch="select" lazy="false">
             <column name="CountyID" />
         </many-to-one>
+        <many-to-one name="organisation" class="fsoft.xdev.mock.models.Organisation" fetch="select" lazy="false">
+            <column name="OrganisationID" />
+        </many-to-one>
         <property name="name" type="string">
             <column name="Name" length="50" />
         </property>
