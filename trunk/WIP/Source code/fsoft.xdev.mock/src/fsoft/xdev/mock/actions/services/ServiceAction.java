@@ -278,56 +278,8 @@ public class ServiceAction extends ActionSupport{
 		System.out.println("Service ID: "+service.getSerBenCrit());
 		System.out.println("================================");
 		 
-//		 int k = listServiceBenefitsCriterion.size();
-//		 System.out.println("Reference Data Id:");
-//		 for (int i = 0; i < k; i++) {
-//			System.out.println(listServiceBenefitsCriterion.get(i).getReferenceDataId());
-//		}
-		  
-		 //String s = service.getSerBenCrit();
-//		 String s = "8, 9, 10, 11, 12, 13, 14, 15, 16, 17";
-//		 for(int i = 0; i < s.length();i++){
-//			 if(s.substring(i, i+3).equals(", ")){
-//				 System.out.println("chuoi con: "+s.substring(i, i+3));
-//			 }
-//		 }
-//		 String str = s.substring(0,1);
-//		 String str2 = s.substring(1, 3);
-//		 System.out.println("Chuoi con la: "+str+" nua la: "+str2);
-//		 System.out.println("Chuoi me: "+s);
-////		 for(int i = 1; i < s.length(); i++){
-////	
-////		 }
-		 System.out.println("Thuc hien o day:");
-//		 for(int i = 0; i < s.length() + 2; i++){
-//			 if(s.substring(i, i+3).equals(", ")){
-//				 for(int j = i; j < s.length() - i + 2; j++){
-//					 if(s.substring(j+1, j+4).equals(", ")){
-//						 String ss = s.substring(i+2, j+2);
-//						 System.out.println("Ket qua: "+ss);
-//					 }
-//				 }
-//			 }
-//		 }
-		
-		String s = service.getSerBenCrit();
-		//ArrayList<String> listString = new ArrayList<String>();
-		 String[] temp = s.split(", ");
-		for (int i = 0; i< temp.length; i++){
-		System.out.println(temp[i]);
-		}
-		 int[] intArray = new int[s.length()];
-		  
-		 for (int i = 0; i < s.length(); i++) {
-		 	intArray[i] = Character.digit(s.charAt(i), 10);
-		 }
-		 
-		 System.out.println("Gia tri mang intArray: ");
-		 for(int i = 0; i < s.length(); i++){
-			 System.out.println("phan tu thu "+i+" la: "+intArray[i]);
-		 }
-		 //System.out.println("Ket qua la:"+service.getSerBenCrit());
-		 System.out.println("Gia tri cua chuoi s: "+s);
+		System.out.println("Service Dis Crit: "+service.getSerDisCrit());
+
 		 System.out.println("Ket qua list la:"+listServiceBenefitsCriterion.get(0));
 		return "update";
 	}

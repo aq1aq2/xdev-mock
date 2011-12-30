@@ -1,15 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sj" uri="/struts-jquery-tags"%>
 <%@ taglib prefix="xdev" uri="xdev-tags.tld"%>
-<<script type="text/javascript">
-<!--
 
-//-->
-// function getValue(str){
-// 	var strValue = str.val().split(', ');
-// 	return strValue;
-// }
-</script>
 <script>
 $(document).ready(function(){
 	
@@ -25,45 +17,24 @@ $(document).ready(function(){
 			var k = strValue[i];
 			alert(k);
 			namVar = "'"+str+"'";
-			$(":checkbox[name="+namVar+"][value="+k+"]").prop('checked', true)
+			$(":checkbox[name="+namVar+"][value="+k+"]").prop('checked', true);
 		}
 	}
 	test("${service.serBenCrit}","service.serBenCrit");
-	//test("${service.serDisCrit}","service.serDisCrit");
-// 	test("${service.serBarCrit}","service.serBarCrit");
-// 	test("${service.serPerCirCrit}","service.serPerCirCrit");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
-// 	test("${}","");
+	test("${service.serDisCrit}","service.serDisCrit");
 	
-	
-// 	$.subscribe('onTabChange', function(event, data) {
-// 		/* Load properly page into tab */
-// 		var tab = event.originalEvent.ui.index+1;
-// 		if (tab==2) {
-// 			alert($(":checkbox[name='service.serBenCrit'][value=10]").prop('checked', true));
+// 	function test2(){
+// 		var types = "${service.serBenCrit}";
+// 		var strValue = types.split(", ");
+// 		for(var i = 0; i < strValue.length; i++){
+// 			var k = strValue[i];
+// 			alert(k);
+//			namVar = "'"+str+"'";
+// 			$(":checkbox[name='service.serBenCrit'][value="+k+"]").prop('checked', true);
 // 		}
-// 	});
+// 	}
+	
+// 	test2();
 	
 	$("#subType").change(function () {
 		var selected = $("#subType option:selected").text();
