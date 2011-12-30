@@ -101,7 +101,7 @@
 			});	
 		});
 		
-	});
+
 </script>
 
 <!-- Tabbed Panel -->
