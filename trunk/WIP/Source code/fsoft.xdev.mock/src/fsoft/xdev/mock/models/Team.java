@@ -11,6 +11,7 @@ public class Team implements java.io.Serializable {
 	private Department department;
 	private Contact contact;
 	private TypeOfBusiness typeOfBusiness;
+	private Organisation organisation;
 	private County county;
 	private String name;
 	private String shortDesc;
@@ -26,6 +27,7 @@ public class Team implements java.io.Serializable {
 	private String email;
 	private String webAddr;
 	private Boolean status;
+	
 
 	public Team() {
 	}
@@ -34,16 +36,28 @@ public class Team implements java.io.Serializable {
 		this.teamId = teamId;
 	}
 
+	
+
+	public Organisation getOrganisation() {
+		return organisation;
+	}
+
+	public void setOrganisation(Organisation organisation) {
+		this.organisation = organisation;
+	}
+
 	public Team(int teamId, Department department, Contact contact,
-			TypeOfBusiness typeOfBusiness, County county, String name,
-			String shortDesc, Boolean copyAddr, String addr1, String addr2,
-			String addr3, String postCode, String town, String fullDesc,
-			String phoneNumber, String fax, String email, String webAddr,
-			Boolean status) {
+			TypeOfBusiness typeOfBusiness, Organisation organisation,
+			County county, String name, String shortDesc, Boolean copyAddr,
+			String addr1, String addr2, String addr3, String postCode,
+			String town, String fullDesc, String phoneNumber, String fax,
+			String email, String webAddr, Boolean status) {
+		super();
 		this.teamId = teamId;
 		this.department = department;
 		this.contact = contact;
 		this.typeOfBusiness = typeOfBusiness;
+		this.organisation = organisation;
 		this.county = county;
 		this.name = name;
 		this.shortDesc = shortDesc;

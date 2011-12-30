@@ -57,7 +57,9 @@
 		        var grid = event.originalEvent.grid;
 		        var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
 		        var addressId = grid.jqGrid('getCell', selectedRowId, 'addressId');
+		        var postCode = grid.jqGrid('getCell', selectedRowId, 'postCode');
 		        $(":input[name*='gridSelectedRow']").val(addressId);
+		        $(":input[name*='postCodeLookup']").val(postCode);
 	        }
 		);
 	});
@@ -116,6 +118,7 @@
 	
 		<!-- Grid selected row -->
 	<s:hidden name="gridSelectedRow" />
+	<s:hidden name="postCodeLookup" />
 	
 	<!-- Bottom buttons -->
 

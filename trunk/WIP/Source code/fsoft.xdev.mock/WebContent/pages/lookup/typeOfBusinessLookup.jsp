@@ -52,7 +52,9 @@
 		        var grid = event.originalEvent.grid;
 		        var selectedRowId = grid.jqGrid('getGridParam', 'selrow');
 		        var typeOfBusinessId = grid.jqGrid('getCell', selectedRowId, 'typeOfBusinessId');
+		        var sicCode = grid.jqGrid('getCell', selectedRowId, 'sicCode');		        
 		        $(":input[name*='gridSelectedRow']").val(typeOfBusinessId);
+		        $(":input[name*='sicCode']").val(sicCode);
 	        }
 		);
 	});
@@ -107,6 +109,7 @@
 	
 		<!-- Grid selected row -->
 	<s:hidden name="gridSelectedRow" />
+	<s:hidden name="sicCode" />
 	
 	<!-- Bottom buttons -->
 

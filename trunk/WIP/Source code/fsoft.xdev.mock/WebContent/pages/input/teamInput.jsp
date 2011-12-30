@@ -44,13 +44,45 @@
 			
 		});	
 		
-		/* Manager lookup event */
+		
+		/* Lead contact lookup event */
 		$("#leadContactId_lookupBtn").click(function(){
 			$("#listDialogContent").load("Contact.action",
 				function(response){ // Function execute after load complete
 					/* Dialog None button */
 					$("#noneBtn").click(function(){
 						$(":input[name*='team.contact.contactId']").val("");
+						$( "#listDialog" ).dialog( "close" );		
+					
+						$("#listDialogContent").empty();
+					});
+					/* Dialog Close button */
+					$("#closeBtn").click(function(){
+						$( "#listDialog" ).dialog( "close" );						
+						
+						$("#listDialogContent").empty();
+					});
+					/* Dialog Select button */
+					$("#selectBtn").click(function(){
+						var selectedId = $(":input[name*='gridSelectedRow']").val();
+						$(":input[name*='team.contact.contactId']").val(selectedId);
+						$( "#listDialog" ).dialog( "close" );						
+						
+						$("#listDialogContent").empty();
+					});
+				}
+			);
+			/* Open lookup dialog */
+			$( "#listDialog" ).dialog( "open" );
+		}); // End of leadContact_lookupBtn	
+	
+		/* Lead type of business lookup event */
+		$("#typeOfBusinessId_lookupBtn").click(function(){
+			$("#listDialogContent").load("TypeOfBusiness.action",
+				function(response){ // Function execute after load complete
+					/* Dialog None button */
+					$("#noneBtn").click(function(){
+						$(":input[name*='team.typeOfBusiness.typeOfBusinessId']").val("");
 						$( "#listDialog" ).dialog( "close" );
 						
 						// Clear dialog content to ensure no confict with other lookup
@@ -62,76 +94,115 @@
 						
 						// Clear dialog content to ensure no confict with other lookup
 						$("#listDialogContent").empty();
+							
 					});
 					/* Dialog Select button */
 					$("#selectBtn").click(function(){
-						var managerId = $(":input[name*='gridSelectedRow']").val();
-						$(":input[name*='team.contact.contactId']").val(managerId);
+						var selectedId = $(":input[name*='gridSelectedRow']").val();
+						var sicCode = $(":input[name*='sicCode']").val();						
+						$(":input[name*='team.typeOfBusiness.typeOfBusinessId']").val(selectedId);
+						$(":input[name*='code']").val(sicCode);
+						$( "#listDialog" ).dialog( "close" );
+						
+						// Clear dialog content to ensure no confict with other lookup
+						$("#listDialogContent").empty();
+							
+					});
+				}
+			);
+			/* Open lookup dialog */
+			$( "#listDialog" ).dialog( "open" );
+		}); // End of type of business_lookupBtn	
+		
+		/* Lead address lookup event */
+		$("#postCode_lookupBtn").click(function(){
+			$("#listDialogContent").load("Address.action",
+				function(response){ // Function execute after load complete
+					/* Dialog None button */
+					$("#noneBtn").click(function(){
+						$(":input[name*='team.postCode']").val("");
 						$( "#listDialog" ).dialog( "close" );
 						
 						// Clear dialog content to ensure no confict with other lookup
 						$("#listDialogContent").empty();
 					});
+					/* Dialog Close button */
+					$("#closeBtn").click(function(){
+						$( "#listDialog" ).dialog( "close" );
+						
+						// Clear dialog content to ensure no confict with other lookup
+						$("#listDialogContent").empty();
+							
+					});
+					/* Dialog Select button */
+					$("#selectBtn").click(function(){					
+						var postCode = $(":input[name*='postCodeLookup']").val();						
+						$(":input[name*='postCode']").val(postCode);
+						$( "#listDialog" ).dialog( "close" );
+						
+						// Clear dialog content to ensure no confict with other lookup
+						$("#listDialogContent").empty();
+							
+					});
 				}
 			);
-			
+			/* Open lookup dialog */
 			$( "#listDialog" ).dialog( "open" );
-		}); 
-		$("#typeOfBusinessId_lookupBtn").click(function(){
-			alert("co vao day dau");
-			$("listDialogContent").load("TypeOfBusiness.action",
-				function(response){
-				$("#noneBtn").click(function(){
-					$(":input[name*='team.typeOfBusiness.typeOfBusinessId']").val("");
-					$("#listDialog").dialog("close");
-					$("#listDialogContent").empty();
-				});
-				$("#closeBtn").click(function(){
-					$("#listDialog").dialog("close");
-					$("#listDialogContent").empty();
-				});
-				$("#selectBtn").click(function(){
-					var typeOfBusinessId = $(":input[nam*='gridSelectedRow']").val();
-					$(":input[name*='team.typeOfBusiness.typeOfBusinessId']").val(typeOfBusinessId);
-					$("#listDialog").dialog("close");
-					$("#listDialogContent").empty();
-				});
-			});				
-				
-			});	
-		});
+		}); // End of address_lookupBtn	
 		
-
+		$('input:radio').change(
+                function(){                    
+                    $("input:radio").removeAttr("checked");
+                    $(this).prop('checked', true);
+                    var typeOfCopy = $("input[@name='typeOfCopy']:checked").val();
+                    if(typeOfCopy == 1){                    	
+                    	$(":input[name*='team.addr1']").val($(":input[name*='team.organisation.addr1']").val());
+                    	$(":input[name*='team.addr2']").val($(":input[name*='team.organisation.addr2']").val());
+                    	$(":input[name*='team.addr3']").val($(":input[name*='team.organisation.addr3']").val());
+                    }
+                    else{
+                    	$(":input[name*='team.addr1']").val($(":input[name*='team.department.addr1']").val());
+                    	$(":input[name*='team.addr2']").val($(":input[name*='team.department.addr2']").val());
+                    	$(":input[name*='team.addr3']").val($(":input[name*='team.department.addr3']").val());
+                    }
+                }
+            );  
+	});
 </script>
 
 <!-- Tabbed Panel -->
 <sj:tabbedpanel id="tabs">	
 	<sj:tab id="tab1" target="details1" label="Details"/>	
 		<div id="details1" >
-			<s:form cssClass="xdev-form" id="team">
-				<s:hidden id="mode" name ="mode"/>			
-				<s:hidden name ="team.teamId"/>
-				<s:hidden name ="team.status"/>								
+			<s:form cssClass="xdev-form" id="team">										
 				<s:textfield name ="team.name" label="Team Name" required="true"></s:textfield>
-				<xdev:textLookup label="Type of Business" name="team.typeOfBusiness.typeOfBusinessId" id="typeOfBusinessId" readonly="true"/>
+			 	<xdev:textLookup label="Type of Business" name="team.typeOfBusiness.typeOfBusinessId" id="typeOfBusinessId" readonly="true"/>
 				
 				<s:textarea name="team.shortDesc" label="Team short Description"></s:textarea>	
-				<!-- cho nay se goi SIC code -->
-				
-				<xdev:textLookup label="Lead Contact" name="team.contact.contactId" id="leadContactId" readonly="true"/>
+				<s:textfield name="team.typeOfBusiness.sicCode" label="SIC code" id="code" readonly="true"> </s:textfield>				
 				<s:textarea name="team.fullDesc" label="Team full description"></s:textarea>
-				<!-- cho nay goi copy radio -->
+				<xdev:textLookup label="Lead Contact" name="team.contact.contactId" id="leadContactId" readonly="true"/>				
+				<s:radio label="Copy address from " name ="typeOfCopy" id="typeOfCopy" list="#{'1':'Organisation','2':'Parent'}"></s:radio>
+							
 				<s:textfield name="team.addr1" label="Address Line 1"></s:textfield>
 				<s:textfield name="team.phoneNumber" label="Phone number"></s:textfield>
 				<s:textfield name="team.addr2" label="Address Line 2"></s:textfield>
 				<s:textfield name="team.fax" label="Fax"></s:textfield>
 				<s:textfield name="team.addr3" label="Address Line 3"></s:textfield>	
 				<s:textfield name="team.email" label="Email"></s:textfield>
-				<!-- cho nay goi post code lookup  -->
+				<xdev:textLookup label="Post code" name="team.postCode" id="postCode" readonly="true"/>
 				<s:textfield name="team.webAddr" label="Web Address"></s:textfield>
 				<s:textfield name="team.town" label="Town/Village/City"></s:textfield>
-				<s:select name ="team.county.countyId" list="listCounty" listKey="countyId" listValue="name" key="countyId"></s:select>
-				
+				<s:select name ="team.county.countyId" list="listCounty" listKey="countyId" listValue="name" key="countyId"></s:select>	
+				<s:hidden id="mode" name ="mode"/>			
+				<s:hidden name ="team.teamId"/>
+				<s:hidden name ="team.status"/>		
+				<s:hidden name ="team.organisation.addr1"></s:hidden>
+				<s:hidden name ="team.organisation.addr2"></s:hidden>	
+				<s:hidden name ="team.organisation.addr3"></s:hidden>
+				<s:hidden name ="team.department.addr1"></s:hidden>
+				<s:hidden name ="team.department.addr2"></s:hidden>	
+				<s:hidden name ="team.department.addr3"></s:hidden>			
 			</s:form>
 		</div>
 	
@@ -141,8 +212,7 @@
 <sj:dialog 
    	id="listDialog" 
    	autoOpen="false" 
-   	modal="true" 
-   	title="Contact List"
+   	modal="true"   	
    	width="965"
    	height="650"
 >

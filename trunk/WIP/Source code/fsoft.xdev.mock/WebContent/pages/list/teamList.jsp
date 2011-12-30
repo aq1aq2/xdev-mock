@@ -43,8 +43,7 @@
 	        var grid = event.originalEvent.grid;
 	        var selectedRowId = grid.jqGrid('getGridParam', 'selrow'); 
 	       	id = grid.jqGrid('getCell', selectedRowId, 'teamId');
-	       	var status = grid.jqGrid('getCell', selectedRowId, 'status');
-	       	alert(status);
+	       	var status = grid.jqGrid('getCell', selectedRowId, 'status');	       	
 	        if(status == 'No'){	        	
 	        	$("#confirm_dialog").dialog("open");
 	        	
