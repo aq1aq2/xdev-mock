@@ -301,7 +301,6 @@ $(document).ready(function(){
 		</div>
 		
 		<div id="details4" class="xdev-window-body-sub">
-		
 			<s:form cssClass="xdev-form">
 				<s:textfield name="premise.roomOnlyRate" label="Room Only Rate"></s:textfield>
 				<s:textfield name="premise.bbrate" label="B&B Rate"></s:textfield>

@@ -30,10 +30,9 @@
 		});
 		
 		
-		//select event
+		//select facility Type event
 		$("#FacilityType").change(function(){
-				alert('vao day khong');
-				if ($("#FacilityType option:selected").text() == 'Room'){
+				if ($("#FacilityType option:selected").text() != 'Room'){
 					
 					alert($(this).val());
 					$("#roomCapacity").attr("disabled", "true");
@@ -43,22 +42,25 @@
 					$("#equipmentAvailable").attr("disabled", "true");
 					
 				}
-				else if($("#FacilityType option:selected").text() == 'Internet Access') {
+				else {
+					$("#roomCapacity").removeAttr("disabled");
+					$("#roomSize").removeAttr("disabled");
+					$("#roomEquipmentNotes").removeAttr("disabled");
+					$("#roomConnectivity").removeAttr("disabled");
+					$("#equipmentAvailable").removeAttr("disabled");
 					
-					$("#connectivityType").attr("disabled", "false");
+				}
+				
+				if($("#FacilityType option:selected").text() != 'Internet Access') {
+					
+					$("#connectivityType").attr("disabled", "true");
 				}
 				else {
 					$("#connectivityType").removeAttr("disabled");
 				}
+			
 	});
-		
-		
-	// facilityType select change event
-// 		$("#FacilityType").change(function(){
-// 			alert($("#FacilityType option:selected").text());
-// 			alert($("#FacilityType option:selected").val());
-// 		});
-		
+			
 		
 		/* Back event */
 		$("#backBtn").click(function(){
@@ -174,6 +176,7 @@
 			<s:textfield name="facility.facilityId" label="FacilityID"></s:textfield>
 			-->
 			<s:hidden name="facility.facilityId"></s:hidden>
+			<s:hidden name="facility.premiseId"></s:hidden>
 			<s:select id="FacilityType" name="facility.referenceDataByFacilityType.referenceDataId" list="listFacilitiesType" label="Facility Type" listKey ="referenceDataId" listValue="type" key ="referenceDataId" required="true"></s:select>
 			<xdev:textLookup name="facility.contactByContactId.contactId" id="leadContact" label="Lead Contact" />
 			
@@ -186,7 +189,7 @@
 			<s:textfield id="roomSize" name="facility.roomSize" label="Room Size"></s:textfield>
 			<s:textarea id="roomEquipmentNotes" name="facility.roomEquipmentNotes" label="Room & Equipment Notes" ></s:textarea>
 			<s:checkbox id="roomConnectivity" name="facility.roomConnectivity" label="Room Connectivity" checked="true" labelposition="left"></s:checkbox>
-			<s:select id="connectivityType" name="facility.referenceDataByConnectivityType.referenceDataId" list="listConnectivityType" label="Connectivity Type" listKey="referenceDataId" key="referenceDataId" listValue="type"></s:select>
+			<s:select id="connectivityType" name="facility.referenceDataByConnectivityType.referenceDataId" list="listConnectivityType" label="Connectivity Type" listKey="referenceDataId" key="referenceDataId" listValue="type" disabled="true"></s:select>
 			<s:textarea name="facility.wirelessAccessInfomation" label="Wireless Access Infomation" ></s:textarea>
 	</s:form>
 	</div>

@@ -89,10 +89,14 @@ $(document).ready(function(){
 	});
 	
 	$("#volunteerNo").change(function(){
+		//get the value of VolunteerNo
 		var data = $("#volunteerNo").val();
-		 //get the length of data
+		
+		//get the length of data
 		 var len = data.length;
 		 var c=0;
+		 var flag = 0;
+		 var VolunteerNo = 0;
 		 
 		 for(var i=0;i<len;i++)
 		    {
@@ -100,16 +104,57 @@ $(document).ready(function(){
 		      //check the input is numeric number
 		      if(c <48 || c >57)
 		      {
-			   alert("the volunteer number order must be numeric number");
-			   $("#volunteerNo").val("");
-		       break;
+		    	flag = 1;
+			   	alert("the volunteer number order must be numeric number");
+			   	$("#volunteerNo").val("");
+		       	break;
 		      }
 		      else
 		      {
 		    	 //don't do anything
 		      }
 		    }
-		 
+		 if(flag==0){
+			 VolunteerNo = parseInt(data);
+			 // check the range of the VolunteerNo
+			 	if(VolunteerNo <0 || VolunteerNo >9999){
+			 		alert("the range of VolunteerNo must be in 0 to 9999");
+					 $("#volunteerNo").val("");
+			 	}	
+		 }		 
+	});
+	
+	
+	$("#startDate").change(function(){
+		
+		var startDate = $("#startDate").datepicker("getDate");
+		var endDate = $("#endDate").datepicker("getDate");
+		//alert(endDate);
+		if(endDate!=null){
+			if(startDate > endDate){
+				alert("the startDate must be less than endDate");
+				$("#startDate").val("");
+			}
+		}
+		else {
+			//don't do anything
+		}
+	});
+	
+	$("#endDate").change(function() {
+		var startDate = $("#startDate").datepicker("getDate");
+		var endDate = $("#endDate").datepicker("getDate");
+		
+		if(startDate!=null){
+			if(startDate > endDate){
+				alert("the endDate must be larger than startDate");
+				$("#endDate").val("");
+			}
+		}
+		else {
+			//don't do anything
+		}
+		
 	});
 	
 
@@ -122,6 +167,8 @@ $(document).ready(function(){
 
 	<div>
 		<s:form cssClass="xdev-form" name="facilitiesForm" id="facility">
+			<s:hidden name="volunteer.volunteerId"></s:hidden>
+			<s:hidden name="volunteer.premiseId"></s:hidden>
 			<xdev:textLookup name="volunteer.contact.contactId" id="volunteerContact" label="Volunteer Contact"/>
 			<s:textfield name="volunteer.volunteerPurpose" label="Volunteer Purpose"/>
 			<s:textfield name="volunteer.details" label="Volunteer Opportunity Details"/>
