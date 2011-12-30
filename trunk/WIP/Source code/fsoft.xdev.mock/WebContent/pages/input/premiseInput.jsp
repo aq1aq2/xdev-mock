@@ -198,6 +198,49 @@ $(document).ready(function(){
 	
 	});
 	
+	
+	//function to keep the value of checkboxlist when edit
+
+	function keepValueOfCheckboxlist(types,str) {
+		//split the string of Id
+		var strValue = types.split(", ");
+		for(var i = 0; i < strValue.length; i++){
+			var k = strValue[i];
+			//alert(k);
+			namVar = "'"+str+"'";
+			$(":checkbox[name="+namVar+"][value="+k+"]").prop('checked', true);
+		}
+	}
+
+	
+	
+	//keep the value of checkboxlist in premise Input
+	keepValueOfCheckboxlist("${premise.locationType}","premise.locationType");
+	keepValueOfCheckboxlist("${premise.localDemographicIssue}","premise.localDemographicIssue");
+	
+	keepValueOfCheckboxlist("${premise.jcpoffices}","premise.jcpoffices");
+	keepValueOfCheckboxlist("${premise.outreachLocation}","premise.outreachLocation");
+	
+	keepValueOfCheckboxlist("${premise.localHotel}","premise.localHotel");
+	
+	//take the event of location type
+	
+	$(":checkbox").click(function(){
+        //alert($(this).next().text());
+        //alert($(this).val());
+       //alert($(":checkbox[name='premise.locationType'][checked='true']").val());
+        
+       if($(this).next().text()=="Hotel") 
+       {
+    	   if ($(this).is(":checked") == true) {
+    		   $("#premiseTabs").tabs("enable",3);
+    	   } else {
+        	   $("#premiseTabs").tabs("disable",3);
+           }
+    	   
+       }
+    });
+		
 });
 
 </script>
@@ -236,7 +279,7 @@ $(document).ready(function(){
 				
 			    <sj:datepicker name="premise.locationStatusDate" displayFormat="dd/mm/yy" label="Location Status Date"></sj:datepicker>
 			  																																																					 
-			 	<s:checkboxlist id="locationTypeCheckboxList" name="premise.locationType" list="listLocationType" required="true" label="Location Type" listValue="type" listKey="referenceDataId" key="referenceDataId" value ="defaultLocation"></s:checkboxlist>
+			 	<s:checkboxlist id="locationTypeCheckboxList" name="premise.locationType" list="listLocationType" required="true" label="Location Type" listValue="type" listKey="referenceDataId" key="referenceDataId"></s:checkboxlist>
 	
 				<s:textfield name="premise.addressLine1" label="Address Line 1" ></s:textfield>
 				<s:textfield name="premise.addressLine2" label="Address Line 2"></s:textfield>	
@@ -269,7 +312,7 @@ $(document).ready(function(){
 				
 				<s:checkboxlist name="premise.accreditations" list="listAccreditations" label="Accriditations" listValue="type" listKey="referenceDataId" key="referenceDataId"/>
 				
-				<s:checkboxlist name="premise.jcpoffices" list="listPremiseJcpOffice" label="JCP Offices" labelposition="left" listValue="name" />
+				<s:checkboxlist name="premise.jcpoffices" list="listPremiseJcpOffice" label="JCP Offices" labelposition="left" listValue="name" listKey="premiseId" key="premiseId"/>
 				
 				
 				<xdev:textLookup name="premise.contactId" id="cateringContact" label="Catering Contact" />
@@ -290,8 +333,8 @@ $(document).ready(function(){
 		<div id="details3" class="xdev-window-body-sub">
 		
 			<s:form cssClass="xdev-form">
-				<s:checkboxlist name="premise.outreachLocation" list="listPremiseOutreachLocation" label="Outreach Location" listValue="name"></s:checkboxlist>
-				<s:checkboxlist name="premise.localHotel" list="listPremiseHotel" label="Local Hotel" listValue="name"></s:checkboxlist>
+				<s:checkboxlist name="premise.outreachLocation" list="listPremiseOutreachLocation" label="Outreach Location" listValue="name" listKey="premiseId" key="premiseId"></s:checkboxlist>
+				<s:checkboxlist name="premise.localHotel" list="listPremiseHotel" label="Local Hotel" listValue="name" listKey="premiseId" key="premiseId"></s:checkboxlist>
 				<s:textfield name="premise.travelDetails" label="Travel Detail"></s:textfield>
 				<s:textfield name="premise.travelNearestBus" label="Travel Nearest Bus"></s:textfield>
 				<s:checkbox name="premise.visitorParkingOnsite" label="Visitor Parking Onsite"></s:checkbox>

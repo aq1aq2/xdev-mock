@@ -99,7 +99,7 @@ public class PremiseAction extends ActionSupport {
 		
 		return "detail";
 	}
-	
+	//active one in-active Premise
 	public String active(){
 		if (mode > -1){
 			premise = premiseDao.find(premise);
