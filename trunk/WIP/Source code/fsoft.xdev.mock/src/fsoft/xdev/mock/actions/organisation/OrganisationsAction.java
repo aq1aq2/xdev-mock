@@ -26,6 +26,15 @@ public class OrganisationsAction extends ActionSupport{
 	private List<Organisation> listModel = new ArrayList<Organisation>();
 
 	private List<ReferenceDataList> listOrgSpecicalism = new ArrayList<ReferenceDataList>();
+	private List<ReferenceDataList> listServicePerCirCap = new ArrayList<ReferenceDataList>();
+	private List<ReferenceDataList> listServiceDisCap = new ArrayList<ReferenceDataList>();
+	private List<ReferenceDataList> listServiceEthCap = new ArrayList<ReferenceDataList>();
+	private List<ReferenceDataList> listServiceBarCap = new ArrayList<ReferenceDataList>();
+	private List<ReferenceDataList> listAccreditation = new ArrayList<ReferenceDataList>();
+	private List<ReferenceDataList> listServiceBenCap = new ArrayList<ReferenceDataList>();
+	private List<ReferenceDataList> listEoiprogramme = new ArrayList<ReferenceDataList>();
+	private List<ReferenceDataList> listEoiservice = new ArrayList<ReferenceDataList>();
+	
 	
 	private String filterKey;
 	private boolean filterActive;
@@ -49,14 +58,12 @@ public class OrganisationsAction extends ActionSupport{
 	// All Record
 	private Integer records = 0;
 	
-	public OrganisationsAction() {
-		XDebugger.show("Constructor: Create Organisation Action");
+	public OrganisationsAction() {		
 		organisation = new Organisation();
 	}
 	
 	@SuppressWarnings("unchecked")
-	public String list() {
-		XDebugger.show("OrganisationAction said: list method");
+	public String list() {		
 		// listModel = trustRegionDao.findAll();
 		int to = (rows * page);
 		int from = to - rows;
@@ -76,31 +83,30 @@ public class OrganisationsAction extends ActionSupport{
 	public String save() {		
 		organisationDao.add(organisation);
 		return "save";
-	}
-	
-	public String search() {
-		return "not supported";
-	}
+	}	
 	
 	public String detail() {
-		// Check mode before
-		XDebugger.show("Mode = " + mode);
+		listOrgSpecicalism = referenceDataDao.getItem("Organisation Speciacalism");
+		listServicePerCirCap = referenceDataDao.getItem("Service Personal Circumstances Criterion");
+		listServiceDisCap = referenceDataDao.getItem("Service Disability Criterion");
+		listServiceEthCap = referenceDataDao.getItem("Service Ethnicity Criterion");
+		listServiceBarCap = referenceDataDao.getItem("Service Barriers Criterion");
+		listAccreditation = referenceDataDao.getItem("Accreditation");
+		listServiceBenCap = referenceDataDao.getItem("Service Benefits Criterion");
+		listEoiprogramme = referenceDataDao.getItem("EOI programmes");
+		listEoiservice = referenceDataDao.getItem("EOI services");
+		
+		
 		if("add".equals(mode)) {
-			organisation = new Organisation();
-			listOrgSpecicalism = referenceDataDao.getItem("Organisation Speciacalism");
-			XDebugger.show("Size of list = " + String.valueOf(listOrgSpecicalism.size()));
+			organisation = new Organisation();						
 		}
 		else if("amend".equals(mode)) {
-			organisation = organisationDao.find(organisation);
-			XDebugger.show("Id of org: " + organisation.getOrganisationId());
+			organisation = organisationDao.find(organisation);			
 		}
 		return "input";
 	}
 	
-	public String update() {
-		XDebugger.show("Organisation said: update method");
-		XDebugger.show("Status: " + organisation.getStatus());
-		XDebugger.show("Have Id: " + organisation.getOrganisationId());
+	public String update() {	
 		organisationDao.edit(organisation);
 		return "update";
 	}
@@ -216,7 +222,73 @@ public class OrganisationsAction extends ActionSupport{
 		this.listOrgSpecicalism = listOrgSpecicalism;
 	}
 	
+	
+	public List<ReferenceDataList> getListServicePerCirCap() {
+		return listServicePerCirCap;
+	}
+
+	public void setListServicePerCirCap(List<ReferenceDataList> listServicePerCirCap) {
+		this.listServicePerCirCap = listServicePerCirCap;
+	}
+
+	public List<ReferenceDataList> getListServiceDisCap() {
+		return listServiceDisCap;
+	}
+
+	public void setListServiceDisCap(List<ReferenceDataList> listServiceDisCap) {
+		this.listServiceDisCap = listServiceDisCap;
+	}
+
+	public List<ReferenceDataList> getListServiceEthCap() {
+		return listServiceEthCap;
+	}
+
+	public void setListServiceEthCap(List<ReferenceDataList> listServiceEthCap) {
+		this.listServiceEthCap = listServiceEthCap;
+	}
+
+	public List<ReferenceDataList> getListServiceBarCap() {
+		return listServiceBarCap;
+	}
+
+	public void setListServiceBarCap(List<ReferenceDataList> listServiceBarCap) {
+		this.listServiceBarCap = listServiceBarCap;
+	}
+
+	public List<ReferenceDataList> getListAccreditation() {
+		return listAccreditation;
+	}
+
+	public void setListAccreditation(List<ReferenceDataList> listAccreditation) {
+		this.listAccreditation = listAccreditation;
+	}
+
+	public List<ReferenceDataList> getListServiceBenCap() {
+		return listServiceBenCap;
+	}
+
+	public void setListServiceBenCap(List<ReferenceDataList> listServiceBenCap) {
+		this.listServiceBenCap = listServiceBenCap;
+	}
+
 	public void setReferenceDataDao(IReferenceDataDao referenceDataDao) {
 		this.referenceDataDao = referenceDataDao;
 	}
+
+	public List<ReferenceDataList> getListEoiprogramme() {
+		return listEoiprogramme;
+	}
+
+	public void setListEoiprogramme(List<ReferenceDataList> listEoiprogramme) {
+		this.listEoiprogramme = listEoiprogramme;
+	}
+
+	public List<ReferenceDataList> getListEoiservice() {
+		return listEoiservice;
+	}
+
+	public void setListEoiservice(List<ReferenceDataList> listEoiservice) {
+		this.listEoiservice = listEoiservice;
+	}
+	
 }

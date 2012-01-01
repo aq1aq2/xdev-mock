@@ -45,11 +45,11 @@ $(document).ready(function(){
 	});
 	
 	// MUST use ready event for tabby because of tabby is so heavy !
-// 	$("#myOrganisationDetailstabs").ready(function(){
-// 		checkMode();
-// 		/* Load data into tab 5 and send filterOrgId now ! */
-// 		$("#tab5").load("SupportingMaterial.action?filterOrgId=" + $("#orgId").val(), function(){});
-// 	});
+	$("#myOrganisationDetailstabs").ready(function(){
+		checkMode();
+		/* Load data into tab 5 and send filterOrgId now ! */
+		$("#tab5").load("SupportingMaterial.action?filterOrgId=" + $("#orgId").val(), function(){});
+	});
 	
 	/*
 	 * Dialog events
@@ -225,8 +225,50 @@ $(document).ready(function(){
 		<s:form cssClass="xdev-form" >
 			<s:checkboxlist 
 				label="Organisation Specicalism" 
-				name="organisation.listOrgSpecicalism"
+				name="organisation.orgSpecicalism"
 				list="listOrgSpecicalism"
+	            listKey="referenceDataId"
+	            listValue="type"
+            />
+            <s:checkboxlist 
+				label="Service Persional Circumstances Capabilities" 
+				name="organisation.servicePerCirCap"
+				list="listServicePerCirCap"
+	            listKey="referenceDataId"
+	            listValue="type"
+            />
+            <s:checkboxlist 
+				label="Service Disablities Capabilities" 
+				name="organisation.serviceDisCap"
+				list="listServiceDisCap"
+	            listKey="referenceDataId"
+	            listValue="type"
+            />
+            <s:checkboxlist 
+				label="Service Ethnicity Capabilities" 
+				name="organisation.serviceEthCap"
+				list="listServiceEthCap"
+	            listKey="referenceDataId"
+	            listValue="type"
+            />
+            <s:checkboxlist 
+				label="Service Barriers Capabilities" 
+				name="organisation.serviceBarCap"
+				list="listServiceBarCap"
+	            listKey="referenceDataId"
+	            listValue="type"
+            />
+            <s:checkboxlist 
+				label="Accreditation" 
+				name="organisation.accreditation"
+				list="listAccreditation"
+	            listKey="referenceDataId"
+	            listValue="type"
+            />
+            <s:checkboxlist 
+				label="Service Benefits Capabilites" 
+				name="organisation.serviceBenCap"
+				list="listServiceBenCap"
 	            listKey="referenceDataId"
 	            listValue="type"
             />
@@ -235,8 +277,21 @@ $(document).ready(function(){
     
     <div id="tab3">
 		<s:form cssClass="xdev-form">
-			EOI Programmes
-			EOI Services
+			 <s:checkboxlist 
+					label="EOI Programmes" 
+					name="organisation.eoiprogramme"
+					list="listEoiprogramme"
+		            listKey="referenceDataId"
+		            listValue="type"
+	            />
+	        <s:checkboxlist 
+				label="EOI Services" 
+				name="organisation.eoiservice"
+				list="listEoiservice"
+	            listKey="referenceDataId"
+	            listValue="type"
+	          />
+						
 		</s:form>  
     </div>
     
