@@ -13,11 +13,7 @@
  			<result name="input">/pages/input/organisationInput.jsp</result>
     		<result name="save" type="json"></result>
     		<result name="update" type="json"></result>
-    	</action>
-    	<action name="*Directorate" method="{1}" class="directorateAction">
-    		<result name="list" type="json"></result>
-    		<result name="save" type="json"></result>
-    	</action>
+    	</action>    	
     	<action name="*SupportingMaterial" method="{1}" class="supportingMaterialAction">
     		<result name="success">/pages/embed/supportingMaterialList.jsp</result>
     		<result name="list" type="json">
