@@ -24,7 +24,7 @@ $(document).ready(function(){
 		query += "filterActive="+filterActive;
 		$.getJSON("listVolunteeringOpportunity.action?" + query,
 			function(data) {
-				$('#gridtable').trigger('reloadGrid');
+				$('#gridtable').trigger('reloadGrid',[{page:1}]);
 		});
 	}
 	
@@ -105,7 +105,7 @@ $(document).ready(function(){
 	        gridModel="listVolunteer"
 	        width="929"
 	        pager="true"
-	        rowNum="3"
+	        rowNum="10"
 	        rownumbers="true"
 	        navigator="true"
 	        onSelectRowTopics="rowselect"

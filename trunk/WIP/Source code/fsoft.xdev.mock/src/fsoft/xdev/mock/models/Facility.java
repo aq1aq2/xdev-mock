@@ -7,6 +7,10 @@ package fsoft.xdev.mock.models;
  */
 public class Facility implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int facilityId;
 	private ReferenceData referenceDataByFacilityType;
 	private Contact contactByContactId;
