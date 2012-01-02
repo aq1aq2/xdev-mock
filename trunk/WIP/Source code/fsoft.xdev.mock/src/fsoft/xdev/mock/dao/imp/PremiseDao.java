@@ -13,6 +13,7 @@ import fsoft.xdev.mock.models.Premise;
 import fsoft.xdev.mock.models.PremiseList;
 import fsoft.xdev.mock.models.ReferenceDataList;
 
+@SuppressWarnings("unused")
 public class PremiseDao extends HibernateDaoSupport implements IPremiseDao {
 	private IReferenceDataDao referenceDataDao1;
 
@@ -63,7 +64,8 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao {
 			Boolean filterActive) {
 		String criteria = "select new fsoft.xdev.mock.models.PremiseList"
 				+ "(c.premiseId, c.name,c.locationName,c.addressLine1,c.postcode,c.status) from Premise c where";
-
+		
+		//check condition of filterActive and filterKey
 		if (filterActive == null || filterActive == false) {
 			criteria = criteria + " (c.status = true) ";
 		} else {
@@ -126,6 +128,7 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
+	//list all Premises have locationType is value 
 	public List<Premise> listPremiseByLocationType(String value) {
 
 		Query query = getHibernateTemplate()
@@ -134,18 +137,8 @@ public class PremiseDao extends HibernateDaoSupport implements IPremiseDao {
 				.createQuery(
 						"select new fsoft.xdev.mock.models.ReferenceDataList(b.referenceDataId, b.value)  from ReferenceData b inner join b.referenceType c with c.refTypeName ='Location Type' where b.value like '" + value +"'");
 		List<ReferenceDataList> listRefer = query.list();
-		//test
 		
-//		Query query = getHibernateTemplate()
-//				.getSessionFactory()
-//				.getCurrentSession()
-//				.createQuery(
-//						"from ReferenceData b inner join b.referenceType c with c.refTypeName ='Location Type' where b.value like 'JCP Offices'");
-//		List<ReferenceData> listRefer = query.list();
-		
-		System.out.println(listRefer.size());
 		int referenceDataId = listRefer.get(0).getReferenceDataId();
-		System.out.println(referenceDataId);
 		
 		String criteria ="select new fsoft.xdev.mock.models.Premise(a.premiseId,a.name) from Premise a where a.locationType like '"
 				+ referenceDataId

@@ -25,7 +25,7 @@ public class FacilitiesAction extends ActionSupport {
 	List<ReferenceDataList> listConnectivityType = new ArrayList<ReferenceDataList>();
 	private String filterKey;
 	private boolean filterActive;
-	private int mode = -1;
+	private int mode = -1;  // for choosing insert or update
 	
 	
 	//get how many rows we want to have into the grid - rowNum attribute in the grid
@@ -45,48 +45,46 @@ public class FacilitiesAction extends ActionSupport {
 
 	  // All Record
 	  private Integer             records          = 0;
-	 
+	 /**
+	  * list all facility
+	  * @return action to listFacility
+	  */
 	  @SuppressWarnings("unchecked")
 	public String list(){
 		  int to = (rows*page);
 		  int from = to - rows;
+		  //count the number of record suiting the condition of filterKey and filterActive
 		  records = facilitiesDao.count(filterKey, filterActive);
-		 
+		 //list range of  faclility's records
 		  listFacilities = facilitiesDao.findRange(from, to,filterKey,filterActive);
 		  
 		  System.out.println("total record: " + records);
-		  
+		  //caculate the total page for query
 		  total = (int)Math.ceil((double)records/(double)rows);
 		  
 		  System.out.println("facilities is listed");
-		  System.out.println(listFacilities.size());
-		  System.out.println("doan cuoi");
-		  //mode = -1;
 		  return "list";
 	  }
-	  
+	  /**
+	   * save facility
+	   * @return
+	   */
 	  public String save(){
 			System.out.println("vao day");
+			//set status of new faclility is false
 			facility.setStatus(false);
-			System.out.println("vao tiep nao");
-			System.out.println(facility.getFacilityId());
-			System.out.println( "ID for Failitytype: "+facility.getReferenceDataByFacilityType().getReferenceDataId());
-			System.out.println( "Description: "+facility.getFacilityDescription());
-			System.out.println("id for Connect "+facility.getReferenceDataByConnectivityType().getReferenceDataId());
-			System.out.println( "note for room: "+facility.getRoomEquipmentNotes());
-			System.out.println(facility.getWirelessAccessInfomation());
-			System.out.println(facility.getRoomCapacity());
-			System.out.println(facility.getRoomConnectivity());
-			System.out.println( "Id OF CONTACT: "+facility.getContactByContactId().getContactId());
 			
 			facilitiesDao.add(facility);
 			System.out.println("one facility is added");
 			return "add";
 		}
-	  
+	  /**
+	   * detail facility page
+	   * @return action to detail facility page
+	   */
 	  public String detail(){
 		  
-		  // check insert or update
+		  // check insert or update by mode
 		  if (mode > -1){
 			  facility = facilitiesDao.find(facility);
 			  setMode(-1);       
@@ -97,16 +95,13 @@ public class FacilitiesAction extends ActionSupport {
 		  
 		  listFacilitiesType = referenceDataDao.getFacilityType();
 		  listConnectivityType = referenceDataDao.getConnectivityType();
-		  for (ReferenceDataList c:listFacilitiesType){
-			  System.out.println(c.getType());
-		  }
-		  for (ReferenceDataList d:listConnectivityType){
-			  System.out.println(d.getType());
-		  }
 		  
 		  return "detail";
 	  }
-	  
+	  /**
+	   * active an in-active facility
+	   * @return action to active an facility
+	   */
 	  public String active(){
 		  if (mode > -1){
 			  facility = facilitiesDao.find(facility);
