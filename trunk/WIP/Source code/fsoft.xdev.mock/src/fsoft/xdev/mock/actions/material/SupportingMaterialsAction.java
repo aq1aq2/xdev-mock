@@ -40,13 +40,9 @@ public class SupportingMaterialsAction extends ActionSupport{
 	 * List all SupportingMaterial
 	 * @return listModel (JSON)
 	 */
-	public String list() {
-		
-		XDebugger.show("----Check: Filter Org Id = " + filterOrgId);
-		
+	public String list() {		
 		int to = (rows * page);
 		int from = to - rows;
-
 		records = entityDao.count(null, filterActive);
 		listModel = entityDao.findRange(from, to, filterOrgId, filterActive);
 		

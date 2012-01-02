@@ -10,6 +10,7 @@
 			<result name="list" type="json">
 				<param name="excludeProperties">listLocationType,premise,listAccreditations,listLocalDemographicIssue,listCateringType,listNetwork,listPremiseJcpOffice,listPremiseOutreachLocation,listPremiseHotel,defaultLocation</param> 
 			</result>
+			<result name="success">/pages/embed/premiseList.jsp</result>
 			<result name="add">/pages/list/premiseList.jsp</result>
 			<result name="detail">/pages/input/premiseInput.jsp</result>
 			<result name="active">/pages/list/premiseList.jsp</result>

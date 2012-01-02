@@ -91,7 +91,7 @@ $(document).ready(function(){
 	        dataType="json"
 	        href="%{premiseList}"
 	        gridModel="listPremises"
-	        autowidth="true"
+	        width="929"
 	        pager="true"
 	        rowNum="10"
 	        rownumbers="true"

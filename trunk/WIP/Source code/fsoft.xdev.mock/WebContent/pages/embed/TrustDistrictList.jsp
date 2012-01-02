@@ -88,7 +88,7 @@
 	dataType="json"
 	href="%{listTrustDistrict}"
 	gridModel="listModel"
-	autowidth="true"
+	width="929"
 	pager="true"
 	rowNum="15"
 	rownumbers="true"

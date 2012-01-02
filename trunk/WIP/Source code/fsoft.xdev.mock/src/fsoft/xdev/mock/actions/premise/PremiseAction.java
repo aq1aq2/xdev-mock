@@ -48,9 +48,13 @@ public class PremiseAction extends ActionSupport {
 
 	  // All Record
 	  private Integer             records          = 0;
+	  
+	  public String execute() {
+			return SUCCESS;
+		}
 
 	@SuppressWarnings("unchecked")
-	public String list(){
+	public String list(){		
 		int to = (rows*page);
 		int from = to - rows;
 		//Get all record following filterKey and filterActive
