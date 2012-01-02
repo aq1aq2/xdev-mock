@@ -48,16 +48,6 @@ public class FacilityDao extends HibernateDaoSupport implements IFacilityDao{
 		
 		return (Facility)getHibernateTemplate().get(Facility.class, entity.getFacilityId());
 	}
-
-	
-//	@SuppressWarnings("unchecked")
-//	@Override
-//	public List<Facility> findRange(int from, int to) {
-//		Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery("from Facility");
-//		query.setFirstResult(from);
-//		query.setMaxResults(to-from);
-//		return (List<Facility>)query.list();
-//	}
 	
 	@SuppressWarnings("unchecked")
 	@Override

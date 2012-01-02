@@ -59,6 +59,7 @@ public class PremiseAction extends ActionSupport {
 		int from = to - rows;
 		//Get all record following filterKey and filterActive
 		records = premiseDao.count(filterKey, filterActive);
+		System.out.println("the total of records is: " + records);
 		//get the range of records to display in one page
 		listPremises = premiseDao.findRange(from, to, filterKey, filterActive);
 		//the number of page

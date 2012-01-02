@@ -8,29 +8,29 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 
-import fsoft.xdev.mock.dao.imp.PremiseDao;
-import fsoft.xdev.mock.models.Premise;
+import fsoft.xdev.mock.dao.imp.FacilityDao;
+import fsoft.xdev.mock.models.Facility;
 
-public class PremiseDaoTest {
+public class FacilityDaoTest {
 
 	@Mock
-	private IPremiseDao mockingPremiseDao;
-
+	private IFacilityDao mockingFacilityDao;
+	
 	@Before
 	public void setUp() throws Exception {
-		mockingPremiseDao = mock(PremiseDao.class);
+		mockingFacilityDao = mock(FacilityDao.class);
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		mockingPremiseDao = null;
+		mockingFacilityDao = null;
 	}
 	
 	@Test
 	public void testAdd_ExpectionTrue() {
-		Premise premise = new Premise(22);
-		mockingPremiseDao.add(premise);
-		verify(mockingPremiseDao).add(premise);
+		Facility facility = new Facility(2,null);
+		mockingFacilityDao.add(facility);
+		verify(mockingFacilityDao).add(facility);
 	}
 	
 	@Test 	
@@ -39,8 +39,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "All";
 		boolean filterActive = true;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 
@@ -49,8 +49,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "0-9";
 		boolean filterActive = true;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 	
@@ -59,8 +59,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "A B C D E";
 		boolean filterActive = true;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 
@@ -69,8 +69,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "F G H I J";
 		boolean filterActive = true;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 	
@@ -79,8 +79,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "K L M N";
 		boolean filterActive = true;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 
@@ -89,8 +89,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "O P Q R";
 		boolean filterActive = true;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 
@@ -99,8 +99,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "S T U V";
 		boolean filterActive = true;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 
@@ -109,18 +109,18 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "W X Y Z";
 		boolean filterActive = true;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 	
 	public void testFindRange_All_InActive_ExpectionNotEmptyList() {
-		int from = 0;
-		int to = 10;
+		int from = 10;
+		int to = 20;
 		String filterKey = "All";
 		boolean filterActive = false;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 
@@ -129,8 +129,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "0-9";
 		boolean filterActive = false;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 	
@@ -139,8 +139,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "A B C D E";
 		boolean filterActive = false;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 
@@ -149,8 +149,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "F G H I J";
 		boolean filterActive = false;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 	
@@ -159,8 +159,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "K L M N";
 		boolean filterActive = false;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 
@@ -169,8 +169,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "O P Q R";
 		boolean filterActive = false;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 
@@ -179,8 +179,8 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "S T U V";
 		boolean filterActive = false;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
 	}
 	
 	@Test 
@@ -189,144 +189,150 @@ public class PremiseDaoTest {
 		int to = 10;
 		String filterKey = "W X Y Z";
 		boolean filterActive = false;
-		mockingPremiseDao.findRange(from, to, filterKey, filterActive);
-		verify(mockingPremiseDao).findRange(from, to, filterKey, filterActive);
+		mockingFacilityDao.findRange(from, to, filterKey, filterActive);
+		verify(mockingFacilityDao).findRange(from, to, filterKey, filterActive);
+	}
+	
+	@Test 
+	public void testFindFacility_ExpectionNotNull() {
+		Facility facility = new Facility(2, null);
+		mockingFacilityDao.find(facility);
+		verify(mockingFacilityDao).find(facility);
 	}
 	
 	@Test
 	public void testCount_All_InActive_ExpectionNotZeroItems() {
 		String filterKey = "All";
 		boolean filterActive = false;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_09_InActive_ExpectionNotZeroItems() {
 		String filterKey = "0-9";
 		boolean filterActive = false;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_ABCDE_InActive_ExpectionNotZeroItems() {
 		String filterKey = "A B C D E";
 		boolean filterActive = false;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_FGHIJ_InActive_ExpectionNotZeroItems() {
 		String filterKey = "F G H I J";
 		boolean filterActive = false;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_KLMN_InActive_ExpectionNotZeroItems() {
 		String filterKey = "K L M N";
 		boolean filterActive = false;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_OPQR_InActive_ExpectionNotZeroItems() {
 		String filterKey = "O P Q R";
 		boolean filterActive = false;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_STUV_InActive_ExpectionNotZeroItems() {
 		String filterKey = "S T U V";
 		boolean filterActive = false;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_WXYZ_InActive_ExpectionNotZeroItems() {
 		String filterKey = "W X Y Z";
 		boolean filterActive = false;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_All_Active_ExpectionNotZeroItems() {
 		String filterKey = "All";
 		boolean filterActive = true;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_09_Active_ExpectionNotZeroItems() {
 		String filterKey = "0-9";
 		boolean filterActive = true;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_ABCDE_Active_ExpectionNotZeroItems() {
 		String filterKey = "A B C D E";
 		boolean filterActive = true;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_FGHIJ_Active_ExpectionNotZeroItems() {
 		String filterKey = "F G H I J";
 		boolean filterActive = true;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_KLMN_Active_ExpectionNotZeroItems() {
 		String filterKey = "K L M N";
 		boolean filterActive = true;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_OPQR_Active_ExpectionNotZeroItems() {
 		String filterKey = "O P Q R";
 		boolean filterActive = true;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_STUV_Active_ExpectionNotZeroItems() {
 		String filterKey = "S T U V";
 		boolean filterActive = true;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test
 	public void testCount_WXYZ_Active_ExpectionNotZeroItems() {
 		String filterKey = "W X Y Z";
 		boolean filterActive = true;
-		mockingPremiseDao.count(filterKey, filterActive);
-		verify(mockingPremiseDao).count(filterKey, filterActive);
+		mockingFacilityDao.count(filterKey, filterActive);
+		verify(mockingFacilityDao).count(filterKey, filterActive);
 	}
 	
 	@Test 
 	public void testFindPremise_ExpectionNotNull() {
-		Premise premise = new Premise(2, null);
-		
-		mockingPremiseDao.find(premise);
-		verify(mockingPremiseDao).find(premise);
+		Facility facility = new Facility(2, null);
+		mockingFacilityDao.find(facility);
+		verify(mockingFacilityDao).find(facility);
 	}
 
 }

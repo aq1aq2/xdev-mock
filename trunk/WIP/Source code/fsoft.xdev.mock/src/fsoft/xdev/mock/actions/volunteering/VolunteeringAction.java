@@ -46,12 +46,9 @@ public class VolunteeringAction extends ActionSupport {
 		  int to = (rows*page);
 		  int from = to - rows;
 		  records = volunteerDao.count(filterKey, filterActive);
+		  System.out.println("total record of Volunteer is: " + records);
 		  listVolunteer = volunteerDao.findRange(from, to, filterKey, filterActive);
 		  total = (int)Math.ceil((double)records/(double)rows);
-		  System.out.println("the size of volunteer: " + listVolunteer.size());
-		  for(VolunteerList c:listVolunteer){
-			  System.out.println(c.getVolunteerId());
-		  }
 		  System.out.println("Volunteer is listed");
 		  return "list";
 	  }

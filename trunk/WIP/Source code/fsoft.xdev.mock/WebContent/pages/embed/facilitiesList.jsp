@@ -100,7 +100,7 @@ $(document).ready(function(){
 	        gridModel="listFacilities"
 	        width="929"
 	        pager="true"
-	        rowNum="3"
+	        rowNum="10"
 	        rownumbers="true"
 	        navigator="true"
 	        onSelectRowTopics="rowselect"
