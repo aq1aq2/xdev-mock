@@ -4,7 +4,7 @@
 
 <script>
 $(document).ready(function(){
-	
+	var mode = $('#mode').val();
 	function test(types,str) {
 		//alert("${service.serBenCrit}");
 		//var types = "${service.serBenCrit}";
@@ -15,13 +15,17 @@ $(document).ready(function(){
 		var strValue = types.split(", ");
 		for(var i = 0; i < strValue.length; i++){
 			var k = strValue[i];
-			alert(k);
+			//alert(k);
 			namVar = "'"+str+"'";
 			$(":checkbox[name="+namVar+"][value="+k+"]").prop('checked', true);
 		}
 	}
 	test("${service.serBenCrit}","service.serBenCrit");
 	test("${service.serDisCrit}","service.serDisCrit");
+	test("${service.serBarCrit}","service.serBarCrit");
+	test("${service.serEthCrit}","service.serEthCrit");
+	test("${service.serPerCirCrit}","service.serPerCirCrit");
+	test("${service.serOrtherCrit}","service.serOrtherCrit");
 	
 // 	function test2(){
 // 		var types = "${service.serBenCrit}";
@@ -70,13 +74,23 @@ $(document).ready(function(){
 			query = query + str + "&";
 		});			
 		query = query.substring(0, query.length-1);
-		// Get json
-		$.getJSON("saveService.action?" + query,
-			function(data) {
-				alert("Save successful");
-				alert(data);
-			}
-		);
+		if(mode == 'true'){
+			// Get json
+			$.getJSON("saveService.action?" + query,
+				function(data) {
+					alert("Save successful");
+					alert(data);
+				}
+			);	
+		}else{
+			$.getJSON("editService.action?" + query,
+					function(data) {
+						alert("Save successful");
+						alert(data);
+					}
+				);
+		}
+
 	});
 	
 	/*
@@ -135,7 +149,7 @@ $(document).ready(function(){
 		<sj:tab id="tab3" target="details3" label="Details 3"/>
 		<sj:tab id="tab4" target="contact" label="Contract"/>
 		<sj:tab id="tab5" target="funding" label="funding"/>
-		
+		<s:hidden id="mode" name="mode"></s:hidden>
 		<div id="details1" class="xdev-window-body-sub">
 			<table>
 				<s:form cssClass="xdev-form">

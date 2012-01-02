@@ -25,7 +25,9 @@ public class ServiceAction extends ActionSupport{
 	private IReferenceDataDao referenceDataDao;
 	private List<ServiceList> listService = new ArrayList<ServiceList>();
 	
-	private int[] intValue;
+	private boolean mode;
+	
+	
 
 	List<ReferenceDataList> listServiceType = new ArrayList<ReferenceDataList>();
 	List<ReferenceDataList> listSubType = new ArrayList<ReferenceDataList>();
@@ -161,6 +163,7 @@ public class ServiceAction extends ActionSupport{
 			
 		}
 		
+		mode = true;
 		
 		return "detailService";
 	}
@@ -197,55 +200,25 @@ public class ServiceAction extends ActionSupport{
 		System.out.println("Intervention: "+service.getIntervention());
 		System.out.println("Client Journey: "+service.getClientJourney());
 		System.out.println("Other Services: "+service.getOtherService());
-//		System.out.println("Support Centres: "+service.);
-//		System.out.println("Client Outcome: "+service);
-//		System.out.println("Target Client: "+service);
-//		System.out.println("Accreditations: "+service);
-//		System.out.println("Referral Sources: "+service);
-//		System.out.println("Programme: "+service);
-//		System.out.println("Contact Outcome: "+service);
-//		System.out.println("Participation: "+service);
-//		System.out.println("Contact Obligation: "+service);
-//		System.out.println("Participation: "+service);
-		
-//		System.out.println(""+service);
-//		System.out.println(""+service);
-//		System.out.println(""+service);
-//		System.out.println(""+service);
-//		
-//		System.out.println("Serivce ");
-//	
-		
-//		Contact contact = new Contact();
-//		contact.setContactId(12);
-//		
-//		service.setContact(contact);
-//		
+
+
 		servicesDao.add(service);
 
 		System.out.println(dateStart);
-//		System.out.println("checkbox checked: "+listServiceBenefitsCriterion_Checked);
-//		System.out.println("checkbox checked: "+listServiceBarriersCriterion_Checked);
-//		System.out.println("checkbox checked: "+listServiceEthnicityCriterion_Checked);
-//		System.out.println("checkbox checked: "+listServiceDisabilityCriterion_Checked);
-//		System.out.println("checkbox checked: "+listServicePersonalCircumstancesCriterion_Checked);
-//		System.out.println("checkbox checked: "+listOtherServiceParticipationCriterion_Checked);
-//		System.out.println("checkbox checked: "+listClientSupportProcess_Checked);
-//		System.out.println("checkbox checked: "+listIntervention_Checked);
-//		System.out.println("checkbox checked: "+listClientJourney_Checked);
-//		System.out.println("checkbox checked: "+listOtherServices_Checked);
-//		System.out.println("checkbox checked: "+listSupportCentres_Checked);
-//		System.out.println("checkbox checked: "+listClientOutcome_Checked);
-//		System.out.println("checkbox checked: "+listTargetClient_Checked);
-//		System.out.println("checkbox checked: "+listAccreditations_Checked);
-//		System.out.println("checkbox checked: "+listReferralSources_Checked);
-//		System.out.println("checkbox checked: "+listContactOutcome_Checked);
-//		System.out.println("checkbox checked: "+listContactObligation_Checked);
+
 		
 		
 		return "save";
 	}
-
+	
+	
+	/**
+	 * edit method
+	 */
+	public String edit(){
+		servicesDao.edit(service);
+		return "edit";
+	}
 	
 	/**
 	 * Update one service is selected on list service
@@ -253,6 +226,7 @@ public class ServiceAction extends ActionSupport{
 	 */
 	
 	public String update(){
+		mode = false;
 		service = servicesDao.find(service);
 
 		listServiceBenefitsCriterion = referenceDataDao.getItem("Service Benefits Criterion");
@@ -736,7 +710,17 @@ public class ServiceAction extends ActionSupport{
 
 	public void setDateStart(Date dateStart) {
 		this.dateStart = dateStart;
+	}
+
+	public boolean getMode() {
+		return mode;
+	}
+
+	public void setMode(boolean mode) {
+		this.mode = mode;
 	}	
+	
+	
 }
 
 
