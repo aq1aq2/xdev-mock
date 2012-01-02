@@ -5,6 +5,38 @@
 <script>
 
 $(document).ready(function(){
+	
+	$.subscribe('onTabChange', function(event, data) {       
+        var tab = event.originalEvent.ui.index+1;
+        if (tab==4) {
+        	$("#tab5").empty();
+        	$("#tab4").load("Premises.action", function(response){});
+        }
+        if(tab==5){
+        	$("#tab4").empty();
+        	$("#tab5").load("SupportingMaterial.action?filterOrgId=" + $("#orgId").val(), function(response){});
+        }
+	});
+	function checkbox(types,str) {		
+		var strValue = types.split(", ");
+		for(var i = 0; i < strValue.length; i++){
+			var k = strValue[i];			
+			namVar = "'"+str+"'";
+			$(":checkbox[name="+namVar+"][value="+k+"]").prop('checked', true);
+		}
+	}
+	checkbox("${organisation.orgSpecicalism}","organisation.orgSpecicalism");
+	checkbox("${organisation.servicePerCirCap}","organisation.servicePerCirCap");
+	checkbox("${organisation.serviceDisCap}","organisation.serviceDisCap");
+	checkbox("${organisation.serviceEthCap}","organisation.serviceEthCap");
+	checkbox("${organisation.serviceBarCap}","organisation.serviceBarCap");
+	checkbox("${organisation.accreditation}","organisation.accreditation");
+	checkbox("${organisation.serviceBenCap}","organisation.serviceBenCap");
+	checkbox("${organisation.eoiprogramme}","organisation.eoiprogramme");
+	checkbox("${organisation.eoiservice}","organisation.eoiservice");
+	
+	
+	
 	$("#expressionOfInterest").click(function(){
 		// Enable the third tab and navigate automatically
 		$("#myOrganisationDetailstabs").tabs("enable", 2);
@@ -16,34 +48,46 @@ $(document).ready(function(){
 	});
 	
 	$("#saveBtn").click(function(){
-		alert("Comming soon !");
+		var mode = "${mode}";
+		var query = "";
+		var forms = $("form");
+		$.each(forms, function(){
+			// Read id of each form in xForms
+			// this implicit an element in the array
+			// Searialize data in each form
+			var str = $(this).serialize();
+			// Concat query string. MUST ADD & symbol !
+			query = query + str + "&";
+		});			
+		query = query.substring(0, query.length-1);			
+		// Get json		
+		// if update
+		if(mode == 'add'){				
+			$.getJSON("saveOrganisation.action?" + query,
+				function(data) {
+					// Do nothing
+				}
+			);
+		}
+		else {				
+			$.getJSON("updateOrganisation.action?" + query,
+					function(data) {
+						// Do nothing
+					}
+				);
+		}
 	});
 
 	function checkMode(){
 	
 		var mode = "${mode}";
 		if(mode == 'amend') {
-			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2,3]);
+			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2]);
 		}
 		else if(mode == 'add') {
 			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2,3,4,5]);
 		}
-	}
-	
-	/*
-	 * On Tab change
-	 */
-	 
-	$.subscribe('onTabChange', function(event, data) {
-		/* Check create or amend mode */
-		//checkMode();
-		/* Load properly page into tab */
-		var tab = event.originalEvent.ui.index+1;
-		if (tab==5) {
-			$("#tab5").load("SupportingMaterial.action?filterOrgId=" + $("#orgId").val(), function(response){});
-		}
-	});
-	
+	}	
 	// MUST use ready event for tabby because of tabby is so heavy !
 	$("#myOrganisationDetailstabs").ready(function(){
 		checkMode();
@@ -188,9 +232,9 @@ $(document).ready(function(){
 >   
 	<sj:tab id="details1" target="tab1" label="Details1"/>
     <sj:tab id="details2" target="tab2" label="Details2"/>
-    <sj:tab id="details3" target="tab3" label="Details3"/>
+    <sj:tab id="details3" target="tab3" label="Details3"/>   
     <sj:tab id="details4" target="tab4" label="Details4"/>
-    <sj:tab id="details5" target="tab5" label="Details5"/>
+     <sj:tab id="details5" target="tab5" label="Details5"/>
     <sj:tab id="bu" target="bu" label="BU/Directorates"/>
     
     <s:hidden name="organisation.organisationId" id="orgId" />
@@ -293,10 +337,9 @@ $(document).ready(function(){
 	          />
 						
 		</s:form>  
-    </div>
-    
+    </div>   
     <div id="tab4"></div>
-    <div id="tab5"></div>
+    <div id="tab5"></div>    
     <div id="bu"></div>
     
 </sj:tabbedpanel> 
