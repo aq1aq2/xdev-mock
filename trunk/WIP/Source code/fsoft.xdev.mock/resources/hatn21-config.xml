@@ -43,6 +43,15 @@
     			
     	</action>  
     	
+    	<action name="*Directorate" method="{1}" class="directorateAction">    											
+    		<result name="success">/pages/embed/directorateList.jsp</result>
+    		<result name="list" type="json">
+    			<param name="excludeProperties">directorate,directoratesDao</param>
+    		</result>
+    		<result name="add" ></result>
+    		<result name="update" ></result>  
+    		<result name="input">/pages/input/directorateInput.jsp</result>  
+    	</action>
     	
     </package>
 </struts>

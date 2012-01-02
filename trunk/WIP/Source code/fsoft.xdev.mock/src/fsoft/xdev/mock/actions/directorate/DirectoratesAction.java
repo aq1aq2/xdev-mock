@@ -3,15 +3,36 @@ package fsoft.xdev.mock.actions.directorate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.opensymphony.xwork2.ActionSupport;
+
 import fsoft.xdev.mock.dao.IDirectorateDao;
 import fsoft.xdev.mock.models.Directorate;
 import fsoft.xdev.mock.utilities.XDebugger;
 
-public class DirectoratesAction {
+public class DirectoratesAction  extends ActionSupport{
 
 	private Directorate directorate;
 	private IDirectorateDao directoratesDao;
 	private List<Directorate> listModel = new ArrayList<Directorate>();
+	private String filterKey;
+	private Boolean filterActive;
+	private Boolean mode;	
+	private Integer rows = 0;
+
+	// Get the requested page. By default grid sets this to 1.
+	private Integer page = 0;
+
+	// sorting order - asc or desc
+	private String sord;
+
+	// get index row - i.e. user click to sort.
+	private String sidx;
+
+	// Your Total Pages
+	private Integer total = 0;
+
+	// All Record
+	private Integer records = 0;
 	
 	public Directorate getDirectorate() {
 		return directorate;
@@ -80,27 +101,35 @@ public class DirectoratesAction {
 	public void setRecords(Integer records) {
 		this.records = records;
 	}
-
-	// get how many rows we want to have into the grid - rowNum attribute in the
-	// grid
-	private Integer rows = 0;
-
-	// Get the requested page. By default grid sets this to 1.
-	private Integer page = 0;
-
-	// sorting order - asc or desc
-	private String sord;
-
-	// get index row - i.e. user click to sort.
-	private String sidx;
-
-	// Your Total Pages
-	private Integer total = 0;
-
-	// All Record
-	private Integer records = 0;
 	
 
+	public String getFilterKey() {
+		return filterKey;
+	}
+
+	public void setFilterKey(String filterKey) {
+		this.filterKey = filterKey;
+	}
+
+	public Boolean getFilterActive() {
+		return filterActive;
+	}
+
+	public void setFilterActive(Boolean filterActive) {
+		this.filterActive = filterActive;
+	}
+
+	public Boolean getMode() {
+		return mode;
+	}
+
+	public void setMode(Boolean mode) {
+		this.mode = mode;
+	}
+
+	public String execute(){
+		return SUCCESS;
+	}
 	public DirectoratesAction() {
 		XDebugger.show("Constructor: Create Directorate Action");
 	}
@@ -112,10 +141,10 @@ public class DirectoratesAction {
 		int from = to - rows;
 
 		// Count Rows (select count(*) from trust Region)
-//		records = directoratesDao.count();
-//
-//		// Your logic to search and select the required data.
-//		listModel = directoratesDao.findRange(from, to);
+		records = directoratesDao.count(filterKey,filterActive);
+
+		// Your logic to search and select the required data.
+		listModel = directoratesDao.findRange(from, to,filterKey,filterActive);
 
 		// calculate the total pages for the query
 		total = (int) Math.ceil((double) records / (double) rows);
@@ -128,4 +157,25 @@ public class DirectoratesAction {
 		directoratesDao.add(directorate);
 		return "add";
 	}
+	public String edit() {		
+		directoratesDao.edit(directorate);
+		return "edit";
+	}
+	public String detail() {
+		directorate = directoratesDao.find(directorate);			
+		mode = false;
+		return "input";
+	}
+	
+	public String active(){
+		directorate = directoratesDao.find(directorate);	
+		directorate.setStatus(true);
+		directoratesDao.edit(directorate);	
+		return "list";
+	}
+	public String input(){
+		directorate = new Directorate();
+		return "input";
+	}
+	
 }

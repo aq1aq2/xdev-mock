@@ -10,11 +10,18 @@ $(document).ready(function(){
         var tab = event.originalEvent.ui.index+1;
         if (tab==4) {
         	$("#tab5").empty();
+        	$("#tab6").empty();
         	$("#tab4").load("Premises.action", function(response){});
         }
         if(tab==5){
         	$("#tab4").empty();
+        	$("#tab6").empty();
         	$("#tab5").load("SupportingMaterial.action?filterOrgId=" + $("#orgId").val(), function(response){});
+        }
+        if(tab==6){
+        	$("#tab4").empty();
+        	$("#tab5").empty();
+        	$("#tab6").load("Directorate.action",function(response){});
         }
 	});
 	function checkbox(types,str) {		
@@ -85,7 +92,7 @@ $(document).ready(function(){
 			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2]);
 		}
 		else if(mode == 'add') {
-			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2,3,4,5]);
+			$("#myOrganisationDetailstabs").tabs("option", "disabled", [2,3,4,5,6]);
 		}
 	}	
 	// MUST use ready event for tabby because of tabby is so heavy !
@@ -234,13 +241,12 @@ $(document).ready(function(){
     <sj:tab id="details2" target="tab2" label="Details2"/>
     <sj:tab id="details3" target="tab3" label="Details3"/>   
     <sj:tab id="details4" target="tab4" label="Details4"/>
-     <sj:tab id="details5" target="tab5" label="Details5"/>
-    <sj:tab id="bu" target="bu" label="BU/Directorates"/>
-    
-    <s:hidden name="organisation.organisationId" id="orgId" />
+    <sj:tab id="details5" target="tab5" label="Details5"/>
+    <sj:tab id="details6" target="tab6" label="BU/Directorates"/>
     
     <div id="tab1">
     	<s:form cssClass="xdev-form">
+    	 	<s:hidden name="organisation.organisationId" id="orgId" />
 			<s:textfield name="organisation.name" label="Organisation Name" required="true"/>
 			<s:checkbox name="organisation.preferredOrg" label="Preferred Organisation" labelposition="left" />
 			<s:textarea name="organisation.shortDesc" label="Organisation Short Description" required="true"/>
@@ -339,8 +345,9 @@ $(document).ready(function(){
 		</s:form>  
     </div>   
     <div id="tab4"></div>
-    <div id="tab5"></div>    
-    <div id="bu"></div>
+    <div id="tab5"></div> 
+    <div id="tab6"></div>      
+
     
 </sj:tabbedpanel> 
  
