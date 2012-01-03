@@ -8,12 +8,6 @@
 	$(document).ready(function(){
 		/* Filter click event */
 		var filterKey = "";		
-		if('${filterActive}' == true){
-			alert("true");
-		}
-		else{
-			alert("false");
-		}
 		function sendFilterOptions() {
 			query = "filterKey="+filterKey;
 			query += '&';
@@ -80,6 +74,7 @@
 
 	<s:url id="directorateList_listURL" action="listDirectorate.action"></s:url>
 	<sjg:grid
+		caption="Directorate List"
 	   	id="directorateList_gridtable"
 	  	dataType="json"
 	  	href="%{directorateList_listURL}"

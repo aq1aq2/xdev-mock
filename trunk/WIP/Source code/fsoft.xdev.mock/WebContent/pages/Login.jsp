@@ -15,6 +15,9 @@
 <body class="login">
 	<div id="login">
 	
+		<img alt="xdev logo" class="xdev-logo" 
+			src="http://localhost:8080/fsoft.xdev.mock/images/logo_small.png">
+	
 		<form name="loginform" id="loginform" action="inLogin.action" method="post">
 			<p>
 				<label>Username<br>

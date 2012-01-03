@@ -21,7 +21,8 @@
 		<%@ include file="../template/mainMenu.jsp" %>
 		
 		<!-- Body -->
-		<img class="xdev-logo" alt="xdev logo" src="../images/xdev.png">
+		<img class="xdev-logo img-opacity" alt="xdev logo" 
+			src="http://localhost:8080/fsoft.xdev.mock/images/xdev.png">
 		
 		<!-- Footer -->
 		<%@ include file="../template/footer.jsp" %>

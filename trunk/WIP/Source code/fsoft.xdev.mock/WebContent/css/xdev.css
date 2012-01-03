@@ -32,7 +32,9 @@ img.xdev-logo {
 	display: block;
     margin-left: auto;
     margin-right: auto;
-    opacity:0.2;
+}
+img.img-opacity {
+	opacity:0.2;
 	filter:alpha(opacity=20); /* For IE8 and earlier */
 }
 
