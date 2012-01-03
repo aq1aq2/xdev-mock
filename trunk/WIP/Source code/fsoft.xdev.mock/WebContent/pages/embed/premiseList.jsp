@@ -87,6 +87,7 @@ $(document).ready(function(){
 	<s:form>
 		<s:url id="premiseList" action="listPremises"></s:url>
 		<sjg:grid
+			caption="Premise List"
 	        id="gridtable1"
 	        dataType="json"
 	        href="%{premiseList}"
