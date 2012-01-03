@@ -2,8 +2,8 @@
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags"%>
 
 <title>Government Office Region</title>
+<content tag="sectionTitle">Government Office Region List</content>
 
-<content tags ="">Government Office Region List</content>
 <script>
 	$(document).ready(function(){
 		/* hide button create */
@@ -47,26 +47,25 @@
 </script>
 
 
-<!-- body -->	
-		
-		<s:url id="listGovOfficeRegion" action="listGovOfficeRegion.action"></s:url>
-		<sjg:grid
-	        id="gridtable"
-	        dataType="json"
-	        href="%{listGovOfficeRegion}"
-	        gridModel="listModel"
-	        autowidth="true"
-	        pager="true"
-	        rowNum="15"
-       		rownumbers="true"
-       		onSelectRowTopics="rowSelect"
-	        
-	    >
-	    	<sjg:gridColumn name="govOfficeRegionId" index="govOfficeRegionId" title="ID" hidden="true"/>
-	        <sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
-	        <sjg:gridColumn name="description" index="description" title="Descripstion" sortable="false"/>
-	        <sjg:gridColumn name="countyName" index="countryName" title="County" sortable="true"/>
-	        <sjg:gridColumn name="status" index="status" title="IsActived" sortable="true"/>	        
-	    </sjg:grid>    
+<!-- body -->
+
+<s:url id="listGovOfficeRegion" action="listGovOfficeRegion.action"></s:url>
+<sjg:grid
+	id="gridtable"
+	dataType="json"
+	href="%{listGovOfficeRegion}"
+	gridModel="listModel"
+	autowidth="true"
+	pager="true"
+	rowNum="15"
+	rownumbers="true"
+	onSelectRowTopics="rowSelect"
+>
+	<sjg:gridColumn name="govOfficeRegionId" index="govOfficeRegionId" title="ID" hidden="true"/>
+	<sjg:gridColumn name="name" index="name" title="Name" sortable="true"/>
+	<sjg:gridColumn name="description" index="description" title="Descripstion" sortable="false"/>
+	<sjg:gridColumn name="countyName" index="countryName" title="County" sortable="true"/>
+	<sjg:gridColumn name="status" index="status" title="IsActived" sortable="true"/>	        
+</sjg:grid>    
   
 
