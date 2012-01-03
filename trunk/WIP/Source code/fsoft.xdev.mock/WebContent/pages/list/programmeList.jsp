@@ -5,6 +5,7 @@
 <%@ taglib prefix="sjg" uri="/struts-jquery-grid-tags" %>
 
 <title>Programme</title>
+<content tag="sectionTitle">Programme List</content>
 
 <script>
 	$(document).ready(function(){
