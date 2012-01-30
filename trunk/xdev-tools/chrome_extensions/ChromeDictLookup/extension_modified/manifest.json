@@ -1,0 +1,20 @@
+{
+  "name": "Dictionary Lookup",
+  "version": "4.3.1",
+  "description": "Look up any word in an inline frame with a simple click and without leaving the page.",
+  "icons": { "128": "img/icon.png" },
+  "options_page": "options.htm",
+  "background_page": "background.htm",
+  "content_scripts": [{
+    "matches": [ "<all_urls>" ],
+    "css": [ "frame.css" ],
+    "js": [ "lookup.js" ],
+    "run_at": "document_end",
+    "all_frames": true
+  }],
+  "permissions": [
+    "tabs",
+    "http://dictionary-lookup.org/",
+    "http://commons.wikimedia.org/"
+  ]
+}
