@@ -31,6 +31,26 @@
 		</configuration>
         <version>2.3.2</version>
 	  </plugin>
+	  
+	  <!-- JAXB -->
+	  <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jaxb2-maven-plugin</artifactId>
+        <version>1.3.1</version>
+        <executions>
+          <execution>
+            <id>xjc</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <schemaDirectory>${basedir}/src/main/resources/com/discorp/schemas</schemaDirectory>
+          <outputDirectory>${basedir}/src/main/java</outputDirectory>
+          <packageName>com.discorp.xml</packageName>
+        </configuration>
+      </plugin>
 
 	  <!-- to generate the MANIFEST-FILE of the bundle -->
 	  <plugin>
