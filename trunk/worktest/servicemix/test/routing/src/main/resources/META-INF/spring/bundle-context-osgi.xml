@@ -8,7 +8,7 @@
   <!--
     OSGi reference to service processor 
     -->
-  <osgi:reference id="serviceA" interface="dn.servicemix.test.service.ServiceA" cardinality="1..1"/>
+<!--   <osgi:reference id="serviceA" interface="dn.servicemix.test.service.ServiceA" cardinality="1..1"/> -->
 
   <!--
 	Enlist it in OSGi service registry

@@ -42,6 +42,9 @@
 		  <manifestLocation>META-INF</manifestLocation>
 		  <instructions>
 			<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+			<Export-Package>
+			  dn.servicemix.test.actor
+			</Export-Package>
 		  </instructions>
 		</configuration>
 	  </plugin>
