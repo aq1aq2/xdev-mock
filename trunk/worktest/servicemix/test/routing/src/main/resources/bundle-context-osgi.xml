@@ -5,6 +5,9 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                       http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
 
+  <!--
+    OSGi reference to service processor 
+    -->
   <osgi:reference id="serviceA" interface="dn.servicemix.test.service.ServiceA" cardinality="1..1"/>
 
   <!--
@@ -15,19 +18,19 @@
 	2) It will trigger the HttpRegistry in other bundles so the servlet is
 	   made known there too
   -->
-  <bean id="camelServlet" class="org.apache.camel.component.servlet.CamelHttpTransportServlet"/>
+<!--   <bean id="camelServlet" class="org.apache.camel.component.servlet.CamelHttpTransportServlet"/> -->
   
-  <osgi:service ref="camelServlet">
-    <osgi:interfaces>
-      <value>javax.servlet.Servlet</value>
-      <value>org.apache.camel.component.http.CamelServlet</value>
-    </osgi:interfaces>
+<!--   <osgi:service ref="camelServlet"> -->
+<!--     <osgi:interfaces> -->
+<!--       <value>javax.servlet.Servlet</value> -->
+<!--       <value>org.apache.camel.component.http.CamelServlet</value> -->
+<!--     </osgi:interfaces> -->
     
-    <osgi:service-properties>
-      <entry key="alias" value="/services" />
-      <entry key="matchOnUriPrefix" value="true" />
-      <entry key="servlet-name" value="CamelServlet"/>
-    </osgi:service-properties>
-  </osgi:service>
+<!--     <osgi:service-properties> -->
+<!--       <entry key="alias" value="/services" /> -->
+<!--       <entry key="matchOnUriPrefix" value="true" /> -->
+<!--       <entry key="servlet-name" value="CamelServlet"/> -->
+<!--     </osgi:service-properties> -->
+<!--   </osgi:service> -->
   
 </beans>

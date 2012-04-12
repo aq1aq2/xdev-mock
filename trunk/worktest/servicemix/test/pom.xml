@@ -34,5 +34,6 @@
   	<module>actor</module>
   	<module>service</module>
   	<module>routing</module>
+  	<module>xmljob</module>
   </modules>
 </project>
