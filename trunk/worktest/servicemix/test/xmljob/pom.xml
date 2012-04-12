@@ -6,17 +6,9 @@
     <version>0.0.1-SNAPSHOT</version>
     <relativePath>..</relativePath>
   </parent>
-  <artifactId>routing</artifactId>
+  <artifactId>xmljob</artifactId>
   <packaging>bundle</packaging>
-  <name>DN ServiceMix Test :: Routing</name>
-  
-  <dependencies>
-  	<dependency>
-  		<groupId>dn.servicemix</groupId>
-  		<artifactId>service</artifactId>
-  		<version>${project.version}</version>
-  	</dependency>
-  </dependencies>
+  <name>DN ServiceMix Test :: XML Job</name>
   
   <build>
 	<plugins>
@@ -42,9 +34,33 @@
 		  <manifestLocation>META-INF</manifestLocation>
 		  <instructions>
 			<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+			<Export-Package>
+			  dn.servicemix.test.schemas,
+			  dn.servicemix.test.xml,
+			</Export-Package>
 		  </instructions>
 		</configuration>
 	  </plugin>
+	  
+	  <!-- JAXB -->
+	  <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jaxb2-maven-plugin</artifactId>
+        <version>1.3.1</version>
+        <executions>
+          <execution>
+            <id>xjc</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <schemaDirectory>${basedir}/src/main/resources/dn/servicemix/test/schemas</schemaDirectory>
+          <outputDirectory>${basedir}/src/main/java</outputDirectory>
+          <packageName>dn.servicemix.test.xml</packageName>
+        </configuration>
+      </plugin>
 	  
 	</plugins>
   </build>

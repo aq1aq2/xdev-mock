@@ -17,10 +17,10 @@
                    xmlns:dn="http://www.dn.com"/>       
 
   <!-- CamelContext routing -->
-  <bean id="myRoutes" class="dn.servicemix.test.routing.camel.MyRouter"/>
+<!--   <bean id="myRoutes" class="dn.servicemix.test.routing.camel.MyRouter"/> -->
   
-  <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <routeBuilder ref="myRoutes"/>
-  </camelContext>
+<!--   <camelContext xmlns="http://camel.apache.org/schema/spring"> -->
+<!--     <routeBuilder ref="myRoutes"/> -->
+<!--   </camelContext> -->
 
 </beans>
