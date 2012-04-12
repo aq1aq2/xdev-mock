@@ -5,6 +5,9 @@ import dn.servicemix.test.entity.ModelA;
 public class ActorA {
 	private ModelA modelA;
 	
+	public ActorA() {
+		
+	}
 	
 	public ActorA(String myName, int myAge) {
 		modelA = new ModelA(myName, myAge);

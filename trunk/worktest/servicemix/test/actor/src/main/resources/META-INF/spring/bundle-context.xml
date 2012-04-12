@@ -8,11 +8,7 @@
                       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
                       
   <bean id="actorA" class="dn.servicemix.test.actor.ActorA">
-    <constructor-arg type="String">
-      <value>Le Duc Nhan</value>      
-    </constructor-arg>
-    <constructor-arg type="int">
-      <value>24</value>      
-    </constructor-arg>
+    <constructor-arg value="Le Duc Nhan" />      
+    <constructor-arg value="24" />
   </bean>
 </beans>
