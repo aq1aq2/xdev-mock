@@ -16,12 +16,16 @@
     <wsdl:message name="ShowActorRequest">
         <wsdl:part name="payload" element="dn:ShowActorRequest"/>
     </wsdl:message>
+    <wsdl:message name="ShowActorResponse">
+        <wsdl:part name="payload" element="dn:ShowActorResponse"/>
+    </wsdl:message>
 
 	<!-- Port type -->
     <wsdl:portType name="ServiceAEndpoint">
     
         <wsdl:operation name="ShowActor">
             <wsdl:input message="ShowActorRequest"/>
+            <wsdl:output message="ShowActorResponse"/>
         </wsdl:operation>
         
     </wsdl:portType>
@@ -34,6 +38,9 @@
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
         </wsdl:operation>
     </wsdl:binding>
 
