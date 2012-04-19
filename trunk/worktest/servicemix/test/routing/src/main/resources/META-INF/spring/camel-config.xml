@@ -13,14 +13,9 @@
   <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
   <import resource="classpath:META-INF/cxf/cxf-extension-http.xml" />
   <import resource="classpath:META-INF/cxf/osgi/cxf-extension-osgi.xml" />
-    
-  <!-- CXF Endpoint -->
-  <cxf:cxfEndpoint id="serviceA_endpoint"
-                   address="/webservices/srva"
-                   endpointName="dn:ServiceAEndpoint"
-                   serviceName="dn:ServiceA"
-                   wsdlURL="dn/servicemix/test/schemas/srva.wsdl"
-                   xmlns:dn="http://www.dn.com"/>       
+
+  <!-- JAXB Processor -->
+  <bean id="jaxbProcessor" class="dn.servicemix.test.routing.converter.JAXBProcessor"/>
 
   <!-- CamelContext routing -->
   <bean id="myRoutes" class="dn.servicemix.test.routing.camel.MyRouter"/>
@@ -35,5 +30,13 @@
 <!--       <camel:to uri="cxf:bean:serviceA_endpoint" /> -->
 <!--     </camel:route> -->
 <!--   </camel:camelContext> -->
+    
+  <!-- CXF Endpoint -->
+  <cxf:cxfEndpoint id="serviceA_endpoint"
+                   address="/webservices/srva"
+                   endpointName="dn:ServiceAEndpoint"
+                   serviceName="dn:ServiceA"
+                   wsdlURL="dn/servicemix/test/schemas/srva.wsdl"
+                   xmlns:dn="http://www.dn.com"/>       
 
 </beans>
