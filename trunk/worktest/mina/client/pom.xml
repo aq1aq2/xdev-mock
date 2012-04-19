@@ -1,0 +1,90 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>tkd</groupId>
+  <artifactId>client</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>client</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <!-- JUnit -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- Log4J -->
+    <dependency>
+	  <groupId>log4j</groupId>
+	  <artifactId>log4j</artifactId>
+	  <version>1.2.16</version>
+	</dependency>
+    <dependency>
+	  <groupId>org.slf4j</groupId>
+	  <artifactId>slf4j-api</artifactId>
+	  <version>1.6.4</version>
+    </dependency>
+    <dependency>
+	  <groupId>org.slf4j</groupId>
+	  <artifactId>slf4j-log4j12</artifactId>
+	  <version>1.6.4</version>
+	</dependency>
+            
+    <!-- Apache Mina -->
+    <dependency>
+	  <groupId>org.apache.mina</groupId>
+	  <artifactId>mina-core</artifactId>
+	  <version>2.0.4</version>
+    </dependency>
+    
+    <!-- Eclipse SWT -->
+    <dependency>
+      <groupId>org.eclipse</groupId>
+      <artifactId>swt</artifactId>
+      <version>3.7.2-win32-win32-x86</version>
+    </dependency>
+  </dependencies>
+  
+<build>
+  <plugins>
+  
+    <!-- To create executable jar file -->
+<!--     <plugin> -->
+<!--       <artifactId>maven-assembly-plugin</artifactId> -->
+<!--       <configuration> -->
+<!--         <descriptors> -->
+<!--           <descriptor>src/main/resources/assembly.xml</descriptor> -->
+<!--         </descriptors> -->
+<!--         <descriptorRefs> -->
+<!--           <descriptorRef>jar-with-dependencies</descriptorRef> -->
+<!--         </descriptorRefs> -->
+<!--         <archive> -->
+<!--           <manifest> -->
+<!--             <mainClass>tkd.client.App</mainClass> -->
+<!--           </manifest> -->
+<!--         </archive> -->
+<!--       </configuration> -->
+<!--       <executions> -->
+<!--         <execution> -->
+<!--           <phase>package</phase> -->
+<!--           <goals> -->
+<!--             <goal>single</goal> -->
+<!--           </goals> -->
+<!--         </execution> -->
+<!--       </executions> -->
+<!--     </plugin> -->
+    
+  </plugins>
+</build>
+
+</project>
