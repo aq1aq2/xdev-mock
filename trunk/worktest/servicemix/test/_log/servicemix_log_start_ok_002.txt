@@ -1,0 +1,48 @@
+11:39:54,613 | INFO  | 73@qtp-7985909-1 | servicemix                       | ?                                   ? | 68 - org.apache.camel.camel-core - 2.6.0 | Exchange[
+, Id:ID-F2W-NhanLD-4307-1334810287075-0-2
+, ExchangePattern:InOut
+, Properties:{CamelToEndpoint=log://dn.servicemix?multiline=true&showAll=true, CamelCreatedTimestamp=Thu Apr 19 11:39:54 GMT+07:00 2012, org.apache.cxf.service.model.BindingOperationInfo=[BindingOperationInfo: {http://www.dn.com}ShowActor], mtom-enabled=false, CamelCXFDataFormat=PAYLOAD, jaxwsContext={javax.xml.ws.wsdl.port={http://www.dn.com}ServiceAEndpoint, javax.xml.ws.wsdl.interface={http://www.dn.com}ServiceAEndpoint, javax.xml.ws.wsdl.operation={http://www.dn.com}ShowActor, javax.xml.ws.wsdl.description=/webservices/srva?wsdl, javax.xml.ws.wsdl.service={http://www.dn.com}ServiceA}}
+, Headers:{Proxy-Authorization=Basic bmhhbmxkOmxldGVzdDEyMzY1NGA=, Pragma=no-cache, Host=localhost:8181, User-Agent=IBM Web Services Explorer, Cache-Control=no-cache, connection=close, org.apache.cxf.headers.Header.list=[], Accept=application/soap+xml, application/dime, multipart/related, text/*, Content-Type=text/xml; charset=utf-8, SOAPAction="", CamelCxfMessage={org.apache.cxf.interceptor.DocLiteralInInterceptor.DocLiteralInInterceptor.keep-parameters-wrapper=true, javax.xml.ws.wsdl.port={http://www.dn.com}ServiceAEndpoint, org.apache.cxf.service.model.MessageInfo=[MessageInfo INPUT: {http://www.dn.com}ShowActorRequest], org.apache.cxf.message.Message.PROTOCOL_HEADERS={content-type=[text/xml; charset=utf-8], connection=[close], Proxy-Authorization=[Basic bmhhbmxkOmxldGVzdDEyMzY1NGA=], Host=[localhost:8181], Content-Length=[374], SOAPAction=[""], User-Agent=[IBM Web Services Explorer], Content-Type=[text/xml; charset=utf-8], Accept=[application/soap+xml, application/dime, multipart/related, text/*], Pragma=[no-cache], Cache-Control=[no-cache]}, javax.xml.ws.wsdl.service={http://www.dn.com}ServiceA, org.apache.cxf.message.Message.ENCODING=UTF-8, org.apache.cxf.message.Message.QUERY_STRING=null, HTTP.RESPONSE=HTTP/1.1 200
+Connection: close
+
+, org.apache.cxf.security.SecurityContext=org.apache.cxf.transport.http_osgi.OsgiServletController$1@17c4ab7, org.apache.cxf.request.method=POST, javax.xml.ws.wsdl.interface={http://www.dn.com}ServiceAEndpoint, javax.xml.ws.wsdl.operation={http://www.dn.com}ShowActor, org.apache.cxf.request.uri=/cxf/webservices/srva, org.apache.cxf.transport.Destination=org.apache.cxf.transport.http_osgi.OsgiDestination@f2da0b, javax.xml.ws.wsdl.description=/webservices/srva?wsdl, HTTP.REQUEST=POST http://localhost:8181/cxf/webservices/srva HTTP/1.1
+Host: localhost:8181
+Content-Type: text/xml; charset=utf-8
+Content-Length: 374
+Accept: application/soap+xml, application/dime, multipart/related, text/*
+User-Agent: IBM Web Services Explorer
+Cache-Control: no-cache
+Pragma: no-cache
+SOAPAction: ""
+Proxy-Authorization: Basic bmhhbmxkOmxldGVzdDEyMzY1NGA=
+Connection: close
+
+, HTTP.CONFIG=org.mortbay.jetty.servlet.ServletHolder$Config@1c94115, Accept=application/soap+xml, application/dime, multipart/related, text/*, Content-Type=text/xml; charset=utf-8, HTTP.CONTEXT=ServletContext@1cfceb7{/,null}, org.apache.cxf.headers.Header.list=[], org.apache.cxf.message.Message.BASE_PATH=/webservices/srva, org.apache.cxf.message.Message.PATH_INFO=/webservices/srva}, operationName=ShowActor, operationNamespace=http://www.dn.com}
+, BodyType:org.apache.camel.component.cxf.CxfPayload
+, Body:org.apache.camel.component.cxf.CxfPayload headers: []body: [ [<q0:ShowActorRequest xmlns:q0="http://www.dn.com">
+      <q0:input>hello world and servicemix</q0:input>
+    </q0:ShowActorRequest>]]
+, Out: null]
+11:39:54,692 | INFO  | 73@qtp-7985909-1 | servicemix                       | ?                                   ? | 68 - org.apache.camel.camel-core - 2.6.0 | Exchange[
+, Id:ID-F2W-NhanLD-4307-1334810287075-0-2
+, ExchangePattern:InOut
+, Properties:{CamelToEndpoint=log://dn.servicemix?multiline=true&showAll=true, CamelCreatedTimestamp=Thu Apr 19 11:39:54 GMT+07:00 2012, org.apache.cxf.service.model.BindingOperationInfo=[BindingOperationInfo: {http://www.dn.com}ShowActor], mtom-enabled=false, CamelCXFDataFormat=PAYLOAD, jaxwsContext={javax.xml.ws.wsdl.port={http://www.dn.com}ServiceAEndpoint, javax.xml.ws.wsdl.interface={http://www.dn.com}ServiceAEndpoint, javax.xml.ws.wsdl.operation={http://www.dn.com}ShowActor, javax.xml.ws.wsdl.description=/webservices/srva?wsdl, javax.xml.ws.wsdl.service={http://www.dn.com}ServiceA}}
+, Headers:{Cache-Control=no-cache, Host=localhost:8181, Accept=application/soap+xml, application/dime, multipart/related, text/*, org.apache.cxf.headers.Header.list=[], Content-Type=text/xml; charset=utf-8, operationName=ShowActor, Pragma=no-cache, User-Agent=IBM Web Services Explorer, CamelCxfMessage={org.apache.cxf.interceptor.DocLiteralInInterceptor.DocLiteralInInterceptor.keep-parameters-wrapper=true, javax.xml.ws.wsdl.port={http://www.dn.com}ServiceAEndpoint, org.apache.cxf.service.model.MessageInfo=[MessageInfo INPUT: {http://www.dn.com}ShowActorRequest], org.apache.cxf.message.Message.PROTOCOL_HEADERS={content-type=[text/xml; charset=utf-8], connection=[close], Proxy-Authorization=[Basic bmhhbmxkOmxldGVzdDEyMzY1NGA=], Host=[localhost:8181], Content-Length=[374], SOAPAction=[""], User-Agent=[IBM Web Services Explorer], Content-Type=[text/xml; charset=utf-8], Accept=[application/soap+xml, application/dime, multipart/related, text/*], Pragma=[no-cache], Cache-Control=[no-cache]}, javax.xml.ws.wsdl.service={http://www.dn.com}ServiceA, org.apache.cxf.message.Message.ENCODING=UTF-8, org.apache.cxf.message.Message.QUERY_STRING=null, HTTP.RESPONSE=HTTP/1.1 200
+Connection: close
+
+, org.apache.cxf.security.SecurityContext=org.apache.cxf.transport.http_osgi.OsgiServletController$1@17c4ab7, org.apache.cxf.request.method=POST, javax.xml.ws.wsdl.interface={http://www.dn.com}ServiceAEndpoint, javax.xml.ws.wsdl.operation={http://www.dn.com}ShowActor, org.apache.cxf.request.uri=/cxf/webservices/srva, org.apache.cxf.transport.Destination=org.apache.cxf.transport.http_osgi.OsgiDestination@f2da0b, javax.xml.ws.wsdl.description=/webservices/srva?wsdl, HTTP.REQUEST=POST http://localhost:8181/cxf/webservices/srva HTTP/1.1
+Host: localhost:8181
+Content-Type: text/xml; charset=utf-8
+Content-Length: 374
+Accept: application/soap+xml, application/dime, multipart/related, text/*
+User-Agent: IBM Web Services Explorer
+Cache-Control: no-cache
+Pragma: no-cache
+SOAPAction: ""
+Proxy-Authorization: Basic bmhhbmxkOmxldGVzdDEyMzY1NGA=
+Connection: close
+
+, HTTP.CONFIG=org.mortbay.jetty.servlet.ServletHolder$Config@1c94115, Accept=application/soap+xml, application/dime, multipart/related, text/*, Content-Type=text/xml; charset=utf-8, HTTP.CONTEXT=ServletContext@1cfceb7{/,null}, org.apache.cxf.headers.Header.list=[], org.apache.cxf.message.Message.BASE_PATH=/webservices/srva, org.apache.cxf.message.Message.PATH_INFO=/webservices/srva}, Proxy-Authorization=Basic bmhhbmxkOmxldGVzdDEyMzY1NGA=, operationNamespace=http://www.dn.com, connection=close, SOAPAction="", CamelBeanMethodName=null}
+, BodyType:org.apache.camel.component.cxf.CxfPayload
+, Body:org.apache.camel.component.cxf.CxfPayload headers: nullbody: [ [<ShowActorResponse xmlns="http://www.dn.com"><ModelA><Name>Le Duc Nhan</Name><Age>24</Age></ModelA><message>hello world and servicemix</message></ShowActorResponse>]]
+, Out: null]
