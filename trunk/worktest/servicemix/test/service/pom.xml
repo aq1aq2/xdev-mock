@@ -16,6 +16,11 @@
   		<artifactId>actor</artifactId>
   		<version>${project.version}</version>
   	</dependency>
+  	<dependency>
+  		<groupId>dn.servicemix</groupId>
+  		<artifactId>xmljob</artifactId>
+  		<version>${project.version}</version>
+  	</dependency>
   </dependencies>
   
   <build>
