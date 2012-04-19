@@ -1,6 +1,6 @@
 package tkd.client;
 
-import tkd.client.gui.MainWindow;
+import tkd.client.gui.view.MainWindow;
 
 
 /**
