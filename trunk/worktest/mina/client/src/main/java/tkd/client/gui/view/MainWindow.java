@@ -1,4 +1,4 @@
-package tkd.client.gui;
+package tkd.client.gui.view;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
