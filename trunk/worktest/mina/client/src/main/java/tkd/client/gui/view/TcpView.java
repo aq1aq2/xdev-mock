@@ -12,9 +12,13 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Group;
@@ -59,6 +63,7 @@ public class TcpView {
 	 */
 	
 	Group settingGroup;
+	Composite connectBtnContainer;
 	
 	/*
 	 * GUI Labels
@@ -68,10 +73,13 @@ public class TcpView {
 	Label portLabel;
 	
 	/*
-	 * Constants
+	 * GUI content constants
 	 */
 	
 	final String WINDOW_TITLE = "TCP Client";
+	final int WINDOW_WIDTH = 640;
+	final int WINDOW_HEIGHT = 480;
+	
 	final String GROUP_SETTING_TITLE = "Settings";
 	
 	final String LABEL_ADDRESS = "Address";
@@ -86,12 +94,20 @@ public class TcpView {
 		display = mainShell.getDisplay();
 		
 		makeContent(mainShell);
+		makeLayout();
 	}
 	
+	/**
+	 * Initialize content of the window.
+	 * Setting fixed properties such as title, size, etc.
+	 * 
+	 * @param shell main shell
+	 */
 	public void makeContent(final Shell shell) {
 		
 		// Main Window
 		shell.setText(WINDOW_TITLE);
+		shell.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 		
 		// Group Settings
 		settingGroup = new Group(shell, SWT.NONE);
@@ -99,18 +115,74 @@ public class TcpView {
 		
 		addressLabel = new Label(settingGroup, SWT.NULL);
 		addressLabel.setText(LABEL_ADDRESS);
+		addressInput = new Text(settingGroup, SWT.SINGLE | SWT.BORDER);
+		
 		portLabel = new Label(settingGroup, SWT.PUSH);
 		portLabel.setText(LABEL_PORT);
+		portInput = new Text(settingGroup, SWT.SINGLE | SWT.BORDER);
 		
 		// Connect buttons
-		connectButton = new Button(shell, SWT.PUSH);
+		connectBtnContainer = new Composite(shell, SWT.NONE);
+		
+		connectButton = new Button(connectBtnContainer, SWT.PUSH);
 		connectButton.setText(BUTTON_CONNECT);
-		disconnectButton = new Button(shell, SWT.PUSH);
+		
+		disconnectButton = new Button(connectBtnContainer, SWT.PUSH);
 		disconnectButton.setText(BUTTON_DISCONNECT);
 		
 	}
 	
-	public void makeLayout(final Shell shell) {
+	/**
+	 * Initialize layout of the window.
+	 * To positioning components in the window.
+	 */
+	public void makeLayout() {
+		
+		FormData formLayoutData;
+		GridData gridLayoutData;
+		
+		// Main Window layout
+		FormLayout formLayout = new FormLayout();
+		formLayout.marginWidth = 5;
+		formLayout.marginHeight = 5;
+		mainShell.setLayout(formLayout);
+		
+		// Group Settings layout
+		formLayoutData = new FormData();
+		formLayoutData.top = new FormAttachment(0, 0);
+		formLayoutData.left = new FormAttachment(0, 0);
+		formLayoutData.right = new FormAttachment(connectBtnContainer, 0);
+		settingGroup.setLayoutData(formLayoutData);
+		
+		GridLayout settingGroupLayout = new GridLayout();
+		settingGroupLayout.numColumns = 2;
+		settingGroup.setLayout(settingGroupLayout);
+		
+		gridLayoutData = new GridData(GridData.FILL, GridData.CENTER, true, false);
+		addressInput.setLayoutData(gridLayoutData);
+		portInput.setLayoutData(gridLayoutData);
+		
+		// Connect buttons layout
+		RowLayout connectBtnContainerLayout = new RowLayout();
+		connectBtnContainerLayout.wrap = false;
+		connectBtnContainerLayout.pack = false;
+		connectBtnContainerLayout.justify = true;
+		connectBtnContainerLayout.type = SWT.VERTICAL;
+		connectBtnContainerLayout.marginLeft = 5;
+		connectBtnContainerLayout.marginTop = 5;
+		connectBtnContainerLayout.marginRight = 0;
+		connectBtnContainerLayout.marginBottom = 5;
+		connectBtnContainerLayout.spacing = 0;
+		connectBtnContainer.setLayout(connectBtnContainerLayout);
+		
+		formLayoutData = new FormData();
+		formLayoutData.top = new FormAttachment(settingGroup, 0, SWT.CENTER);
+		formLayoutData.right = new FormAttachment(100, 0);
+		connectBtnContainer.setLayoutData(formLayoutData);
+		
+	}
+	
+	public void makeLayout2(final Shell shell) {
 		FormLayout layout = new FormLayout();
 		layout.marginWidth = 5;
 		layout.marginHeight = 5;

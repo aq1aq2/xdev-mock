@@ -34,6 +34,7 @@ public class MainWindow {
 	}
 	
 	private void makeContent(final Shell shell) {
-		TestView testView = new TestView(shell);
+		//TestView testView = new TestView(shell);
+		TcpView tcpView = new TcpView(shell);
 	}
 }
