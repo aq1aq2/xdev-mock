@@ -1,4 +1,4 @@
-package dn.tool.minatcpclient.gui.view;
+package dn.tool.tcp.minatcpclient.gui.view;
 
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package dn.tool.minatcpclient.gui.view;
+package dn.tool.tcp.minatcpclient.gui.view;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
@@ -64,6 +64,8 @@ public class TcpView {
 	
 	Group settingGroup;
 	Composite connectBtnContainer;
+	Group sendGroup;
+	Group receiveGroup;
 	
 	/*
 	 * GUI Labels
@@ -76,17 +78,19 @@ public class TcpView {
 	 * GUI content constants
 	 */
 	
-	final String WINDOW_TITLE = "TCP Client";
-	final int WINDOW_WIDTH = 640;
-	final int WINDOW_HEIGHT = 480;
+	final String 	WINDOW_TITLE 		= "TCP Client";
+	final int 		WINDOW_WIDTH 		= 640;
+	final int 		WINDOW_HEIGHT 		= 480;
 	
-	final String GROUP_SETTING_TITLE = "Settings";
+	final String 	GROUP_SETTING_TITLE = "Settings";
+	final String 	GROUP_SEND_TITLE 	= "Send";
+	final String 	GROUP_RECEIVE_TITLE = "Receive";
 	
-	final String LABEL_ADDRESS = "Address";
-	final String LABEL_PORT = "Port";
+	final String 	LABEL_ADDRESS 		= "Address";
+	final String 	LABEL_PORT 			= "Port";
 	
-	final String BUTTON_CONNECT = "Connect";
-	final String BUTTON_DISCONNECT = "Disconnect";
+	final String 	BUTTON_CONNECT 		= "Connect";
+	final String 	BUTTON_DISCONNECT 	= "Disconnect";
 	
 
 	public TcpView(Shell shell) {
@@ -130,6 +134,13 @@ public class TcpView {
 		disconnectButton = new Button(connectBtnContainer, SWT.PUSH);
 		disconnectButton.setText(BUTTON_DISCONNECT);
 		
+		// Group Send
+		sendGroup = new Group(shell, SWT.NONE);
+		sendGroup.setText(GROUP_SEND_TITLE);
+		
+		// Group Send
+		receiveGroup = new Group(shell, SWT.NONE);
+		receiveGroup.setText(GROUP_RECEIVE_TITLE);
 	}
 	
 	/**
@@ -180,6 +191,21 @@ public class TcpView {
 		formLayoutData.right = new FormAttachment(100, 0);
 		connectBtnContainer.setLayoutData(formLayoutData);
 		
+		// Group Send layout 
+		formLayoutData = new FormData();
+		formLayoutData.top = new FormAttachment(settingGroup, 0);
+		formLayoutData.left = new FormAttachment(0, 0);
+		formLayoutData.right = new FormAttachment(100, 0);
+		formLayoutData.bottom = new FormAttachment(50, 0);
+		sendGroup.setLayoutData(formLayoutData);
+		
+		// Group Receive layout
+		formLayoutData = new FormData();
+		formLayoutData.top = new FormAttachment(sendGroup, 0);
+		formLayoutData.left = new FormAttachment(0, 0);
+		formLayoutData.right = new FormAttachment(100, 0);
+		formLayoutData.bottom = new FormAttachment(100, 0);
+		receiveGroup.setLayoutData(formLayoutData);
 	}
 	
 	public void makeLayout2(final Shell shell) {
