@@ -1,6 +1,6 @@
-package dn.tool.minatcpclient;
+package dn.tool.tcp.minatcpclient;
 
-import dn.tool.minatcpclient.gui.view.MainWindow;
+import dn.tool.tcp.minatcpclient.gui.view.MainWindow;
 
 
 /**

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package dn.tool.minatcpclient.gui.view;
+package dn.tool.tcp.minatcpclient.gui.view;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
