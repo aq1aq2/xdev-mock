@@ -1,0 +1,371 @@
+<html><head>	<title>Mediator</title><link href="ff.css" rel="stylesheet" type="text/css"></head><body>
+<h2>Mediator</h2>
+<h3> Intent</h3><p>Define an object that encapsulates how a set of objects interact.
+Mediator promotes loose coupling by keeping objects from referring to
+each other explicitly, and it lets you vary their interaction
+independently.</p>
+<h3> Motivation</h3><p>Object-oriented design encourages the distribution of behavior
+among objects.  Such distribution can result in an object structure
+with many connections between objects; in the worst case, every object
+ends up knowing about every other.</p>
+<p>Though partitioning a system into many objects generally enhances
+reusability, proliferating interconnections tend to reduce it again.
+Lots of interconnections make it less likely that an object can work
+without the support of others&#151;the system acts as though it were
+monolithic. Moreover, it can be difficult to change the system's
+behavior in any significant way, since behavior is distributed among
+many objects. As a result, you may be forced to define many subclasses
+to customize the system's behavior.</p>
+<p>As an example, consider the implementation of dialog boxes in a
+graphical user interface. A dialog box uses a window to present a
+collection of widgets such as buttons, menus, and entry fields, as
+shown here:</p><p align=CENTER><img src="Pictures/fontc047.gif"></p>
+<p>Often there are dependencies between the widgets in the dialog. For
+example, a button gets disabled when a certain entry field is empty.
+Selecting an entry in a list of choices called a <strong>list box</strong>
+might change the contents of an entry field. Conversely, typing text
+into the entry field might automatically select one or more
+corresponding entries in the list box. Once text appears in the entry
+field, other buttons may become enabled that let the user do something
+with the text, such as changing or deleting the thing to which it refers.</p>
+<p>Different dialog boxes will have different dependencies between
+widgets.  So even though dialogs display the same kinds of widgets,
+they can't simply reuse stock widget classes; they have to be
+customized to reflect dialog-specific dependencies. Customizing them
+individually by subclassing will be tedious, since many classes are
+involved.</p>
+<p>You can avoid these problems by encapsulating collective behavior in a
+separate <strong>mediator</strong> object.  A mediator is responsible for
+controlling and coordinating the interactions of a group of objects.
+The mediator serves as an intermediary that keeps objects in the group
+from referring to each other explicitly.  The objects only know the
+mediator, thereby reducing the number of interconnections.</p>
+<p>For example, <strong>FontDialogDirector</strong> can be the mediator
+between the widgets in a dialog box. A FontDialogDirector object knows
+the widgets in a dialog and coordinates their interaction. It acts as
+a hub of communication for widgets:</p>
+<p align=CENTER><img src="Pictures/media033.gif"></p>
+<p>The following interaction diagram illustrates how the objects cooperate to
+handle a change in a list box's selection:</p>
+<p align=CENTER><img src="Pictures/media031.gif"></p>
+<p>Here's the succession of events by which a list box's selection passes
+to an entry field:</p><ol>
+<li>The list box tells its director that it's changed.</li>
+
+<li>The director gets the selection from the list box.</li>
+
+<li>The director passes the selection to the entry field.</li>
+
+<li>Now that the entry field contains some text, the director
+enables button(s) for initiating an action (e.g., "demibold," "oblique").</li></ol>
+<p>Note how the director mediates between the list box and the entry field.
+Widgets communicate with each other only indirectly, through the
+director. They don't have to know about each other; all they know is the
+director. Furthermore, because the behavior is localized in one class,
+it can be changed or replaced by extending or replacing that class.</p>
+<p>Here's how the FontDialogDirector abstraction can be integrated into a
+class library:</p>
+<p align=CENTER><img src="Pictures/media034.gif"></p>
+<p>DialogDirector is an abstract class that defines the overall behavior of
+a dialog. Clients call the ShowDialog operation to display the dialog on
+the screen. CreateWidgets is an abstract operation for creating the
+widgets of a dialog. WidgetChanged is another abstract operation;
+widgets call it to inform their director that they have changed.
+DialogDirector subclasses override CreateWidgets to create the proper
+widgets, and they override WidgetChanged to handle the changes.</p>
+<h3> Applicability</h3><p>Use the Mediator pattern when</p><ul>
+<li>a set of objects communicate in well-defined but complex ways.  The
+resulting interdependencies are unstructured and difficult to
+understand.</li>
+
+<li>reusing an object is difficult because it refers to and communicates
+with many other objects.</li>
+
+<li>a behavior that's distributed between several classes should be
+customizable without a lot of subclassing.</li></ul>
+<h3> Structure</h3> <p align=CENTER><img src="Pictures/mediator.gif"></p>
+<p>A typical object structure might look like this:</p><p align=CENTER><img src="Pictures/media030.gif"></p>
+<h3> Participants</h3><ul>
+<li><b>Mediator</b> (DialogDirector)</li>
+
+
+<ul>
+<li>defines an interface for communicating with Colleague objects.</li></ul>
+
+
+
+<li><b>ConcreteMediator</b> (FontDialogDirector)
+
+
+<ul>
+<li>implements cooperative behavior by coordinating Colleague objects.</li>
+<p><!-- extra space --></p>
+<li>knows and maintains its colleagues.</li></ul>
+
+
+
+<li><b>Colleague classes</b> (ListBox, EntryField)
+
+
+<ul>
+<li>each Colleague class knows its Mediator object.</li>
+<p><!-- extra space --></p>
+<li>each colleague communicates with its mediator whenever it would have
+otherwise communicated with another colleague.</li></ul></ul>
+<h3> Collaborations</h3><ul>
+<li>Colleagues send and receive requests from a Mediator object. The
+mediator implements the cooperative behavior by routing requests
+between the appropriate colleague(s).</li></ul>
+<h3> Consequences</h3><p>The Mediator pattern has the following benefits and drawbacks:</p><ol>
+<li><em>It limits subclassing.</em>
+A mediator localizes behavior that otherwise would be distributed among
+several objects. Changing this behavior requires subclassing Mediator
+only; Colleague classes can be reused as is.</li>
+
+<li><em>It decouples colleagues.</em>
+A mediator promotes loose coupling between colleagues.  You can vary
+and reuse Colleague and Mediator classes independently.</li>
+
+<li><em>It simplifies object protocols.</em>
+A mediator replaces many-to-many interactions with one-to-many
+interactions between the mediator and its colleagues.  One-to-many
+relationships are easier to understand, maintain, and extend.</li>
+
+<li><em>It abstracts how objects cooperate.</em>
+Making mediation an independent concept and encapsulating it in an
+object lets you focus on how objects interact apart from their
+individual behavior. That can help clarify how objects interact in a
+system.</li>
+
+<li><em>It centralizes control.</em>
+The Mediator pattern trades complexity of interaction for complexity in
+the mediator. Because a mediator encapsulates protocols, it can become
+more complex than any individual colleague. This can make the mediator
+itself a monolith that's hard to maintain.</li></ol>
+<h3> Implementation</h3><p>The following implementation issues are relevant to the Mediator
+pattern:</p><ol>
+<li><em>Omitting the abstract Mediator class.</em>
+There's no need to define an abstract Mediator class when colleagues
+work with only one mediator.  The abstract coupling that the
+Mediator class provides lets colleagues work with different Mediator
+subclasses, and vice versa.</li>
+
+
+
+<li><em>Colleague-Mediator communication.</em>
+Colleagues have to communicate with their mediator when an event of
+interest occurs.  One approach is to implement the Mediator as an
+Observer using the Observer  pattern.  Colleague
+classes act as Subjects, sending notifications to the mediator
+whenever they change state.  The mediator responds by propagating the
+effects of the change to other colleagues.
+
+<p>Another approach defines a specialized notification interface in
+Mediator that lets colleagues be more direct in their communication.
+Smalltalk/V for Windows uses a form of delegation: When communicating
+with the mediator, a colleague passes itself as an argument, allowing
+the mediator to identify the sender.  The Sample Code uses this
+approach, and the Smalltalk/V implementation is discussed further in
+the Known Uses.</p></li></ol>
+<h3> Sample Code</h3><p>We'll use a DialogDirector to implement the font dialog box shown in
+the Motivation.  The abstract class <tt>DialogDirector</tt> defines
+the interface for directors.</p>
+<pre>
+class DialogDirector {
+public:
+    virtual ~DialogDirector();
+
+    virtual void ShowDialog();
+    virtual void WidgetChanged(Widget*) = 0;
+
+protected:
+    DialogDirector();
+    virtual void CreateWidgets() = 0;
+};
+</pre>
+<p><tt>Widget</tt> is the abstract base class for widgets.  A
+widget knows its director.</p>
+<pre>
+class Widget {
+public:
+    Widget(DialogDirector*);
+    virtual void Changed();
+
+    virtual void HandleMouse(MouseEvent&amp; event);
+    // ...
+private:
+    DialogDirector* _director;
+};
+</pre>
+<p><tt>Changed</tt> calls the director's <tt>WidgetChanged</tt>
+operation. Widgets call <tt>WidgetChanged</tt> on their director to
+inform it of a significant event.</p>
+<pre>
+void Widget::Changed () {
+    _director->WidgetChanged(this);
+}
+</pre>
+<p>Subclasses of <tt>DialogDirector</tt> override
+<tt>WidgetChanged</tt> to affect the appropriate widgets.  The widget
+passes a reference to itself as an argument to <tt>WidgetChanged</tt>
+to let the director identify the widget that changed.
+<tt>DialogDirector</tt> subclasses redefine the
+<tt>CreateWidgets</tt> pure virtual to construct the widgets in the
+dialog.</p>
+<p>The <tt>ListBox</tt>, <tt>EntryField</tt>, and <tt>Button</tt> are
+subclasses of <tt>Widget</tt> for specialized user interface
+elements. <tt>ListBox</tt> provides a <tt>GetSelection</tt>
+operation to get the current selection, and <tt>EntryField</tt>'s
+<tt>SetText</tt> operation puts new text into the field.</p>
+<pre>
+class ListBox : public Widget {
+public:
+    ListBox(DialogDirector*);
+
+    virtual const char* GetSelection();
+    virtual void SetList(List&lt;char*>* listItems);
+    virtual void HandleMouse(MouseEvent&amp; event);
+    // ...
+};
+
+class EntryField : public Widget {
+public:
+    EntryField(DialogDirector*);
+
+    virtual void SetText(const char* text);
+    virtual const char* GetText();
+    virtual void HandleMouse(MouseEvent&amp; event);
+    // ...
+};
+</pre>
+<p><tt>Button</tt> is a simple widget that calls <tt>Changed</tt>
+whenever it's pressed. This gets done in its implementation of
+<tt>HandleMouse</tt>:</p>
+<pre>
+class Button : public Widget {
+public:
+    Button(DialogDirector*);
+
+    virtual void SetText(const char* text);
+    virtual void HandleMouse(MouseEvent&amp; event);
+    // ...
+};
+
+void Button::HandleMouse (MouseEvent&amp; event) {
+    // ...
+    Changed();
+}
+</pre>
+<p>The <tt>FontDialogDirector</tt> class mediates between widgets in the
+dialog box.  <tt>FontDialogDirector</tt> is a subclass of
+<tt>DialogDirector</tt>:</p>
+<pre>
+class FontDialogDirector : public DialogDirector {
+public:
+    FontDialogDirector();
+    virtual ~FontDialogDirector();
+    virtual void WidgetChanged(Widget*);
+
+protected:
+    virtual void CreateWidgets();
+
+private:
+    Button* _ok;
+    Button* _cancel;
+    ListBox* _fontList;
+    EntryField* _fontName;
+};
+</pre>
+<p><tt>FontDialogDirector</tt> keeps track of the widgets it displays.  It
+redefines
+<tt>CreateWidgets</tt> to create the widgets and initialize its
+references to them:</p>
+<pre>
+void FontDialogDirector::CreateWidgets () {
+    _ok = new Button(this);
+    _cancel = new Button(this);
+    _fontList = new ListBox(this);
+    _fontName = new EntryField(this);
+
+    // fill the listBox with the available font names
+
+    // assemble the widgets in the dialog
+}
+</pre>
+<p><tt>WidgetChanged</tt> ensures that the widgets work together properly:</p>
+<pre>
+void FontDialogDirector::WidgetChanged (
+    Widget* theChangedWidget
+) {
+    if (theChangedWidget == _fontList) {
+        _fontName->SetText(_fontList->GetSelection());
+
+    } else if (theChangedWidget == _ok) {
+        // apply font change and dismiss dialog
+        // ...
+
+    } else if (theChangedWidget == _cancel) {
+        // dismiss dialog
+    }
+}
+</pre>
+<p>The complexity of <tt>WidgetChanged</tt> increases proportionally
+with the complexity of the dialog.  Large dialogs are undesirable for
+other reasons, of course, but mediator complexity might mitigate the
+pattern's benefits in other applications.</p><a name="knownuses"><a>
+<h3> Known Uses</h3><p>Both ET++ [WGM88] and the THINK C class library [Sym93b] use
+director-like objects in dialogs as mediators between widgets.</p>
+
+<p>The application architecture of Smalltalk/V for Windows is based on a
+mediator structure [LaL94]. In that environment, an
+application consists of a Window containing a set of panes.  The
+library contains several predefined Pane objects; examples include
+TextPane, ListBox, Button, and so on.
+These panes can be used without subclassing.  An application developer
+only subclasses from ViewManager, a class that's responsible for doing
+inter-pane coordination. ViewManager is the Mediator, and each pane
+only knows its view manager, which is considered the "owner" of the
+pane.  Panes don't refer to each other directly.</p>
+<p>The following object diagram shows a snapshot of an application at
+run-time:</p>
+<p align=CENTER><img src="Pictures/media032.gif"></p>
+<p>Smalltalk/V uses an event mechanism for Pane-ViewManager
+communication.  A pane generates an event when it wants to get
+information from the mediator or when it wants to inform the mediator
+that something significant happened.  An event defines a symbol (e.g.,
+<tt>#select</tt>) that identifies the event. To handle the event, the
+view manager registers a method selector with the pane.  This selector
+is the event's handler; it will be invoked whenever the event occurs.</p>
+<p>The following code excerpt shows how a ListPane object gets created inside
+a ViewManager subclass and how ViewManager registers an event handler
+for the <tt>#select</tt> event:</p>
+<pre>
+self addSubpane: (ListPane new
+     paneName: 'myListPane';
+     owner: self;
+     when: #select perform: #listSelect:).
+</pre>
+<p>Another application of the Mediator pattern is in coordinating complex
+updates.  An example is the ChangeManager class mentioned in
+Observer .  ChangeManager mediates between
+subjects and observers to avoid redundant updates.  When an object
+changes, it notifies the ChangeManager, which in turn coordinates the
+update by notifying the object's dependents.</p>
+<p>A similar application appears in the Unidraw drawing
+framework [VL90] and uses a class called CSolver to
+enforce connectivity constraints between "connectors." Objects in
+graphical editors can appear to stick to one another in different
+ways.  Connectors are useful in applications that maintain
+connectivity automatically, like diagram editors and circuit design
+systems.  CSolver is a mediator between connectors.  It solves the
+connectivity constraints and updates the connectors' positions to
+reflect them.</p>
+<h3> Related Patterns</h3><p>Facade  differs
+from Mediator in that it abstracts a subsystem of objects to provide
+a more convenient interface.  Its protocol is unidirectional; that
+is, Facade objects make requests of the subsystem classes but not
+vice versa.  In contrast, Mediator enables cooperative behavior
+that colleague objects don't or can't provide, and the protocol is
+multidirectional.</p>
+<p>Colleagues can communicate with the mediator using the Observer  pattern.</p>
+<p>&nbsp;</p></body></html>
