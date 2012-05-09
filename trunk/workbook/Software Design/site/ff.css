@@ -1,0 +1,179 @@
+body, table {
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 150%;
+	background-color: #FFFFFF;
+}
+
+ol, ul {
+	margin: 2em;
+}
+li {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+dl {
+	margin-top: 2em;
+	margin-right: 0em;
+	margin-bottom: 2em;
+	margin-left: 0em;
+}
+dt {
+	font-weight: bold;
+	padding: 0px;
+	margin-top: 1em;
+	margin-bottom: 0px;
+	margin-right: 1em;
+}
+dd {
+	padding: 0px;
+	margin-bottom: 1em;
+	margin-left: 1em;
+	margin-top: 0px;
+	margin-right: 1px;
+}
+tt {
+	font-family: "Courier New", Courier, mono;
+	font-size: 100%;
+}
+pre {
+	font-family: "Courier New", Courier, mono;
+	line-height: 150%;
+	background-color: #eeeeee;
+	margin: 24px;
+	padding: 12px;
+}
+table pre, div.sidebar pre {
+	background-color: #FFFFFF;
+	margin: 12pt;
+	padding: 0px;
+}
+div.note pre {
+	margin: 1em;
+	padding: 0px;
+	font-size: 100%;
+}
+
+table {
+	margin: 24pt;
+}
+caption {
+	font-weight: bold;
+	white-space: nowrap;
+	padding-bottom: 12pt;
+}
+td {
+	text-align: left;
+	vertical-align: top;
+	padding: 6pt;
+}
+th {
+	font-weight: bold;
+	text-align: left;
+	vertical-align: top;
+	padding: 6pt;
+}
+table.cover {
+	margin: 0px;
+	padding: 0px;
+}
+div.exampleTitle {
+	font-weight: bold;
+	margin-top: 24pt;
+	margin-bottom: -12pt;
+}
+div.Footnote {
+	font-size: 80%;
+	margin-top: 12pt;
+	margin-right: 24pt;
+	margin-bottom: 12pt;
+	margin-left: 24pt;
+}
+div.figure {
+	text-align: center;
+	margin-top: 24pt;
+	margin-right: 12pt;
+	margin-bottom: 24pt;
+	margin-left: 12pt;
+}
+div.figureTitle {
+	font-weight: bold;
+	margin-bottom: 12pt;
+	margin-top: 12pt;
+	width: 80%;
+}
+div.sidebar {
+	margin: 24pt;
+	padding: 6pt;
+	border: thin solid #000000;
+}
+div.SidebarTitle {
+	font-weight: bold;
+	text-align: center;
+	font-size: 110%;
+}
+div.note {
+	font-size: 90%;
+	margin: 24pt;
+	background-color: #eeeeee;
+	padding: 6pt;
+	border: thin solid #333333;
+}
+
+div.note p {
+	padding: 0px;
+	margin-top: 6pt;
+	margin-bottom: 6pt;
+}
+
+h1, h2, h3, h4, h5 {
+	color: #062BB0;
+	line-height: 100%;
+}
+h1 {
+	margin: 0px;
+	padding: 0px;
+	font-size: 160%;
+}
+span.sub {
+	font-weight: normal;
+	font-size: 80%;
+}
+h2 {
+	padding: 0px;
+	font-size: 150%;
+	margin-top: 0pt;
+	margin-right: 0pt;
+	margin-bottom: 12pt;
+	margin-left: 0pt;
+}
+h3 {
+	padding: 0px;
+	margin-top: 36pt;
+	font-size: 130%;
+}
+h4 {
+	padding: 0px;
+	margin-top: 24pt;
+	font-size: 120%;
+}
+h5 {
+	padding: 0px;
+	margin-top: 18pt;
+	font-size: 110%;
+}
+h6 {
+	padding: 0px;
+	margin-top: 18pt;
+	font-size: 100%;
+}
+span.EmphStrike {
+	text-decoration: line-through;
+}
+sup {
+	color: #006666;
+	font-size: 10 pt;
+	font-weight: normal;
+}
+div.exampleTitle tt, div.figureTitle tt, caption tt {
+	font-size: 110%;
+}

@@ -1,0 +1,271 @@
+<html><head><title>Glossary</title><link href="ff.css" rel="stylesheet" type="text/css"></head><body>
+<h2>Glossary</h2>
+<dl>
+<dt>abstract class</dt>
+<dd>A class whose primary purpose is to define an
+interface.  An abstract class defers some or all of its implementation
+to subclasses.  An abstract class cannot be instantiated.</dd>
+
+
+<dt>abstract coupling</dt>
+<dd>Given a class <i>A</i> that maintains a reference
+to an abstract class <i>B</i>,  class <i>A</i> is said to be
+<em>abstractly coupled</em> to <i>B</i>.  We call this abstract
+coupling because <i>A</i> refers to a <em>type</em> of object, not
+a concrete object.</dd>
+
+
+<dt>abstract operation</dt>
+<dd>An operation that declares a signature but doesn't
+implement it.  In C++, an abstract operation corresponds to a
+<b>pure virtual member function</b>.</dd>
+
+
+<dt>acquaintance relationship</dt>
+<dd>A class that refers to another class has an
+<em>acquaintance</em> with that class.</dd>
+
+
+<dt>aggregate object</dt>
+<dd>An object that's composed of subobjects.  The
+subobjects are called the aggregate's <b>parts</b>, and the aggregate
+is responsible for them.</dd>
+
+
+<dt>aggregation relationship</dt>
+<dd>The relationship of an aggregate object to its
+parts.  A class defines this relationship for its instances (e.g.,
+aggregate objects).</dd>
+
+
+<dt>black-box reuse</dt>
+<dd>A style of reuse based on object composition.
+Composed objects reveal no internal details to each other and are
+thus analogous to "black boxes."</dd>
+
+
+<dt>class</dt>
+<dd>A class defines an object's interface and
+implementation. It specifies the object's internal representation
+and defines the operations the object can perform.</dd>
+
+
+<dt>class diagram</dt>
+<dd>A diagram that depicts classes, their internal structure and
+operations, and the static relationships between them.</dd>
+
+
+<dt>class operation</dt>
+<dd>An operation targeted to a class and not to an
+individual object. In C++, class operations are are called <b>static
+member functions</b>.</dd>
+
+
+<dt>concrete class</dt>
+<dd>A class having no abstract operations. It can be
+instantiated.</dd>
+
+
+<dt>constructor</dt>
+<dd>In C++, an operation that is automatically invoked
+to initialize new instances.</dd>
+
+
+<dt>coupling</dt>
+<dd>The degree to which software components depend on
+each other.</dd>
+
+
+<dt>delegation</dt>
+<dd>An implementation mechanism in which an object forwards or <em>delegates</em> a request to another object.  The delegate carries out the
+request on behalf of the original object.</dd>
+
+
+<dt>design pattern</dt>
+<dd>A design pattern systematically names, motivates,
+and explains a general design that addresses a recurring design
+problem in object-oriented systems.  It describes the problem, the
+solution, when to apply the solution, and its consequences.  It
+also gives implementation hints and examples.  The solution is a
+general arrangement of objects and classes that solve the problem.
+The solution is customized and implemented to solve the problem in
+a particular context.</dd>
+
+
+<dt>destructor</dt>
+<dd>In C++, an operation that is automatically invoked to finalize an
+object that is about to be deleted.</dd>
+
+
+<dt>dynamic binding</dt>
+<dd>The run-time association of a request to an object
+and one of its operations. In C++, only virtual functions are
+dynamically bound.</dd>
+
+
+<dt>encapsulation</dt>
+<dd>The result of hiding a representation and
+implementation in an object.  The representation is not visible
+and cannot be accessed directly from outside the object. Operations
+are the only way to access and modify an object's representation.</dd>
+
+
+<dt>framework</dt>
+<dd>A set of cooperating classes that makes up a
+reusable design for a specific class of software. A framework
+provides architectural guidance by partitioning the design into
+abstract classes and defining their responsibilities and collaborations.
+A developer customizes the framework to a particular application
+by subclassing and composing instances of framework classes.</dd>
+
+
+<dt>friend class</dt>
+<dd>In C++, a class that has the same access rights
+to the operations and data of a class as that class itself.</dd>
+
+
+<dt>inheritance</dt>
+<dd>A relationship that defines one entity in terms
+of another.  <b>Class inheritance</b> defines a new class in terms
+of one or more parent classes.  The new class inherits its interface
+and implementation from its parents.  The new class is called a
+<b>subclass</b> or (in C++) a <b>derived class</b>.  Class inheritance
+combines <b>interface inheritance</b> and <b>implementation
+inheritance</b>.  Interface inheritance defines a new interface in
+terms of one or more existing interfaces.  Implementation inheritance
+defines a new implementation in terms of one or more existing
+implementations.</dd>
+
+
+
+<dt>instance variable</dt>
+<dd>A piece of data that defines part of an object's
+representation.  C++ uses the term <b>data member</b>.</dd>
+
+
+<dt>interaction diagram</dt>
+<dd>A diagram that shows the flow of requests between
+objects.</dd>
+
+
+<dt>interface</dt>
+<dd>The set of all signatures defined by an object's
+operations. The interface describes the set of requests to which
+an object can respond.</dd>
+
+
+<dt>metaclass</dt>
+<dd>Classes are objects in Smalltalk.  A metaclass is
+the class of a class object.</dd>
+
+
+<dt>mixin class</dt>
+<dd>A class designed to be combined with other classes
+through inheritance.  Mixin classes are usually abstract.</dd>
+
+
+<dt>object</dt>
+<dd>A run-time entity that packages both data and the
+procedures that operate on that data.</dd>
+
+
+<dt>object composition</dt>
+<dd>Assembling or <em>composing</em> objects to get
+more complex behavior.</dd>
+
+
+<dt>object diagram</dt>
+<dd>A diagram that depicts a particular object structure at run-time.</dd>
+
+
+<dt>object reference</dt>
+<dd>A value that identifies another object.</dd>
+
+
+
+<dt>operation</dt>
+<dd>An object's data can be manipulated only by its operations. An object
+performs an operation when it receives a request.  In C++, operations
+are called <b>member functions</b>. Smalltalk uses the term
+<b>method</b>.</dd>
+
+
+<dt>overriding</dt>
+<dd>Redefining an operation (inherited from a parent class) in a subclass.</dd>
+
+
+<dt>parameterized type</dt>
+<dd>A type that leaves some constituent types unspecified. The
+unspecified types are supplied as parameters at the point of use. In
+C++, parameterized types are called <b>templates</b>.</dd>
+
+
+<dt>parent class</dt>
+<dd>The class from which another class inherits. Synonyms are
+<b>superclass</b> (Smalltalk), <b>base class</b> (C++), and
+<b>ancestor class</b>.</dd>
+
+
+<dt>polymorphism</dt>
+<dd>The ability to substitute objects of matching interface for one
+another at run-time.</dd>
+
+
+<dt>private inheritance</dt>
+<dd>In C++, a class inherited solely for its implementation.</dd>
+
+
+<dt>protocol</dt>
+<dd>Extends the concept of an interface to include the allowable sequences
+of requests.</dd>
+
+
+<dt>receiver</dt>
+<dd>The target object of a request.</dd>
+
+
+<dt>request</dt>
+<dd>An object performs an operation when it receives a corresponding
+request from another object.  A common synonym for request is
+<b>message</b>.</dd>
+
+
+<dt>signature</dt>
+<dd>An operation's signature defines its name, parameters, and return value.</dd>
+
+
+<dt>subclass</dt>
+<dd>A class that inherits from another class. In C++, a subclass
+is called a <b>derived class</b>.</dd>
+
+
+<dt>subsystem</dt>
+<dd>An independent group of classes that collaborate to fulfill a set of
+responsibilities.</dd>
+
+
+<dt>subtype</dt>
+<dd>A type is a subtype of another if its interface contains the
+interface of the other type.</dd>
+
+
+<dt>supertype</dt>
+<dd>The parent type from which a type inherits.</dd>
+
+
+<dt>toolkit</dt>
+<dd>A collection of classes that provides useful functionality but does not
+define the design of an application.</dd>
+
+
+<dt>type</dt>
+<dd>The name of a particular interface.</dd>
+
+
+<dt>white-box reuse</dt>
+<dd>A style of reuse based on class inheritance.  A
+subclass reuses the interface and implementation of its parent
+class, but it may have access to otherwise private aspects of its
+parent.</dd></dl>
+<p>&nbsp;</p></body></html>
+
