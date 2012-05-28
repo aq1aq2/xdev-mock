@@ -12,6 +12,8 @@ public class MyRouter extends RouteBuilder {
         .choice()
                 .when(header("operationName").isEqualTo("ShowActor"))
                     .beanRef("serviceA", "showActor")
+                .when(header("operationName").isEqualTo("ShowActor2"))
+                    .beanRef("serviceA", "showActor2")
         .end()
         .to("bean:jaxbProcessor?method=marshall")
 	    .to("log:dn.servicemix?showAll=true&multiline=true");
