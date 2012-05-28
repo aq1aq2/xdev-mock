@@ -28,13 +28,27 @@
             <wsdl:output message="ShowActorResponse"/>
         </wsdl:operation>
         
+        <wsdl:operation name="ShowActor2">
+            <wsdl:input message="ShowActorRequest"/>
+            <wsdl:output message="ShowActorResponse"/>
+        </wsdl:operation>
+        
     </wsdl:portType>
 
 	<!-- Binding -->
     <wsdl:binding name="ServiceASOAPBinding" type="ServiceAEndpoint">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-        
+                
         <wsdl:operation name="ShowActor">
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        
+        <wsdl:operation name="ShowActor2">
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

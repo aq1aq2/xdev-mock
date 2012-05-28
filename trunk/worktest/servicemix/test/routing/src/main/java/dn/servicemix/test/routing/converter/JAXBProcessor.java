@@ -57,6 +57,12 @@ public class JAXBProcessor implements InitializingBean {
 		dbf.setNamespaceAware(true);
 		DocumentBuilder db = dbf.newDocumentBuilder();
 		Document doc = db.newDocument();
+		
+		// For test (start)
+		Object xmlObject = exchange.getIn().getBody();
+		String xmlClass = xmlObject.getClass().getName();
+		// For test (end)
+		
 		marshaller.marshal(exchange.getIn().getBody(), doc);
 		List outputElement = new ArrayList();
 		outputElement.add(doc.getDocumentElement());

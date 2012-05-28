@@ -10,6 +10,7 @@
   <xs:element name="ShowActorRequest">
     <xs:complexType>
       <xs:sequence>
+        <xs:element ref="dn:ModelA" minOccurs="1"/>
         <xs:element name="input" type="xs:string"/>
       </xs:sequence>
     </xs:complexType>
@@ -20,6 +21,7 @@
       <xs:sequence>
         <xs:element ref="dn:ModelA"/>
         <xs:element name="message" type="xs:string"/>
+        <xs:element ref="dn:ShowActorRequest" minOccurs="1"/>
       </xs:sequence>
     </xs:complexType>
   </xs:element>

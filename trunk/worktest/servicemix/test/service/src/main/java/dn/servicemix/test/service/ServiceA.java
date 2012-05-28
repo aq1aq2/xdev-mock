@@ -22,6 +22,21 @@ public class ServiceA {
 		
 		return response;
 	}
+	
+	public ShowActorResponse showActor2(ShowActorRequest request) {
+		System.out.println(actorA.getModelA().getMyName());
+		System.out.println(actorA.getModelA().getMyAge());
+		
+		ModelA model = new ModelA();
+		model.setName("MinhNTT2");
+		model.setAge(actorA.getModelA().getMyAge());
+		
+		ShowActorResponse response = new ShowActorResponse();
+		response.setModelA(model);
+		response.setMessage(request.getInput());
+		
+		return response;
+	}
 
 	public ActorA getActorA() {
 		return actorA;

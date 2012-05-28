@@ -54,6 +54,22 @@
 		</configuration>
 	  </plugin>
 	  
+	  <!-- WSDL -->
+      <plugin>
+        <groupId>org.apache.axis2</groupId>
+        <artifactId>axis2-java2wsdl-maven-plugin</artifactId>
+        <configuration>
+          <className>dn.servicemix.test.service.ServiceA</className>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java2wsdl</goal>
+            </goals>
+          </execution>
+         </executions>
+      </plugin>
+	  
 	</plugins>
   </build>  
 </project>
