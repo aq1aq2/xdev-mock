@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>dn.servicemix.example</groupId>
+  <artifactId>esbtest</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>ESBTest</name>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
+    <hibernate-version>3.6.5.Final</hibernate-version>
+    <spring-version>3.0.5.RELEASE</spring-version>
+    <camel-version>2.6.0</camel-version>
+    <felix-version>2.0.0</felix-version>
+    <cxf-version>2.2.6</cxf-version>
+    <junit-version>4.8.1</junit-version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <modules>
+  	<module>service</module>
+  	<module>routing</module>
+  	<module>xmljob</module>
+  </modules>
+</project>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dis="http://www.dis-corp.com"
+	targetNamespace="http://www.dis-corp.com">
+	<xs:include schemaLocation="common.xsd" />
+	<xs:include schemaLocation="application.xsd" />
+
+    <xs:element name="ShowDealer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="MessageHeader" type="dis:messageHeader" />
+                <xs:element ref="dis:Dealer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetDealer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="MessageHeader" type="dis:messageHeader" />
+                <xs:element name="Dealer" type="dis:dealerReference"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AcknowledgeDealer">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="MessageHeader" type="dis:messageHeader" />
+                <xs:element name="Dealer" type="dis:dealerAcknowledgeReference"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+        <xs:element name="GetDealers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="MessageHeader" type="dis:messageHeader"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+        <xs:element name="ShowDealers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="MessageHeader" type="dis:messageHeader" />
+                <xs:element ref="dis:Dealer" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
