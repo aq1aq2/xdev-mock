@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:dis="http://www.dis-corp.com" targetNamespace="http://www.dis-corp.com"
+	elementFormDefault="qualified">
+	<xs:include schemaLocation="common.xsd"/>
+	<xs:complexType name="messageHeader">
+		<xs:annotation>
+			<xs:documentation>Header info that is used at the application level.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="MessageId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>A globally unique id for this message. Used for debugging and auditing purposes.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DateTime" type="dis:dateTime">
+				<xs:annotation>
+					<xs:documentation>The date the message was created.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" name="RequestMessageId" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>If this message was created in response to another document that documents id will be here.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Application" type="dis:application">
+				<xs:annotation>
+					<xs:documentation>The software that create the message.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+            <xs:element name="MessageInfo" type="dis:messageInfo" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Additional info provided by the sender.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="application">
+		<xs:annotation>
+			<xs:documentation>Identifies what software created the message.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>The assigned id for the software.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Version" type="xs:string" >
+				<xs:annotation>
+					<xs:documentation>The version the software.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Name" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Human readable name for the application.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+    
+    <xs:complexType name="messageInfo">
+        <xs:annotation>
+            <xs:documentation>Provides details about the message. Information that the sender needs to include to the receiver about the conditions in which the message or data in the message was sent should be included here.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="InitialExport" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="ResponseMessage">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>Provides a way to give a response when something happens. Can't reach a server, not enough detail to continue a request, or an operation just finished successfully.</xs:documentation>
+            </xs:annotation>
+            <xs:sequence>
+                <xs:element name="MessageHeader" type="dis:messageHeader" />
+                <xs:element name="Message" type="dis:messageDetails"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="messageDetails">
+        <xs:annotation>
+            <xs:documentation>Provides details about about a message.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Response">
+                <xs:complexType>
+                  <xs:simpleContent>
+                    <xs:extension base="xs:string">
+                      <xs:attribute name="code" type="dis:statusType"/>
+                      <xs:attribute name="errorCode" type="xs:string" use="optional"/>
+                    </xs:extension>
+                  </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+</schema>
